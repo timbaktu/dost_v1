@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>dost</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	<servlet>
+    <servlet-name>dost</servlet-name>
+    <servlet-class>
+            org.springframework.web.servlet.DispatcherServlet
+        </servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>dost</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+      <session-config>
+    	<session-timeout>10</session-timeout>
+    </session-config>
+    
+        <servlet-mapping>
+    	<servlet-name>install</servlet-name>
+    	<url-pattern>/install/install.page</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+    	<servlet-name>jforum</servlet-name>
+    	<url-pattern>*.page</url-pattern>
+    </servlet-mapping>
+    
+        <servlet>
+    	<servlet-name>install</servlet-name>
+    	<servlet-class>net.jforum.InstallServlet</servlet-class>
+    	
+    	<init-param>
+			<param-name>development</param-name>
+			<param-value>true</param-value>
+		</init-param>
+    </servlet>
+    
+       <display-name>JForum - Powering Communities</display-name>
+    <description>Open Source Java Forum Software</description>
+
+	<!-- Clickstream -->
+	<filter>
+		<filter-name>clickstream-jforum</filter-name>
+		<filter-class>net.jforum.util.legacy.clickstream.ClickstreamFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>clickstream-jforum</filter-name>
+		<url-pattern>*.page</url-pattern>
+	</filter-mapping>
+    
+    <listener>
+    	<listener-class>net.jforum.ForumSessionListener</listener-class>
+    </listener>
+
+	<!-- JForum Controller -->
+    <servlet>
+		<servlet-name>jforum</servlet-name>
+		<servlet-class>net.jforum.JForum</servlet-class>
+		
+		<init-param>
+			<param-name>development</param-name>
+			<param-value>true</param-value>
+		</init-param>
+    </servlet>
+</web-app>
