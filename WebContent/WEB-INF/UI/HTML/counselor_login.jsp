@@ -8,8 +8,6 @@
 		<link href="../CSS/style.css" rel="stylesheet" media="screen">
 	</head>
 	<body class="container-fluid">
-		<!--<OBJECT data="header.jsp">
-		</OBJECT>-->
 		<header class="navbar navbar-inverse navbar-fixed-top">
 		  <div class="navbar-inner">
 			<div class="container-fluid">
