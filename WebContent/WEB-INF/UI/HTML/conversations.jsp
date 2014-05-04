@@ -9,7 +9,7 @@
 		
 	</head>
 	<body >
-		<!-- head -->
+		<!-- head github-->
 		<header class="navbar navbar-inverse navbar-fixed-top">
 		  <div class="navbar-inner">
 			<div>
