@@ -9,7 +9,7 @@
 		
 	</head>
 	<body >
-		<!-- heading Local -->
+		<!-- heading final -->
 		<header class="navbar navbar-inverse navbar-fixed-top">
 		  <div class="navbar-inner">
 			<div>
