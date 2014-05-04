@@ -28,7 +28,7 @@
 					  <li><a href="quotesCounselor_counselor.jsp">Quotes</a></li>
 					  <li><a href="faqCounselor_counselor.jsp">FAQs</a></li>
 				</ul>
-			  </div><!--/.nav-collapse -->
+			  </div><!--/ nav-collapse -->
 			</div>
 		  </div>
 		</header>
