@@ -9,8 +9,6 @@
 		
 	</head>
 	<body >
-		<!--<OBJECT data="header.jsp">
-		</OBJECT>-->
 		<header class="navbar navbar-inverse navbar-fixed-top">
 		  <div class="navbar-inner">
 			<div>
