@@ -8,14 +8,14 @@
 		<link href="../CSS/style.css" rel="stylesheet" media="screen">
 	</head>
 	<body class="container-fluid">
-		<header class="navbar navbar-inverse navbar-fixed-top">
+		<!--<header class="navbar navbar-inverse navbar-fixed-top">
 		  <div class="navbar-inner">
 			<div class="container-fluid">
 			  <a class="navbar-brand" href="#">Dost</a>
 			  </div><!--/.nav-collapse -->
 		  </div>
-		</header>
-		
+		</header>-->
+		<jsp:include page="headerCounselor" />
 		<div class="container">
 			<div class="pageTop row col-md-7 col-md-offset-2">
 					<h2 class="pageHeading">Counselor Login</h2>
