@@ -19,7 +19,7 @@ public class FaqCategoryDAOImpl implements FaqCategoryDAO {
 
 	public List<String> getCategoryList() {
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("select c.faqCategoryName from DbFaqCategory fc");
+		Query query = session.createQuery("select fc.faqCategoryName from DbFaqCategory fc");
 		List<String> categoriesList = query.list();
 		if(categoriesList == null) {
 			categoriesList = new ArrayList<String>();

@@ -1,5 +1,6 @@
 package com.dost.hibernate;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,17 +12,24 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonManagedReference;
+
 @Entity
 @Table(name="FAQCATEGORY")
-public class DbFaqCategory extends DbGeneric {
+public class DbFaqCategory extends DbGeneric implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3183374686311271754L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "faqcategoryid")
 	private Long faqCategoryId;
 	@Column(name = "faqcategoryname")
 	private String faqCategoryName;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "category")
+	@JsonManagedReference
 	private List<DbFaq> faqs;
 	
 	

@@ -1,11 +1,16 @@
 package com.dost.hibernate;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
 
-public class DbGeneric {
+public class DbGeneric implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6567774336505738077L;
 	@Column(name="createdate")
 	private Date createDate;
 	@Column(name="createby")

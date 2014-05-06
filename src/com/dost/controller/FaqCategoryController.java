@@ -16,7 +16,7 @@ import com.dost.service.FaqCategoryService;
 public class FaqCategoryController {
 
 	@Autowired
-	FaqCategoryService categoryService;
+	private FaqCategoryService categoryService;
 	
 	@RequestMapping(value="/faqcategory/names",method=RequestMethod.GET)
 	@ResponseBody

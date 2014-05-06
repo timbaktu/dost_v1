@@ -17,7 +17,7 @@ import com.dost.service.FaqService;
 public class FaqController {
 
 	@Autowired
-	FaqService faqService;
+	private FaqService faqService;
 	
 	@RequestMapping(value="/faq/{id}", method=RequestMethod.GET)  
 	@ResponseBody
@@ -25,7 +25,7 @@ public class FaqController {
 		return faqService.getFaqById(id); 
 	}
 	
-	@RequestMapping(value="/faqs/all", method=RequestMethod.GET)  
+	@RequestMapping(value="/faqs/all", method=RequestMethod.GET, produces = "application/json")  
 	@ResponseBody
 	public List<DbFaq> getAllFaqs() {
 		List<DbFaq> faqs = faqService.getAllFaq(); 

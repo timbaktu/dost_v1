@@ -1,5 +1,7 @@
 package com.dost.hibernate;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +11,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="USER")
-public class DbUser extends DbGeneric {
+public class DbUser extends DbGeneric implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1083243294363914028L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "userid")

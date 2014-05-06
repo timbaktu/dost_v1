@@ -1,5 +1,7 @@
 package com.dost.hibernate;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,16 +12,23 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+
 @Entity
 @Table(name="FAQ")
-public class DbFaq extends DbGeneric {
+public class DbFaq extends DbGeneric implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4665594591445884015L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "faqId")
 	private Long faqId;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "faqcategory", nullable = false)
+	@JsonBackReference
 	private DbFaqCategory category;
 	//TODO: Is user related in any ways here
 //	private DbUser user;
