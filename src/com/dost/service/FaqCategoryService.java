@@ -1,5 +1,12 @@
 package com.dost.service;
 
-public interface FaqCategoryService {
+import java.util.List;
 
+import com.dost.hibernate.DbFaqCategory;
+
+public interface FaqCategoryService {
+	
+	public List<String> getCategoryList();
+	
+	public List<DbFaqCategory> getAllCategories();
 }

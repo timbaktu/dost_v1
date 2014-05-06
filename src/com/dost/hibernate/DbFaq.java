@@ -22,7 +22,7 @@ public class DbFaq extends DbGeneric {
 	@JoinColumn(name = "faqcategory", nullable = false)
 	private DbFaqCategory category;
 	//TODO: Is user related in any ways here
-	private DbUser user;
+//	private DbUser user;
 	@Column(name="question")
 	private String question;
 	@Column(name="answer")
@@ -41,12 +41,12 @@ public class DbFaq extends DbGeneric {
 	public void setCategory(DbFaqCategory category) {
 		this.category = category;
 	}
-	public DbUser getUser() {
-		return user;
-	}
-	public void setUser(DbUser user) {
-		this.user = user;
-	}
+//	public DbUser getUser() {
+//		return user;
+//	}
+//	public void setUser(DbUser user) {
+//		this.user = user;
+//	}
 	public String getQuestion() {
 		return question;
 	}

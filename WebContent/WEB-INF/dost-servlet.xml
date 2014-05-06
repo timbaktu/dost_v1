@@ -43,7 +43,9 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="annotatedClasses">
 			<list>
-				<!-- <value>com.docproject.model.Employee</value> -->
+				<value>com.dost.hibernate.DbFaq</value>
+				<value>com.dost.hibernate.DbFaqCategory</value>
+				<value>com.dost.hibernate.DbUser</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
