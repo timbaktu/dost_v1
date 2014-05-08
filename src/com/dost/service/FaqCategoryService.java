@@ -9,4 +9,6 @@ public interface FaqCategoryService {
 	public List<String> getCategoryList();
 	
 	public List<DbFaqCategory> getAllCategories();
+	
+	public DbFaqCategory addFaqCategory(DbFaqCategory category);
 }

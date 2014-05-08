@@ -31,4 +31,11 @@ public class FaqController {
 		List<DbFaq> faqs = faqService.getAllFaq(); 
 		return faqs;
 	}
+	
+	@RequestMapping(value="/faq/add", method=RequestMethod.POST)  
+	@ResponseBody
+	public DbFaq addFaq(DbFaq dbFaq) {
+		DbFaq faq = faqService.addFaq(dbFaq); 
+		return faq;
+	}
 }

@@ -29,5 +29,9 @@ public class FaqServiceImpl implements FaqService {
 		return faqDAO.getAllFaq();
 	}
 
+	public DbFaq addFaq(DbFaq dbFaq) {
+		return faqDAO.addFaq(dbFaq);
+	}
+
 	
 }

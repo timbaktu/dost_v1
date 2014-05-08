@@ -25,5 +25,10 @@ public class FaqCategoryServiceImpl implements FaqCategoryService {
 		return categoryDAO.getAllCategories();
 	}
 
+	public DbFaqCategory addFaqCategory(DbFaqCategory category) {
+		return categoryDAO.addFaqCategory(category);
+	}
+
+	
 	
 }

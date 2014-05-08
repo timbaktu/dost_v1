@@ -46,6 +46,12 @@ public class FaqDAOImpl implements FaqDAO {
 		}
 		return faqs;
 	}
+
+	public DbFaq addFaq(DbFaq dbFaq) {
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(dbFaq);
+		return dbFaq;
+	}
 	
 	
 }

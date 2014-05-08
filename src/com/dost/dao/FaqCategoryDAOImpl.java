@@ -36,6 +36,12 @@ public class FaqCategoryDAOImpl implements FaqCategoryDAO {
 		}
 		return categoriesList;
 	}
+
+	public DbFaqCategory addFaqCategory(DbFaqCategory category) {
+		Session session = sessionFactory.getCurrentSession();
+		session.save(category);
+		return category;
+	}
 	
 	
 }

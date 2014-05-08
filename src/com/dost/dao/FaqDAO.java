@@ -11,4 +11,6 @@ public interface FaqDAO {
 	public List<DbFaq> getFaqListByCategory(String category);
 	
 	public List<DbFaq> getAllFaq();
+
+	public DbFaq addFaq(DbFaq dbFaq);
 }

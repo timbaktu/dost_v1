@@ -29,4 +29,10 @@ public class FaqCategoryController {
 	public List<DbFaqCategory> getAllCategories() {
 		return categoryService.getAllCategories(); 
 	}
+	
+	@RequestMapping(value="/faqcategory/add",method=RequestMethod.POST)  
+	@ResponseBody
+	public DbFaqCategory addCategory(DbFaqCategory category) {
+		return categoryService.addFaqCategory(category); 
+	}
 }
