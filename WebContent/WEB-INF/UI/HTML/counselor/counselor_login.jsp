@@ -1,15 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<script src="../JS/jquery.js"></script> 
-		<script src="../JS/bootstrap.min.js"></script>
-		<link href="../CSS/bootstrap.min.css" rel="stylesheet" media="screen">
-		<link href="../CSS/style.css" rel="stylesheet" media="screen">
+		<script src="resources/JS/jquery.js"></script> 
+		<script src="resources/JS/bootstrap.min.js"></script>
+		<link href="resources/CSS/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="resources/CSS/style.css" rel="stylesheet" media="screen">
 	</head>
 	<body class="container-fluid">
-		<!--<OBJECT data="header.html">
-		</OBJECT>-->
 		<header class="navbar navbar-inverse navbar-fixed-top">
 		  <div class="navbar-inner">
 			<div class="container-fluid">

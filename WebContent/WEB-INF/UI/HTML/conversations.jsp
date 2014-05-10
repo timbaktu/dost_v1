@@ -13,7 +13,7 @@
 		<header class="navbar navbar-inverse navbar-fixed-top">
 		  <div class="navbar-inner">
 			<div>
-			  <a class="navbar-brand" href="index">Dost</a>
+			  <a class="navbar-brand" href="index" >Dost</a>
 			  <div class="nav-collapse ">
 				<!--<p class="navbar-text pull-right">
 					<a href="#" class="navbar-link">Create your account</a>
@@ -25,7 +25,7 @@
 				<ul class="nav navbar-nav pull-left">
 					  <li class="active"><a href="#">Conversations</a></li>
 					  <li><a href="talkToFriend">Talk To a Friend</a></li>
-					  <li><a href="faq">FAQs</a></li>
+					  <li><a href="FAQs">FAQs</a></li>
 					  <li><a href="faq">Resources</a></li>
 				</ul>
 			  </div><!--/.nav-collapse -->

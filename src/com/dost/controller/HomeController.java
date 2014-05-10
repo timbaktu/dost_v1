@@ -31,4 +31,14 @@ public class HomeController {
 	public ModelAndView discussionsAll() {
 		return new ModelAndView("discussionsAll"); 
 	}
+	
+	@RequestMapping("/FAQs")  
+	public ModelAndView FAQs() {
+		return new ModelAndView("FAQs"); 
+	}
+	
+	@RequestMapping("counselor/counselor_login")  
+	public ModelAndView counselor_login() {
+		return new ModelAndView("counselor_login"); 
+	}
 }

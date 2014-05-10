@@ -185,4 +185,10 @@
 		cursor: pointer;
 		color: #006699;
 	}
+	.individualQuestion{
+		display:block;
+	}
+	.FAQList{
+		margin-left:20px;
+	}
 /*end of counselor end */
