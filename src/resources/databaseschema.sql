@@ -35,3 +35,32 @@ CREATE TABLE `USER` (
   `deleted` INTEGER DEFAULT 0,
   PRIMARY KEY (`userid`)
 ) 
+
+CREATE TABLE `MESSAGE` (
+  `messageid` INTEGER NOT NULL AUTO_INCREMENT,
+  `senderid` INTEGER NOT NULL,
+  `sentdate` DATE NOT NULL,
+  `subject` LONGTEXT DEFAULT NULL,
+  `content` LONGTEXT DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL, -- may be draft, sent or something else
+  `important` INTEGER NOT NULL,
+  `createdate` varchar(255) DEFAULT NULL,
+  `createby` bigint(20) DEFAULT NULL,
+  `updatedate` varchar(255)  DEFAULT NULL,
+  `updateby` bigint(20) DEFAULT NULL,
+  `deleted` INTEGER DEFAULT 0,
+  PRIMARY KEY (`messageid`)
+); 
+
+CREATE TABLE `MESSAGERECIPIENT` (
+  `messagerecipientid` INTEGER NOT NULL AUTO_INCREMENT,
+  `recipientid` INTEGER NOT NULL,
+  `messageid` INTEGER NOT NULL,
+  `viewed` INTEGER NOT NULL,
+  `createdate` varchar(255) DEFAULT NULL,
+  `createby` bigint(20) DEFAULT NULL,
+  `updatedate` varchar(255)  DEFAULT NULL,
+  `updateby` bigint(20) DEFAULT NULL,
+  `deleted` INTEGER DEFAULT 0,
+  PRIMARY KEY (`messagerecipientid`)
+);
