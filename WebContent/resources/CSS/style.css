@@ -191,4 +191,16 @@
 	.FAQList{
 		margin-left:20px;
 	}
+	.question{
+		cursor:pointer;
+	}
+	.answer{
+		display:none;
+	}
+	.nextPreviousNav, .allQuestions{
+		visibility: hidden;
+	}
+	.clickedQuestion{
+		cursor:default;
+	}
 /*end of counselor end */
