@@ -25,7 +25,7 @@ public class DbUser extends DbGeneric implements Serializable {
 	@Column(name = "password")
 	private String password;
 	@Column(name = "userrole")
-	private String userRole;
+	private Role userRole;
 	
 	
 	public Long getUserId() {
@@ -46,10 +46,10 @@ public class DbUser extends DbGeneric implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getUserRole() {
+	public Role getUserRole() {
 		return userRole;
 	}
-	public void setUserRole(String userRole) {
+	public void setUserRole(Role userRole) {
 		this.userRole = userRole;
 	}
 	

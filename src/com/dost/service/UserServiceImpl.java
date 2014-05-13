@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dost.dao.UserDAO;
+import com.dost.hibernate.Role;
 
 @Service("userService")
 @Transactional(propagation = Propagation.SUPPORTS)
@@ -18,7 +19,7 @@ public class UserServiceImpl implements UserService {
 		userDAO.saveUser(username, password, role);
 	}
 
-	public boolean authenticateUser(String username, String password) {
+	public Role authenticateUser(String username, String password) {
 		return userDAO.authenticateUser(username, password);
 	}
 

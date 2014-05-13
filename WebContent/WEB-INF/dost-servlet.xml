@@ -46,6 +46,8 @@
 				<value>com.dost.hibernate.DbFaq</value>
 				<value>com.dost.hibernate.DbFaqCategory</value>
 				<value>com.dost.hibernate.DbUser</value>
+				<value>com.dost.hibernate.DbMessage</value>
+				<value>com.dost.hibernate.DbMessageRecipient</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

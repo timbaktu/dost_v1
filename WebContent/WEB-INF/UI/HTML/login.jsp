@@ -32,7 +32,7 @@
 		<div class="container">
 			<a class="pull-right signupNowText" href="signupNow" alt="Signup for a new account">Don't have an account? SIGNUP NOW</a>
 			<div class="clearfix"></div>
-			<form class="form-signin" METHOD="POST" action="conversations">
+			<form class="form-signin" METHOD="POST" action="authenticate">
 				<h3 class="col-md-7 col-md-offset-2 form-signin-heading">
 					<p>Hi,</p>
 					<p>Don't worry, whatever it is.. we can fix it together. <em>Get Started!</em></p>
@@ -41,11 +41,11 @@
 				<div class="well well-large row col-md-7 col-md-offset-2 signinFormOuterContainer">
 					<div class="col-md-10 col-md-offset-1">
 						<label>Username</label>
-						<input type="text" class="input-block-level form-control" placeholder="Username">
+						<input type="text" id="username" name="username" class="input-block-level form-control" placeholder="Username">
 						<br/><br/>
 						
 						<label>Password</label>
-						<input type="password" class="input-block-level form-control" placeholder="Password">
+						<input type="password" id="password" name="password" class="input-block-level form-control" placeholder="Password">
 						<a class="pull-right" alt="Forgot Password" href="forgotPassword">Forgot Password?</a>
 						<label class="checkbox">
 							<input type="checkbox" value="remember-me"> Remember me
