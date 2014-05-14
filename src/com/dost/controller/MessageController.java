@@ -44,7 +44,6 @@ public class MessageController {
 	}
 	
 	@RequestMapping(value="/message/{id}/user/{userid}/setview", method=RequestMethod.GET)  
-	@ResponseBody
 	public void setViewed(@PathVariable Long id, @PathVariable Long userId) {
 		messageService.setViewed(id, userId);
 	}
