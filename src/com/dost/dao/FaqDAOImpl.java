@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.dost.hibernate.DbFaq;
 
-@Repository("faqDao")
+@Repository("faqDAO")
 public class FaqDAOImpl implements FaqDAO {
 
 	@Autowired
