@@ -1,37 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<script src="resources/JS/jquery.js"></script> 
-		<script src="resources/JS/bootstrap.min.js"></script>
-		<script src="resources/JS/script.js"></script>
-		<link href="resources/CSS/bootstrap.min.css" rel="stylesheet" media="screen">
-		<link href="resources/CSS/style.css" rel="stylesheet" media="screen">
-	</head>
+	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	<body >
-		
-		<header class="navbar navbar-inverse navbar-fixed-top">
-		  <div class="navbar-inner">
-			<div>
-			  <a class="navbar-brand" href="/index">Dost</a>
-			  <div class="nav-collapse ">
-				<!--<p class="navbar-text pull-right">
-					<a href="#" class="navbar-link">Create your account</a>
-				</p>-->
-				<ul class="nav navbar-nav pull-right ">
-					<li><a href="#" class="navbar-link">Prashant</a></li>
-					<li><a href="#" class="navbar-link">Logout</a></li>
-				</ul>
-				<ul class="nav navbar-nav pull-left">
-					  <li class="active"><a href="#">Conversations</a></li>
-					  <li><a href="talkToFriend_counselor.jsp">Patient History</a></li>
-					  <li><a href="onlineCounseling_counselor.jsp">Online Counseling</a></li>
-					  <li><a href="quotesCounselor_counselor.jsp">Quotes</a></li>
-					  <li><a href="faqCounselor_counselor.jsp">FAQs</a></li>
-				</ul>
-			  </div><!--/ nav-collapse -->
-			</div>
-		  </div>
-		</header>
+		<jsp:include page="includes/headerCounselor.jsp"></jsp:include>
 		<div class="container">
 			<div class="col-md-11">
 				<div class="pageTop">
@@ -50,7 +21,7 @@
 					<div class="clearfix"></div>
 				</div>
 				
-				<ul class="pull-left col-md-2 left_nav">
+				<ul class="pull-left col-md-2 left_nav_conversation">
 					<li><a href="#">Compose</a><br/><br/></li>
 					<li class="active"><a href="#">Inbox</a></li>
 					<li><a href="#">Sent Items</a></li>
@@ -176,7 +147,7 @@
 					
 					<!-- each conversation-->
 					<li class="well media conversation_topic">
-						<a class="pull-left col-md-2" href="conversations_expanded_counselor.jsp">
+						<a class="pull-left col-md-2" href="conversations_expanded_counselor.html">
 							<span class="conversationalist">Brusley, Prashant</span>
 							<span>(20)</span>
 						</a>
@@ -201,6 +172,6 @@
 					
 			</div>
 		</div>
-		<footer></footer>
+		<jsp:include page="includes/commonFooter.jsp"></jsp:include>
 	</body>
 </html>

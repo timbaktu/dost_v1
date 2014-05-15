@@ -203,4 +203,10 @@
 	.clickedQuestion{
 		cursor:default;
 	}
+	div[contenteditable="true"]{
+		border:1px solid #ccc;
+		padding:5px;
+		margin:10px;
+	}
+	
 /*end of counselor end */

@@ -1,35 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<script src="../JS/jquery.js"></script> 
-		<script src="../JS/bootstrap.min.js"></script>
-		<script src="../JS/script.js"></script>
-		<link href="../CSS/bootstrap.min.css" rel="stylesheet" media="screen">
-		<link href="../CSS/style.css" rel="stylesheet" media="screen">
-	</head>
+	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	<body >
-		<!--<OBJECT data="header.jsp">
-		</OBJECT>-->
-		<header class="navbar navbar-inverse navbar-fixed-top">
-		  <div class="navbar-inner">
-			<div>
-			  <a class="navbar-brand" href="/index">Dost</a>
-			  <div class="nav-collapse ">
-				<ul class="nav navbar-nav pull-right ">
-					<li><a href="#" class="navbar-link">Prashant</a></li>
-					<li><a href="#" class="navbar-link">Logout</a></li>
-				</ul>
-				<ul class="nav navbar-nav pull-left">
-					  <li><a href="conversations_counselor">Conversations</a></li>
-					  <li><a href="talkToFriend_counselor.jsp">Patient History</a></li>
-					  <li class="active"><a href="#">Online Counseling</a></li>
-					  <li><a href="quotesCounselor_counselor.jsp">Quotes</a></li>
-					  <li><a href="faqCounselor_counselor.jsp">FAQs</a></li>
-				</ul>
-			  </div><!--/.nav-collapse -->
-			</div>
-		  </div>
-		</header>
+		<jsp:include page="includes/headerCounselor.jsp"></jsp:include>
 		<div class="container">
 			<div class="col-md-11">
 				<div class="pageTop">
@@ -122,6 +95,6 @@
 					
 			</div>
 		</div>
-		<footer></footer>
+		<jsp:include page="includes/commonFooter.jsp"></jsp:include>
 	</body>
 </html>

@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<script src="resources/JS/jquery.js"></script>
-		<script src="resources/JS/bootstrap.min.js"></script>
-		<link href="resources/CSS/bootstrap.min.css" rel="stylesheet" media="screen">
-		<link href="resources/CSS/style.css" rel="stylesheet" media="screen">
-	</head>
+	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	<body class="container-fluid">
 		<!--<OBJECT data="header.jsp">
 		</OBJECT>-->
@@ -59,6 +54,6 @@
 			</form>
     </div> <!-- /container -->
 
-	<footer></footer>
+	<jsp:include page="includes/commonFooter.jsp"></jsp:include>
 	</body>
 </html>

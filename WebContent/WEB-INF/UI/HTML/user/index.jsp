@@ -1,33 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<script src="resources/JS/jquery.js"></script>
-		<script src="resources/JS/bootstrap.min.js"></script>
-		<link href="resources/CSS/bootstrap.min.css" rel="stylesheet" media="screen">
-		<link href="resources/CSS/style.css" rel="stylesheet" media="screen">
-	</head>
+	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	<body class="container-fluid">
-		<!--<OBJECT data="header.jsp">
-		</OBJECT>-->
-		<header class="navbar navbar-inverse navbar-fixed-top">
-		  <div class="navbar-inner">
-			<div>
-			  <a class="navbar-brand" href="index">Dost</a>
-			  <div class="nav-collapse">
-				<p class="navbar-text pull-right">
-					<a href="#" class="navbar-link">Create your account</a>
-				</p>
-				<!--
-					<ul class="nav">
-					  <li class="active"><a href="#">Home</a></li>
-					  <li><a href="#about">About</a></li>
-					  <li><a href="#contact">Contact</a></li>
-					</ul>
-				-->
-			  </div><!--/.nav-collapse -->
-			</div>
-		  </div>
-		</header>
+		<jsp:include page="includes/headerUser.jsp"></jsp:include>
 		<div class="container row-fluid welcomePage">
 			<div class="col-md-7">
 				<ul>
@@ -56,7 +31,7 @@
 					</li>
 					
 					<li class="exploration_option " id="faqs">
-						<a href="/discussions">
+						<a href="faqs">
 							<h3 class="heading">Frequently Asked Questions</h3>
 							<ul class="details_box">
 								<li>
@@ -104,12 +79,12 @@
 					<p>Something bothering you, Feeling Lonely, Not interested in anything...</p>
 					<p>I can talk to you, no need to tell me anything about yourself - no name, no email, no photo.. just think of me as your friend who would be there for you when you need him</p>
 					<div class="signupLoginOption">
-						<p><a href="http://satyajeet-n:8080/dost/login" class="btn btn-primary btn-large login_btn">LOGIN TO YOUR ACCOUNT</a></p>
+						<p><a href="login" class="btn btn-primary btn-large login_btn">LOGIN TO YOUR ACCOUNT</a></p>
 						<a href="signupNow" class="create_account">Create your account</a></p> 
 					</div>
 				</div>
 			</div>
 		</div>
-		<footer></footer>
+		<jsp:include page="includes/commonFooter.jsp"></jsp:include>
 	</body>
 </html>

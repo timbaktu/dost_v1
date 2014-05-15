@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<script src="resources/JS/jquery.js"></script>
-		<script src="resources/JS/bootstrap.min.js"></script>
-		<script src="resources/JS/script.js"></script>
-		<link href="resources/CSS/bootstrap.min.css" rel="stylesheet" media="screen">
-		<link href="resources/CSS/style.css" rel="stylesheet" media="screen">
-	</head>
+	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	<body >
-		<!--<OBJECT data="header.jsp">
-		</OBJECT>-->
 		<header class="navbar navbar-inverse navbar-fixed-top">
 		  <div class="navbar-inner">
 			<div>
@@ -24,9 +16,9 @@
 				</ul>
 				<ul class="nav navbar-nav pull-left">
 					  <li><a href="conversations">Conversations</a></li>
-					  <li class="active"><a href="talkToFriend">Talk To a Friend</a></li>
-					  <li><a href="faq">FAQs</a></li>
-					  <li><a href="faq">Resources</a></li>
+					  <li class="active"><a href="#">Talk To a Friend</a></li>
+					  <li><a href="faqs">FAQs</a></li>
+					  <li><a href="resources">Resources</a></li>
 				</ul>
 			  </div><!--/.nav-collapse -->
 			</div>
@@ -76,6 +68,6 @@
 				</div>
 				<!-- end of each conversation-->
 			</div>
-		<footer></footer>
+		<jsp:include page="includes/commonFooter.jsp"></jsp:include>
 	</body>
 </html>

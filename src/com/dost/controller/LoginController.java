@@ -18,19 +18,19 @@ public class LoginController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping("/conversations")  
+	@RequestMapping("user/conversations")  
 	public ModelAndView showMessage() {
-		return new ModelAndView("conversations"); 
+		return new ModelAndView("user/conversations"); 
 	}
 	
 	@RequestMapping(value="/authenticate")  
 	public ModelAndView authenticateUser(DbUser user) {
 		Role role = userService.authenticateUser(user.getUsername(), user.getPassword());
 		if(role == Role.USER) {
-			return new ModelAndView("conversations");	
+			return new ModelAndView("user/conversations");	
 		}
 		else if(role == Role.COUNSELOR) {
-			return new ModelAndView("conversations");	
+			return new ModelAndView("counselor/conversations");	
 		}
 		else {
 			return new ModelAndView("unauthorized");	

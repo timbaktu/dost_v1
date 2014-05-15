@@ -1,43 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<script src="../JS/jquery.js"></script> 
-		<script src="../JS/bootstrap.min.js"></script>
-		<script src="../JS/script.js"></script>
-		<link href="../CSS/bootstrap.min.css" rel="stylesheet" media="screen">
-		<link href="../CSS/style.css" rel="stylesheet" media="screen">
-	</head>
+	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	<body >
-		<!--<OBJECT data="header.html">
-		</OBJECT>-->
-		<header class="navbar navbar-inverse navbar-fixed-top">
-		  <div class="navbar-inner">
-			<div>
-			  <a class="navbar-brand" href="/index">Dost</a>
-			  <div class="nav-collapse ">
-				<!--<p class="navbar-text pull-right">
-					<a href="#" class="navbar-link">Create your account</a>
-				</p>-->
-				<ul class="nav navbar-nav pull-right ">
-					<li><a href="#" class="navbar-link">Prashant</a></li>
-					<li><a href="#" class="navbar-link">Logout</a></li>
-				</ul>
-				<ul class="nav navbar-nav pull-left">
-					  <li class="active"><a href="#">Conversations</a></li>
-					  <li><a href="talkToFriend_counselor.jsp">Patient History</a></li>
-					  <li><a href="onlineCounseling_counselor.jsp">Online Counseling</a></li>
-					  <li><a href="quotesCounselor_counselor.jsp">Quotes</a></li>
-					  <li><a href="faqCounselor_counselor.jsp">FAQs</a></li>
-				</ul>
-			  </div><!--/.nav-collapse -->
-			</div>
-		  </div>
-		</header>
+		<jsp:include page="includes/headerCounselor.jsp"></jsp:include>
 		<div class="container">
 			<div class="col-md-11">
 				<div class="pageTop">
 					<h2 class="pull-left pageHeading col-md-offset-2">
-							<a  href="discussionsAll.jsp">&larr; Back to all Conversations</a>
+							<a  href="conversations">&larr; Back to all Conversations</a>
 					</h2>
 					<div class="clearfix"></div>
 				</div>
@@ -94,16 +64,13 @@
 						
 						</div>
 					</div>
-					<div class="pull-right">
-						to be done
-					
-					</div>
+					<jsp:include page="includes/patientHistory.jsp"></jsp:include>
 					<div class="clearfix"></div>
 					
 				</div>
 			</div>
 					
 		</div>
-		<footer></footer>
+		<jsp:include page="includes/commonFooter.jsp"></jsp:include>
 	</body>
 </html>

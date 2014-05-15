@@ -1,34 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<script src="resources/JS/jquery.js"></script>
-		<script src="resources/JS/bootstrap.min.js"></script>
-		<script src="resources/JS/script.js"></script>
-		<link href="resources/CSS/bootstrap.min.css" rel="stylesheet" media="screen">
-		<link href="resources/CSS/style.css" rel="stylesheet" media="screen">
-	</head>
+	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	<body class="container-fluid">
-		<!--<OBJECT data="header.jsp">
-		</OBJECT>-->
-		<header class="navbar navbar-inverse navbar-fixed-top">
-		  <div class="navbar-inner">
-			<div class="container-fluid">
-			  <a class="brand" href="login">Dost</a>
-			  <div class="nav-collapse collapse">
-				<p class="navbar-text pull-right">
-					<a href="#" class="navbar-link">Create your account</a>
-				</p>
-				<!--
-					<ul class="nav">
-					  <li class="active"><a href="#">Home</a></li>
-					  <li><a href="#about">About</a></li>
-					  <li><a href="#contact">Contact</a></li>
-					</ul>
-				-->
-			  </div><!--/.nav-collapse -->
-			</div>
-		  </div>
-		</header>
+		<jsp:include page="includes/headerUser.jsp"></jsp:include>
 		
 		<div class="container">
 			<a class="pull-right loginText" href="login" alt="Login to an existing account">Have an account? LOGIN NOW</a>

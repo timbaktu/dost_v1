@@ -1,26 +1,21 @@
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<script src="../JS/jquery.js"></script> 
-		<script src="../JS/bootstrap.min.js"></script>
-		<link href="../CSS/bootstrap.min.css" rel="stylesheet" media="screen">
-		<link href="../CSS/style.css" rel="stylesheet" media="screen">
-	</head>
+	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	<body class="container-fluid">
-		<!--<header class="navbar navbar-inverse navbar-fixed-top">
+		<header class="navbar navbar-inverse navbar-fixed-top">
 		  <div class="navbar-inner">
 			<div class="container-fluid">
 			  <a class="navbar-brand" href="#">Dost</a>
 			  </div><!--/.nav-collapse -->
 		  </div>
-		</header>-->
-		<jsp:include page="headerCounselor" />
+		</header>
+		
 		<div class="container">
 			<div class="pageTop row col-md-7 col-md-offset-2">
 					<h2 class="pageHeading">Counselor Login</h2>
 			</div>
-			<form class="form-signin" METHOD="POST" action="conversations_counselor.jsp">
+			<form class="form-signin" METHOD="POST" action="conversations">
 				<div class="well well-large row col-md-7 col-md-offset-2 signinFormOuterContainer">
 					<div class="col-md-10 col-md-offset-1">
 						<label>Username</label>

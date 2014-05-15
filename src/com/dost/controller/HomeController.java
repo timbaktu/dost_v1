@@ -7,38 +7,63 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
 
-	@RequestMapping("/index")  
+	@RequestMapping("user/index")  
 	public ModelAndView index() {
-		return new ModelAndView("index"); 
+		return new ModelAndView("user/index"); 
+	}
+
+	@RequestMapping("user/includes/signUp")  
+	public ModelAndView signUp() {
+		return new ModelAndView("user/includes/signUp"); 
 	}
 	
-	@RequestMapping("/talkToFriend")  
+	@RequestMapping("user/talkToFriend")  
 	public ModelAndView talkToFriend() {
-		return new ModelAndView("talkToFriend"); 
+		return new ModelAndView("user/talkToFriend"); 
 	}
 	
-	@RequestMapping("/login")  
+	@RequestMapping("user/login")  
 	public ModelAndView login() {
-		return new ModelAndView("login"); 
+		return new ModelAndView("user/login"); 
 	}
 	
-	@RequestMapping("/signupNow")  
+	@RequestMapping("user/signupNow")  
 	public ModelAndView signupNow() {
-		return new ModelAndView("signupNow"); 
+		return new ModelAndView("user/signupNow"); 
 	}
 	
-	@RequestMapping("/discussionsAll")  
+	@RequestMapping("user/discussionsAll")  
 	public ModelAndView discussionsAll() {
-		return new ModelAndView("discussionsAll"); 
+		return new ModelAndView("user/discussionsAll"); 
+	}
+	@RequestMapping("user/discussionsDetails")  
+	public ModelAndView discussionsDetails() {
+		return new ModelAndView("user/discussionsDetails"); 
 	}
 	
-	@RequestMapping("/FAQs")  
-	public ModelAndView FAQs() {
-		return new ModelAndView("FAQs"); 
+	@RequestMapping("user/faqs")  
+	public ModelAndView faqs() {
+		return new ModelAndView("user/faqs"); 
 	}
 	
-	@RequestMapping("counselor/counselor_login")  
+	@RequestMapping("counselor/login")  
 	public ModelAndView counselor_login() {
-		return new ModelAndView("counselor_login"); 
+		return new ModelAndView("counselor/login"); 
+	}
+	@RequestMapping("counselor/faqs")  
+	public ModelAndView counselor_faqs() {
+		return new ModelAndView("counselor/faqs"); 
+	}
+	@RequestMapping("counselor/conversations")  
+	public ModelAndView counselor_conversations() {
+		return new ModelAndView("counselor/conversations"); 
+	}
+	@RequestMapping("counselor/conversationsExpanded")  
+	public ModelAndView counselor_conversationsExpanded() {
+		return new ModelAndView("counselor/conversationsExpanded"); 
+	}
+	@RequestMapping("counselor/patientHistory")  
+	public ModelAndView counselor_patientHistory() {
+		return new ModelAndView("counselor/patientHistory"); 
 	}
 }

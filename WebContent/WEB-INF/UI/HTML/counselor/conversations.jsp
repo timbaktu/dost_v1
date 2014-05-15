@@ -1,38 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<script src="../JS/jquery.js"></script> 
-		<script src="../JS/bootstrap.min.js"></script>
-		<script src="../JS/script.js"></script>
-		<link href="../CSS/bootstrap.min.css" rel="stylesheet" media="screen">
-		<link href="../CSS/style.css" rel="stylesheet" media="screen">
-	</head>
+	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	<body >
-		<!--<OBJECT data="header.jsp">
-		</OBJECT>-->
-		<header class="navbar navbar-inverse navbar-fixed-top">
-		  <div class="navbar-inner">
-			<div>
-			  <a class="navbar-brand" href="/index">Dost</a>
-			  <div class="nav-collapse ">
-				<!--<p class="navbar-text pull-right">
-					<a href="#" class="navbar-link">Create your account</a>
-				</p>-->
-				<ul class="nav navbar-nav pull-right ">
-					<li><a href="#" class="navbar-link">Prashant</a></li>
-					<li><a href="#" class="navbar-link">Logout</a></li>
-				</ul>
-				<ul class="nav navbar-nav pull-left">
-					  <li><a href="#">Conversations</a></li>
-					  <li><a href="talkToFriend.jsp">Patient History</a></li>
-					  <li class="active"><a href="onlineCounseling">Online Counseling</a></li>
-					  <li><a href="quotesCounselor.jsp">Quotes</a></li>
-					  <li><a href="faqCounselor.jsp">FAQs</a></li>
-				</ul>
-			  </div><!--/.nav-collapse -->
-			</div>
-		  </div>
-		</header>
+		<jsp:include page="includes/headerCounselor.jsp"></jsp:include>
 		<div class="container">
 			<div class="col-md-11">
 				<div class="pageTop">
@@ -51,7 +21,7 @@
 					<div class="clearfix"></div>
 				</div>
 				
-				<ul class="pull-left col-md-2 left_nav_conversation">
+				<ul class="pull-left col-md-2 left_nav">
 					<li><a href="#">Compose</a><br/><br/></li>
 					<li class="active"><a href="#">Inbox</a></li>
 					<li><a href="#">Sent Items</a></li>
@@ -62,7 +32,7 @@
 				<ul class="pull-right col-md-10">
 					<!-- each conversation-->
 					<li class="well media conversation_topic">
-						<a class="pull-left col-md-2" href="conversations_expanded_counselor.jsp">
+						<a class="pull-left col-md-2" href="conversationsExpanded">
 							<span class="conversationalist">Brusley, Prashant</span>
 							<span>(20)</span>
 						</a>
@@ -76,7 +46,7 @@
 						
 						
 						<div class="pull-right col-md-1">
-							<a href="conversations_expanded_counselor.jsp">
+							<a href="conversationsExpanded">
 								<span class="glyphicon glyphicon-chevron-right"></span>
 							</a>
 						</div>
@@ -85,7 +55,7 @@
 					
 					<!-- each conversation-->
 					<li class="well media conversation_topic">
-						<a class="pull-left col-md-2" href="conversations_expanded_counselor.jsp">
+						<a class="pull-left col-md-2" href="conversationsExpanded">
 							<span class="conversationalist">Brusley, Prashant</span>
 							<span>(20)</span>
 						</a>
@@ -99,7 +69,7 @@
 						
 						
 						<div class="pull-right col-md-1">
-							<a href="conversations_expanded_counselor.jsp">
+							<a href="conversationsExpanded">
 								<span class="glyphicon glyphicon-chevron-right"></span>
 							</a>
 						</div>
@@ -108,7 +78,7 @@
 					
 					<!-- each conversation-->
 					<li class="well media conversation_topic">
-						<a class="pull-left col-md-2" href="conversations_expanded_counselor.jsp">
+						<a class="pull-left col-md-2" href="conversationsExpanded">
 							<span class="conversationalist">Brusley, Prashant</span>
 							<span>(20)</span>
 						</a>
@@ -122,7 +92,7 @@
 						
 						
 						<div class="pull-right col-md-1">
-							<a href="conversations_expanded_counselor.jsp">
+							<a href="conversationsExpanded">
 								<span class="glyphicon glyphicon-chevron-right"></span>
 							</a>
 						</div>
@@ -131,7 +101,7 @@
 					
 					<!-- each conversation-->
 					<li class="well media conversation_topic">
-						<a class="pull-left col-md-2" href="conversations_expanded_counselor.jsp">
+						<a class="pull-left col-md-2" href="conversationsExpanded">
 							<span class="conversationalist">Brusley, Prashant</span>
 							<span>(20)</span>
 						</a>
@@ -145,7 +115,7 @@
 						
 						
 						<div class="pull-right col-md-1">
-							<a href="conversations_expanded_counselor.jsp">
+							<a href="conversationsExpanded">
 								<span class="glyphicon glyphicon-chevron-right"></span>
 							</a>
 						</div>
@@ -154,7 +124,7 @@
 					
 					<!-- each conversation-->
 					<li class="well media conversation_topic">
-						<a class="pull-left col-md-2" href="conversations_expanded_counselor.jsp">
+						<a class="pull-left col-md-2" href="conversationsExpanded">
 							<span class="conversationalist">Brusley, Prashant</span>
 							<span>(20)</span>
 						</a>
@@ -168,7 +138,7 @@
 						
 						
 						<div class="pull-right col-md-1">
-							<a href="conversations_expanded_counselor.jsp">
+							<a href="conversationsExpanded">
 								<span class="glyphicon glyphicon-chevron-right"></span>
 							</a>
 						</div>
@@ -177,7 +147,7 @@
 					
 					<!-- each conversation-->
 					<li class="well media conversation_topic">
-						<a class="pull-left col-md-2" href="conversations_expanded_counselor.html">
+						<a class="pull-left col-md-2" href="conversationsExpanded">
 							<span class="conversationalist">Brusley, Prashant</span>
 							<span>(20)</span>
 						</a>
@@ -191,7 +161,7 @@
 						
 						
 						<div class="pull-right col-md-1">
-							<a href="conversations_expanded_counselor.jsp">
+							<a href="conversationsExpanded">
 								<span class="glyphicon glyphicon-chevron-right"></span>
 							</a>
 						</div>
@@ -202,6 +172,6 @@
 					
 			</div>
 		</div>
-		<footer></footer>
+		<jsp:include page="includes/commonFooter.jsp"></jsp:include>
 	</body>
 </html>
