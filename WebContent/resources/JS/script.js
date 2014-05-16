@@ -44,36 +44,38 @@ $( document ).ready(function() {
 	$(".addFAQs").click(function(){
 		$(this).hide();
 		$(".FAQList").prepend("" +
+				'<form METHOD="POST">'+
 				'<div contenteditable="true" class="individualQuestion fillQuestion"></div>' +
 				'<div class="fillAnswer" contenteditable="true" class="individualQuestion" ></div>'+
 				'<div class="btn-group">'+
 					'<label>Select Category</label>'+
 					'<select><option>Career</option><option>Family</option></select>'+
-					'<button type="button" class="saveFAQ btn btn-primary pull-right">SAVE</button>'+
+					'<input type="submit" class="saveFAQ btn btn-primary pull-right" value="SAVE"/>'+
 				'</div>'+
 				'<div class="clearfix"></div>'+
+				'</form>'+
 				"");
 	});
 			
-	$(".saveFAQ").on( "click", function() {
-		alert("click");
-		$(this).hide();
-		$(".addFAQs").show();
-		$(".FAQList question").attr("contenteditable","false");
-		$(".FAQList answer").hide();
-	});
-	/*End of Add FAQ*/
-	
+		
 	/*Edit FAQ */
-	$("editFAQ").click(function(){
+	$(".editFAQs").click(function(){
 		$(this).hide();
-		$(".FAQList question").show().attr("contenteditable","true");
-		$(".FAQList answer").show().attr("contenteditable","true");
+		$(".question").show().attr("contenteditable","true");
+		$(".answer").show().attr("contenteditable","true");
 		$(".FAQList").after('<button type="button" class="saveFAQ btn btn-primary pull-right">SAVE</button>');
 	});
 	/* Edit FAQ */
 		
+	$(".saveFAQ").on("click", function(){
 		
+		$(this).hide();
+		$(".addFAQs").show();
+		alert("haha");
+		$(".FAQList question").attr("contenteditable","false");
+		$(".FAQList answer").hide();
+	});
+	/*End of Add FAQ*/	
 		
 });
 
