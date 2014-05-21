@@ -27,7 +27,7 @@
 		<div class="container">
 			<a class="pull-right signupNowText" href="signupNow" alt="Signup for a new account">Don't have an account? SIGNUP NOW</a>
 			<div class="clearfix"></div>
-			<form class="form-signin" METHOD="POST" action="authenticate">
+			<form class="form-signin" METHOD="POST" action="../authenticate">
 				<h3 class="col-md-7 col-md-offset-2 form-signin-heading">
 					<p>Hi,</p>
 					<p>Don't worry, whatever it is.. we can fix it together. <em>Get Started!</em></p>

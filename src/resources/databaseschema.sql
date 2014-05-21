@@ -65,7 +65,47 @@ CREATE TABLE `MESSAGERECIPIENT` (
   PRIMARY KEY (`messagerecipientid`)
 );
 
+alter table user add column ENABLED INTEGER;
+alter table user drop column ENABLED
 
+alter table user add column ENABLED TINYINT(1) NOT NULL;
 
+INSERT INTO user (USERID, USERNAME,PASSWORD, ENABLED)
+VALUES (100, 'mahesh', '24251', TRUE);
+
+INSERT INTO user_roles (USER_ROLE_ID, USERID,AUTHORITY)
+VALUES (2, 100, 'ROLE_USER');
+
+INSERT INTO user(username,password,enabled)
+VALUES ('mkyong','123456', TRUE);
+INSERT INTO user(username,password,enabled)
+VALUES ('alex','123456', TRUE);
+
+CREATE TABLE `user_roles` (
+  `USER_ROLE_ID` INTEGER NOT NULL AUTO_INCREMENT,
+  `USERID` INTEGER NOT NULL,
+  `AUTHORITY` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`USER_ROLE_ID`)
+);
+
+INSERT INTO user_roles (USER_ROLE_ID, USERID,AUTHORITY)
+VALUES (1, 1, 'ROLE_USER');
+
+drop table user_roles;
+
+CREATE TABLE user_roles (
+  user_role_id INT(11) NOT NULL AUTO_INCREMENT,
+  username VARCHAR(45) NOT NULL,
+  ROLE VARCHAR(45) NOT NULL,
+  PRIMARY KEY (user_role_id),
+  UNIQUE KEY uni_username_role (ROLE,username));
+
+  INSERT INTO user_roles (username, ROLE)
+VALUES ('mkyong', 'ROLE_USER');
+INSERT INTO user_roles (username, ROLE)
+VALUES ('mkyong', 'ROLE_ADMIN');
+INSERT INTO user_roles (username, ROLE)
+VALUES ('alex', 'ROLE_USER');
+  
 INSERT INTO `dost`.`user` (`userid`, `username`, `password`, `role`, `userrole`) VALUES ('1', 'satya', '123', 'USER', 'USER');
 INSERT INTO `dost`.`user` (`userid`, `username`, `password`, `role`, `userrole`) VALUES ('2', 'richa', '123', 'COUNSELOR', 'COUNSELOR');

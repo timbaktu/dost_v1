@@ -1,7 +1,7 @@
 <!--patient summary-->
 <div class="pull-right col-md-3">
 	<div>
-		<div><a href="pateintHistory_counselor.html">Brusley</a></div>
+		<div><a href="patientHistory_counselor.html">Brusley</a></div>
 		<label>Label 1</label> | <label>Label 2</label>
 	</div>
 	<ul class="counselor_notes">

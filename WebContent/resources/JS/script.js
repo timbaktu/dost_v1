@@ -55,7 +55,7 @@ $( document ).ready(function() {
 				"");
 	});
 			
-	$(".saveFAQ").on( "click", function() {
+	$(".saveFAQ").click(function() {
 		alert("click");
 		$(this).hide();
 		$(".addFAQs").show();

@@ -1,3 +1,6 @@
+<%@taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
@@ -11,14 +14,14 @@
 					<a href="#" class="navbar-link">Create your account</a>
 				</p>-->
 				<ul class="nav navbar-nav pull-right ">
-					<li><a href="#" class="navbar-link">Richa Singh</a></li>
+					<li><a href="#" class="navbar-link">${pageContext.request.userPrincipal.name}</a></li>
 					<li><a href="#" class="navbar-link">Logout</a></li>
 				</ul>
 				<ul class="nav navbar-nav pull-left">
 					  <li class="active"><a href="#">Conversations</a></li>
-					  <li><a href="talkToFriend">Talk To a Friend</a></li>
-					  <li><a href="faqs">FAQs</a></li>
-					  <li><a href="resources">Resources</a></li>
+					  <li><a href="user/talkToFriend">Talk To a Friend</a></li>
+					  <li><a href="user/faqs">FAQs</a></li>
+					  <li><a href="user/resources">Resources</a></li>
 				</ul>
 			  </div><!--/.nav-collapse -->
 			</div>

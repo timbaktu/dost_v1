@@ -12,7 +12,7 @@
 		</ul>
 		<ul class="nav navbar-nav pull-left">
 			  <li><a href="conversations">Conversations</a></li>
-			  <li><a href="pateintHistory">Patient History</a></li>
+			  <li><a href="patientHistory">Patient History</a></li>
 			  <li><a href="onlineCounseling">Online Counseling</a></li>
 			  <li><a href="quotes">Quotes</a></li>
 			  <li><a href="faqs">FAQs</a></li>
