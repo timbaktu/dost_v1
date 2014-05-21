@@ -194,8 +194,9 @@
 	.question{
 		cursor:pointer;
 	}
-	.answer{
+	.FAQList .answer{
 		display:none;
+		margin-bottom: 50px;
 	}
 	.nextPreviousNav, .allQuestions{
 		visibility: hidden;
