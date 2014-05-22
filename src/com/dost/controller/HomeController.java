@@ -7,9 +7,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
 
-	@RequestMapping("user/index")  
+	@RequestMapping("index")  
 	public ModelAndView index() {
-		return new ModelAndView("user/index"); 
+		return new ModelAndView("index"); 
 	}
 
 	@RequestMapping("user/includes/signUp")  

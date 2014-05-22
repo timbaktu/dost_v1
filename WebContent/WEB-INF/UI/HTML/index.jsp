@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
+	<jsp:include page="user/includes/commonHeader.jsp"></jsp:include>
 	<body class="container-fluid">
-		<jsp:include page="includes/headerUser.jsp"></jsp:include>
+		<jsp:include page="user/includes/headerUser.jsp"></jsp:include>
 		<div class="container row-fluid welcomePage">
 			<div class="col-md-7">
 				<ul>
@@ -85,6 +85,6 @@
 				</div>
 			</div>
 		</div>
-		<jsp:include page="includes/commonFooter.jsp"></jsp:include>
+		<jsp:include page="user/includes/commonFooter.jsp"></jsp:include>
 	</body>
 </html>

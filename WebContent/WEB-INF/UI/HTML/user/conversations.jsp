@@ -19,9 +19,9 @@
 				</ul>
 				<ul class="nav navbar-nav pull-left">
 					  <li class="active"><a href="#">Conversations</a></li>
-					  <li><a href="user/talkToFriend">Talk To a Friend</a></li>
-					  <li><a href="user/faqs">FAQs</a></li>
-					  <li><a href="user/resources">Resources</a></li>
+					  <li><a href="talkToFriend">Talk To a Friend</a></li>
+					  <li><a href="faqs">FAQs</a></li>
+					  <li><a href="resources">Resources</a></li>
 				</ul>
 			  </div><!--/.nav-collapse -->
 			</div>
