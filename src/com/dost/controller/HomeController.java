@@ -43,7 +43,7 @@ public class HomeController {
 	
 	@RequestMapping("user/faqs")  
 	public ModelAndView faqs() {
-		return new ModelAndView("user/faq"); 
+		return new ModelAndView("user/faqs"); 
 	}
 	
 	@RequestMapping("counselor/login")  

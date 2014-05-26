@@ -2,28 +2,7 @@
 <html lang="en">
 	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	<body >
-		<header class="navbar navbar-inverse navbar-fixed-top">
-		  <div class="navbar-inner">
-			<div>
-			  <a class="navbar-brand" href="http://satyajeet-n:8080/dost/index">Dost</a>
-			  <div class="nav-collapse ">
-				<!--<p class="navbar-text pull-right">
-					<a href="#" class="navbar-link">Create your account</a>
-				</p>-->
-				<ul class="nav navbar-nav pull-right ">
-					<li><a href="#" class="navbar-link">Richa Singh</a></li>
-					<li><a href="#" class="navbar-link">Logout</a></li>
-				</ul>
-				<ul class="nav navbar-nav pull-left">
-					  <li><a href="conversations">Conversations</a></li>
-					  <li class="active"><a href="#">Talk To a Friend</a></li>
-					  <li><a href="faqs">FAQs</a></li>
-					  <li><a href="resources">Resources</a></li>
-				</ul>
-			  </div><!--/.nav-collapse -->
-			</div>
-		  </div>
-		</header>
+		<jsp:include page="includes/headerUser.jsp"></jsp:include>
 		<div class="container">
 			<div class="col-md-11">
 				<div class="pageTop">

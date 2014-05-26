@@ -8,11 +8,11 @@
 			<a class="pull-right loginText" href="login" alt="Login to an existing account">Have an account? LOGIN NOW</a>
 			<div class="clearfix"></div>
 			<form class="form-signin">
-				<h3 class="span7 offset2 form-signin-heading">
+				<h3 class="col-md-7 col-md-offset-2 form-signin-heading">
 					<p>Hi,</p>
 					<p>Don't worry, whatever it is.. we can fix it together. <em>Get Started!</em></p>
 				</h3>
-				<div class="well well-large row span7 offset2 signinFormOuterContainer">
+				<div class="well well-large row col-md-7 col-md-offset-2 signinFormOuterContainer">
 					<div class="span5 offset1">
 						<label class="chooseAvatar">Choose your avatar <span>(This is how I will know you)</span></label>
 						<div class="avatarHolder">

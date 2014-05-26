@@ -5,28 +5,7 @@
 <html lang="en">
 	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	<body >
-		<header class="navbar navbar-inverse navbar-fixed-top">
-		  <div class="navbar-inner">
-			<div>
-			  <a class="navbar-brand" href="index" >Dost</a>
-			  <div class="nav-collapse ">
-				<!--<p class="navbar-text pull-right">
-					<a href="#" class="navbar-link">Create your account</a>
-				</p>-->
-				<ul class="nav navbar-nav pull-right ">
-					<li><a href="#" class="navbar-link">${pageContext.request.userPrincipal.name}</a></li>
-					<li><a href="#" class="navbar-link">Logout</a></li>
-				</ul>
-				<ul class="nav navbar-nav pull-left">
-					  <li class="active"><a href="#">Conversations</a></li>
-					  <li><a href="talkToFriend">Talk To a Friend</a></li>
-					  <li><a href="faqs">FAQs</a></li>
-					  <li><a href="resources">Resources</a></li>
-				</ul>
-			  </div><!--/.nav-collapse -->
-			</div>
-		  </div>
-		</header>
+		<jsp:include page="includes/headerUser.jsp"></jsp:include>
 		<div class="container">
 			<div class="col-md-11">
 				<div class="pageTop">
@@ -57,16 +36,14 @@
 							Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
 						</div>
 						
-						<div class="pull-right col-md-2">
+						<div class="pull-right col-md-1">
 							<a href="conversationDetails"> View
 							<span class="glyphicon glyphicon-chevron-right"></span>
 							</a>
 						</div>
 					</li>
-				</ul>
 				<!-- end of each conversation-->
 				<!-- each conversation-->
-				<ul>
 					<li class="well media conversation_topic">
 						<a class="pull-left col-md-2" href="#">
 							<div class="friend_name">Brusley</div>
@@ -76,16 +53,14 @@
 							Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
 						</div>
 						
-						<div class="pull-right col-md-2">
+						<div class="pull-right col-md-1">
 							<a href="conversationDetails"> View
 							<span class="glyphicon glyphicon-chevron-right"></span>
 							</a>
 						</div>
 					</li>
-				</ul>
 				<!-- end of each conversation-->
 				<!-- each conversation-->
-				<ul>
 					<li class="well media conversation_topic">
 						<a class="pull-left col-md-2" href="#">
 							<div class="friend_name">Brusley</div>
@@ -95,16 +70,16 @@
 							Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
 						</div>
 						
-						<div class="pull-right col-md-2">
+						<div class="pull-right col-md-1">
 							<a href="conversationDetails"> View
 							<span class="glyphicon glyphicon-chevron-right"></span>
 							</a>
 						</div>
 					</li>
-				</ul>
+				
 				<!-- end of each conversation-->
 				<!-- each conversation-->
-				<ul>
+				
 					<li class="well media conversation_topic">
 						<a class="pull-left col-md-2" href="#">
 							<div class="friend_name">Brusley</div>
@@ -114,16 +89,16 @@
 							Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
 						</div>
 						
-						<div class="pull-right col-md-2">
+						<div class="pull-right col-md-1">
 							<a href="conversationDetails"> View
 							<span class="glyphicon glyphicon-chevron-right"></span>
 							</a>
 						</div>
 					</li>
-				</ul>
+				
 				<!-- end of each conversation-->
 				<!-- each conversation-->
-				<ul>
+				
 					<li class="well media conversation_topic">
 						<a class="pull-left col-md-2" href="#">
 							<div class="friend_name">Brusley</div>
@@ -133,7 +108,7 @@
 							Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
 						</div>
 						
-						<div class="pull-right col-md-2">
+						<div class="pull-right col-md-1">
 							<a href="conversationDetails"> View
 							<span class="glyphicon glyphicon-chevron-right"></span>
 							</a>
