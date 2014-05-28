@@ -109,3 +109,5 @@ VALUES ('alex', 'ROLE_USER');
   
 INSERT INTO `dost`.`user` (`userid`, `username`, `password`, `role`, `userrole`) VALUES ('1', 'satya', '123', 'USER', 'USER');
 INSERT INTO `dost`.`user` (`userid`, `username`, `password`, `role`, `userrole`) VALUES ('2', 'richa', '123', 'COUNSELOR', 'COUNSELOR');
+
+ALTER TABLE faq modify userid BIGINT NOT NULL DEFAULT 100;
