@@ -27,9 +27,9 @@ public class HomeController {
 		return new ModelAndView("user/login"); 
 	}
 	
-	@RequestMapping("user/signupNow")  
+	@RequestMapping("signupNow")  
 	public ModelAndView signupNow() {
-		return new ModelAndView("user/signupNow"); 
+		return new ModelAndView("signupNow"); 
 	}
 	
 	@RequestMapping("user/discussionsAll")  
