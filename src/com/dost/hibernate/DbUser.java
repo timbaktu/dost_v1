@@ -27,6 +27,7 @@ public class DbUser extends DbGeneric implements Serializable {
 	@Column(name = "userrole")
 	private Role userRole;
 	
+	//TODO: Need place holder for images or avatar, may be clob or blob. Satya you decide
 	
 	public Long getUserId() {
 		return userId;

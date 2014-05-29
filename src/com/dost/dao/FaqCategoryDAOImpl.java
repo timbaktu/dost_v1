@@ -42,6 +42,16 @@ public class FaqCategoryDAOImpl implements FaqCategoryDAO {
 		session.save(category);
 		return category;
 	}
+
+	public DbFaqCategory findCategoryByName(String name) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from DbFaqCategory fc where fc.faqCategoryName = :name");
+		query.setParameter("name", name);
+		DbFaqCategory category = (DbFaqCategory)query.uniqueResult();
+		return category;
+	}
+	
+	
 	
 	
 }

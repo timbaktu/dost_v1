@@ -22,8 +22,11 @@
 			buttons : [ {
 				text : "Ok",
 				click : function() {
+					debugger;
+					alert($("#categoryid").val());
+					alert($("#faq").serialize());
 					var datatosend = 'answer='+$("#answer").val()+'&question=' + $("#question").val();
-					$.post('http://satyajeet-n:8080/dost/api/faq/add', datatosend, function(response) {
+					$.post('http://satyajeet-n:8080/dost/api/faq/add', $("#faq").serialize(), function(response) {
 						//$('#visitFormResponse').text(response);
 					});
 					
@@ -50,6 +53,15 @@
 		}, function() {
 			$(this).removeClass("ui-state-hover");
 		});
+		
+		$("#next").click(function(event) {
+			debugger;
+			alert('next click working' + $("#faqid").val());
+		});
+		
+		$("#previous").click(function(event) {
+			alert('previous click working');
+		});
 	});
 </script>
 </head>
@@ -68,7 +80,8 @@
 			<div>
 				<div class="pull-left allQuestions">Back to List</div>
 				<div class="pull-right nextPreviousNav">
-					<span class="previous">Previous</span> <span class="next">Next</span>
+					<span id="previous" class="previous">Previous</span> 
+					<span id="next" class="next">Next</span>
 				</div>
 				<div class="clearfix"></div>
 				<div class="FAQList"></div>
@@ -80,10 +93,10 @@
 	<div id="dialog" title="Add FAQ">
 		<form name="faq" id="faq" action="" method="post">
 		Select Category : 
-		<select id="category" name="category">
-		  <option id="1" value="career">Career</option>
-		  <option id="2" value="family">Family</option>
-		  <option id="3" value="other">Other</option>
+		<select id="categoryid" name="category">
+		  <option id="1" name="career" value="career">Career</option>
+		  <option id="2" name="family" value="family">Family</option>
+		  <option id="3" name="other" value="other">Other</option>
 		</select> </br>
 		Question : <input id="question" name="question" type="text" value="Question"> </br> 
 		Answer : <textarea id="answer" name="answer" rows="4" cols="50">At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.</textarea> </br> 

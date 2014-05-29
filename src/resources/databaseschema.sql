@@ -111,3 +111,5 @@ INSERT INTO `dost`.`user` (`userid`, `username`, `password`, `role`, `userrole`)
 INSERT INTO `dost`.`user` (`userid`, `username`, `password`, `role`, `userrole`) VALUES ('2', 'richa', '123', 'COUNSELOR', 'COUNSELOR');
 
 ALTER TABLE faq modify userid BIGINT NOT NULL DEFAULT 100;
+
+insert into faqcategory (faqcategoryid, faqcategoryname, deleted) values(2,'family',0);

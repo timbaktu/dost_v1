@@ -11,4 +11,6 @@ public interface FaqCategoryService {
 	public List<DbFaqCategory> getAllCategories();
 	
 	public DbFaqCategory addFaqCategory(DbFaqCategory category);
+	
+	public DbFaqCategory findCategoryByName(String name);
 }

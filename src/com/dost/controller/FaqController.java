@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dost.hibernate.DbFaq;
 import com.dost.hibernate.DbFaqCategory;
+import com.dost.model.Faq;
+import com.dost.service.FaqCategoryService;
 import com.dost.service.FaqService;
 
 @Controller
@@ -20,6 +22,8 @@ public class FaqController {
 
 	@Autowired
 	private FaqService faqService;
+	@Autowired
+	private FaqCategoryService categoryService;
 	
 	@RequestMapping(value="/faq/{id}", method=RequestMethod.GET)  
 	@ResponseBody
@@ -40,15 +44,28 @@ public class FaqController {
 		return faqs;
 	}
 	
+//	@RequestMapping(value="/faq/add", method=RequestMethod.POST)  
+//	@ResponseBody
+//	public DbFaq addFaq(DbFaq dbFaq) {
+//		DbFaqCategory dbFaqCategory = new DbFaqCategory();
+//		dbFaqCategory.setFaqCategoryId(1L);
+//		dbFaqCategory.setFaqCategoryName("Career");
+//		dbFaq.setCategory(dbFaqCategory);
+//
+//		DbFaq faq = faqService.addFaq(dbFaq); 
+//		return faq;
+//	}
+	
 	@RequestMapping(value="/faq/add", method=RequestMethod.POST)  
 	@ResponseBody
-	public DbFaq addFaq(DbFaq dbFaq) {
-		DbFaqCategory dbFaqCategory = new DbFaqCategory();
-		dbFaqCategory.setFaqCategoryId(1L);
-		dbFaqCategory.setFaqCategoryName("Career");
+	public Faq addFaq(Faq faq) {
+		DbFaqCategory dbFaqCategory = categoryService.findCategoryByName(faq.getCategory());
+		DbFaq dbFaq = new DbFaq();
+		dbFaq.setQuestion(faq.getQuestion());
+		dbFaq.setAnswer(faq.getAnswer());
 		dbFaq.setCategory(dbFaqCategory);
-
-		DbFaq faq = faqService.addFaq(dbFaq); 
+		faq.setCategoryId(""+dbFaqCategory.getFaqCategoryId());
+		faqService.addFaq(dbFaq);
 		return faq;
 	}
 }
