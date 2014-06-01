@@ -72,9 +72,14 @@ $( document ).ready(function() {
 	/*End of for adding edit/delete options for a question*/
 	
 	/* for editing the Question/Answer */
-	$(".questionAnswer").on("click",".editQuestion", function($e){
-		alert("hl");
-		$("#dialog").dialog("open", "heading");
+	$(".questionAnswer").on("click",".editQuestion", function(){
+		$("#dialog").dialog("option","title", "Edit this question/Answer");
+		$("#dialog").dialog("open");
+		
+		var questionToBeEdited = $(this).closest(".editDeleteOptions").siblings(".question").text();
+		var answerToBeEdited = $(this).closest(".editDeleteOptions").siblings(".answer").text();
+		$(".questionForm").val(questionToBeEdited);
+		$(".answerForm").val(answerToBeEdited);
 	});
 	
 	/* end of for editing the Question/Answer */

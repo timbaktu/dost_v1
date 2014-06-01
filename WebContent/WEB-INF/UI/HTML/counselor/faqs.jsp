@@ -17,9 +17,7 @@
 			buttons : [ {
 				text : "CANCEL",
 				click : function() {
-					//alert($("#question").val());
-					$(this).dialog("destroy");
-					//e.preventDefault();
+					$(this).dialog("close");
 				}
 			}, {
 				text : "ADD",
@@ -38,6 +36,9 @@
 		$("#addbutton").click(function(event) {
 			$("#dialog").dialog("option","title", "Add New Question");
 			$("#dialog").dialog("open");
+			
+			$(".questionForm").val("");
+			$(".answerForm").val("");
 		});
 		/* End of adding question*/
 		// Hover states on the static widgets
@@ -89,8 +90,8 @@
 	    <div>
 	      <form name="faq" id="faq" action="" method="post">
 			
-			Question : <input id="question" name="question" type="text" value="Question" class="form-control" placeholder="Type your question"> </br> 
-			Answer : <textarea id="answer" name="answer" placeholder="Type the answer" class="form-control" rows="3" ></textarea> </br> 
+			Question : <input id="question" name="question" type="text" value="Question" class="form-control questionForm" placeholder="Type your question"> </br> 
+			Answer : <textarea id="answer" name="answer" placeholder="Type the answer" class="form-control answerForm" rows="3" ></textarea> </br> 
 			
 			Select Category : <select id="categoryid" name="category">
 								  <option id="1" name="career" value="career">Career</option>
