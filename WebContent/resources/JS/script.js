@@ -53,41 +53,30 @@ $( document ).ready(function() {
 		/*end of next previous navigation*/
 	});
 
-	/*Add FAQ */
-	$(".addFAQs").click(function(){
-		$(this).hide();
-		$(".FAQList").prepend("" +
-				'<form METHOD="POST">'+
-				'<div contenteditable="true" class="individualQuestion fillQuestion"></div>' +
-				'<div class="fillAnswer" contenteditable="true" class="individualQuestion" ></div>'+
-				'<div class="btn-group">'+
-					'<label>Select Category</label>'+
-					'<select><option>Career</option><option>Family</option></select>'+
-					'<input type="submit" class="saveFAQ btn btn-primary pull-right" value="SAVE"/>'+
-				'</div>'+
-				'<div class="clearfix"></div>'+
-				'</form>'+
-				"");
+		
+	/*for adding edit/delete options for a question*/
+	if(window.location.pathname == "/dost/counselor/faqs"){
+		alert("1212");
+		$(".questionAnswer").hover(
+				function(){
+					$(this).prepend('<div class="editDeleteOptions pull-right">'+
+										'<div class="editQuestion col-md-1">Edit </div>'+ 
+										'<div class="deleteQuestion  col-md-1"> Delete</div>'+
+									'</div>');
+				},
+				function(){
+					$(this).find(".editDeleteOptions").remove();
+				}
+		);
+	}
+	/*End of for adding edit/delete options for a question*/
+	
+	/* for editing the Question/Answer */
+	$(".questionAnswer").on("click",".editQuestion", function($e){
+		alert("hl");
+		$("#dialog").dialog("open", "heading");
 	});
-
-
-	/*Edit FAQ */
-	$(".editFAQs").click(function(){
-		$(this).hide();
-		$(".question").show().attr("contenteditable","true");
-		$(".answer").show().attr("contenteditable","true");
-		$(".FAQList").after('<button type="button" class="saveFAQ btn btn-primary pull-right">SAVE</button>');
-	});
-	/* Edit FAQ */
-
-	$(".saveFAQ").on("click", function(){
-
-		$(this).hide();
-		$(".addFAQs").show();
-		alert("haha");
-		$(".FAQList question").attr("contenteditable","false");
-		$(".FAQList answer").hide();
-	});
-	/*End of Add FAQ*/	
-
+	
+	/* end of for editing the Question/Answer */
+	
 });

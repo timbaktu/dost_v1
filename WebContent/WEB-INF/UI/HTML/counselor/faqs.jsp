@@ -6,48 +6,42 @@
 <jsp:include page="includes/headerCounselor.jsp"></jsp:include>
 <head>
 <meta charset="utf-8">
-<title>Insert title here</title>
-<link
-	href="../resources/lib/css/ui-lightness/jquery-ui-1.10.4.custom.css"
-	rel="stylesheet">
-<script src="../resources/lib/jquery-1.10.2.js"></script>
-<script src="../resources/lib/jquery-ui-1.10.4.custom.js"></script>
+<title>Frequently Asked Questions - DOST</title>
 <script>
 	$(function() {
 		//alert($("#faq").serialize());
 		
 		$("#dialog").dialog({
 			autoOpen : false,
-			width : 400,
+			width : 600,
 			buttons : [ {
-				text : "Ok",
+				text : "CANCEL",
 				click : function() {
-					debugger;
-					alert($("#categoryid").val());
-					alert($("#faq").serialize());
-					var datatosend = 'answer='+$("#answer").val()+'&question=' + $("#question").val();
-					$.post('http://satyajeet-n:8080/dost/api/faq/add', $("#faq").serialize(), function(response) {
-						//$('#visitFormResponse').text(response);
-					});
-					
+					//alert($("#question").val());
+					$(this).dialog("destroy");
 					//e.preventDefault();
 				}
 			}, {
-				text : "Cancel",
+				text : "ADD",
 				click : function() {
-					//alert($("#question").val());
-					$(this).dialog("close");
+					debugger;
+					var datatosend = 'answer='+$("#answer").val()+'&question=' + $("#question").val();
+					$.post('http://localhost:8800/dost/api/faq/add', $("#faq").serialize(), function(response) {
+						//$('#visitFormResponse').text(response);
+					});
+					window.setTimeout('location.reload()', 1000);
 				}
 			} ]
 		});
 
-		// Link to open the dialog
+		/* Adding question*/
 		$("#addbutton").click(function(event) {
+			$("#dialog").dialog("option","title", "Add New Question");
 			$("#dialog").dialog("open");
-			event.preventDefault();
 		});
-
+		/* End of adding question*/
 		// Hover states on the static widgets
+		/*	
 		$("#dialog-link, #icons li").hover(function() {
 			$(this).addClass("ui-state-hover");
 		}, function() {
@@ -62,6 +56,8 @@
 		$("#previous").click(function(event) {
 			alert('previous click working');
 		});
+		*/
+		
 	});
 </script>
 </head>
@@ -71,8 +67,6 @@
 		<div class="col-md-7">
 			<div class="pageTop">
 				<h2 class="pull-left pageHeading">Frequently Asked Questions</h2>
-				<button type="button" class="editFAQs btn btn-primary pull-right">EDIT
-					FAQs</button>
 				<button type="button" id="addbutton"
 					class="addFAQs btn btn-primary pull-right">ADD FAQs</button>
 				<div class="clearfix"></div>
@@ -89,8 +83,30 @@
 		</div>
 	</div>
 
-	<!-- ui-dialog -->
-	<div id="dialog" title="Add FAQ">
+	<!-- modal dialog -->
+	<div id="dialog" class="modal-dialog" title="Add a Question">
+	  <div>
+	    <div>
+	      <form name="faq" id="faq" action="" method="post">
+			
+			Question : <input id="question" name="question" type="text" value="Question" class="form-control" placeholder="Type your question"> </br> 
+			Answer : <textarea id="answer" name="answer" placeholder="Type the answer" class="form-control" rows="3" ></textarea> </br> 
+			
+			Select Category : <select id="categoryid" name="category">
+								  <option id="1" name="career" value="career">Career</option>
+								  <option id="2" name="family" value="family">Family</option>
+								  <option id="3" name="other" value="other">Other</option>
+								</select> </br>
+			
+		
+		</form>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	
+	
+	
+	<!-- <div id="dialog" title="Add FAQ">
 		<form name="faq" id="faq" action="" method="post">
 		Select Category : 
 		<select id="categoryid" name="category">
@@ -102,7 +118,7 @@
 		Answer : <textarea id="answer" name="answer" rows="4" cols="50">At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.</textarea> </br> 
 		
 		</form>
-	</div>
+	</div>  -->
 
 </body>
 </html>

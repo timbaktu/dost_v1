@@ -332,4 +332,28 @@
 		padding:5px;
 		margin:10px;
 	}
+	.editDeleteOptions{
+		margin-top:0px;
+	}
+	.editDeleteOptions div {
+		color:#21B7D2;
+		cursor:pointer;
+		font-weight:bold;
+	}
+	.editQuestion{
+		border-right: 1px solid black;
+	}
 /*End of counselor end */
+/* jQuery UI Module */
+	.theme-default .ui-dialog, .theme-default .ui-widget{
+		font-family: 'Open Sans', sans-serif;
+		font-size: 13px;
+	}
+	.theme-default .ui-widget-header {
+		background:#FFF;
+		color: #333;
+		border: 0px;
+	}
+	.theme-default .ui-widget-content {
+		background:#FFF;
+	}

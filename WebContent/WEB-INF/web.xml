@@ -48,4 +48,5 @@
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	log4j.rootLogger=debug,A1
 </web-app>
