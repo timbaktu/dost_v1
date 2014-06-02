@@ -1,8 +1,11 @@
-<header class="navbar navbar-default  navbar-fixed-top">
+<header id="main-navbar" class="navbar navbar-default navbar-fixed-top">
   <div class="navbar-inner">
 	<div>
-	  <a class="navbar-brand" href="conversations_counselor.html">Dost</a>
-	  <div class="nav-collapse ">
+	   <a class="navbar-brand" href="index" >
+		  	<img src="../resources/img/logoSmall.jpg" height="47px"/>
+	  </a>
+	  <div class="nav-collapse nav-collapse navbar-collapse">
+	  
 		<!--<p class="navbar-text pull-right">
 			<a href="#" class="navbar-link">Create your account</a>
 		</p>-->

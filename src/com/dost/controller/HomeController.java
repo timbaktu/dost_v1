@@ -66,4 +66,8 @@ public class HomeController {
 	public ModelAndView counselor_patientHistory() {
 		return new ModelAndView("counselor/patientHistory"); 
 	}
+	@RequestMapping("counselor/onlineCounseling")  
+	public ModelAndView counselor_onlineCounseling() {
+		return new ModelAndView("counselor/onlineCounseling"); 
+	}
 }

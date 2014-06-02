@@ -1,9 +1,10 @@
 $( document ).ready(function() {
-		$( ".discussion_topic" ).click(function() {
-			window.location = 'discussionsDetails.html';
-		});
-
+		
 		$("body").addClass("theme-default");
+		
+		if(window.location.href.indexOf("counselor") > -1){
+			$("body").addClass("theme-default-counselor");
+		}
 		
 		/*FAQ listing*/
 		$.getJSON("/dost/api/faqcategory/all", function(FAQ) {	

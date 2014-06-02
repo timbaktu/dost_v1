@@ -4,7 +4,7 @@
 	<body >
 		<jsp:include page="includes/headerCounselor.jsp"></jsp:include>
 		<div class="container">
-			<div class="col-md-11">
+			<div class="col-md-11 well">
 				<div class="pageTop">
 					<h2 class="pull-left pageHeading col-md-offset-2">
 							<a  href="conversations.html">&larr; Back to all Conversations</a>
