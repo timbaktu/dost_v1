@@ -2,6 +2,9 @@ $( document ).ready(function() {
 		
 		$("body").addClass("theme-default");
 		
+		var url = $(location).attr("pathname").split("/");
+		$('#main-navbar .menuItems a[href="'+url[url.length-1]+'"]').parent("li").addClass("active");
+		
 		if(window.location.href.indexOf("counselor") > -1){
 			$("body").addClass("theme-default-counselor");
 		}

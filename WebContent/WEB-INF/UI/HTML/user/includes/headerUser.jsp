@@ -17,16 +17,16 @@
 					<li><a href="../index" class="navbar-link">Logout</a></li>
 				</sec:authorize>
 			</ul>
-			<ul class="nav navbar-nav pull-left">
+			<ul class="nav navbar-nav pull-left menuItems">
 			  <sec:authorize access="hasRole('ROLE_USER')">
-				<li><a href="conversations">My Conversations</a></li>
+				<li id="conversations"><a href="conversations">My Conversations</a></li>
 			  </sec:authorize>
-			  <li><a href="discussionsAll">Discussions</a></li>
+			  <li id="discussions"><a href="discussionsAll">Discussions</a></li>
 			  <sec:authorize access="hasRole('ROLE_USER')">
-			  	<li><a href="talkToFriend">Talk To a Friend</a></li>
+			  	<li id="talkToFriend"><a href="talkToFriend">Talk To a Friend</a></li>
 			  </sec:authorize>
-			  <li><a href="faqs">FAQs</a></li>
-			  <li><a href="resources">Resources</a></li>
+			  <li id="faqs"><a href="faqs">FAQs</a></li>
+			  <li id="resources"><a href="resources">Resources</a></li>
 			</ul>
 		  </div><!--/.nav-collapse -->
 		</div>
