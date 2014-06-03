@@ -9,19 +9,25 @@ $( document ).ready(function() {
 			$("body").addClass("theme-default-counselor");
 		}
 		
-		/*FAQ listing*/
+		/*Manipulating json for FAQ*/
 		$.getJSON("/dost/api/faqcategory/all", function(FAQ) {	
 			for (var i = 0 ; i < FAQ.length; i++) {
-					$(".FAQList").append('<div class="well categoryList"><h3 class="categoryName" id='+FAQ[i].faqCategoryName+">"+FAQ[i].faqCategoryName+"</h3>");
-					$("#"+FAQ[i].faqCategoryName).after("<ul></ul></div>");
+				
+				/*FAQ listing on faq page*/
+				$(".FAQList").append('<div class="well categoryList"><h3 class="categoryName" id='+FAQ[i].faqCategoryName+">"+FAQ[i].faqCategoryName+"</h3>");
+				$("#"+FAQ[i].faqCategoryName).after("<ul></ul></div>");
 
-					for (var j = 0 ; j < FAQ[i].faqs.length; j++) {
-						$("#"+FAQ[i].faqCategoryName).siblings("ul").append('<li class="questionAnswer" id='+FAQ[i].faqCategoryName+j+'><div class="question">'+FAQ[i].faqs[j].question+'</div><div class="answer">'+ FAQ[i].faqs[j].answer +"</div></li>");
-					}
-					
-
-			}
-		/*End of FAQ listing*/
+				for (var j = 0 ; j < FAQ[i].faqs.length; j++) {
+					$("#"+FAQ[i].faqCategoryName).siblings("ul").append('<li class="questionAnswer" id='+FAQ[i].faqCategoryName+j+'><div class="question">'+FAQ[i].faqs[j].question+'</div><div class="answer">'+ FAQ[i].faqs[j].answer +"</div></li>");
+				}
+				/* end of FAQ listing on faq page*/
+				
+				/*FAQ listing on index page*/
+				var numberOfQuestions = FAQ[i].faqs.length;
+				$("#faqs ul").append('<li>'+ FAQ[i].faqs[numberOfQuestions -1].question +'</li>');
+				/*end of FAQ listing on index page*/
+		}
+		/*End of manipulating json for FAQ*/
 
 		/*clicking FAQs*/
 		$(".question").click(function(){

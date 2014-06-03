@@ -1,20 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page session="true"%>
 <html>
-<head>
-<title>Login Page</title>
-	<head>
-		<script src="resources/JS/jquery.js"></script>
-		<script src="resources/JS/bootstrap.min.js"></script>
-		<script src="resources/JS/script.js"></script>
-		<link href="resources/CSS/bootstrap.min.css" rel="stylesheet" media="screen">
-		<link href="resources/CSS/style.css" rel="stylesheet" media="screen">
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=latin-ext' rel='stylesheet' type='text/css'>
-	</head>
-</head>
-<body class="container-fluid" onload='document.loginForm.username.focus();'>
 
-			<jsp:include page="user/includes/headerUser.jsp"></jsp:include>
+	<jsp:include page="${pageContext.request.contextPath}/user/includes/headerUser.jsp"></jsp:include>
+	
+	<body class="container-fluid" onload='document.loginForm.username.focus();'>
+			<jsp:include page="${pageContext.request.contextPath}/user/includes/headerUser.jsp"></jsp:include>
 			<!-- <header id="main-navbar" class="navbar navbar-inverse navbar-fixed-top">
 			  <div class="navbar-inner">
 				<div>

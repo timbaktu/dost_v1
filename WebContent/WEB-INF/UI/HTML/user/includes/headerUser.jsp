@@ -5,7 +5,7 @@
 	  <div class="navbar-inner">
 		<div>
 		  <a class="navbar-brand" href="index" >
-		  	<img src="../resources/img/logoSmall.jpg" height="47px"/>
+		  	<img src="${pageContext.request.contextPath}/resources/img/logoSmall.jpg" height="47px"/>
 		  </a>
 		  <div class="nav-collapse navbar-collapse ">
 			<ul class="nav navbar-nav pull-right ">
