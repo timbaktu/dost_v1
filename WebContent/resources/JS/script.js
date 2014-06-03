@@ -32,7 +32,6 @@ $( document ).ready(function() {
 		/*clicking FAQs*/
 		$(".question").click(function(){
 				$(this).addClass("clickedQuestion");
-				$(".categoryName").hide();
 				$(".nextPreviousNav").show();
 				$(".allQuestions").show();
 				$(".question").not(this).hide();
@@ -49,18 +48,53 @@ $( document ).ready(function() {
 				$(".nextPreviousNav").hide();
 				$(".allQuestions").hide();
 				$(".categoryList").show();
+				$(".questionAnswer").show();
 				$(".question").show();
 				$(".answer").hide();
 
 		});
 		/*End of Moving through FAQs*/
 		
-		/*next previous navigation* TO BE DONE /
+		/*Next Previous navigation*/
 		$(".next").click(function(){
-			$(".clickedQuestion").removeClass("clickedQuestion").closest("li").next("li").show().find(".question").addClass("clickedQuestion");		
+			$(".clickedQuestion").closest("li.questionAnswer").hide();
+			var nextQuestion = $(".clickedQuestion").closest("li").next("li");		
 			
+			if(nextQuestion.length == 0){
+				nextCategory= $(".clickedQuestion").closest(".categoryList").next(".categoryList");
+				nextCategory.show();
+				nextQuestion =	$(".clickedQuestion").closest(".categoryList").next(".categoryList").find("li:first-child");
+				$(".clickedQuestion").removeClass("clickedQuestion").closest(".categoryList").hide();
+			}
+			
+			
+			$(".clickedQuestion").removeClass("clickedQuestion");
+			nextQuestion.show();
+			nextQuestion.find("div").show();
+			nextQuestion.find(".question").addClass("clickedQuestion");
+		});
+		
+		
+		$(".previous").click(function(){
+			$(".clickedQuestion").closest("li.questionAnswer").hide();
+			var prevQuestion = $(".clickedQuestion").closest("li").prev("li");		
+			
+			if(prevQuestion.length == 0){
+				nextCategory= $(".clickedQuestion").closest(".categoryList").prev(".categoryList");
+				nextCategory.show();
+				nextQuestion =	$(".clickedQuestion").closest(".categoryList").prev(".categoryList").find("li:first-child");
+				$(".clickedQuestion").removeClass("clickedQuestion").closest(".categoryList").hide();
+			}
+			
+			$(".clickedQuestion").removeClass("clickedQuestion");
+			prevQuestion.show();
+			prevQuestion.find("div").show();
+			prevQuestion.find(".question").addClass("clickedQuestion");
 		});
 		/*end of next previous navigation*/
+		
+		
+		
 	});
 
 		

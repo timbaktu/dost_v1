@@ -2,10 +2,10 @@
 <%@page session="true"%>
 <html>
 
-	<jsp:include page="${pageContext.request.contextPath}/user/includes/headerUser.jsp"></jsp:include>
+	<jsp:include page="user/includes/headerUser.jsp"></jsp:include>
 	
 	<body class="container-fluid" onload='document.loginForm.username.focus();'>
-			<jsp:include page="${pageContext.request.contextPath}/user/includes/headerUser.jsp"></jsp:include>
+			<jsp:include page="user/includes/headerUser.jsp"></jsp:include>
 			<!-- <header id="main-navbar" class="navbar navbar-inverse navbar-fixed-top">
 			  <div class="navbar-inner">
 				<div>

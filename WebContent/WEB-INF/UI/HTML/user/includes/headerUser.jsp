@@ -1,6 +1,7 @@
 <%@taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <header id="main-navbar" class="navbar navbar-inverse navbar-fixed-top">
 	  <div class="navbar-inner">
 		<div>
