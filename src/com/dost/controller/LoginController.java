@@ -22,75 +22,74 @@ public class LoginController {
 
 	@Autowired
 	private UserService userService;
-	
-	@RequestMapping("user/conversations")  
+
+	@RequestMapping("user/conversations")
 	public ModelAndView showMessage() {
-		return new ModelAndView("user/conversations"); 
+		return new ModelAndView("user/conversations");
 	}
-	
-	@RequestMapping(value="/user/authenticate")  
+
+	@RequestMapping(value = "/user/authenticate")
 	public ModelAndView authenticateUser(DbUser user) {
-		Role role = userService.authenticateUser(user.getUsername(), user.getPassword());
-		if(role == Role.USER) {
-			return new ModelAndView("user/conversations");	
-		}
-		else if(role == Role.COUNSELOR) {
-			return new ModelAndView("counselor/conversations");	
-		}
-		else {
-			return new ModelAndView("unauthorized");	
+		Role role = userService.authenticateUser(user.getUsername(),
+				user.getPassword());
+		if (role == Role.USER) {
+			return new ModelAndView("user/conversations");
+		} else if (role == Role.COUNSELOR) {
+			return new ModelAndView("counselor/conversations");
+		} else {
+			return new ModelAndView("unauthorized");
 		}
 	}
-	
-	@RequestMapping(value="/faq/add", method=RequestMethod.POST)  
+
+	@RequestMapping(value = "/faq/add", method = RequestMethod.POST)
 	@ResponseBody
 	public void addUser(DbUser user) {
-		userService.saveUser(user.getUsername(), user.getPassword(), user.getUserRole().toString()); 
+		userService.saveUser(user.getUsername(), user.getPassword(), user
+				.getUserRole().toString());
 	}
-	
-	
-	
-	
-	
-//	@RequestMapping(value="/welcome", method = RequestMethod.GET)
-//	 public String printWelcome(ModelMap model) {
-//	 
-//	  User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//	  String name = user.getUsername();
-//	 
-//	  model.addAttribute("username", name);
-//	  model.addAttribute("message", "Spring Security login + database example");
-//	  return "hello";
-//	 
-//	 }
-//	 
-//	 @RequestMapping(value="/login", method = RequestMethod.GET)
-//	 public String login(ModelMap model) {
-//	 
-//	  return "login";
-//	 
-//	 }
-//	 
-//	 @RequestMapping(value="/loginfailed", method = RequestMethod.GET)
-//	 public String loginerror(ModelMap model) {
-//	 
-//	  model.addAttribute("error", "true");
-//	  return "login";
-//	 
-//	 }
-//	 
-//	 @RequestMapping(value="/logout", method = RequestMethod.GET)
-//	 public String logout(ModelMap model) {
-//	 
-//	  return "login";
-//	 
-//	 }
-	
+
+	// @RequestMapping(value="/welcome", method = RequestMethod.GET)
+	// public String printWelcome(ModelMap model) {
+	//
+	// User user =
+	// (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	// String name = user.getUsername();
+	//
+	// model.addAttribute("username", name);
+	// model.addAttribute("message",
+	// "Spring Security login + database example");
+	// return "hello";
+	//
+	// }
+	//
+	// @RequestMapping(value="/login", method = RequestMethod.GET)
+	// public String login(ModelMap model) {
+	//
+	// return "login";
+	//
+	// }
+	//
+	// @RequestMapping(value="/loginfailed", method = RequestMethod.GET)
+	// public String loginerror(ModelMap model) {
+	//
+	// model.addAttribute("error", "true");
+	// return "login";
+	//
+	// }
+	//
+	// @RequestMapping(value="/logout", method = RequestMethod.GET)
+	// public String logout(ModelMap model) {
+	//
+	// return "login";
+	//
+	// }
+
 	@RequestMapping(value = { "/", "/user/welcome**" }, method = RequestMethod.GET)
 	public ModelAndView defaultPage() {
 
 		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Security Login Form - Database Authentication");
+		model.addObject("title",
+				"Spring Security Login Form - Database Authentication");
 		model.addObject("message", "This is default page!");
 		model.setViewName("user/conversations");
 		return model;
@@ -101,7 +100,8 @@ public class LoginController {
 	public ModelAndView adminPage() {
 
 		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Security Login Form - Database Authentication");
+		model.addObject("title",
+				"Spring Security Login Form - Database Authentication");
 		model.addObject("message", "This page is for ROLE_ADMIN only!");
 		model.setViewName("counselorss/conversations");
 
@@ -110,7 +110,8 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public ModelAndView login(@RequestParam(value = "error", required = false) String error,
+	public ModelAndView login(
+			@RequestParam(value = "error", required = false) String error,
 			@RequestParam(value = "logout", required = false) String logout) {
 
 		ModelAndView model = new ModelAndView();
@@ -126,26 +127,27 @@ public class LoginController {
 		return model;
 
 	}
-	
-	//for 403 access denied page
+
+	// for 403 access denied page
 	@RequestMapping(value = "/403", method = RequestMethod.GET)
 	public ModelAndView accesssDenied() {
 
 		ModelAndView model = new ModelAndView();
-		
-		//check if user is login
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+		// check if user is login
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
 		if (!(auth instanceof AnonymousAuthenticationToken)) {
 			UserDetails userDetail = (UserDetails) auth.getPrincipal();
 			System.out.println(userDetail);
-		
+
 			model.addObject("username", userDetail.getUsername());
-			
+
 		}
-		
+
 		model.setViewName("403");
 		return model;
 
 	}
-	
+
 }

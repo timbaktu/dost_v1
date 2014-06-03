@@ -14,16 +14,14 @@
 </head>
 <body class="container-fluid" onload='document.loginForm.username.focus();'>
 
-			<header id="main-navbar" class="navbar navbar-inverse navbar-fixed-top">
+			<jsp:include page="user/includes/headerUser.jsp"></jsp:include>
+			<!-- <header id="main-navbar" class="navbar navbar-inverse navbar-fixed-top">
 			  <div class="navbar-inner">
 				<div>
 				  <a class="navbar-brand" href="index" >
 				  	<img src="resources/img/logoSmall.jpg" height="47px"/>
 				  </a>
 				  <div class="nav-collapse navbar-collapse ">
-					<!--<p class="navbar-text pull-right">
-						<a href="#" class="navbar-link">Create your account</a>
-					</p>-->
 					<ul class="nav navbar-nav pull-right ">
 						
 						<li><a href="login" class="btn btn-primary btn-large signup_now">SIGNUP NOW</a></li>
@@ -36,10 +34,10 @@
 						  <li><a href="faqs">FAQs</a></li>
 						  <li><a href="resources">Resources</a></li>
 					</ul>
-				  </div><!--/.nav-collapse -->
+				  </div>
 				</div>
 			  </div>
-		</header>
+		</header> -->
 				<div class="container row-fluid welcomePage">
 			<div class="col-md-7">
 

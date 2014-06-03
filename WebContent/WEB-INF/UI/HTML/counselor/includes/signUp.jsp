@@ -1,3 +1,6 @@
+<%@taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="col-md-3" >
 	<div class="login_unit">
 		<p>Something bothering you, Feeling Lonely, Not interested in anything...</p>

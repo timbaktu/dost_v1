@@ -1,29 +1,12 @@
 <!DOCTYPE html>
+<%@taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <html lang="en">
 	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	<body class="container-fluid">
-		<!--<OBJECT data="header.jsp">
-		</OBJECT>-->
-		<header class="navbar navbar-inverse navbar-fixed-top">
-		  <div class="navbar-inner">
-			<div>
-			  <a class="navbar-brand" href="index">Dost</a>
-			  <div class="nav-collapse collapse">
-				<p class="navbar-text pull-right">
-					<a href="#" class="navbar-link">Create your account</a>
-				</p>
-				<!--
-					<ul class="nav">
-					  <li class="active"><a href="#">Home</a></li>
-					  <li><a href="#about">About</a></li>
-					  <li><a href="#contact">Contact</a></li>
-					</ul>
-				-->
-			  </div><!--/.nav-collapse -->
-			</div>
-		  </div>
-		</header>
-		
+		<jsp:include page="includes/headerUser.jsp"></jsp:include>
 		<div class="container">
 			<a class="pull-right signupNowText" href="signupNow" alt="Signup for a new account">Don't have an account? SIGNUP NOW</a>
 			<div class="clearfix"></div>

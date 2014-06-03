@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<%@taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <html lang="en">
 	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	<body class="container-fluid">
@@ -20,7 +24,9 @@
 					<div class="FAQList"></div>	
 				</div>
 			</div>
-			<jsp:include page="includes/signUp.jsp"></jsp:include>
+			<sec:authorize ifNotGranted="ROLE_USER">
+				<jsp:include page="includes/signUp.jsp"></jsp:include>
+			</sec:authorize>
 		</div>
 		<jsp:include page="includes/commonFooter.jsp"></jsp:include>
 	</body>
