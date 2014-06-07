@@ -13,10 +13,10 @@
 	<script type="text/JavaScript" src="${JForumContext.encodeURL("/js/list/moderation")}"></script>
 </#if>
 
-<table cellspacing="0" cellpadding="10" width="100%" align="center" border="0">
-	<tr>
-		<td class="bodyline" valign="top">
-			<table cellspacing="2" cellpadding="2" width="100%" align="center">
+<div class="container-fluid theme-default"> 
+	<div class="container row-fluid">
+			<!-- don't know where helpful
+			 <table cellspacing="2" cellpadding="2" width="100%" align="center">
 				<tr>
 					<td valign="bottom" align="left" colspan="2">
 						<a class="maintitle" href="${JForumContext.encodeURL("/forums/list")}">${I18n.getMessage("ForumListing.forumIndex")}</a> &raquo;
@@ -50,36 +50,47 @@
 						</#if>
 					</td>
 				</tr>
-			</table>
+			</table> 
+			 End of don't know where helpful -->
 
-			<table cellspacing="2" cellpadding="2" width="100%" align="center">
-				<tr>
-					<#if !readonly && !replyOnly>
-						<td valign="middle" align="left" width="50">
-							<a href="${JForumContext.encodeURL("/jforum${extension}?module=posts&amp;action=insert&amp;forum_id=${forum.id}", "")}" rel="nofollow" class="icon_new_topic"><img src="${contextPath}/images/transp.gif" alt="" /></a>
-						</td>
-					</#if>
+			<div class="col-md-7">
+				<div class="pageTop">
+					<h2 class="pull-left pageHeading">Discussions</h2>
+			
 
-					<form accept-charset="${encoding}" action="${JForumContext.encodeURL("/jforum")}" method="get" id="formSearch" name="formSearch">
-					<input type="hidden" name="module" value="search"/>
-					<input type="hidden" name="action" value="search"/>
-					<input type="hidden" name="forum" value="${forum.id}">
-					<input type="hidden" name="match_type" value="all">
+					<div class="pull-right">
+						
+							<#if !readonly && !replyOnly>
+								<a class="pull_left icon_new_topic btn btn-primary btn-large login_btn" href="${JForumContext.encodeURL("/jforum${extension}?module=posts&amp;action=insert&amp;forum_id=${forum.id}", "")}" rel="nofollow" >Create New Discussion</a>
+							</#if>
+		
+							<!-- hiding search initially 
+							
+							<form accept-charset="${encoding}" action="${JForumContext.encodeURL("/jforum")}" method="get" id="formSearch" name="formSearch">
+								<input type="hidden" name="module" value="search"/>
+								<input type="hidden" name="action" value="search"/>
+								<input type="hidden" name="forum" value="${forum.id}">
+								<input type="hidden" name="match_type" value="all">
+			
+								
+									<div class="nav" valign="middle" align="left" colspan="${colspan?default("")}">
+										<input type="text" onblur="if (this.value == '') this.value = '${I18n.getMessage("ForumIndex.searchThisForum")}...';" onclick="if (this.value == '${I18n.getMessage("ForumIndex.searchThisForum")}...') this.value = '';" value="${I18n.getMessage("ForumIndex.searchThisForum")}..." size="20" name="search_keywords" class="inputSearchForum"/>
+										<input type="submit" value="${I18n.getMessage("ForumBase.search")}" class="liteoption">
+									</div>
+								
+			
+							</form>
+							-->
+							<div class=" pull_left " >
+				  				<#assign paginationData><@pagination.doPagination action, forum.id/></#assign>
+								${paginationData}
+							</div>
+						
+					</div>
+				</div>
+				<div class="clearfix"></div>
 
-					<td class="nav" valign="middle" align="left" colspan="${colspan?default("")}">
-						<input type="text" onblur="if (this.value == '') this.value = '${I18n.getMessage("ForumIndex.searchThisForum")}...';" onclick="if (this.value == '${I18n.getMessage("ForumIndex.searchThisForum")}...') this.value = '';" value="${I18n.getMessage("ForumIndex.searchThisForum")}..." size="20" name="search_keywords" class="inputSearchForum"/>
-						<input type="submit" value="${I18n.getMessage("ForumBase.search")}" class="liteoption">
-					</td>
-
-					</form>
-
-					<td class="nav" nowrap="nowrap" align="right">
-		  				<#assign paginationData><@pagination.doPagination action, forum.id/></#assign>
-						${paginationData}
-					</td>
-				</tr>
-			</table>
-
+			<!-- don't know where helpful
 			<#if (canApproveMessages && topicsToApprove.size() > 0)>
 				<script type="text/javascript">
 				<!--
@@ -90,6 +101,8 @@
 					tr.style.display = (d == "none" ? "" : "none");
 				}
 				-->
+		
+				<!-- 
 				</script>
 				<form action="${JForumContext.encodeURL("/jforum")}" method="post" accept-charset="${encoding}">
 				<input type="hidden" name="action" value="approveMessages" />
@@ -118,8 +131,9 @@
 							</td>
 							<td align="center"><span class="gen"><a href="javascript:viewPending(${topic.topicId});"><b>${I18n.getMessage("Moderation.Admin.view")}</b></a></span></td>
 						</tr>
-
+					-->
 						<!-- Messages -->
+					<!-- 
 						<tr id="tr_pending_${topic.topicId}" style="display: none">
 							<td colspan="2">
 								<table width="95%" align="right">
@@ -150,9 +164,10 @@
 							</td>
 						</tr>
 					</#list>
-
+					-->
 					<!-- Submit -->
-					<tr>
+					<!-- 
+					 <tr>
 						<td colspan="2" align="center"><input type="submit" class="mainoption" value="${I18n.getMessage("Moderation.Admin.submit")}" /></td></tr>
 					</tr>
 				</table>
@@ -168,19 +183,10 @@
 				<input type="hidden" name="log_type" value="0"/>
 				<input type="hidden" name="log_description">
 			</#if>
-
-			<table class="forumline" cellspacing="1" cellpadding="4" width="100%" border="0">
-				<tr>
-					<th class="thcornerl" nowrap="nowrap" align="center" colspan="2" height="25">&nbsp;${I18n.getMessage("ForumIndex.topics")}&nbsp;</th>
-					<th class="thtop" nowrap="nowrap" align="center" width="50">&nbsp;${I18n.getMessage("ForumIndex.answers")}&nbsp;</th>
-					<th class="thtop" nowrap="nowrap" align="center" width="100">&nbsp;${I18n.getMessage("ForumIndex.author")}&nbsp;</th>
-					<th class="thtop" nowrap="nowrap" align="center" width="50">&nbsp;${I18n.getMessage("ForumIndex.views")}&nbsp;</th>
-					<th class="thcornerr" nowrap="nowrap" align="center">&nbsp;${I18n.getMessage("ForumIndex.lastMessage")}&nbsp;</th>
-
-					<#if moderator && openModeration?default(false)>
-						<th class="thcornerr" nowrap="nowrap" align="center">&nbsp;${I18n.getMessage("ForumIndex.moderation")}&nbsp;</th>
-					</#if>
-				</tr>
+			
+			End of don't know where helpful -->
+			 
+			<div class="forumline ">
 
 				<!-- TOPICS LISTING -->
 				<#list topics as topic>
@@ -196,69 +202,90 @@
 						</#if>
 					</#if>
 
-					<tr class="bg_small_yellow">
-						<td ${class1} valign="middle"  align="center" width="20"><@presentation.folderImage topic/></td>
-						<td ${class1} width="100%">
-							<#if topic.hasAttach() && attachmentsEnabled><img src="${contextPath}/templates/${templateName}/images/icon_clip.gif" align="middle" alt="[Clip]" /></#if>
-							<span class="topictitle">
-							<a href="${JForumContext.encodeURL("/posts/list/${topic.id}")}">
-							<#if topic.vote>${I18n.getMessage("ForumListing.pollLabel")}</#if>
-							<#if (topic.title?length == 0)>
-								No Subject
-							<#else>
-								${topic.title?html}
-							</#if>
+					<div class="bg_small_yellow discussion_topic ">
+						<div class=" well media">	
+							<a class="pull-left" href="${JForumContext.encodeURL("/user/profile/${topic.postedBy.id}")}">
+								<img class="media-object profile_pic">
+								<span class="owner_name">${topic.postedBy.username}</span>
 							</a>
-							</span>
+									
+						 	<div ${class1} class="media-body">
+							<#if topic.hasAttach() && attachmentsEnabled><img src="${contextPath}/templates/${templateName}/images/icon_clip.gif" align="middle" alt="[Clip]" /></#if>
+								<h4 class="media-heading topictitle">
+									<a href="${JForumContext.encodeURL("/posts/list/${topic.id}")}">
+										<#if topic.vote>${I18n.getMessage("ForumListing.pollLabel")}</#if>
+										<#if (topic.title?length == 0)>
+											No Subject
+										<#else>
+											${topic.title?html}
+										</#if>
+									</a>
+								
 
-							<#if topic.paginate>
-								<span class="gensmall">
-								<br />
-								<@pagination.littlePostPagination topic.id, postsPerPage, topic.totalReplies/>
-								</span>
-							</#if>
-						</td>
-
-						<td ${class2} valign="middle"  align="center"><span class="postdetails">${topic.totalReplies}</span></td>
-						<td ${class3} valign="middle"  align="center">
-							<span class="name"><a href="${JForumContext.encodeURL("/user/profile/${topic.postedBy.id}")}">${topic.postedBy.username}</a></span>
-						</td>
-
-						<td ${class2} valign="middle"  align="center"><span class="postdetails">${topic.totalViews}</span></td>
-						<td ${class3} valign="middle"  nowrap="nowrap" align="center">
-							<#if (topic.lastPostTime?length > 0)>
-								<span class="postdetails">${topic.lastPostTime}<br />
-								<a href="${JForumContext.encodeURL("/user/profile/${topic.lastPostBy.id}")}">${topic.lastPostBy.username}</a>
-
-								<#assign startPage = ""/>
-								<#if (topic.totalReplies + 1 > postsPerPage?number)>
-									<#assign startPage = ((topic.totalReplies / postsPerPage?number)?int * postsPerPage?number) +"/"/>
+								<#if topic.paginate>
+									<span class="gensmall">
+									<br />
+									<@pagination.littlePostPagination topic.id, postsPerPage, topic.totalReplies/>
+									</span>
 								</#if>
+								
+								<span ${class3}  >
+									<#if (topic.lastPostTime?length > 0)>
+										<span class="postdetails">${topic.lastPostTime}<br />
+										<a href="${JForumContext.encodeURL("/user/profile/${topic.lastPostBy.id}")}">${topic.lastPostBy.username}</a>
+		
+										<#assign startPage = ""/>
+										<#if (topic.totalReplies + 1 > postsPerPage?number)>
+											<#assign startPage = ((topic.totalReplies / postsPerPage?number)?int * postsPerPage?number) +"/"/>
+										</#if>
+		
+										<a href="${JForumContext.encodeURL("/posts/list/${startPage}${topic.id}")}#${topic.lastPostId}"><img src="${contextPath}/templates/${templateName}/images/icon_latest_reply.gif" border="0" alt="[Latest Reply]" /></a></span>
+									</#if>
+								</span>
+							</h4>
+							
+							<p class="discussion_summary"> TO GET THE VALUE
+							
+							Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+							</p>
+							
+						</div>
 
-								<a href="${JForumContext.encodeURL("/posts/list/${startPage}${topic.id}")}#${topic.lastPostId}"><img src="${contextPath}/templates/${templateName}/images/icon_latest_reply.gif" border="0" alt="[Latest Reply]" /></a></span>
-							</#if>
-						</td>
+						<div ${class2} valign="middle"  align="center"><span class="postdetails">${topic.totalReplies}</span></div>
+						
+
+						<!--Total views , not required now
+							 <div ${class2} ><span class="postdetails">${topic.totalViews}</span></div> 
+						End of Total views , not required now -->
+						
 
 						<#if moderator && openModeration?default(false)>
-							<td ${class2} valign="middle" align="center">
+							<div ${class2} valign="middle" align="center">
 								<input type="checkbox" <#if topic.movedId != 0 && topic.forumId != forum.id>disabled="disabled"</#if> name="topic_id" value="${topic.id}" onclick="changeTrClass(this, ${topic_index});"/>
-							</td>
+							</div>
 						</#if>
-					</tr>
+					</div>
+					<div class="offset1 well well-small discussionComments">
+						 <span>TO GET THE VALUE Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ant</span>
+						 <span class="time_taken pull-right">15 seconds ago</span>
+					</div>
+				</div>
 				</#list>
 				<!-- END OF TOPICS LISTING -->
 				
-				<tr align="center">
-					<td class="catbottom" valign="middle"  align="right" colspan="<#if moderator && openModeration?default(false)>7<#else>6</#if>" height="28">
-						<table cellspacing="0" cellpadding="0" border="0">
-							<tr>
-								<td align="center"><span class="gensmall">&nbsp;<@presentation.moderationButtons/></span></td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-			</table>
-			
+				<!-- don't know where helpful
+				<div align="center">
+					<div class="catbottom" valign="middle"  align="right" colspan="<#if moderator && openModeration?default(false)>7<#else>6</#if>" height="28">
+						<div>
+							<div>
+								<div><span class="gensmall">&nbsp;<@presentation.moderationButtons/></span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
 			<#if moderator></form></#if>	
 
 			<table cellspacing="2" cellpadding="2" width="100%" align="center" border="0">
@@ -301,7 +328,8 @@
 					<td align="right"><@presentation.forumsComboTable/></td>
 				</tr>
 			</table>
-
+			End of don't know where helpful-->
+			<!-- don't know where helpful
 			<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
 				<tr>
 					<td valign="top" align="left">
@@ -319,8 +347,10 @@
 					</#if>
 				</tr>
 			</table>
-		</td>
-	</tr>
-</table>
+			End of don't know where helpful -->
+	</div>
+</div>
 
+<!-- don't know where helpful
 <#include "bottom.htm"/>
+End of don't know where helpful -->

@@ -57,9 +57,9 @@ package net.jforum;
  *
  * <b>Example:</b><br>
  *
- * URL: <i>http://localhost:8080/webappName/someDir/myServlet/news/view/3.page<i>.
+ * URL: <i>http://localhost:8800/webappName/someDir/myServlet/news/view/3.page<i>.
  * <br>
- * In this case, <i>http://localhost:8080/webappName/someDir/myServlet/</i> is the
+ * In this case, <i>http://localhost:8800/webappName/someDir/myServlet/</i> is the
  * regular URL, the part that we don't care about. We only want the part
  * <i>news/view/3.page</i> ( where .page is the servlet extension ).
  * <br>For this URL, we could make the following pattern:<br><br>

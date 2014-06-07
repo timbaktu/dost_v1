@@ -375,6 +375,7 @@
 		border-right: 1px solid black;
 	}
 /*End of counselor end */
+
 /* jQuery UI Module */
 	.theme-default .ui-dialog, .theme-default .ui-widget{
 		font-family: 'Open Sans', sans-serif;
@@ -388,3 +389,24 @@
 	.theme-default .ui-widget-content {
 		background:#FFF;
 	}
+/* End of jQuery UI Module */
+
+/* jforum module*/
+
+
+.theme-default .genmed,.theme-default .name {
+    font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+}
+.theme-default .forumline {
+    border: 0;
+}
+.theme-default .nav,.theme-default .topictitle {
+    font-size:	1em;
+    font-weight: normal;
+}
+.theme-default  .discussion_summary, .discussionComments {
+    font-size:	13px;
+    font-weight: normal;
+}
+/*end of jforum module*/

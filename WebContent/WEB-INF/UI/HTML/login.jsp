@@ -2,7 +2,7 @@
 <%@page session="true"%>
 <html>
 
-	<jsp:include page="user/includes/headerUser.jsp"></jsp:include>
+	<jsp:include page="user/includes/commonHeader.jsp"></jsp:include>
 	
 	<body class="container-fluid" onload='document.loginForm.username.focus();'>
 			<jsp:include page="user/includes/headerUser.jsp"></jsp:include>
