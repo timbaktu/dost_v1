@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `discussion` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `discussion`;
+CREATE DATABASE  IF NOT EXISTS `dost` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `dost`;
 -- MySQL dump 10.13  Distrib 5.6.13, for Win32 (x86)
 --
 -- Host: localhost    Database: discussion
