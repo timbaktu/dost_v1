@@ -15,7 +15,7 @@
 				</sec:authorize>
 				<sec:authorize access="hasRole('ROLE_USER')">
 					<li><a href="#" class="navbar-link">${pageContext.request.userPrincipal.name}</a></li>
-					<li><a href="../index" class="navbar-link">Logout</a></li>
+					<li><a href="dost/j_spring_security_logout" class="navbar-link">Logout</a></li>
 				</sec:authorize>
 			</ul>
 			<ul class="nav navbar-nav pull-left menuItems">
