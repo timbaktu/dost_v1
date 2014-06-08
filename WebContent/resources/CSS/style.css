@@ -7,6 +7,7 @@
 		border-top: 1px solid #ddd;
 		font-size: 11px;
 		padding-top: 20px; 	
+		margin-bottom:20px;
 	}
 
 	.create_account{
@@ -230,6 +231,9 @@
     	font-weight: bold;
 	}
 	/*theme*/
+	.theme-default label{
+		font-weight:normal;
+	}
 	.theme-default .next, .theme-default .previous, .theme-default .allQuestions{
 		color:#21B7D2;
 		cursor:pointer;
@@ -404,9 +408,41 @@
 .theme-default .nav,.theme-default .topictitle {
     font-size:	1em;
     font-weight: normal;
+    font-family: 'Open Sans', sans-serif;
 }
-.theme-default  .discussion_summary, .discussionComments {
+.theme-default  .discussion_summary, .discussionComments, .breadcrumbContainer a, font, th, td, p{
     font-size:	13px;
     font-weight: normal;
+     font-family: 'Open Sans', sans-serif;
+}
+.theme-default .formForPosting{
+	margin-top: 20px;	
+}
+.each_interaction:first-child{
+	background-color: #FFFFFF;
+	border: 1px solid #E3E3E3;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    margin-bottom: 20px;
+    min-height: 20px;
+    padding: 19px;
+    margin-left: 0
+	
+}
+.each_interaction{
+	margin-left:20px;
+	border-bottom: 1px dotted #DDDDDD;
+    padding: 19px;
+}
+#quickReply{
+	margin-left:40px;
+}
+
+#quickReply textarea{
+	margin-bottom: 20px;
+}
+h4.media-heading{
+	font-size: 16px;
+	font-weight:bold;	
 }
 /*end of jforum module*/
