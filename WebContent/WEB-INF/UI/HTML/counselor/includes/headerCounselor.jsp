@@ -6,7 +6,7 @@
   <div class="navbar-inner">
 	<div>
 	   <a class="navbar-brand" href="index" >
-		  	<img src="../resources/img/logoSmall.jpg" height="47px"/>
+		  	<img src="${pageContext.request.contextPath}/resources/img/logoSmall.jpg" height="47px"/>
 	  </a>
 	  <div class="nav-collapse nav-collapse navbar-collapse">
 	  
@@ -15,8 +15,8 @@
 		</p>-->
 		<sec:authorize access="hasRole('ROLE_ADMIN')">
 			<ul class="nav navbar-nav pull-right ">
-				<li><a href="#" class="navbar-link">Prashant</a></li>
-				<li><a href="#" class="navbar-link">Logout</a></li>
+				<li><a href="#" class="navbar-link">${pageContext.request.userPrincipal.name}</a></li>
+				<li><a href="dost/j_spring_security_logout" class="navbar-link">Logout</a></li>
 			</ul>
 			<ul class="nav navbar-nav pull-left menuItems">
 				  <li id="conversations"><a href="conversations">Conversations</a></li>

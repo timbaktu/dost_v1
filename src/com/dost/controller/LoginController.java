@@ -1,5 +1,8 @@
 package com.dost.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -84,14 +87,21 @@ public class LoginController {
 	//
 	// }
 
-	@RequestMapping(value = { "/", "/user/welcome**" }, method = RequestMethod.GET)
-	public ModelAndView defaultPage() {
+	@RequestMapping(value = { "/", "/welcome**" }, method = RequestMethod.GET)
+	public ModelAndView defaultPage(HttpServletRequest request) {
 
 		ModelAndView model = new ModelAndView();
 		model.addObject("title",
 				"Spring Security Login Form - Database Authentication");
 		model.addObject("message", "This is default page!");
-		model.setViewName("user/conversations");
+
+		if(request.isUserInRole("ROLE_ADMIN")){
+			model.setViewName("counselor/conversations");	
+		}
+		else {
+			model.setViewName("user/conversations");		
+		}
+		
 		return model;
 
 	}
@@ -103,7 +113,7 @@ public class LoginController {
 		model.addObject("title",
 				"Spring Security Login Form - Database Authentication");
 		model.addObject("message", "This page is for ROLE_ADMIN only!");
-		model.setViewName("counselorss/conversations");
+		model.setViewName("counselors/conversations");
 
 		return model;
 
@@ -112,7 +122,7 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login(
 			@RequestParam(value = "error", required = false) String error,
-			@RequestParam(value = "logout", required = false) String logout) {
+			@RequestParam(value = "logout", required = false) String logout, HttpServletRequest request) {
 
 		ModelAndView model = new ModelAndView();
 		if (error != null) {
