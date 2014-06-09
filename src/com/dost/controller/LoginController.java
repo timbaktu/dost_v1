@@ -87,7 +87,7 @@ public class LoginController {
 	//
 	// }
 
-	@RequestMapping(value = { "/", "/welcome**" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/", "/user/welcome**" }, method = RequestMethod.GET)
 	public ModelAndView defaultPage(HttpServletRequest request) {
 
 		ModelAndView model = new ModelAndView();
