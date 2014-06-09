@@ -88,7 +88,7 @@ public class LoginController {
 	// }
 
 	@RequestMapping(value = { "/", "/user/welcome**" }, method = RequestMethod.GET)
-	public ModelAndView defaultPage(HttpServletRequest request) {
+	public String defaultPage(HttpServletRequest request) {
 
 		ModelAndView model = new ModelAndView();
 		model.addObject("title",
@@ -96,13 +96,11 @@ public class LoginController {
 		model.addObject("message", "This is default page!");
 
 		if(request.isUserInRole("ROLE_ADMIN")){
-			model.setViewName("counselor/conversations");	
+			return "redirect:/counselor/conversations";
 		}
 		else {
-			model.setViewName("user/conversations");		
+			return "redirect:/user/conversations";
 		}
-		
-		return model;
 
 	}
 
