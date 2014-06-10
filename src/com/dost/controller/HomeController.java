@@ -46,6 +46,11 @@ public class HomeController {
 		return new ModelAndView("user/faqs"); 
 	}
 	
+	@RequestMapping("user/popups")  
+	public ModelAndView popups() {
+		return new ModelAndView("user/popups"); 
+	}
+	
 	@RequestMapping("counselor/login")  
 	public ModelAndView counselor_login() {
 		return new ModelAndView("counselor/login"); 
@@ -69,5 +74,9 @@ public class HomeController {
 	@RequestMapping("counselor/onlineCounseling")  
 	public ModelAndView counselor_onlineCounseling() {
 		return new ModelAndView("counselor/onlineCounseling"); 
+	}
+	@RequestMapping("counselor/popups")  
+	public ModelAndView counselor_popups() {
+		return new ModelAndView("counselor/popups"); 
 	}
 }
