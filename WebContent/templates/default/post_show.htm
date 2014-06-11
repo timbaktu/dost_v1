@@ -56,6 +56,7 @@
 							<a href="${JForumContext.encodeURL("/forums/show/${forum.id}")}">&larr; Back to all Discussions</a>
 						</div>
 						
+					
 						<#if !readonly>
 						<div class="pull-right">
 						</#if>
@@ -69,6 +70,20 @@
 								</#if>
 							</#if>
 						</div>
+						<#if isModerator || isAdmin>
+							<form class="pull-right" action="${JForumContext.encodeURL("/jforum")}" method="post" name="formModeration" id="formModeration">
+								<input type="hidden" name="action" value="doModeration" />
+								<input type="hidden" name="module" value="moderation" />
+								<input type="hidden" name="returnUrl" value="${JForumContext.encodeURL("/${moduleName}/${action}/${start}/${topic.id}")}" />
+								<input type="hidden" name="forum_id" value="${topic.forumId}" />
+								<input type="hidden" name="topic_id" value="${topic.id}" />
+								<input type="hidden" name="log_type" value="0"/>
+								<input type="hidden" name="log_description">
+								<input type="hidden" id="moderationTodo" />
+			
+								<@presentation.moderationImages/>
+							</form>
+						</#if>
 						<div class="clearfix"></div>
 					</div>
 
@@ -136,10 +151,21 @@
 							</#if>
 							<div class="each_interaction media">
 								<div class="clearfix"></div>
+								<#if canRemove>
+									<a class="pull-right"  href="${JForumContext.encodeURL("/jforum${extension}?module=${moduleName}&amp;action=delete&amp;post_id=${post.id}&amp;start=${start}","")}" id="delete${post.id}" onclick="return confirmDelete(${post.id});">Delete</a>
+									<span class="pull-right"> | </span>
+								</#if>
+								
+								<#if (canEditCurrentMessage)>
+									<a class="pull-right" href="${JForumContext.encodeURL("/jforum${extension}?module=${moduleName}&amp;action=edit&amp;post_id=${post.id}&amp;start=${start}","")}" rel="nofollow" class="icon_edit">Edit</a>  
+								</#if>
+								
+																
 								<#include "post_show_user_inc.htm"/>
 								
 								<!-- Message -->
 								<div class="media-body"  id="post_text_${post.id}">
+									
 									<#if canEditCurrentMessage>
 										<#assign canEditSomeMessage = true/>
 										<div class="edit_area" id="${post.id}">${post.text}</div>
@@ -254,20 +280,6 @@
 							
 					</#if>
 					
-					<#if isModerator || isAdmin>
-						<form action="${JForumContext.encodeURL("/jforum")}" method="post" name="formModeration" id="formModeration">
-						<input type="hidden" name="action" value="doModeration" />
-						<input type="hidden" name="module" value="moderation" />
-						<input type="hidden" name="returnUrl" value="${JForumContext.encodeURL("/${moduleName}/${action}/${start}/${topic.id}")}" />
-						<input type="hidden" name="forum_id" value="${topic.forumId}" />
-						<input type="hidden" name="topic_id" value="${topic.id}" />
-						<input type="hidden" name="log_type" value="0"/>
-						<input type="hidden" name="log_description">
-						<input type="hidden" id="moderationTodo" />
-	
-						<@presentation.moderationImages/>
-						</form>
-					</#if>
 				</div>
 		
 					<!-- don't know where helpful  
@@ -293,7 +305,7 @@
 							<td align="right"><@presentation.forumsComboTable/></td>
 						</tr>
 					</table>
-					End of don't know where helpful  -->
+					End of don't know where helpful -->
 		</div>
 	</div>
 </div>

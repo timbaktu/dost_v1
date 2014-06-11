@@ -9,16 +9,16 @@
 	<div class="subject">&nbsp;&nbsp; &nbsp;<b>${I18n.getMessage("PostShow.subject")}:</b> <a name="${post.id}">${post.subject?default("")?html}</a></div>
 	End of Subject Not Required Now -->
 	 
-	<!-- Quote Not Required Now
+	
 	<div class="action">
-		<#if karmaEnabled>
+		<!-- <#if karmaEnabled>
 			<script type="text/javascript">writeStars(${post.karma.karmaPoints}, ${post.id});</script>
 		</#if>
-
+		
 		<#if topic.status != STATUS_LOCKED && !readonly>
 			<a href="${JForumContext.encodeURL("/posts/quote/${start}/${post.id}")}" rel="nofollow" class="icon_quote"><img src="${contextPath}/images/transp.gif" alt="" /></a>	
 		</#if>
-
+		 
 		<#if (canEditCurrentMessage)>
 			<a href="${JForumContext.encodeURL("/jforum${extension}?module=${moduleName}&amp;action=edit&amp;post_id=${post.id}&amp;start=${start}","")}" rel="nofollow" class="icon_edit"><img src="${contextPath}/images/transp.gif" alt="" /></a>  
 		</#if>
@@ -26,5 +26,6 @@
 		<#if canRemove>
 			<a href="${JForumContext.encodeURL("/jforum${extension}?module=${moduleName}&amp;action=delete&amp;post_id=${post.id}&amp;start=${start}","")}" id="delete${post.id}" onclick="return confirmDelete(${post.id});"><img src="${contextPath}/templates/${templateName}/images/icon_delete.gif" alt="[Delete]" /></a>
 		</#if>
+		-->
 	</div>
-	End of Action Not Required Now-->
+	

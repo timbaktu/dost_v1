@@ -408,6 +408,12 @@
 
 /* jforum module*/
 
+.icon_topic_move, .icon_topic_lock {
+	display:none;
+}
+.icon_topic_delete {
+	margin: 9px 20px 0 0;
+}
 
 .theme-default .genmed,.theme-default .name {
     font-family: 'Open Sans', sans-serif;
