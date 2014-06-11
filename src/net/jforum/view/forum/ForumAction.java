@@ -55,11 +55,15 @@ import net.jforum.SessionFacade;
 import net.jforum.dao.DataAccessDriver;
 import net.jforum.dao.ForumDAO;
 import net.jforum.dao.ModerationDAO;
+import net.jforum.dao.PostDAO;
 import net.jforum.entities.Forum;
 import net.jforum.entities.MostUsersEverOnline;
+import net.jforum.entities.Topic;
 import net.jforum.entities.UserSession;
 import net.jforum.repository.ForumRepository;
 import net.jforum.repository.SecurityRepository;
+import net.jforum.repository.TopicRepository;
+import net.jforum.security.PermissionControl;
 import net.jforum.security.SecurityConstants;
 import net.jforum.util.I18n;
 import net.jforum.util.preferences.ConfigKeys;
@@ -199,10 +203,34 @@ public class ForumAction extends Command
 		this.context.put("attachmentsEnabled", SecurityRepository.canAccess(SecurityConstants.PERM_ATTACHMENTS_ENABLED,
 		        Integer.toString(forumId))
 		        || SecurityRepository.canAccess(SecurityConstants.PERM_ATTACHMENTS_DOWNLOAD));
+		
+		UserSession us = SessionFacade.getUserSession();
+		PermissionControl pc = SecurityRepository.get(us.getUserId());
+
+		boolean moderatorCanEdit = false;
+		if (pc.canAccess(SecurityConstants.PERM_MODERATION_POST_EDIT)) {
+			moderatorCanEdit = true;
+		}
+		int count = SystemGlobals.getIntValue(ConfigKeys.POSTS_PER_PAGE);
+
+
+		List topicsList = TopicsCommon.prepareTopics(tmpTopics);
+		PostDAO postDao = DataAccessDriver.getInstance().newPostDAO();
+		Map topicPostMap = new HashMap();
+		for(Object object : topicsList) {
+			Topic temp = (Topic)object;
+			Topic topic = TopicRepository.getTopic(new Topic(temp.getId()));			
+			List helperList = PostCommon.topicPosts(postDao, moderatorCanEdit, us.getUserId(), topic.getId(), start, count);
+			topicPostMap.put(topic.getId(), helperList);
+		}
+		
+
+		
 
 		this.context.put("topics", TopicsCommon.prepareTopics(tmpTopics));
 		this.context.put("allCategories", ForumCommon.getAllCategoriesAndForums(false));
 		this.context.put("forum", forum);
+		this.context.put("posts", topicPostMap);
 		this.context.put("rssEnabled", SystemGlobals.getBoolValue(ConfigKeys.RSS_ENABLED));
 		this.context.put("pageTitle", forum.getName());
 		this.context.put("canApproveMessages", canApproveMessages);
