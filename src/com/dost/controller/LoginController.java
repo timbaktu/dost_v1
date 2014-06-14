@@ -89,7 +89,9 @@ public class LoginController {
 
 	@RequestMapping(value = { "/", "/user/welcome**" }, method = RequestMethod.GET)
 	public String defaultPage(HttpServletRequest request) {
-
+		System.out.println(request.getUserPrincipal().getName());
+		HttpSession session = request.getSession();
+		session.setAttribute("myAppUser", request.getUserPrincipal().getName());
 		ModelAndView model = new ModelAndView();
 		model.addObject("title",
 				"Spring Security Login Form - Database Authentication");
@@ -99,7 +101,8 @@ public class LoginController {
 			return "redirect:/counselor/conversations";
 		}
 		else {
-			return "redirect:/user/conversations";
+			return "redirect:/forums/list.page";
+//			return "/forums/list.page";
 		}
 
 	}
