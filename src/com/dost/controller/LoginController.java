@@ -89,22 +89,20 @@ public class LoginController {
 
 	@RequestMapping(value = { "/", "/user/welcome**" }, method = RequestMethod.GET)
 	public String defaultPage(HttpServletRequest request) {
-		System.out.println(request.getUserPrincipal().getName());
-		HttpSession session = request.getSession();
-		session.setAttribute("myAppUser", request.getUserPrincipal().getName());
-		ModelAndView model = new ModelAndView();
-		model.addObject("title",
-				"Spring Security Login Form - Database Authentication");
-		model.addObject("message", "This is default page!");
+	System.out.println(request.getUserPrincipal().getName());
+	HttpSession session = request.getSession();
+	session.setAttribute("myAppUser", request.getUserPrincipal().getName());
+	ModelAndView model = new ModelAndView();
+	model.addObject("title",
+	"Spring Security Login Form - Database Authentication");
+	model.addObject("message", "This is default page!");
 
-		if(request.isUserInRole("ROLE_ADMIN")){
-			return "redirect:/counselor/conversations";
+	if(request.isUserInRole("ROLE_ADMIN")){
+			return "redirect:/forums/show/1.page";
 		}
 		else {
-			return "redirect:/forums/list.page";
-//			return "/forums/list.page";
+			return "redirect:/forums/show/1.page";
 		}
-
 	}
 
 	@RequestMapping(value = { "/", "/admin**" }, method = RequestMethod.GET)

@@ -2,7 +2,7 @@
 <html lang="en">
 	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	<body >
-		<jsp:include page="includes/headerCounselor.jsp"></jsp:include>
+		<jsp:include page="../includes/header.jsp"></jsp:include>
 		<div class="container">
 			<div class="col-md-11">
 				<div class="pageTop">
@@ -22,7 +22,7 @@
 				</div>
 				
 				<ul class="pull-left col-md-2 left_nav">
-					<li><a href="#">Compose</a><br/><br/></li>
+					<li><a class="leaveMessage">Compose</a><br/><br/></li>
 					<li class="active"><a href="#">Inbox</a></li>
 					<li><a href="#">Sent Items</a></li>
 					<li><a href="#">Drafts</a><br/><br/></li>
@@ -172,6 +172,7 @@
 					
 			</div>
 		</div>
+		<jsp:include page="../user/includes/popupEmail.jsp"></jsp:include>
 		<jsp:include page="includes/commonFooter.jsp"></jsp:include>
 	</body>
 </html>

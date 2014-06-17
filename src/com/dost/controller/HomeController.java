@@ -11,15 +11,26 @@ public class HomeController {
 	public ModelAndView index() {
 		return new ModelAndView("index"); 
 	}
-
+	
+	@RequestMapping("conversations")  
+	public ModelAndView conversations() {
+		return new ModelAndView("conversations"); 
+	}
+	
+	@RequestMapping("faqs")  
+	public ModelAndView faqs_main() {
+		return new ModelAndView("faqs"); 
+	}
+	
+	
 	@RequestMapping("user/includes/signUp")  
 	public ModelAndView signUp() {
 		return new ModelAndView("user/includes/signUp"); 
 	}
 	
-	@RequestMapping("user/talkToFriend")  
+	@RequestMapping("talkToFriend")  
 	public ModelAndView talkToFriend() {
-		return new ModelAndView("user/talkToFriend"); 
+		return new ModelAndView("talkToFriend"); 
 	}
 	
 	@RequestMapping("user/login")  
@@ -63,17 +74,17 @@ public class HomeController {
 	public ModelAndView counselor_conversations() {
 		return new ModelAndView("counselor/conversations"); 
 	}
-	@RequestMapping("counselor/conversationsExpanded")  
+	@RequestMapping("conversationsExpanded")  
 	public ModelAndView counselor_conversationsExpanded() {
-		return new ModelAndView("counselor/conversationsExpanded"); 
+		return new ModelAndView("conversationsExpanded"); 
 	}
-	@RequestMapping("counselor/patientHistory")  
+	@RequestMapping("patientHistory")  
 	public ModelAndView counselor_patientHistory() {
-		return new ModelAndView("counselor/patientHistory"); 
+		return new ModelAndView("patientHistory"); 
 	}
-	@RequestMapping("counselor/onlineCounseling")  
+	@RequestMapping("onlineCounseling")  
 	public ModelAndView counselor_onlineCounseling() {
-		return new ModelAndView("counselor/onlineCounseling"); 
+		return new ModelAndView("onlineCounseling"); 
 	}
 	@RequestMapping("counselor/popups")  
 	public ModelAndView counselor_popups() {

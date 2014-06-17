@@ -1,31 +1,13 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page session="true"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<script src="resources/JS/jquery.js"></script>
-		<script src="resources/JS/bootstrap.min.js"></script>
-		<script src="resources/JS/script.js"></script>
-		<link href="resources/CSS/bootstrap.min.css" rel="stylesheet" media="screen">
-		<link href="resources/CSS/style.css" rel="stylesheet" media="screen">
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=latin-ext' rel='stylesheet' type='text/css'>
+	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	
-	</head>
-	
-	<body class="container-fluid">
-			<header id="main-navbar" class="navbar navbar-inverse navbar-fixed-top">
-			  <div class="navbar-inner">
-				<div>
-				  <a class="navbar-brand" href="index" >
-				  	<img src="resources/img/logoSmall.jpg" height="47px"/>
-				  </a>
-				  <div class="nav-collapse navbar-collapse ">
-					<!--<p class="navbar-text pull-right">
-						<a href="#" class="navbar-link">Create your account</a>
-					</p>-->
-				  </div><!--/.nav-collapse -->
-				</div>
-			  </div>
-		</header>
+	<body class="container-fluid theme-default">
+		<jsp:include page="includes/header.jsp"></jsp:include>
 				
 		<div class="container">
 			<a class="pull-right loginText" href="login" alt="Login to an existing account">Have an account? LOGIN NOW</a>

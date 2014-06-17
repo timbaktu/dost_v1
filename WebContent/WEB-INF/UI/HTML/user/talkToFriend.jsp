@@ -13,6 +13,7 @@
 						   Believe me even I have been in those situations and I know how hard it can get times.
 						   I can assure you.
 						</p>
+						
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -24,7 +25,7 @@
 						  <li class="active text_chat"><a href="#">Chat</a></li>
 						  <li><a href="#">Virtual Room</a></li>
 						  <li><a href="#">Call</a></li>
-						  <li><a href="#">Send Email</a></li>
+						  <li><a class="leaveMessage">Send Email</a></li>
 						</ul>
 						<div class="clearfix"></div>
 						<div class="chat_display_area">
@@ -47,6 +48,9 @@
 				</div>
 				<!-- end of each conversation-->
 			</div>
+		
+		<jsp:include page="includes/popupEmail.jsp"></jsp:include>
 		<jsp:include page="includes/commonFooter.jsp"></jsp:include>
+		</div>
 	</body>
 </html>

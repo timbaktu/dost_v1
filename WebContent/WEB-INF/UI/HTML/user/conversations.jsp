@@ -3,7 +3,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
+	
 	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
+	
 	<body >
 		<jsp:include page="includes/headerUser.jsp"></jsp:include>
 		<div class="container">
@@ -20,8 +22,8 @@
 						  <li><a href="#">5</a></li>
 						  <li><a href="#">&raquo;</a></li>
 						</ul>
-						<a href="login" class="btn btn-primary btn-large login_btn">Speak to friend online</a>
-						<a href="login" class="btn btn-primary btn-large login_btn">Leave a message to your friend</a>
+						<a href="talkToFriend" class="btn btn-primary btn-large login_btn">Speak to friend online</a>
+						<input type="button" class="leaveMessage btn btn-primary btn-large login_btn" value="Leave a message to your friend"></input>
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -131,6 +133,8 @@
 			</div>
 			-->
 		</div>
+		<jsp:include page="includes/popupEmail.jsp"></jsp:include>
+	</div><!-- /.modal -->
 		<jsp:include page="includes/commonFooter.jsp"></jsp:include>
 	</body>
 </html>

@@ -7,7 +7,7 @@
 
 <html lang="en">
 	<jsp:include page="user/includes/commonHeader.jsp"></jsp:include>
-	<body class="container-fluid">
+	<body class="container-fluid   theme-default">
 		<jsp:include page="user/includes/headerUser.jsp"></jsp:include>
 		<div class="container row-fluid welcomePage">
 			<div class="col-md-7">

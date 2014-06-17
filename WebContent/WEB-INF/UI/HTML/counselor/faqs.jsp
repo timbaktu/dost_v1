@@ -40,24 +40,6 @@
 			$(".questionForm").val("");
 			$(".answerForm").val("");
 		});
-		/* End of adding question*/
-		// Hover states on the static widgets
-		/*	
-		$("#dialog-link, #icons li").hover(function() {
-			$(this).addClass("ui-state-hover");
-		}, function() {
-			$(this).removeClass("ui-state-hover");
-		});
-		
-		$("#next").click(function(event) {
-			debugger;
-			alert('next click working' + $("#faqid").val());
-		});
-		
-		$("#previous").click(function(event) {
-			alert('previous click working');
-		});
-		*/
 		
 	});
 </script>

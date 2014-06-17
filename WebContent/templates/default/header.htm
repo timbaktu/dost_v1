@@ -1,6 +1,10 @@
+<#import "../macros/pagination.ftl" as pagination/>
+<#import "../macros/presentation.ftl" as presentation/>
+
 <#setting number_format = "#"/>
 <#setting datetime_format = dateTimeFormat/>
 <#assign logged = logged?default(false)/>
+<#assign counselor = counselor?default(false)/>
 <#assign language = language?default("en_US")/>
 <#assign hasCodeBlock = hasCodeBlock?default(false)/>
 <html>
@@ -25,7 +29,7 @@
 <title>${pageTitle?default("JForum")?html}</title>
 
 </head>
-<body class="${language}">
+<body class="${language} theme-default"">
 
 <!--
 Original theme from phpBB (http://www.phpbb.com) subSilver
@@ -38,37 +42,64 @@ Modifications by JForum Team
 <table width="100%" border="0">
 	<tr>
 		<td>
-
-			<header id="main-navbar" class="navbar navbar-inverse navbar-fixed-top">
+			<#if counselor>
+				<header id="main-navbar" class="navbar navbar-default navbar-fixed-top">
+					  <div class="navbar-inner">
+						<div>
+						   <a class="navbar-brand" href="http://localhost:8800/dost/index" >
+							  	<img src="http://localhost:8800/dost/resources/img/logoSmall.jpg" height="47px"/>
+						  </a>
+						  <div class="nav-collapse nav-collapse navbar-collapse">
+						  
+								<ul class="nav navbar-nav pull-right ">
+									<li><a href="#" class="navbar-link">Counselor</a></li>
+									<li><a href="dost/j_spring_security_logout" class="navbar-link">Logout</a></li>
+								</ul>
+								<ul class="nav navbar-nav pull-left menuItems">
+									  <li id="conversations"><a href="http://localhost:8800/dost/conversations">Conversations</a></li>
+									  <li id="patientHistory"><a href="http://localhost:8800/dost/patientHistory">Patient History</a></li>
+									  <li id="onlineCounseling"><a href="http://localhost:8800/dost/onlineCounseling">Online Counseling</a></li>
+									  <li id="quotes"><a href="http://localhost:8800/dost/forums/show/1.pages">Dicussions</a></li>
+									  <li id="quotes"><a href="http://localhost:8800/dost/quotes">Quotes</a></li>
+									  <li id="faqs"><a href="http://localhost:8800/dost/faqs">FAQs</a></li>
+								</ul>
+							</div><!--/.nav-collapse -->
+						</div>
+					  </div>
+					</header>
+			</#if>
+			<#if !counselor>
+				<header id="main-navbar" class="navbar navbar-inverse navbar-fixed-top">
 				  <div class="navbar-inner">
-					  <a class="navbar-brand" href="index" >
+					  <a class="navbar-brand" href="http://localhost:8800/dost/index" >
 					  	<img src="http://localhost:8800/dost/resources/img/logoSmall.jpg" height="47px"/>
 					  </a>
 				  </div>
 				   <div class="nav-collapse navbar-collapse ">
 						<ul class="nav navbar-nav pull-right ">
 							<#if !logged>
-								<li><a href="login" class="btn btn-primary btn-large signup_now">SIGNUP NOW</a></li>
+								<li><a href="http://localhost:8800/dost/signupNow" class="btn btn-primary btn-large signup_now">SIGNUP NOW</a></li>
 							</#if>
 							<#if logged>
-							 	<li><a href="#" class="navbar-link">Counselor</a></li>
-							 	<li><a href="../index" class="navbar-link">Logout</a></li>
+							 	<li><a href="#" class="navbar-link">User</a></li>
+							 	<li><a href="dost/j_spring_security_logout" class="navbar-link">Logout</a></li>
 							</#if>
 						</ul>
 						<ul class="nav navbar-nav pull-left menuItems">
 						  <#if logged>
-							<li id="conversations"><a href="conversations">My Conversations</a></li>
+							<li id="conversations"><a href="http://localhost:8800/dost/conversations">My Conversations</a></li>
 						  </#if>
-						  <li id="discussions"><a href="discussionsAll">Discussions</a></li>
+						  <li id="discussions"><a href="http://localhost:8800/dost/forums/show/1.page">Discussions</a></li>
 						  <#if logged>
-						  	<li id="talkToFriend"><a href="talkToFriend">Talk To a Friend</a></li>
+						  	<li id="talkToFriend"><a href="http://localhost:8800/dost/talkToFriend">Talk To a Friend</a></li>
 						  </#if>
-						  <li id="faqs"><a href="faqs">FAQs</a></li>
+						  <li id="faqs"><a href="http://localhost:8800/dost/faqs">FAQs</a></li>
 						  <li id="resources"><a href="resources">Resources</a></li>
 						</ul>
 						
 					</div>
-			</header>
+				</header>
+			</#if>
 		</td>
 	</tr>
 </table>

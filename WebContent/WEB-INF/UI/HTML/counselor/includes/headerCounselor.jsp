@@ -22,6 +22,7 @@
 				  <li id="conversations"><a href="conversations">Conversations</a></li>
 				  <li id="patientHistory"><a href="patientHistory">Patient History</a></li>
 				  <li id="onlineCounseling"><a href="onlineCounseling">Online Counseling</a></li>
+				  <li id="onlineCounseling"><a href="Discussions">Discussions</a></li>
 				  <li id="quotes"><a href="quotes">Quotes</a></li>
 				  <li id="faqs"><a href="faqs">FAQs</a></li>
 			</ul>

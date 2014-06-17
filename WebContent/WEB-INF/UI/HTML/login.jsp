@@ -2,10 +2,10 @@
 <%@page session="true"%>
 <html>
 
-	<jsp:include page="user/includes/commonHeader.jsp"></jsp:include>
+	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	
-	<body class="container-fluid" onload='document.loginForm.username.focus();'>
-			<jsp:include page="user/includes/headerUser.jsp"></jsp:include>
+	<body class="container-fluid  theme-default" onload='document.loginForm.username.focus();'>
+			<jsp:include page="includes/header.jsp"></jsp:include>
 			<!-- <header id="main-navbar" class="navbar navbar-inverse navbar-fixed-top">
 			  <div class="navbar-inner">
 				<div>

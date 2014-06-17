@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 		
-		$("body").addClass("theme-default");
+		/*$("body").addClass("theme-default"); */
 		
 		var url = $(location).attr("pathname").split("/");
 		$('#main-navbar .menuItems a[href="'+url[url.length-1]+'"]').parent("li").addClass("active");
@@ -127,5 +127,33 @@ $( document ).ready(function() {
 	});
 	
 	/* end of for editing the Question/Answer */
+	
+	/*send Message popup*/
+	
+	$(".leaveMessage").click(function(){
+		alert("");
+		$("#dialogMessage").dialog("open");
+	});
+	
+	$("#dialogMessage").dialog({
+
+			autoOpen : false,
+			width : 600,
+			buttons : [ {
+				text : "CANCEL",
+				click : function() {
+					$(this).dialog("close");
+				}
+			}, 
+			{
+				text : "SEND",
+				click : function() {
+						window.setTimeout('location.load("conversations")', 1000);
+				}
+			}]
+	});		
+	
+	/*End of send message popup*/
+	
 	
 });
