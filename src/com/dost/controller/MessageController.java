@@ -22,7 +22,8 @@ public class MessageController {
 	@RequestMapping(value="/user/{id}/messages", method=RequestMethod.GET)  
 	@ResponseBody
 	public List<DbMessage> getAllUserMessages(@PathVariable Long id) {
-		return messageService.getUserMessages(id);
+		List<DbMessage> messages = messageService.getUserMessages(id);
+		return messages;
 	}
 	
 	@RequestMapping(value="/user/{id}/draftmessages", method=RequestMethod.GET)  

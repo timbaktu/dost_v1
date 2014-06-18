@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 @Entity
 @Table(name="USER")
 public class DbUser extends DbGeneric implements Serializable {
@@ -23,8 +25,10 @@ public class DbUser extends DbGeneric implements Serializable {
 	@Column(name = "username")
 	private String username;
 	@Column(name = "password")
+	@JsonIgnore
 	private String password;
 	@Column(name = "userrole")
+	@JsonIgnore
 	private Role userRole;
 	
 	//TODO: Need place holder for images or avatar, may be clob or blob. Satya you decide
