@@ -28,7 +28,30 @@
 													'</div>'+
 												'</li>');		
 				}
+				
+				for (var i = 0 ; i < messages.length; i++) {
+					$(".conversationsCounselor").append('<li class="well media conversation_topic">'+
+							'<a class="pull-left col-md-2" href="conversationsExpanded">'+
+								'<span class="conversationalist">'+messages[i].sender.username+'</span>'+
+								'<span>(20)</span>'+
+							'</a>'+
+							'<div class="pull-left media-body col-md-7">'+
+									'<h4 class="media-heading">'+messages[i].subject+'</h4>'+
+									'<span style="conversation_summary">'+messages[i].content+'</span>'+
+							'</div>'+
+							'<div class="pull-left">'+messages[i].sentDate+'</div>'+
+							'<div class="pull-right col-md-1">'+
+								'<a href="conversationsExpanded">'+
+									'<span class="glyphicon glyphicon-chevron-right"></span>'+
+								'</a>'+
+							'</div>'+
+						'</li>');
+				}
 			});
+			
+			
+			
+			
 	});
 	/*End of manipulating json for FAQ*/	
 	
@@ -73,27 +96,6 @@
 					</ul>
 					<ul class="pull-right conversationsCounselor col-md-10">
 						<!-- each conversation-->
-						<li class="well media conversation_topic">
-							<a class="pull-left col-md-2" href="conversationsExpanded">
-								<span class="conversationalist">Brusley, Prashant</span>
-								<span>(20)</span>
-							</a>
-							<div class="pull-left media-body col-md-7">
-								<h4 class="media-heading">Media heading</h4>
-								<span style="conversation_summary">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</span>
-							</div>
-							<div class="pull-left">
-								18 April 2014
-							</div>
-							
-							
-							<div class="pull-right col-md-1">
-								<a href="conversationsExpanded">
-									<span class="glyphicon glyphicon-chevron-right"></span>
-								</a>
-							</div>
-						</li>
-						<!-- end of each conversation-->
 					</ul>
 						
 				</div>
