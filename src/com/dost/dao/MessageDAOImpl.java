@@ -22,7 +22,8 @@ public class MessageDAOImpl implements MessageDAO {
 	
 	public List<DbMessage> getUserMessages(Long userId) {
 		Session session = sessionFactory.getCurrentSession();
-		String hql = "from DbMessage m join fetch m.recipients r where r.recipient.userId = ? and m.deleted = 0 and r.deleted = 0";
+//		String hql = "from DbMessage m join fetch m.recipients r where r.recipient.userId = ? and m.deleted = 0 and r.deleted = 0";
+		String hql = "from DbMessage m join fetch m.recipients r where r.recipient.userId = ?";
         Query query = session.createQuery(hql);
         query.setParameter(0, userId);
         
@@ -40,7 +41,8 @@ public class MessageDAOImpl implements MessageDAO {
 
 	public List<DbMessage> getSentUserMessages(Long userId) {
 		Session session = sessionFactory.getCurrentSession();
-		String hql = "select m from DbMessage m left outer join fetch m.recipients r where m.sender.userId = ? and m.deleted = 0";
+//		String hql = "select m from DbMessage m left outer join fetch m.recipients r where m.sender.userId = ? and m.deleted = 0";
+		String hql = "select m from DbMessage m left outer join fetch m.recipients r where m.sender.userId = ?";
 
         Query query = session.createQuery(hql);
         query.setParameter(0, userId);

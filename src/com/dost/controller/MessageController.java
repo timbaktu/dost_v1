@@ -19,6 +19,7 @@ public class MessageController {
 	@Autowired
 	MessageService messageService;
 	
+	/*messages received*/
 	@RequestMapping(value="/user/{id}/messages", method=RequestMethod.GET)  
 	@ResponseBody
 	public List<DbMessage> getAllUserMessages(@PathVariable Long id) {

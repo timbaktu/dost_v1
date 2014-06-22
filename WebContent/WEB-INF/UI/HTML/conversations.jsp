@@ -5,7 +5,38 @@
 <!DOCTYPE html>
 <html lang="en">
 	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
+	
+	<script>
+	/*Manipulating json for messages*/
+	$( document ).ready(function() {
+			var userid='102';
+			$.getJSON("/dost/api/user/"+userid+"/messages", function(messages) {	
+				for (var i = 0 ; i < messages.length; i++) {
+					$(".conversationsUser").append('<li class="well media conversation_topic">'+
+													'<a class="pull-left col-md-2" href="#">'+
+														'<div class="friend_name">'+messages[i].sender.username+'</div>'+
+														'<div class="date_of_conversation">'+messages[i].sentDate+'</div>'+
+													'</a>'+
+													'<div class="media-body col-md-8">'+
+															'<h4>'+messages[i].subject+'</h4>'+
+															'<span>'+messages[i].content+'</span>'+
+													'</div>'+
+													'<div class="pull-right col-md-1">'+
+														'<a href="conversationDetails"> View'+
+															'<span class="glyphicon glyphicon-chevron-right"></span>'+
+														'</a>'+
+													'</div>'+
+												'</li>');		
+				}
+			});
+	});
+	/*End of manipulating json for FAQ*/	
+	
+	</script>
+	
+	
 	<sec:authorize access="hasRole('ROLE_ADMIN')">
+	
 	<body class="theme-default theme-default-counselor" >
 	</sec:authorize>
 	<sec:authorize access="!hasRole('ROLE_ADMIN')">
@@ -40,7 +71,7 @@
 						<li><a href="#">Label 1</a></li>
 						<li><a href="#">Label 2</a></li>
 					</ul>
-					<ul class="pull-right col-md-10">
+					<ul class="pull-right conversationsCounselor col-md-10">
 						<!-- each conversation-->
 						<li class="well media conversation_topic">
 							<a class="pull-left col-md-2" href="conversationsExpanded">
@@ -63,122 +94,6 @@
 							</div>
 						</li>
 						<!-- end of each conversation-->
-						
-						<!-- each conversation-->
-						<li class="well media conversation_topic">
-							<a class="pull-left col-md-2" href="conversationsExpanded">
-								<span class="conversationalist">Brusley, Prashant</span>
-								<span>(20)</span>
-							</a>
-							<div class="pull-left media-body col-md-7">
-								<h4 class="media-heading">Media heading</h4>
-								<span style="conversation_summary">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</span>
-							</div>
-							<div class="pull-left">
-								18 April 2014
-							</div>
-							
-							
-							<div class="pull-right col-md-1">
-								<a href="conversationsExpanded">
-									<span class="glyphicon glyphicon-chevron-right"></span>
-								</a>
-							</div>
-						</li>
-						<!-- end of each conversation-->
-						
-						<!-- each conversation-->
-						<li class="well media conversation_topic">
-							<a class="pull-left col-md-2" href="conversationsExpanded">
-								<span class="conversationalist">Brusley, Prashant</span>
-								<span>(20)</span>
-							</a>
-							<div class="pull-left media-body col-md-7">
-								<h4 class="media-heading">Media heading</h4>
-								<span style="conversation_summary">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</span>
-							</div>
-							<div class="pull-left">
-								18 April 2014
-							</div>
-							
-							
-							<div class="pull-right col-md-1">
-								<a href="conversationsExpanded">
-									<span class="glyphicon glyphicon-chevron-right"></span>
-								</a>
-							</div>
-						</li>
-						<!-- end of each conversation-->
-						
-						<!-- each conversation-->
-						<li class="well media conversation_topic">
-							<a class="pull-left col-md-2" href="conversationsExpanded">
-								<span class="conversationalist">Brusley, Prashant</span>
-								<span>(20)</span>
-							</a>
-							<div class="pull-left media-body col-md-7">
-								<h4 class="media-heading">Media heading</h4>
-								<span style="conversation_summary">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</span>
-							</div>
-							<div class="pull-left">
-								18 April 2014
-							</div>
-							
-							
-							<div class="pull-right col-md-1">
-								<a href="conversationsExpanded">
-									<span class="glyphicon glyphicon-chevron-right"></span>
-								</a>
-							</div>
-						</li>
-						<!-- end of each conversation-->
-						
-						<!-- each conversation-->
-						<li class="well media conversation_topic">
-							<a class="pull-left col-md-2" href="conversationsExpanded">
-								<span class="conversationalist">Brusley, Prashant</span>
-								<span>(20)</span>
-							</a>
-							<div class="pull-left media-body col-md-7">
-								<h4 class="media-heading">Media heading</h4>
-								<span style="conversation_summary">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</span>
-							</div>
-							<div class="pull-left">
-								18 April 2014
-							</div>
-							
-							
-							<div class="pull-right col-md-1">
-								<a href="conversationsExpanded">
-									<span class="glyphicon glyphicon-chevron-right"></span>
-								</a>
-							</div>
-						</li>
-						<!-- end of each conversation-->
-						
-						<!-- each conversation-->
-						<li class="well media conversation_topic">
-							<a class="pull-left col-md-2" href="conversationsExpanded">
-								<span class="conversationalist">Brusley, Prashant</span>
-								<span>(20)</span>
-							</a>
-							<div class="pull-left media-body col-md-7">
-								<h4 class="media-heading">Media heading</h4>
-								<span style="conversation_summary">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</span>
-							</div>
-							<div class="pull-left">
-								18 April 2014
-							</div>
-							
-							
-							<div class="pull-right col-md-1">
-								<a href="conversationsExpanded">
-									<span class="glyphicon glyphicon-chevron-right"></span>
-								</a>
-							</div>
-						</li>
-						<!-- end of each conversation-->
-						
 					</ul>
 						
 				</div>
@@ -205,96 +120,11 @@
 						<div class="clearfix"></div>
 					</div>
 					<!-- each conversation-->
-					<ul>
-						<li class="well media conversation_topic">
-							<a class="pull-left col-md-2" href="#">
-								<div class="friend_name">Brusley</div>
-								<div class="date_of_conversation">13 Apr 2014</div>
-							</a>
-							<div class="media-body col-md-8">
-								Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-							</div>
+					<ul class="conversationsUser">
 							
-							<div class="pull-right col-md-1">
-								<a href="conversationDetails"> View
-								<span class="glyphicon glyphicon-chevron-right"></span>
-								</a>
-							</div>
-						</li>
-					<!-- end of each conversation-->
-					<!-- each conversation-->
-						<li class="well media conversation_topic">
-							<a class="pull-left col-md-2" href="#">
-								<div class="friend_name">Brusley</div>
-								<div class="date_of_conversation">13 Apr 2014</div>
-							</a>
-							<div class="media-body col-md-8">
-								Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-							</div>
-							
-							<div class="pull-right col-md-1">
-								<a href="conversationDetails"> View
-								<span class="glyphicon glyphicon-chevron-right"></span>
-								</a>
-							</div>
-						</li>
-					<!-- end of each conversation-->
-					<!-- each conversation-->
-						<li class="well media conversation_topic">
-							<a class="pull-left col-md-2" href="#">
-								<div class="friend_name">Brusley</div>
-								<div class="date_of_conversation">13 Apr 2014</div>
-							</a>
-							<div class="media-body col-md-8">
-								Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-							</div>
-							
-							<div class="pull-right col-md-1">
-								<a href="conversationDetails"> View
-								<span class="glyphicon glyphicon-chevron-right"></span>
-								</a>
-							</div>
-						</li>
 					
-					<!-- end of each conversation-->
-					<!-- each conversation-->
-					
-						<li class="well media conversation_topic">
-							<a class="pull-left col-md-2" href="#">
-								<div class="friend_name">Brusley</div>
-								<div class="date_of_conversation">13 Apr 2014</div>
-							</a>
-							<div class="media-body col-md-8">
-								Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-							</div>
-							
-							<div class="pull-right col-md-1">
-								<a href="conversationDetails"> View
-								<span class="glyphicon glyphicon-chevron-right"></span>
-								</a>
-							</div>
-						</li>
-					
-					<!-- end of each conversation-->
-					<!-- each conversation-->
-					
-						<li class="well media conversation_topic">
-							<a class="pull-left col-md-2" href="#">
-								<div class="friend_name">Brusley</div>
-								<div class="date_of_conversation">13 Apr 2014</div>
-							</a>
-							<div class="media-body col-md-8">
-								Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-							</div>
-							
-							<div class="pull-right col-md-1">
-								<a href="conversationDetails"> View
-								<span class="glyphicon glyphicon-chevron-right"></span>
-								</a>
-							</div>
-						</li>
 					</ul>
-					<!-- end of each conversation-->
+					
 				</div>
 			</div>
 		</sec:authorize>

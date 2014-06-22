@@ -199,6 +199,9 @@
 	.categoryList:first-child{
 		margin-top:0;
 	}
+	h4{
+		margin-top:0
+	}
 	
 	/*signUp Button*/
 	.theme-default a.signup_now{

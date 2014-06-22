@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 public class DbGeneric implements Serializable {
 
 	/**
@@ -12,14 +14,19 @@ public class DbGeneric implements Serializable {
 	 */
 	private static final long serialVersionUID = 6567774336505738077L;
 	@Column(name="createdate")
+	@JsonIgnore
 	private Date createDate;
 	@Column(name="createby")
+	@JsonIgnore
 	private String createBy;
 	@Column(name="updatedate")
+	@JsonIgnore
 	private Date updateDate;
 	@Column(name="updateby")
+	@JsonIgnore
 	private String updateBy;
 	@Column(name="deleted")
+	@JsonIgnore
 	private String deleted;
 	
 	public Date getCreateDate() {

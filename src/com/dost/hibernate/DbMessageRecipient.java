@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 @Entity
 @Table(name="MESSAGERECIPIENT")
 public class DbMessageRecipient extends DbGeneric implements Serializable {
@@ -23,11 +25,13 @@ public class DbMessageRecipient extends DbGeneric implements Serializable {
 	
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="messageid", nullable=false)
+    @JsonIgnore
 	private DbMessage message;
     
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="recipientid", nullable=false)
-	private DbUser recipient;
+	@JsonIgnore
+    private DbUser recipient;
     
     @Column(name="viewed")
 	private Long viewed;

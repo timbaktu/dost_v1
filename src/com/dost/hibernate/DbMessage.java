@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 @Entity
 @Table(name="MESSAGE")
 public class DbMessage extends DbGeneric implements Serializable {
@@ -24,7 +26,7 @@ public class DbMessage extends DbGeneric implements Serializable {
 	@Column(name = "messageId")
 	private Long messageId;
 	
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="senderid", nullable=false)
 	private DbUser sender;
     
@@ -38,9 +40,10 @@ public class DbMessage extends DbGeneric implements Serializable {
 	private MessageStatus messageStatus;
     @Column(name="important")
 	private Long important;
-    @OneToMany (fetch=FetchType.LAZY, mappedBy="message")
+    @OneToMany (fetch=FetchType.EAGER, mappedBy="message")
+    @JsonIgnore
     private List<DbMessageRecipient> recipients;
-	
+
 	
 	public Long getMessageId() {
 		return messageId;
@@ -90,7 +93,6 @@ public class DbMessage extends DbGeneric implements Serializable {
 	public void setRecipients(List<DbMessageRecipient> recipients) {
 		this.recipients = recipients;
 	}
-	
-	
+
 	
 }
