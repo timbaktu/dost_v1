@@ -113,3 +113,15 @@ INSERT INTO `dost`.`user` (`userid`, `username`, `password`, `role`, `userrole`)
 ALTER TABLE faq modify userid BIGINT NOT NULL DEFAULT 100;
 
 insert into faqcategory (faqcategoryid, faqcategoryname, deleted) values(2,'family',0);
+
+--message 1
+--alex sending to mkyong
+INSERT INTO `dost`.`message` (`messageid`, `senderid`, `sentdate`, `subject`, `content`, `important`, `deleted`) VALUES ('1', '102', NOW(), 'Test message', 'Full test message', '0', '0');
+INSERT INTO `dost`.`messagerecipient` (`messagerecipientid`, `recipientid`, `messageid`, `viewed`, `deleted`) VALUES ('1', '101', '1', '0', '0');
+
+
+--message 2
+--mkyong sending to alex
+INSERT INTO `dost`.`message` (`messageid`, `senderid`, `sentdate`, `subject`, `content`, `important`, `deleted`) VALUES ('2', '101', NOW(), 'Test message reply', 'Full test message reply', '0', '0');
+INSERT INTO `dost`.`messagerecipient` (`messagerecipientid`, `recipientid`, `messageid`, `viewed`, `deleted`) VALUES ('2', '102', '2', '0', '0');
+
