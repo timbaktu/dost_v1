@@ -148,7 +148,11 @@ $( document ).ready(function() {
 			{
 				text : "SEND",
 				click : function() {
-						window.setTimeout('location.load("conversations")', 1000);
+					debugger;
+					var datatosend = 'subject='+$("#subject").val()+'&subject=' + $("#messageContent").val();
+					$.post('http://localhost:8800/dost/api/messages/add', $("#message").serialize(), function(response) {
+						//$('#visitFormResponse').text(response);
+					});
 				}
 			}]
 	});		

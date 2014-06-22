@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.dost.hibernate.DbFaq;
+import com.dost.hibernate.DbFaqCategory;
 import com.dost.hibernate.DbMessage;
+import com.dost.model.Faq;
 import com.dost.service.MessageService;
 
 @Controller
@@ -54,5 +57,17 @@ public class MessageController {
 	@ResponseBody
 	public void sendMessage(DbMessage dbMessage) {
 
+	}
+	@RequestMapping(value="/messages/add", method=RequestMethod.POST)  
+	@ResponseBody
+	public Faq addFaq(Faq faq) {
+		DbFaqCategory dbFaqCategory = categoryService.findCategoryByName(faq.getCategory());
+		DbFaq dbFaq = new DbFaq();
+		dbFaq.setQuestion(faq.getQuestion());
+		dbFaq.setAnswer(faq.getAnswer());
+		dbFaq.setCategory(dbFaqCategory);
+		faq.setCategoryId(""+dbFaqCategory.getFaqCategoryId());
+		faqService.addFaq(dbFaq);
+		return faq;
 	}
 }

@@ -20,11 +20,15 @@
 					<label>To</label>
 					<input type="text" class="form-control questionForm" placeholder="Send To"/>
 					<br/>
-					<label>Text</label>
+					
 				</sec:authorize>
 				
-	      		<form>
-	      			<textarea rows="3" class="well form-control" placeholder="Type your query"></textarea>
+	      		<form id="message">
+	      			<label>Subject</label>
+	      			<input id="subject" type="text" class="form-control questionForm" placeholder="Subject"/>
+	      			<br/>
+	      			<label>Message</label>
+	      			<textarea id="messageContent"  rows="3" class="well form-control" placeholder="Type your query"></textarea>
 	      		</form>
 	    </div>
 	</div><!-- /.modal -->
