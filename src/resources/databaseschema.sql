@@ -128,4 +128,4 @@ INSERT INTO `dost`.`messagerecipient` (`messagerecipientid`, `recipientid`, `mes
 alter table message add column msgid INTEGER;
 
 UPDATE `dost`.`message` SET `msgid`='1' WHERE `messageid`='1';
-UPDATE `dost`.`message` SET `msgid`='2' WHERE `messageid`='2';
+UPDATE `dost`.`message` SET `msgid`='1' WHERE `messageid`='2';
