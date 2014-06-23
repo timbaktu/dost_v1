@@ -6,6 +6,8 @@ import com.dost.hibernate.DbMessage;
 
 public interface MessageService {
 
+	public List<DbMessage> getMessagesById(Long id);
+	
 	public List<DbMessage> getUserMessages(Long id);
 
 	public List<DbMessage> getDraftUserMessages(Long id);
@@ -15,5 +17,9 @@ public interface MessageService {
 	public DbMessage getMessageDetails(Long id);
 
 	public void setViewed(Long id, Long userId);
+	
+	public void sendMessage(DbMessage dbMessage);
+	
+	public Long getMaxMsgId();
 
 }

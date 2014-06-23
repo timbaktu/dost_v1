@@ -17,6 +17,10 @@ public class MessageServiceImpl implements MessageService {
 	@Autowired
 	MessageDAO messageDAO;
 
+	public List<DbMessage> getMessagesById(Long id) {
+		return messageDAO.getMessagesById(id);
+	}
+	
 	public List<DbMessage> getUserMessages(Long userId) {
 		return messageDAO.getUserMessages(userId);
 	}
@@ -37,5 +41,11 @@ public class MessageServiceImpl implements MessageService {
 		messageDAO.setViewed(id, userId);
 	}
 	
+	public void sendMessage(DbMessage dbMessage) {
+		messageDAO.sendMessage(dbMessage);
+	}
 	
+	public Long getMaxMsgId() {
+		return messageDAO.getMaxMsgId();
+	}
 }

@@ -44,5 +44,16 @@ public class UserDAOImpl implements UserDAO {
 		sessionFactory.getCurrentSession().saveOrUpdate(user);
 	}
 
+	public DbUser getUser(Long userId) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from DbUser u where u.userId = :id");
+		query.setParameter("id", userId);
+		
+		DbUser user = (DbUser)query.uniqueResult();
+		if(user == null){
+			user = new DbUser();
+		}
+		return user;
+	}
 	
 }

@@ -19,6 +19,19 @@ public class MessageDAOImpl implements MessageDAO {
 	@Autowired
 	SessionFactory sessionFactory;
 	
+	public List<DbMessage> getMessagesById(Long id) {
+		Session session = sessionFactory.getCurrentSession();
+//		String hql = "from DbMessage m join fetch m.recipients r where r.recipient.userId = ? and m.deleted = 0 and r.deleted = 0";
+		String hql = "from DbMessage m join fetch m.recipients r where m.msgId = ?";
+        Query query = session.createQuery(hql);
+        query.setParameter(0, id);
+        
+        List<DbMessage> messages = query.list();
+        if(messages == null) {
+        	return new ArrayList<DbMessage>();
+        }
+        return messages;		
+	}
 	
 	public List<DbMessage> getUserMessages(Long userId) {
 		Session session = sessionFactory.getCurrentSession();
@@ -72,5 +85,17 @@ public class MessageDAOImpl implements MessageDAO {
 				session.saveOrUpdate(recipient);
 			}
 		}
+	}
+	
+	public void sendMessage(DbMessage dbMessage) {
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(dbMessage);
+	}
+	
+	public Long getMaxMsgId() {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("select max(m.msgid) from DbMessage m ");
+		return (Long)query.uniqueResult();
+		
 	}
 }

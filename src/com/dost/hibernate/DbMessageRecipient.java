@@ -23,12 +23,12 @@ public class DbMessageRecipient extends DbGeneric implements Serializable {
 	@Column(name = "messageRecipientId")
 	private Long messageRecipientId;
 	
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="messageid", nullable=false)
     @JsonIgnore
 	private DbMessage message;
     
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="recipientid", nullable=false)
 	@JsonIgnore
     private DbUser recipient;

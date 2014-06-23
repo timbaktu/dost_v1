@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 
@@ -30,8 +31,9 @@ public class DbMessage extends DbGeneric implements Serializable {
     @JoinColumn(name="senderid", nullable=false)
 	private DbUser sender;
     
+    @JsonIgnore
     @Column(name="sentdate")
-	private Date sentDate;
+	private Date sentDateDb;
     @Column(name="subject")
 	private String subject;
     @Column(name="content")
@@ -43,8 +45,10 @@ public class DbMessage extends DbGeneric implements Serializable {
     @OneToMany (fetch=FetchType.EAGER, mappedBy="message")
     @JsonIgnore
     private List<DbMessageRecipient> recipients;
-
-	
+    @Column(name="msgId")
+    private Long msgId;
+    @Transient
+	private String sentDate;
 	public Long getMessageId() {
 		return messageId;
 	}
@@ -57,10 +61,17 @@ public class DbMessage extends DbGeneric implements Serializable {
 	public void setSender(DbUser sender) {
 		this.sender = sender;
 	}
-	public Date getSentDate() {
+
+	public Date getSentDateDb() {
+		return sentDateDb;
+	}
+	public void setSentDateDb(Date sentDateDb) {
+		this.sentDateDb = sentDateDb;
+	}
+	public String getSentDate() {
 		return sentDate;
 	}
-	public void setSentDate(Date sentDate) {
+	public void setSentDate(String sentDate) {
 		this.sentDate = sentDate;
 	}
 	public String getSubject() {
@@ -92,6 +103,12 @@ public class DbMessage extends DbGeneric implements Serializable {
 	}
 	public void setRecipients(List<DbMessageRecipient> recipients) {
 		this.recipients = recipients;
+	}
+	public Long getMsgId() {
+		return msgId;
+	}
+	public void setMsgId(Long msgId) {
+		this.msgId = msgId;
 	}
 
 	
