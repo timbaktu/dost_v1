@@ -22,4 +22,6 @@ public interface MessageService {
 	
 	public Long getMaxMsgId();
 
+	public Long getMsgCount(Long id);
+
 }

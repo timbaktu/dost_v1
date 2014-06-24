@@ -21,5 +21,7 @@ public interface MessageDAO {
 	public void sendMessage(DbMessage dbMessage);
 	
 	public Long getMaxMsgId();
+	
+	public Long getMsgCount(Long id);
 
 }

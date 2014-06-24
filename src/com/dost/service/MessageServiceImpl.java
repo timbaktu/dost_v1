@@ -48,4 +48,10 @@ public class MessageServiceImpl implements MessageService {
 	public Long getMaxMsgId() {
 		return messageDAO.getMaxMsgId();
 	}
+
+	public Long getMsgCount(Long id) {
+		return messageDAO.getMsgCount(id);
+	}
+	
+	
 }

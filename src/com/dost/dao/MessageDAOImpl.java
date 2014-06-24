@@ -98,4 +98,13 @@ public class MessageDAOImpl implements MessageDAO {
 		return (Long)query.uniqueResult();
 		
 	}
+
+	public Long getMsgCount(Long id) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("select count(*) from DbMessage m where m.msgId = :id");
+		query.setParameter("id", id);
+		return (Long)query.uniqueResult();		
+	}
+	
+	
 }

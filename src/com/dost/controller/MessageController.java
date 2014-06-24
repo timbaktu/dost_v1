@@ -3,6 +3,8 @@ package com.dost.controller;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -77,6 +79,15 @@ public class MessageController {
 	@RequestMapping(value="/message/{id}/user/{userid}/setview", method=RequestMethod.GET)  
 	public void setViewed(@PathVariable Long id, @PathVariable Long userId) {
 		messageService.setViewed(id, userId);
+	}
+	
+	@RequestMapping(value="/msgid/{id}/count", method=RequestMethod.GET)  
+	@ResponseBody
+	public Map<String, Long> getMsgCount(@PathVariable Long id) {
+		Long count = messageService.getMsgCount(id);
+		Map<String, Long> countMap = new HashMap<String,Long>();
+		countMap.put("count", count);
+		return countMap;
 	}
 	
 	@RequestMapping(value="/user/message", method=RequestMethod.POST)  
