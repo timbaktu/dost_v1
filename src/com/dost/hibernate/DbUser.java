@@ -2,14 +2,19 @@ package com.dost.hibernate;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonManagedReference;
 
 @Entity
 @Table(name="USER")
@@ -30,6 +35,9 @@ public class DbUser extends DbGeneric implements Serializable {
 	@Column(name = "userrole")
 	@JsonIgnore
 	private Role userRole;
+	@JsonManagedReference
+	@OneToOne(fetch = FetchType.EAGER, mappedBy = "dbUser", cascade = CascadeType.ALL)
+	private DbUserRole dbUserRole;
 	
 	//TODO: Need place holder for images or avatar, may be clob or blob. Satya you decide
 	
@@ -56,6 +64,12 @@ public class DbUser extends DbGeneric implements Serializable {
 	}
 	public void setUserRole(Role userRole) {
 		this.userRole = userRole;
+	}
+	public DbUserRole getDbUserRole() {
+		return dbUserRole;
+	}
+	public void setDbUserRole(DbUserRole dbUserRole) {
+		this.dbUserRole = dbUserRole;
 	}
 	
 	

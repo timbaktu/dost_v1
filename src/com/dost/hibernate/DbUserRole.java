@@ -7,10 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+
 @Entity
-@Table(name="USER")
+@Table(name="user_roles")
 public class DbUserRole extends DbGeneric implements Serializable  {
 
 	@Id
@@ -21,6 +25,11 @@ public class DbUserRole extends DbGeneric implements Serializable  {
 	private String username;
 	@Column(name="role")
 	private String role;
+	@JsonBackReference
+	@OneToOne
+	@JoinColumn(name="userid", nullable=false)
+	private DbUser dbUser;
+	
 	public Long getUserRoleId() {
 		return userRoleId;
 	}
@@ -38,6 +47,12 @@ public class DbUserRole extends DbGeneric implements Serializable  {
 	}
 	public void setRole(String role) {
 		this.role = role;
+	}
+	public DbUser getDbUser() {
+		return dbUser;
+	}
+	public void setDbUser(DbUser dbUser) {
+		this.dbUser = dbUser;
 	}
 	
 	

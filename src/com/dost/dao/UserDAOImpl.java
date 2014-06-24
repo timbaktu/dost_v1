@@ -1,6 +1,8 @@
 package com.dost.dao;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -55,5 +57,25 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return user;
 	}
+
+	public List<DbUser> getAllUsers() {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from DbUser u where u.dbUserRole.role = 'ROLE_USER'");
+		List<DbUser> users = query.list();
+		if(users == null) {
+			users = new ArrayList<DbUser>();
+		}
+		return users;
+	}
+
+	public DbUser getUserByUsername(String username) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from DbUser u where u.username = :username");
+		query.setParameter("username", username);
+		DbUser user = (DbUser)query.uniqueResult();
+		return user;
+	}
+	
+	
 	
 }

@@ -1,11 +1,14 @@
 package com.dost.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dost.dao.UserDAO;
+import com.dost.hibernate.DbUser;
 import com.dost.hibernate.Role;
 
 @Service("userService")
@@ -21,6 +24,18 @@ public class UserServiceImpl implements UserService {
 
 	public Role authenticateUser(String username, String password) {
 		return userDAO.authenticateUser(username, password);
+	}
+
+	public DbUser getUser(Long userId) {
+		return userDAO.getUser(userId);
+	}
+
+	public List<DbUser> getAllUsers() {
+		return userDAO.getAllUsers();
+	}
+
+	public DbUser getUserByUsername(String username) {
+		return userDAO.getUserByUsername(username);
 	}
 
 	
