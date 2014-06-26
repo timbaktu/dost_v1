@@ -159,5 +159,4 @@ $( document ).ready(function() {
 	
 	/*End of send message popup*/
 	
-	
 });

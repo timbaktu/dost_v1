@@ -18,7 +18,7 @@
 				
 				<sec:authorize access="hasRole('ROLE_ADMIN')">
 					<label>To</label>
-					<input type="text" class="form-control questionForm" placeholder="Send To"/>
+					<input type="text" id="autocomplete" class="form-control questionForm" placeholder="Send To"/>
 					<br/>
 					
 				</sec:authorize>

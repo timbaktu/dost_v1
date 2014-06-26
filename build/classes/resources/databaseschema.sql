@@ -129,3 +129,9 @@ alter table message add column msgid INTEGER;
 
 UPDATE `dost`.`message` SET `msgid`='1' WHERE `messageid`='1';
 UPDATE `dost`.`message` SET `msgid`='1' WHERE `messageid`='2';
+
+alter table user_roles add column userid INTEGER;
+UPDATE `dost`.`user_roles` SET `userid`='102' WHERE `user_role_id`='3';
+UPDATE `dost`.`user_roles` SET `userid`='101' WHERE `user_role_id`='2';
+
+alter table user_roles drop column dbUser;

@@ -9,8 +9,12 @@
 	<script>
 	/*Manipulating json for messages*/
 	$( document ).ready(function() {
-			var userid='102';
-			$.getJSON("/dost/api/user/"+userid+"/messages", function(messages) {	
+		var userid;
+		$.getJSON("/dost/api/user/${pageContext.request.userPrincipal.name}", function(user) {
+			userid = user.userId;
+		});
+		alert(userid)
+		$.getJSON("/dost/api/user/"+userid+"/messages", function(messages) {	
 				for (var i = 0 ; i < messages.length; i++) {
 					$(".conversationsUser").append('<li class="well media conversation_topic">'+
 													'<a class="pull-left col-md-2" href="#">'+
@@ -49,11 +53,31 @@
 				}
 			});
 			
-			
+		
+		/*populating users*/
+		$( "#autocomplete" ).autocomplete({
+			 source: function( request, response ) {
+	                $.ajax({
+	                    url: "/dost/api/users",
+	                    dataType: "json",
+	                    data: {term: request.term},
+	                    success: function(data) {
+	                                response($.map(data, function(users) {
+	                                return {
+	                                    label: users.username,
+	                                    };
+	                            }));
+	                        }
+	                    });
+	                },
+	          minLength:0
+		});
+		/*end of populating users*/
+		
 			
 			
 	});
-	/*End of manipulating json for FAQ*/	
+	/*End of manipulating json for messages*/	
 	
 	</script>
 	
