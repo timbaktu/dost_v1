@@ -26,7 +26,7 @@
 				click : function() {
 					debugger;
 					var datatosend = 'answer='+$("#answer").val()+'&question=' + $("#question").val();
-					$.post('http://localhost:8801/dost/api/faq/add', $("#faq").serialize(), function(response) {
+					$.post('http://localhost:8800/dost/api/faq/add', $("#faq").serialize(), function(response) {
 						//$('#visitFormResponse').text(response);
 					});
 					window.setTimeout('location.reload()', 1000);

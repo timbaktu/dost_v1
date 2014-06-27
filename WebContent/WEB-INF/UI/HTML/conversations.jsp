@@ -13,8 +13,9 @@
 		$.getJSON("/dost/api/user/${pageContext.request.userPrincipal.name}", function(user) {
 			userid = user.userId;
 		});
-		alert(userid)
-		$.getJSON("/dost/api/user/"+userid+"/messages", function(messages) {	
+		alert(userid);
+		$.getJSON('/dost/api/user/'+userid+'/messages', function(messages) {	
+				
 				for (var i = 0 ; i < messages.length; i++) {
 					$(".conversationsUser").append('<li class="well media conversation_topic">'+
 													'<a class="pull-left col-md-2" href="#">'+
@@ -26,31 +27,32 @@
 															'<span>'+messages[i].content+'</span>'+
 													'</div>'+
 													'<div class="pull-right col-md-1">'+
-														'<a href="conversationDetails"> View'+
+													'<a href="conversationsExpanded?='+messages[i].msgId+'">View'+
 															'<span class="glyphicon glyphicon-chevron-right"></span>'+
 														'</a>'+
 													'</div>'+
 												'</li>');		
 				}
 				
-				for (var i = 0 ; i < messages.length; i++) {
+				for (var j = 0 ; j < messages.length; j++) {
 					$(".conversationsCounselor").append('<li class="well media conversation_topic">'+
 							'<a class="pull-left col-md-2" href="conversationsExpanded">'+
-								'<span class="conversationalist">'+messages[i].sender.username+'</span>'+
+								'<span class="conversationalist">'+messages[j].sender.username+'</span>'+
 								'<span>(20)</span>'+
 							'</a>'+
 							'<div class="pull-left media-body col-md-7">'+
-									'<h4 class="media-heading">'+messages[i].subject+'</h4>'+
-									'<span style="conversation_summary">'+messages[i].content+'</span>'+
+									'<h4 class="media-heading">'+messages[j].subject+'</h4>'+
+									'<span style="conversation_summary">'+messages[j].content+'</span>'+
 							'</div>'+
-							'<div class="pull-left">'+messages[i].sentDate+'</div>'+
+							'<div class="pull-left">'+messages[j].sentDate+'</div>'+
 							'<div class="pull-right col-md-1">'+
-								'<a href="conversationsExpanded">'+
+							'<a href="conversationsExpanded?='+messages[j].msgId+'">'+
 									'<span class="glyphicon glyphicon-chevron-right"></span>'+
 								'</a>'+
 							'</div>'+
 						'</li>');
 				}
+				
 			});
 			
 		
@@ -74,7 +76,36 @@
 		});
 		/*end of populating users*/
 		
-			
+		/*send Message popup*/
+		
+		$(".leaveMessage").click(function(){
+			alert("");
+			$("#dialogMessage").dialog("open");
+		});
+		
+		$("#dialogMessage").dialog({
+
+				autoOpen : false,
+				width : 600,
+				buttons : [ {
+					text : "CANCEL",
+					click : function() {
+						$(this).dialog("close");
+					}
+				}, 
+				{
+					text : "SEND",
+					click : function() {
+						debugger;
+						var datatosend = 'subject='+$("#subject").val()+'&content=' + $("#messageContent").val()+ '&userId=' + '1' ;
+						$.post('http://localhost:8800/dost/api/user/message', $("#message").serialize(), function(response) {
+							//$('#visitFormResponse').text(response);
+						});
+					}
+				}]
+		});		
+		
+		/*End of send message popup*/	
 			
 	});
 	/*End of manipulating json for messages*/	
@@ -124,8 +155,9 @@
 						
 				</div>
 			</div>
-		</sec:authorize>
-		<sec:authorize access="!hasRole('ROLE_ADMIN')">
+		 </sec:authorize>
+		 
+		 <sec:authorize access="!hasRole('ROLE_ADMIN')">
 			<div class="container">
 				<div class="col-md-11">
 					<div class="pageTop">

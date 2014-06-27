@@ -128,35 +128,4 @@ $( document ).ready(function() {
 	
 	/* end of for editing the Question/Answer */
 	
-	/*send Message popup*/
-	
-	$(".leaveMessage").click(function(){
-		alert("");
-		$("#dialogMessage").dialog("open");
-	});
-	
-	$("#dialogMessage").dialog({
-
-			autoOpen : false,
-			width : 600,
-			buttons : [ {
-				text : "CANCEL",
-				click : function() {
-					$(this).dialog("close");
-				}
-			}, 
-			{
-				text : "SEND",
-				click : function() {
-					debugger;
-					var datatosend = 'subject='+$("#subject").val()+'&subject=' + $("#messageContent").val();
-					$.post('http://localhost:8800/dost/api/messages/add', $("#message").serialize(), function(response) {
-						//$('#visitFormResponse').text(response);
-					});
-				}
-			}]
-	});		
-	
-	/*End of send message popup*/
-	
 });
