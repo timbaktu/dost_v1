@@ -14,5 +14,7 @@ public interface UserService {
 	
 	public List<DbUser> getAllUsers();
 	
+	public List<DbUser> getAllCounselors();
+	
 	public DbUser getUserByUsername(String username);
 }

@@ -1,6 +1,7 @@
 package com.dost.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -89,12 +90,20 @@ public class MessageDAOImpl implements MessageDAO {
 	
 	public void sendMessage(DbMessage dbMessage) {
 		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(dbMessage);
+		
+		//dbMessage.setSentDateDb(new Date(1));
+		dbMessage.setSentDateDb(null);
+//		List<DbMessageRecipient> recipients = dbMessage.getRecipients();
+//		for(DbMessageRecipient recipient : recipients) {
+//			//recipient.setMessage(dbMessage);
+//			session.saveOrUpdate(recipient);
+//		}
+		session.save(dbMessage);
 	}
 	
 	public Long getMaxMsgId() {
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("select max(m.msgid) from DbMessage m ");
+		Query query = session.createQuery("select max(m.msgId) from DbMessage m ");
 		return (Long)query.uniqueResult();
 		
 	}

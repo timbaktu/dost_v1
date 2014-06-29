@@ -11,5 +11,6 @@ public interface UserDAO {
 	public Role authenticateUser(String username, String password);
 	public DbUser getUser(Long userId);
 	public List<DbUser> getAllUsers();
+	public List<DbUser> getAllCounselors();
 	public DbUser getUserByUsername(String username);
 }

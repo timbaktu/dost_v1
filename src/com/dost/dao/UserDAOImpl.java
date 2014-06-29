@@ -67,6 +67,16 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return users;
 	}
+	
+	public List<DbUser> getAllCounselors() {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from DbUser u where u.dbUserRole.role = 'ROLE_ADMIN'");
+		List<DbUser> users = query.list();
+		if(users == null) {
+			users = new ArrayList<DbUser>();
+		}
+		return users;
+	}
 
 	public DbUser getUserByUsername(String username) {
 		Session session = sessionFactory.getCurrentSession();

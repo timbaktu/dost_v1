@@ -13,10 +13,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @Entity
 @Table(name="MESSAGE")
@@ -31,9 +36,11 @@ public class DbMessage extends DbGeneric implements Serializable {
     @JoinColumn(name="senderid", nullable=false)
 	private DbUser sender;
     
+    @Temporal(TemporalType.TIMESTAMP)
     @JsonIgnore
     @Column(name="sentdate")
 	private Date sentDateDb;
+    
     @Column(name="subject")
 	private String subject;
     @Column(name="content")
@@ -44,11 +51,18 @@ public class DbMessage extends DbGeneric implements Serializable {
 	private Long important;
     @OneToMany (fetch=FetchType.EAGER, mappedBy="message")
     @JsonIgnore
+    @Cascade({CascadeType.ALL, CascadeType.DELETE_ORPHAN})
     private List<DbMessageRecipient> recipients;
     @Column(name="msgId")
     private Long msgId;
     @Transient
 	private String sentDate;
+    
+    @PrePersist
+    public void sentDateDb() {
+    	sentDateDb = new Date();
+    }
+    
 	public Long getMessageId() {
 		return messageId;
 	}
@@ -68,6 +82,7 @@ public class DbMessage extends DbGeneric implements Serializable {
 	public void setSentDateDb(Date sentDateDb) {
 		this.sentDateDb = sentDateDb;
 	}
+
 	public String getSentDate() {
 		return sentDate;
 	}

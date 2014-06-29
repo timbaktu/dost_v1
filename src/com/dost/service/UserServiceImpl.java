@@ -33,7 +33,11 @@ public class UserServiceImpl implements UserService {
 	public List<DbUser> getAllUsers() {
 		return userDAO.getAllUsers();
 	}
-
+	
+	public List<DbUser> getAllCounselors() {
+		return userDAO.getAllCounselors();
+	}
+	
 	public DbUser getUserByUsername(String username) {
 		return userDAO.getUserByUsername(username);
 	}

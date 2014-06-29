@@ -135,3 +135,8 @@ UPDATE `dost`.`user_roles` SET `userid`='102' WHERE `user_role_id`='3';
 UPDATE `dost`.`user_roles` SET `userid`='101' WHERE `user_role_id`='2';
 
 alter table user_roles drop column dbUser;
+
+ALTER TABLE message MODIFY sentdate DATETIME NULL DEFAULT NOW();
+
+CREATE TRIGGER message_OnInsert BEFORE INSERT ON `message`
+    FOR EACH ROW SET NEW.sentdate = NOW();

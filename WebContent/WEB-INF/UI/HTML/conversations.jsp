@@ -97,8 +97,8 @@
 					text : "SEND",
 					click : function() {
 						debugger;
-						var datatosend = 'subject='+$("#subject").val()+'&content=' + $("#messageContent").val()+ '&userId=' + '1' ;
-						$.post('http://localhost:8800/dost/api/user/message', $("#message").serialize(), function(response) {
+						var datatosend = 'subject='+$("#subject").val()+'&content=' + $("#messageContent").val()+ '&senderId=102' ;
+						$.post('http://localhost:8800/dost/api/user/message', datatosend, function(response) {
 							//$('#visitFormResponse').text(response);
 						});
 					}

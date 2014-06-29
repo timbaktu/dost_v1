@@ -38,7 +38,7 @@ public class MessageController {
 	public List<DbMessage> getAllMessagesById(@PathVariable Long id) {
 		List<DbMessage> messages = messageService.getMessagesById(id);
 		for(DbMessage msg : messages) {
-			msg.setSentDate(Utils.formatDate(msg.getSentDateDb()));
+			//msg.setSentDate(Utils.formatDate(msg.getSentDateDb()));
 		}
 		return messages;
 	}
@@ -49,7 +49,7 @@ public class MessageController {
 	public List<DbMessage> getAllUserMessages(@PathVariable Long id) {
 		List<DbMessage> messages = messageService.getUserMessages(id);
 		for(DbMessage msg : messages) {
-			msg.setSentDate(Utils.formatDate(msg.getSentDateDb()));
+//			msg.setSentDate(Utils.formatDate(msg.getSentDateDb()));
 		}
 		return messages;
 	}
@@ -65,7 +65,7 @@ public class MessageController {
 	public List<DbMessage> getSentUserMessages(@PathVariable Long id) {
 		List<DbMessage> messages =  messageService.getSentUserMessages(id);
 		for(DbMessage msg : messages) {
-			msg.setSentDate(Utils.formatDate(msg.getSentDateDb()));
+//			msg.setSentDate(Utils.formatDate(msg.getSentDateDb()));
 		}
 		return messages;
 	}
@@ -113,7 +113,7 @@ public class MessageController {
 		DbMessage dbMessage = new DbMessage();
 		dbMessage.setContent(message.getContent());
 		dbMessage.setSubject(message.getSubject());
-		dbMessage.setImportant(message.getImportant());
+		dbMessage.setImportant(message.getImportant() != null ? 0l : 1l);
 		// Hibernate will set this
 		//dbMessage.setMessageId(messageId)
 		if(message.getMsgId() != null) {
@@ -125,6 +125,7 @@ public class MessageController {
 			dbMessage.setMsgId(maxMsgId + 1);
 		}
 		dbMessage.setRecipients(createRecipientList(message, dbMessage));
+		message.setSenderId(102l);
 		dbMessage.setSender(userService.getUser(message.getSenderId()));
 		dbMessage.setSentDateDb(new Date());
 		return dbMessage;
@@ -133,7 +134,18 @@ public class MessageController {
 	private List<DbMessageRecipient> createRecipientList(Message message, DbMessage dbMessage) {
 		List<DbMessageRecipient> lists = new ArrayList<DbMessageRecipient>();
 		String recipientIds = message.getRecipientIds();
-		String[] recipientArray = recipientIds.split(",");
+		String[] recipientArray = null;
+		if(recipientIds != null) {
+			recipientArray = recipientIds.split(",");	
+		}
+		// If UI didnt send the recipient id then get list of available couselors
+		else {
+			List<DbUser> counselors = userService.getAllCounselors();
+			recipientArray = new String[counselors.size()];
+			for(int i = 0; i < counselors.size(); i++) {
+				recipientArray[i] = ""+counselors.get(i).getUserId();
+			}
+		}
 		for(String userId : recipientArray) {
 			DbMessageRecipient dbMessageRecipient = new DbMessageRecipient();
 			// Hibernate will put this
@@ -143,6 +155,7 @@ public class MessageController {
 			DbUser recipient = userService.getUser(Long.parseLong(userId));
 			dbMessageRecipient.setRecipient(recipient);
 			dbMessageRecipient.setViewed(0l);
+			lists.add(dbMessageRecipient);
 		}
 		return lists;
 	}
