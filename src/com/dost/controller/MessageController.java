@@ -38,7 +38,7 @@ public class MessageController {
 	public List<DbMessage> getAllMessagesById(@PathVariable Long id) {
 		List<DbMessage> messages = messageService.getMessagesById(id);
 		for(DbMessage msg : messages) {
-			//msg.setSentDate(Utils.formatDate(msg.getSentDateDb()));
+			msg.setSentDate(Utils.formatDate(msg.getSentDateDb()));
 		}
 		return messages;
 	}
