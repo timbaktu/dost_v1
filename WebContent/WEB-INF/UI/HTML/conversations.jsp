@@ -14,11 +14,12 @@
 			userid = user.userId;
 		});
 		alert(userid);
-		$.getJSON('/dost/api/user/'+userid+'/messages', function(messages) {	
+		$.getJSON('/dost/api/user/userid/messages', function(messages) {	
 				
 				for (var i = 0 ; i < messages.length; i++) {
 					$(".conversationsUser").append('<li class="well media conversation_topic">'+
 													'<a class="pull-left col-md-2" href="#">'+
+														'<div class="friend_name"><img class="avatar" id="avatar1" src="avatar/avatar2.jpg" name="avatar1" /></div>'+
 														'<div class="friend_name">'+messages[i].sender.username+'</div>'+
 														'<div class="date_of_conversation">'+messages[i].sentDate+'</div>'+
 													'</a>'+

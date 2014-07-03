@@ -6,6 +6,7 @@ public class User {
 	private String username;
 	private String password;
 	private String role;
+	private String avatarId;
 	
 	public Long getUserId() {
 		return userId;
@@ -30,6 +31,12 @@ public class User {
 	}
 	public void setRole(String role) {
 		this.role = role;
+	}
+	public String getAvatarId() {
+		return avatarId;
+	}
+	public void setAvatarId(String avatarId) {
+		this.avatarId = avatarId;
 	}
 	
 	

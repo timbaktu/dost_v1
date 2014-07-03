@@ -6,15 +6,21 @@
 
 	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	<script>
+	var avatar = null;
 	$(function() {
 		/* Adding question*/
 		$("#signup").click(function(event) {
-			var datatosend = 'username='+$("#username").val()+'&password=' + $("#password").val();
+			var datatosend = 'username='+$("#username").val()+'&password=' + $("#password").val()+'&avatarId=' + avatar;
 			$.post('http://localhost:8800/dost/api/signup', datatosend, function(data,status) {
 				alert("Data: " + data + "\nStatus: " + status);
 				//$('#visitFormResponse').text(response);
 			});
 		});
+		
+		 $('#avatarId').on("click", "img", function () {
+			 avatar = this.id;
+		 });
+		
 		
 	});
 	
@@ -34,19 +40,19 @@
 				<div class="well well-large row col-md-7 col-md-offset-2 signinFormOuterContainer">
 					<div id="signindiv" class="span5 offset1">
 						<label class="chooseAvatar">Choose your avatar <span>(This is how I will know you)</span></label>
-						<div class="avatarHolder">
-							<img class="avatar" id="avatar1"/>
-							<img class="avatar" id="avatar2"/>
-							<img class="avatar" id="avatar3"/>
-							<img class="avatar" id="avatar4"/>
-							<img class="avatar" id="avatar5"/>
+						<div id="avatarId" class="avatarHolder">
+							<img class="avatar" id="avatar1" src="avatar/avatar1.jpg" name="avatar1" />
+							<img class="avatar" id="avatar2" src="avatar/avatar2.jpg"/>
+							<img class="avatar" id="avatar3" src="avatar/avatar3.jpg"/>
+							<img class="avatar" id="avatar4" src="avatar/avatar4.jpg"/>
+							<img class="avatar" id="avatar5" src="avatar/avatar5.jpg"/>
 						</div>
 						<div class="avatarHolder">
-							<img class="avatar" id="avatar6"/>
-							<img class="avatar" id="avatar7"/>
-							<img class="avatar" id="avatar8"/>
-							<img class="avatar" id="avatar9"/>
-							<img class="avatar" id="avatar10"/>
+							<img class="avatar" id="avatar6" src="avatar/avatar6.jpg"/>
+							<img class="avatar" id="avatar7" src="avatar/avatar7.jpg"/>
+							<img class="avatar" id="avatar8" src="avatar/avatar8.jpg"/>
+							<img class="avatar" id="avatar9" src="avatar/avatar9.jpg"/>
+							<img class="avatar" id="avatar10" src="avatar/avatar10.jpg"/>
 						</div>
 						<br/><br/>
 						<label>Username</label>

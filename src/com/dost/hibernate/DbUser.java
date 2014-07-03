@@ -41,6 +41,8 @@ public class DbUser extends DbGeneric implements Serializable {
 	@Column(name = "enabled")
 	@JsonIgnore
 	private Integer enabled;
+	@Column(name = "avatar")
+	private String avatar;
 	
 	//TODO: Need place holder for images or avatar, may be clob or blob. Satya you decide
 	
@@ -79,6 +81,12 @@ public class DbUser extends DbGeneric implements Serializable {
 	}
 	public void setEnabled(Integer enabled) {
 		this.enabled = enabled;
+	}
+	public String getAvatar() {
+		return avatar;
+	}
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
 	}
 	
 	
