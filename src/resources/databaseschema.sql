@@ -140,3 +140,9 @@ ALTER TABLE message MODIFY sentdate DATETIME NULL DEFAULT NOW();
 
 CREATE TRIGGER message_OnInsert BEFORE INSERT ON `message`
     FOR EACH ROW SET NEW.sentdate = NOW();
+    
+INSERT INTO `dost`.`user` (`userid`, `username`, `password`, `deleted`, `ENABLED`) VALUES ('103', 'sohil', '123456', '0', '1');
+insert into user_roles values(4,'sohil', 'ROLE_USER', 103)
+    
+INSERT INTO `dost`.`user` (`userid`, `username`, `password`, `deleted`, `ENABLED`) VALUES ('104', 'prashant', '123', '0', '1');
+insert into user_roles values(5,'prashant', 'ROLE_ADMIN', 104)

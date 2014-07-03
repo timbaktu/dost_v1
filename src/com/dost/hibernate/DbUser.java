@@ -38,6 +38,9 @@ public class DbUser extends DbGeneric implements Serializable {
 	@JsonManagedReference
 	@OneToOne(fetch = FetchType.EAGER, mappedBy = "dbUser", cascade = CascadeType.ALL)
 	private DbUserRole dbUserRole;
+	@Column(name = "enabled")
+	@JsonIgnore
+	private Integer enabled;
 	
 	//TODO: Need place holder for images or avatar, may be clob or blob. Satya you decide
 	
@@ -70,6 +73,12 @@ public class DbUser extends DbGeneric implements Serializable {
 	}
 	public void setDbUserRole(DbUserRole dbUserRole) {
 		this.dbUserRole = dbUserRole;
+	}
+	public Integer getEnabled() {
+		return enabled;
+	}
+	public void setEnabled(Integer enabled) {
+		this.enabled = enabled;
 	}
 	
 	
