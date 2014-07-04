@@ -110,6 +110,7 @@ public class MessageController {
 	}
 	
 	private DbMessage populateDbMessage(Message message) {
+		
 		DbMessage dbMessage = new DbMessage();
 		dbMessage.setContent(message.getContent());
 		dbMessage.setSubject(message.getSubject());
@@ -133,7 +134,7 @@ public class MessageController {
 	
 	private List<DbMessageRecipient> createRecipientList(Message message, DbMessage dbMessage) {
 		List<DbMessageRecipient> lists = new ArrayList<DbMessageRecipient>();
-		String recipientIds = message.getRecipientIds();
+		String recipientIds = message.getRecipients();
 		String[] recipientArray = null;
 		if(recipientIds != null) {
 			recipientArray = recipientIds.split(",");	

@@ -9,10 +9,10 @@
 	var avatar = null;
 	$(function() {
 		/* Adding question*/
-		$("#signup").click(function(event) {
+		$("#signin").click(function(event) {
 			var datatosend = 'username='+$("#username").val()+'&password=' + $("#password").val()+'&avatarId=' + avatar;
 			$.post('http://localhost:8800/dost/api/signup', datatosend, function(data,status) {
-				alert("Data: " + data + "\nStatus: " + status);
+				//alert("Data: " + data + "\nStatus: " + status);
 				//$('#visitFormResponse').text(response);
 			});
 		});
@@ -42,11 +42,11 @@
 					<div id="signindiv" class="col-md-offset-1">
 						<label class="chooseAvatar">Choose your avatar <span>(This is how I will know you)</span></label>
 
-						<div class="avatarHolder">
+						<div id="avatarId" class="avatarHolder">
 							<img class="avatar" src="avatar/avatar1.jpg" id="avatar1"/>
 							<img class="avatar" src="avatar/avatar2.jpg" id="avatar2"/>
 							<img class="avatar" src="avatar/avatar3.jpg" id="avatar3"/>
-							<img class="avatar" src="avatar/avatar4.jpg"  id="avatar4"/>
+							<img class="avatar" src="avatar/avatar4.jpg" id="avatar4"/>
 							<img class="avatar" src="avatar/avatar5.jpg" id="avatar5"/>
 							<img class="avatar" src="avatar/avatar6.jpg" id="avatar6"/>
 							<img class="avatar" src="avatar/avatar7.jpg" id="avatar7"/>

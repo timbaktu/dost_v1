@@ -9,7 +9,7 @@ public class Message {
 	private String content;
 	private Long important;
 	private Long msgId;
-	private String recipientIds;
+	private String recipients;
 	public Long getId() {
 		return id;
 	}
@@ -52,12 +52,13 @@ public class Message {
 	public void setMsgId(Long msgId) {
 		this.msgId = msgId;
 	}
-	public String getRecipientIds() {
-		return recipientIds;
+	public String getRecipients() {
+		return recipients;
 	}
-	public void setRecipientId(String recipientIds) {
-		this.recipientIds = recipientIds;
+	public void setRecipients(String recipients) {
+		this.recipients = recipients;
 	}
+
 	
 	
 }
