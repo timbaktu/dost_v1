@@ -17,6 +17,9 @@
 	.container{
 		margin-top: 50px;
 	}
+	.form-signin-heading{
+		margin-top: 50px;
+	}
 	ul	li{
 		list-style:none;
 	}
@@ -53,16 +56,19 @@
 		margin-top: 70px;
 	}
 	.signupNowText{
-		margin-top: 25px;
+		margin-right: 20px;
+    	margin-top: 5px;
 	}
 	.loginText{
-		margin-top: 25px;
+		margin-right: 20px;
+    	margin-top: 5px;
 	}
 	.avatar{
 		width:70px;
 		height:60px;
 		border:1px solid #DDDDDD;
 		background: #EBEBEB;
+		display: inline-block;
 	}
 	.avatar:first-child{
 		margin-left:0;

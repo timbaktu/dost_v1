@@ -13,11 +13,12 @@
 		$.getJSON("/dost/api/user/${pageContext.request.userPrincipal.name}", function(user) {
 			userid = user.userId;
 		});
-		alert(userid);
-		$.getJSON('/dost/api/user/userid/messages', function(messages) {	
+				$.getJSON('/dost/api/user/'+userid+'/messages', function(messages) {	
 				
-				for (var i = 0 ; i < messages.length; i++) {
-					$(".conversationsUser").append('<li class="well media conversation_topic">'+
+					if(messages.length>0){
+						for (var i = 0 ; i < messages.length; i++) {
+					
+							$(".conversationsUser").append('<li class="well media conversation_topic">'+
 													'<a class="pull-left col-md-2" href="#">'+
 														'<div class="friend_name"><img class="avatar" id="avatar1" src="avatar/avatar2.jpg" name="avatar1" /></div>'+
 														'<div class="friend_name">'+messages[i].sender.username+'</div>'+
@@ -33,34 +34,69 @@
 														'</a>'+
 													'</div>'+
 												'</li>');		
-				}
+							}
 				
-				for (var j = 0 ; j < messages.length; j++) {
-					$(".conversationsCounselor").append('<li class="well media conversation_topic">'+
-							'<a class="pull-left col-md-2" href="conversationsExpanded">'+
-								'<span class="conversationalist">'+messages[j].sender.username+'</span>'+
-								'<span>(20)</span>'+
-							'</a>'+
-							'<div class="pull-left media-body col-md-7">'+
+						for (var j = 0 ; j < messages.length; j++) {
+							$(".conversationsCounselor").append('<li class="well media conversation_topic">'+
+								'<a class="pull-left col-md-2" href="conversationsExpanded">'+
+									'<span class="conversationalist">'+messages[j].sender.username+'</span>'+
+									'<span>(20)</span>'+
+								'</a>'+
+								'<div class="pull-left media-body col-md-7">'+
 									'<h4 class="media-heading">'+messages[j].subject+'</h4>'+
 									'<span style="conversation_summary">'+messages[j].content+'</span>'+
-							'</div>'+
-							'<div class="pull-left">'+messages[j].sentDate+'</div>'+
-							'<div class="pull-right col-md-1">'+
-							'<a href="conversationsExpanded?='+messages[j].msgId+'">'+
-									'<span class="glyphicon glyphicon-chevron-right"></span>'+
-								'</a>'+
-							'</div>'+
-						'</li>');
-				}
-				
-			});
+								'</div>'+
+								'<div class="pull-left">'+messages[j].sentDate+'</div>'+
+								'<div class="pull-right col-md-1">'+
+								'<a href="conversationsExpanded?='+messages[j].msgId+'">'+
+										'<span class="glyphicon glyphicon-chevron-right"></span>'+
+									'</a>'+
+								'</div>'+
+							'</li>');
+						}
+					}
+					else{
+						$(".conversations").html('<div>There are no conversations</div><a class="leaveMessageLink">Leave a message</a>'); 
+					}
+					});
 			
+			
+			});
+		
+		
+		$(".conversations").on("click",".leaveMessageLink", function(){
+				$( ".leaveMessage" ).trigger( "click" );	
+		});
+		
 		
 		/*populating users*/
-		$( "#autocomplete" ).autocomplete({
+		 var availableTags = [
+"ActionScript",
+"AppleScript",
+"Asp",
+"BASIC",
+"C",
+"C++",
+"Clojure",
+"COBOL",
+"ColdFusion",
+"Erlang",
+"Fortran",
+"Groovy",
+"Haskell",
+"Java",
+"JavaScript",
+"Lisp",
+"Perl",
+"PHP",
+"Python",
+"Ruby",
+"Scala",
+"Scheme"
+];
+		$("#autocomplete" ).autocomplete({
 			 source: function( request, response ) {
-	                $.ajax({
+	                /*$.ajax({
 	                    url: "/dost/api/users",
 	                    dataType: "json",
 	                    data: {term: request.term},
@@ -72,15 +108,14 @@
 	                            }));
 	                        }
 	                    });
-	                },
-	          minLength:0
+	                },*/
+	                source: availableTags
 		});
 		/*end of populating users*/
 		
 		/*send Message popup*/
 		
 		$(".leaveMessage").click(function(){
-			alert("");
 			$("#dialogMessage").dialog("open");
 		});
 		
@@ -98,12 +133,13 @@
 					text : "SEND",
 					click : function() {
 						debugger;
-						var datatosend = 'subject='+$("#subject").val()+'&content=' + $("#messageContent").val()+ '&senderId=102' ;
+						var datatosend = 'subject='+$("#subject").val()+'&content=' + $("#messageContent").val()+ '&senderId=' + userid ;
 						$.post('http://localhost:8800/dost/api/user/message', datatosend, function(response) {
 							//$('#visitFormResponse').text(response);
 						});
+						window.setTimeout('location.reload()', 1000);
 					}
-				}]
+				}]	
 		});		
 		
 		/*End of send message popup*/	
@@ -150,7 +186,7 @@
 						<li><a href="#">Label 1</a></li>
 						<li><a href="#">Label 2</a></li>
 					</ul>
-					<ul class="pull-right conversationsCounselor col-md-10">
+					<ul class="pull-right conversations conversationsCounselor col-md-10">
 						<!-- each conversation-->
 					</ul>
 						
@@ -179,7 +215,7 @@
 						<div class="clearfix"></div>
 					</div>
 					<!-- each conversation-->
-					<ul class="conversationsUser">
+					<ul class="conversationsUser conversations">
 							
 					
 					</ul>

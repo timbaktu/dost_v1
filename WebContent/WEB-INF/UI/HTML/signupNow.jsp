@@ -30,40 +30,45 @@
 		<jsp:include page="includes/header.jsp"></jsp:include>
 				
 		<div class="container">
-			<a class="pull-right loginText" href="login" alt="Login to an existing account">Have an account? LOGIN NOW</a>
+			<a class="pull-right loginText" href="login" alt='Login to an existing account'>Have an account? LOGIN NOW</a>
 			<div class="clearfix"></div>
+
 			<form id="signin" class="form-signin" action="">
-				<h3 class="col-md-7 col-md-offset-2 form-signin-heading">
+				<div class="col-md-7 col-md-offset-2 form-signin-heading">
 					<p>Hi,</p>
 					<p>Don't worry, whatever it is.. we can fix it together. <em>Get Started!</em></p>
-				</h3>
+				</div>
 				<div class="well well-large row col-md-7 col-md-offset-2 signinFormOuterContainer">
-					<div id="signindiv" class="span5 offset1">
+					<div id="signindiv" class="col-md-offset-1">
 						<label class="chooseAvatar">Choose your avatar <span>(This is how I will know you)</span></label>
-						<div id="avatarId" class="avatarHolder">
-							<img class="avatar" id="avatar1" src="avatar/avatar1.jpg" name="avatar1" />
-							<img class="avatar" id="avatar2" src="avatar/avatar2.jpg"/>
-							<img class="avatar" id="avatar3" src="avatar/avatar3.jpg"/>
-							<img class="avatar" id="avatar4" src="avatar/avatar4.jpg"/>
-							<img class="avatar" id="avatar5" src="avatar/avatar5.jpg"/>
-						</div>
+
 						<div class="avatarHolder">
-							<img class="avatar" id="avatar6" src="avatar/avatar6.jpg"/>
-							<img class="avatar" id="avatar7" src="avatar/avatar7.jpg"/>
-							<img class="avatar" id="avatar8" src="avatar/avatar8.jpg"/>
-							<img class="avatar" id="avatar9" src="avatar/avatar9.jpg"/>
-							<img class="avatar" id="avatar10" src="avatar/avatar10.jpg"/>
+							<img class="avatar" src="avatar/avatar1.jpg" id="avatar1"/>
+							<img class="avatar" src="avatar/avatar2.jpg" id="avatar2"/>
+							<img class="avatar" src="avatar/avatar3.jpg" id="avatar3"/>
+							<img class="avatar" src="avatar/avatar4.jpg"  id="avatar4"/>
+							<img class="avatar" src="avatar/avatar5.jpg" id="avatar5"/>
+							<img class="avatar" src="avatar/avatar6.jpg" id="avatar6"/>
+							<img class="avatar" src="avatar/avatar7.jpg" id="avatar7"/>
+							
 						</div>
 						<br/><br/>
+						
 						<label>Username</label>
-						<input id ="username" type="text" class="input-block-level" placeholder="Username">
+						<input id="username" type="text" class="form-control input-block-level" placeholder="Create a username">
+
 						<br/><br/>
 						
 						<label>Password</label>
-						<input id="password" type="password" class="input-block-level" placeholder="Password">
+
+						<input id="password" type="password" class="form-control input-block-level" placeholder="Set a password">
+
 						<br/><br/>
-						<button id="signup" class="pull-right btn btn-large btn-primary" type="submit">Proceed ></button>
-						<a class="pull-left loginText" href="login" alt="Login to an existing account">Have an account? Login Now</a>
+						<button class="pull-right btn btn-large btn-primary" type="submit">Proceed &gt;</button>
+						<a class="pull-right loginText" href="login" alt="Login to an existing account">Have an account? Login Now</a>
+
+						
+
 					</div>
 				</div>
 				<div class="clearfix"></div>
