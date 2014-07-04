@@ -20,11 +20,11 @@
 				<div class="well well-large row  col-md-offset-2 signinFormOuterContainer">
 					<div class="col-md-offset-1">
 						<label>Username</label>
-						<input type="text" id="username" name="username" class="input-block-level form-control" placeholder="Username">
+						<input type="text" required id="username" name="username" class="input-block-level form-control" placeholder="Username">
 						<br/><br/>
 						
 						<label>Password</label>
-						<input type="password" id="password" name="password" class="input-block-level form-control" placeholder="Password">
+						<input type="password" required id="password" name="password" class="input-block-level form-control" placeholder="Password">
 						<a class="pull-right" alt="Forgot Password" href="forgotPassword">Forgot Password?</a>
 						<label class="checkbox">
 							<input type="checkbox" value="remember-me"> Remember me

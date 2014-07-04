@@ -9,11 +9,12 @@
 	<script>
 	$( document ).ready(function() {
 		var threadId = window.location.href.split("=");
-		alert(threadId[1]);
+		
 		/*Manipulating json for conversation thread*/
 		$.getJSON("/dost/api/message/"+threadId[1]+"/", function(messages) {
+			$("#subjectHeading").text(messages[0].subject);
 			for (var i = 0 ; i < messages.length ; i++) {
-				$(".conversation_history").append('<li>'+
+					$(".conversation_history").append('<li>'+
 													'<h4 class="media-heading">'+ messages[i].sender.username+ '<span> &nbsp' +messages[i].sentDate +'</span></h4>'+
 													messages[i].content+
 												'</li>');
@@ -53,7 +54,7 @@
 					</ul>
 					<div class="pull-right col-md-10">
 						<div class="pull-left col-md-9">
-							<h4 class="pull-left">Not able to face the world</h4>
+							<h4 id="subjectHeading" class="pull-left"></h4>
 							<div class="pull-right">
 								<div class="btn-group">
 								  <button type="button" class="btn btn-default">Reply</button>
@@ -106,7 +107,7 @@
 					
 					<div class="pull-right col-md-10">
 						<div class="pull-left col-md-9">
-							<h4 class="pull-left">Not able to face the world</h4>
+							<h4 id="subjectHeading" class="pull-left"></h4>
 							<div class="pull-right">
 								<div class="btn-group">
 								  <button type="button" class="btn btn-default">Reply</button>

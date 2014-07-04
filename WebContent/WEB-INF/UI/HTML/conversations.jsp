@@ -12,10 +12,9 @@
 		var userid;
 		$.getJSON("/dost/api/user/${pageContext.request.userPrincipal.name}", function(user) {
 			userid = user.userId;
-		});
-				$.getJSON('/dost/api/user/'+userid+'/messages', function(messages) {	
-				
-					if(messages.length>0){
+			
+			$.getJSON('/dost/api/user/'+userid+'/messages', function(messages) {	
+				if(messages.length>0){
 						for (var i = 0 ; i < messages.length; i++) {
 					
 							$(".conversationsUser").append('<li class="well media conversation_topic">'+
@@ -56,7 +55,7 @@
 						}
 					}
 					else{
-						$(".conversations").html('<div>There are no conversations</div><a class="leaveMessageLink">Leave a message</a>'); 
+						$(".conversations").html('<div class="noConversationsText">There are no conversations <br/> <a class="leaveMessageLink">Leave a message</a></div>'); 
 					}
 					});
 			
@@ -69,34 +68,10 @@
 		});
 		
 		
-		/*populating users*/
-		 var availableTags = [
-"ActionScript",
-"AppleScript",
-"Asp",
-"BASIC",
-"C",
-"C++",
-"Clojure",
-"COBOL",
-"ColdFusion",
-"Erlang",
-"Fortran",
-"Groovy",
-"Haskell",
-"Java",
-"JavaScript",
-"Lisp",
-"Perl",
-"PHP",
-"Python",
-"Ruby",
-"Scala",
-"Scheme"
-];
+
 		$("#autocomplete" ).autocomplete({
-			 source: function( request, response ) {
-	                /*$.ajax({
+			source: function( request, response ) {
+	                $.ajax({
 	                    url: "/dost/api/users",
 	                    dataType: "json",
 	                    data: {term: request.term},
@@ -108,8 +83,8 @@
 	                            }));
 	                        }
 	                    });
-	                },*/
-	                source: availableTags
+	                },
+	        /*        source: availableTags*/
 		});
 		/*end of populating users*/
 		
@@ -140,7 +115,7 @@
 						window.setTimeout('location.reload()', 1000);
 					}
 				}]	
-		});		
+		});	
 		
 		/*End of send message popup*/	
 			

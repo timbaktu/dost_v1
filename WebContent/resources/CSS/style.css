@@ -63,6 +63,12 @@
 		margin-right: 20px;
     	margin-top: 5px;
 	}
+	.noConversationsText{
+		font-size: 14px;
+		text-align: center;
+		margin-top: 100px;
+		margin-bottom: 70px;
+	}
 	.avatar{
 		width:70px;
 		height:60px;
@@ -472,5 +478,13 @@ h4.media-heading{
 	font-weight:bold;	
 }
 /*end of jforum module*/
+/*styling for autocomplete*/
+ul.ui-autocomplete{
+	z-index: 200;
+	position: absolute
+	
+}
+/* end of styling for autocomplete*/
+
 
 

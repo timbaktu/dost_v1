@@ -17,18 +17,27 @@
 				</sec:authorize>
 				
 				<sec:authorize access="hasRole('ROLE_ADMIN')">
+				<form id="message">
 					<label>To</label>
-					<input type="text" id="autocomplete" class="form-control questionForm" placeholder="Send To"/>
+					<input required type="text" id="autocomplete" class="form-control questionForm" placeholder="Send To"/>
 					<br/>
 					
-				</sec:authorize>
-				
-	      		<form id="message">
-	      			<label>Subject</label>
-	      			<input id="subject" type="text" class="form-control questionForm" placeholder="Subject"/>
+					<label>Subject</label>
+	      			<input required id="subject" type="text" class="form-control questionForm" placeholder="Subject"/>
 	      			<br/>
 	      			<label>Message</label>
-	      			<textarea id="messageContent"  rows="3" class="well form-control" placeholder="Type your query"></textarea>
+	      			<textarea required id="messageContent"  rows="3" class="well form-control" placeholder="Type your query"></textarea>
 	      		</form>
+				</sec:authorize>
+				
+	      		<sec:authorize access="hasRole('ROLE_USER')">
+	      		<form id="message">
+	      			<label>Subject</label>
+	      			<input required id="subject" type="text" class="form-control questionForm" placeholder="Subject"/>
+	      			<br/>
+	      			<label>Message</label>
+	      			<textarea required id="messageContent"  rows="3" class="well form-control" placeholder="Type your query"></textarea>
+	      		</form>
+	      		</sec:authorize>
 	    </div>
 	</div><!-- /.modal -->
