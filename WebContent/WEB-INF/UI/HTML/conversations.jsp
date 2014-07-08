@@ -145,12 +145,21 @@
 				{
 					text : "SEND",
 					click : function() {
-						debugger;
-						var datatosend = 'subject='+$("#subject").val()+'&content=' + $("#messageContent").val()+ '&recipients=103&senderId=' + userid;
-						$.post('http://localhost:8800/dost/api/user/message', datatosend, function(response) {
-							//$('#visitFormResponse').text(response);
-						});
-						window.setTimeout('location.reload()', 1000);
+							$(".error").html("");
+							$(".error").hide();
+							
+							var datatosend = 'subject='+$("#subject").val()+'&content=' + $("#messageContent").val()+ '&recipients=103&senderId=' + userid;
+							
+							if($("#recipient").val()== '' || $("#subject").val()== '' || $("#messageContent").val() =='') {
+								$(".error").show().text("Please fill in details");
+							}
+							else{
+								$.post('http://localhost:8800/dost/api/user/message', datatosend, function(response) {
+							
+								//$('#visitFormResponse').text(response);
+								});
+								window.setTimeout('location.reload()', 1000);
+							}
 					}
 				}]	
 		});	

@@ -18,6 +18,7 @@
 				
 				<sec:authorize access="hasRole('ROLE_ADMIN')">
 				<form id="message">
+					<div class="error alert alert-danger" role="alert"></div>
 					<label>To</label>
 					<input id="recipient" required type="text" id="autocomplete" class="form-control questionForm autocomplete" placeholder="Send To"/>
 					<br/>
@@ -32,6 +33,7 @@
 				
 	      		<sec:authorize access="hasRole('ROLE_USER')">
 	      		<form id="message">
+	      			<div class="error alert alert-danger" role="alert"></div>
 	      			<label>Subject</label>
 	      			<input required id="subject" type="text" class="form-control questionForm" placeholder="Subject"/>
 	      			<br/>
