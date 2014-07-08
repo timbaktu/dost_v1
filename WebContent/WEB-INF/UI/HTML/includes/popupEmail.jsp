@@ -19,7 +19,7 @@
 				<sec:authorize access="hasRole('ROLE_ADMIN')">
 				<form id="message">
 					<label>To</label>
-					<input required type="text" id="autocomplete" class="form-control questionForm" placeholder="Send To"/>
+					<input id="recipient" required type="text" id="autocomplete" class="form-control questionForm autocomplete" placeholder="Send To"/>
 					<br/>
 					
 					<label>Subject</label>

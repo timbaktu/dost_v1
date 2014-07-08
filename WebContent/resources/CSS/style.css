@@ -75,6 +75,14 @@
 		border:1px solid #DDDDDD;
 		background: #EBEBEB;
 		display: inline-block;
+		opacity: 0.6;
+	}
+	.error, .alert-success{
+		display:none;
+	}
+	img.selectedImage{
+		opacity: 1;
+		border:2px solid #1b80c2;	
 	}
 	.avatar:first-child{
 		margin-left:0;

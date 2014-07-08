@@ -68,8 +68,17 @@
 		});
 		
 		
+		
+		/*populating users*/
+			function split( val ) {
+			return val.split( /,\s*/ );
+		}
+		function extractLast( term ) {
+			return split( term ).pop();
+		}
 
-		$("#autocomplete" ).autocomplete({
+		
+		$(".autocomplete" ).autocomplete({
 			source: function( request, response ) {
 	                $.ajax({
 	                    url: "/dost/api/users",
@@ -84,8 +93,37 @@
 	                        }
 	                    });
 	                },
-	        /*        source: availableTags*/
+	         minLength: 0,
+	         select: function( event, ui ) {
+					var terms = split( this.value );
+					// remove the current input
+					terms.pop();
+					// add the selected item
+					terms.push( ui.item.value );
+					// add placeholder to get the comma-and-space at the end
+					terms.push( "" );
+					this.value = terms.join( ", " );
+					return false;
+				}
 		});
+		
+		/*var availableTags = [
+			"ActionScript",
+			"AppleScript",
+				"Ruby",
+			"Scala",
+			"Scheme"
+		];
+
+		$(".autocomplete" ).autocomplete({
+			source: availableTags
+		});*/
+
+		/*end of populating users*/
+
+		 		
+
+
 		/*end of populating users*/
 		
 		/*send Message popup*/
@@ -119,6 +157,13 @@
 		
 		/*End of send message popup*/	
 			
+		
+		/*Sent messages list*/
+		$(".sentMessages").click(function(){
+			$(this).addClass("selected");
+			
+		});
+		
 	});
 	/*End of manipulating json for messages*/	
 	
