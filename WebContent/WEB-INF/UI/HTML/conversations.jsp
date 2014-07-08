@@ -86,44 +86,30 @@
 	                    data: {term: request.term},
 	                    success: function(data) {
 	                                response($.map(data, function(users) {
-	                                return {
+	                                	return {
 	                                    label: users.username,
-	                                    };
+	                                    name: users.userId,
+	                                    
+	                                    };                              	
 	                            }));
 	                        }
 	                    });
 	                },
 	         minLength: 0,
 	         select: function( event, ui ) {
-					var terms = split( this.value );
+					/*var terms = split( this.value );
 					// remove the current input
 					terms.pop();
 					// add the selected item
 					terms.push( ui.item.value );
 					// add placeholder to get the comma-and-space at the end
-					terms.push( "" );
-					this.value = terms.join( ", " );
+					terms.push( "" );*/
+					$("#user_id").val(ui.item.name);
+					/*this.value = terms.join( ", " );*/
 					return false;
 				}
 		});
 		
-		/*var availableTags = [
-			"ActionScript",
-			"AppleScript",
-				"Ruby",
-			"Scala",
-			"Scheme"
-		];
-
-		$(".autocomplete" ).autocomplete({
-			source: availableTags
-		});*/
-
-		/*end of populating users*/
-
-		 		
-
-
 		/*end of populating users*/
 		
 		/*send Message popup*/
@@ -133,7 +119,6 @@
 		});
 		
 		$("#dialogMessage").dialog({
-
 				autoOpen : false,
 				width : 600,
 				buttons : [ {
@@ -148,14 +133,13 @@
 							$(".error").html("");
 							$(".error").hide();
 							
-							var datatosend = 'subject='+$("#subject").val()+'&content=' + $("#messageContent").val()+ '&recipients=103&senderId=' + userid;
+							var datatosend = 'subject='+$("#subject").val()+'&content=' + $("#messageContent").val()+ '&recipients='+$('#user_id').val() +'&senderId=' + userid;
 							
 							if($("#recipient").val()== '' || $("#subject").val()== '' || $("#messageContent").val() =='') {
 								$(".error").show().text("Please fill in details");
 							}
 							else{
-								$.post('http://localhost:8800/dost/api/user/message', datatosend, function(response) {
-							
+								$.post('http://localhost:8800/dost/api/user/message', datatosend, function(response) {							
 								//$('#visitFormResponse').text(response);
 								});
 								window.setTimeout('location.reload()', 1000);
@@ -252,6 +236,7 @@
 				</div>
 			</div>
 		</sec:authorize>
+		<input type="text" id="user_id" />
 		<jsp:include page="includes/popupEmail.jsp"></jsp:include>
 		<jsp:include page="includes/commonFooter.jsp"></jsp:include>
 	</body>
