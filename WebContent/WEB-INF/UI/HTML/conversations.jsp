@@ -69,6 +69,8 @@
 		
 		
 		
+		var receipient = 'all' ; /*to go as receipientID*/
+		
 		/*populating users*/
 			function split( val ) {
 			return val.split( /,\s*/ );
@@ -104,8 +106,9 @@
 					terms.push( ui.item.value );
 					// add placeholder to get the comma-and-space at the end
 					terms.push( "" );*/
-					$("#user_id").val(ui.item.name);
+					receipient = ui.item.name;
 					/*this.value = terms.join( ", " );*/
+					alert(receipient);
 					return false;
 				}
 		});
@@ -113,6 +116,7 @@
 		/*end of populating users*/
 		
 		/*send Message popup*/
+		
 		
 		$(".leaveMessage").click(function(){
 			$("#dialogMessage").dialog("open");
@@ -133,16 +137,21 @@
 							$(".error").html("");
 							$(".error").hide();
 							
-							var datatosend = 'subject='+$("#subject").val()+'&content=' + $("#messageContent").val()+ '&recipients='+$('#user_id').val() +'&senderId=' + userid;
+							alert(receipient);
+							var datatosend = 'subject='+$("#subject").val()+'&content=' + $("#messageContent").val()+ '&recipients='+receipient+'&senderId=' + userid;
 							
 							if($("#recipient").val()== '' || $("#subject").val()== '' || $("#messageContent").val() =='') {
 								$(".error").show().text("Please fill in details");
 							}
 							else{
+								
 								$.post('http://localhost:8800/dost/api/user/message', datatosend, function(response) {							
 								//$('#visitFormResponse').text(response);
 								});
+								
 								window.setTimeout('location.reload()', 1000);
+								debugger;
+								receipient = 'all';
 							}
 					}
 				}]	

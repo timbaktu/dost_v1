@@ -8,19 +8,57 @@
 	
 	<script>
 	$( document ).ready(function() {
-		var threadId = window.location.href.split("=");
+		$.getJSON("/dost/api/user/${pageContext.request.userPrincipal.name}", function(user) {
+			userid = user.userId;
+			userRole = user.dbUserRole.role;
+			var threadId = window.location.href.split("=");
 		
-		/*Manipulating json for conversation thread*/
-		$.getJSON("/dost/api/message/"+threadId[1]+"/", function(messages) {
-			$("#subjectHeading").text(messages[0].subject);
-			for (var i = 0 ; i < messages.length ; i++) {
-					$(".conversation_history").append('<li>'+
-													'<h4 class="media-heading">'+ messages[i].sender.username+ '<span> &nbsp' +messages[i].sentDate +'</span></h4>'+
-													messages[i].content+
-												'</li>');
-			}
-		} );
-		/*End of Manipulating json for conversation thread*/
+			/*Manipulating json for conversation thread*/
+			$.getJSON("/dost/api/message/"+threadId[1]+"/", function(messages) {
+				$("#subjectHeading").text(messages[0].subject);
+				for (var i = 0 ; i < messages.length ; i++) {
+						$(".conversation_history").append('<li>'+
+														'<h4 class="media-heading">'+ messages[i].sender.username+ '<span> &nbsp' +messages[i].sentDate +'</span></h4>'+
+														messages[i].content+
+													'</li>');
+				}
+				
+				$(".sendReply").click(function(){
+					if(userRole == "ROLE_USER"){
+						var receipient = "all";
+					}
+					else{
+						for (var i = 0 ; i < messages.length ; i++){
+							if(messages[i].sender.dbUserRole.role=="ROLE_USER"){
+								var receipient = messages[i].sender.userId;
+							}
+							break;
+						}
+						
+					}
+					$(".error").html("");
+					$(".error").hide();
+					
+					var datatosend = 'subject='+messages[0].subject+'&content=' + $("#messageContent").val()+ '&recipients='+receipient+'&senderId=' + userid+'&msgId='+threadId[1];
+					
+					if($("#messageContent").val() =='') {
+						$(".error").show().text("Please type out the reply");
+					}
+					else{
+						
+						$.post('http://localhost:8800/dost/api/user/message', datatosend, function(response) {							
+						//$('#visitFormResponse').text(response);
+						});
+						
+						window.setTimeout('location.reload()', 1000);
+						receipient = 'all';
+					}
+				});	
+				
+			} );
+			/*End of Manipulating json for conversation thread*/
+		});	
+		
 		
 	});
 	
@@ -82,8 +120,8 @@
 							</a>
 							<div class="clearfix"></div>
 							<div class="reply_to_conversation">
-								<textarea class="form-control" rows="3"></textarea>
-								<button type="button" class="pull-right btn btn-primary">Submit</button>
+								<textarea class="form-control" id="messageContent" rows="3"></textarea>
+								<button type="button" class="sendReply pull-right btn btn-primary">Submit</button>
 							
 							</div>
 						</div>
@@ -135,8 +173,9 @@
 							</a>
 							<div class="clearfix"></div>
 							<div class="reply_to_conversation">
-								<textarea class="form-control" rows="3"></textarea>
-								<button type="button" class="pull-right btn btn-primary">Submit</button>
+								<div class="error alert alert-danger" role="alert"></div>
+								<textarea class="form-control" id="messageContent" rows="3"></textarea>
+								<button type="button"  class="sendReply pull-right btn btn-primary">Submit</button>
 							
 							</div>
 						</div>
