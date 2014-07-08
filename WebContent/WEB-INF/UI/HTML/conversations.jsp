@@ -10,58 +10,77 @@
 	/*Manipulating json for messages*/
 	$( document ).ready(function() {
 		var userid;
+		var UrlForData;
+
+		/*Sent messages and inbox toggle active class*/
+		$(".sentItems").click(function(){
+			$(".inbox").removeClass("active");
+			$(this).addClass("active");
+			UrlForData = '/dost/api/user/'+userid+'/sentmessages';
+			showData(UrlForData);
+		});
+		$(".inbox").click(function(){
+			$(".sentItems").removeClass("active");
+			$(this).addClass("active");
+			UrlForData = '/dost/api/user/'+userid+'/messages';
+			showData(UrlForData);
+		});
+		/*End Of Sent messages and inbox toggle active class*/
+		
 		$.getJSON("/dost/api/user/${pageContext.request.userPrincipal.name}", function(user) {
 			userid = user.userId;
-			
-			$.getJSON('/dost/api/user/'+userid+'/messages', function(messages) {	
-				if(messages.length>0){
-						for (var i = 0 ; i < messages.length; i++) {
-					
-							$(".conversationsUser").append('<li class="well media conversation_topic">'+
-													'<a class="pull-left col-md-2" href="#">'+
-														'<div class="friend_name"><img class="avatar" id="avatar1" src="avatar/avatar2.jpg" name="avatar1" /></div>'+
-														'<div class="friend_name">'+messages[i].sender.username+'</div>'+
-														'<div class="date_of_conversation">'+messages[i].sentDate+'</div>'+
-													'</a>'+
-													'<div class="media-body col-md-8">'+
-															'<h4>'+messages[i].subject+'</h4>'+
-															'<span>'+messages[i].content+'</span>'+
-													'</div>'+
-													'<div class="pull-right col-md-1">'+
-													'<a href="conversationsExpanded?='+messages[i].msgId+'">View'+
-															'<span class="glyphicon glyphicon-chevron-right"></span>'+
-														'</a>'+
-													'</div>'+
-												'</li>');		
-							}
-				
-						for (var j = 0 ; j < messages.length; j++) {
-							$(".conversationsCounselor").append('<li class="well media conversation_topic">'+
-								'<a class="pull-left col-md-2" href="conversationsExpanded">'+
-									'<span class="conversationalist">'+messages[j].sender.username+'</span>'+
-									'<span>(20)</span>'+
-								'</a>'+
-								'<div class="pull-left media-body col-md-7">'+
-									'<h4 class="media-heading">'+messages[j].subject+'</h4>'+
-									'<span style="conversation_summary">'+messages[j].content+'</span>'+
-								'</div>'+
-								'<div class="pull-left">'+messages[j].sentDate+'</div>'+
-								'<div class="pull-right col-md-1">'+
-								'<a href="conversationsExpanded?='+messages[j].msgId+'">'+
-										'<span class="glyphicon glyphicon-chevron-right"></span>'+
-									'</a>'+
-								'</div>'+
-							'</li>');
-						}
-					}
-					else{
-						$(".conversations").html('<div class="noConversationsText">There are no conversations <br/> <a class="leaveMessageLink">Leave a message</a></div>'); 
-					}
-					});
-			
-			
-			});
+			 UrlForData = '/dost/api/user/'+userid+'/messages';
+			 showData(UrlForData);
+		});
 		
+		function showData(UrlForData){
+			$.getJSON(UrlForData, function(messages) {	
+			$(".conversationsUser").html("");
+			$(".conversationsCounselor").html("");
+			if(messages.length>0){
+					for (var i = 0 ; i < messages.length; i++) {
+						$(".conversationsUser").append('<li class="well media conversation_topic">'+
+							'<a class="pull-left col-md-2" href="#">'+
+								'<div class="friend_name"><img class="avatar" id='+messages[i].sender.avatar+' src=avatar/'+messages[i].sender.avatar+'.jpg name='+messages[i].sender.avatar+ '/></div>'+
+								'<div class="friend_name">'+messages[i].sender.username+'</div>'+
+								'<div class="date_of_conversation">'+messages[i].sentDate+'</div>'+
+							'</a>'+
+							'<div class="media-body col-md-8">'+
+									'<h4>'+messages[i].subject+'</h4>'+
+									'<span>'+messages[i].content+'</span>'+
+							'</div>'+
+							'<div class="pull-right col-md-1">'+
+							'<a href="conversationsExpanded?='+messages[i].msgId+'">View'+
+									'<span class="glyphicon glyphicon-chevron-right"></span>'+
+								'</a>'+
+							'</div>'+
+						'</li>');		
+					}
+			
+					for (var j = 0 ; j < messages.length; j++) {
+						$(".conversationsCounselor").append('<li class="well media conversation_topic">'+
+							'<a class="pull-left col-md-2" href="conversationsExpanded">'+
+								'<span class="conversationalist">'+messages[j].sender.username+'</span>'+
+								'<span>(20)</span>'+
+							'</a>'+
+							'<div class="pull-left media-body col-md-7">'+
+								'<h4 class="media-heading">'+messages[j].subject+'</h4>'+
+								'<span style="conversation_summary">'+messages[j].content+'</span>'+
+							'</div>'+
+							'<div class="pull-left">'+messages[j].sentDate+'</div>'+
+							'<div class="pull-right col-md-1">'+
+							'<a href="conversationsExpanded?='+messages[j].msgId+'">'+
+									'<span class="glyphicon glyphicon-chevron-right"></span>'+
+								'</a>'+
+							'</div>'+
+						'</li>');
+					}
+				}
+				else{
+					$(".conversations").html('<div class="noConversationsText">There are no conversations <br/> <a class="leaveMessageLink">Leave a message</a></div>'); 
+				}
+				});
+		}
 		
 		$(".conversations").on("click",".leaveMessageLink", function(){
 				$( ".leaveMessage" ).trigger( "click" );	
@@ -160,11 +179,16 @@
 		/*End of send message popup*/	
 			
 		
-		/*Sent messages list*/
-		$(".sentMessages").click(function(){
-			$(this).addClass("selected");
-			
+		/*Sent messages and inbox toggle active class*/
+		$(".sentItems").click(function(){
+			$(".inbox").removeClass("active");
+			$(this).addClass("active");
 		});
+		$(".Inbox").click(function(){
+			$(".sentItems").removeClass("active");
+			$(this).addClass("active");
+		});
+		/*End Of Sent messages and inbox toggle active class*/
 		
 	});
 	/*End of manipulating json for messages*/	
@@ -202,8 +226,8 @@
 					
 					<ul class="pull-left col-md-2 left_nav">
 						<li><a class="leaveMessage">Compose</a><br/><br/></li>
-						<li class="active"><a href="#">Inbox</a></li>
-						<li><a href="#">Sent Items</a></li>
+						<li class="active inbox">Inbox</li>
+						<li class="sentItems">Sent Items</li>
 						<li><a href="#">Drafts</a><br/><br/></li>
 						<li><a href="#">Label 1</a></li>
 						<li><a href="#">Label 2</a></li>
