@@ -17,6 +17,12 @@ public class MessageServiceImpl implements MessageService {
 	@Autowired
 	MessageDAO messageDAO;
 
+	
+	
+	public List<DbMessage> getAllUserMessages(Long id) {
+		return messageDAO.getAllUserMessagesById(id);
+	}
+
 	public List<DbMessage> getMessagesById(Long id) {
 		return messageDAO.getMessagesById(id);
 	}

@@ -6,6 +6,8 @@ import com.dost.hibernate.DbMessage;
 
 public interface MessageService {
 
+	public List<DbMessage> getAllUserMessages(Long id);
+	
 	public List<DbMessage> getMessagesById(Long id);
 	
 	public List<DbMessage> getUserMessages(Long id);

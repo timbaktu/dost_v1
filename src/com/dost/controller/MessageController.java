@@ -33,6 +33,17 @@ public class MessageController {
 	UserService userService;
 	
 	/*messages received*/
+	@RequestMapping(value="/user/{id}/messages/all", method=RequestMethod.GET)  
+	@ResponseBody
+	public List<DbMessage> getAllUserMessagesForHistory(@PathVariable Long id) {
+		List<DbMessage> messages = messageService.getAllUserMessages(id);
+		for(DbMessage msg : messages) {
+			msg.setSentDate(Utils.formatDate(msg.getSentDateDb()));
+		}
+		return messages;
+	}
+	
+	/*messages received*/
 	@RequestMapping(value="/message/{id}/", method=RequestMethod.GET)  
 	@ResponseBody
 	public List<DbMessage> getAllMessagesById(@PathVariable Long id) {

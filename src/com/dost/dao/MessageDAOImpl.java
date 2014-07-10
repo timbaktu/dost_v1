@@ -1,7 +1,6 @@
 package com.dost.dao;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -20,6 +19,19 @@ public class MessageDAOImpl implements MessageDAO {
 	@Autowired
 	SessionFactory sessionFactory;
 	
+	public List<DbMessage> getAllUserMessagesById(Long id) {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "from DbMessage m where m.msgId in (select mi.msgId from DbMessage mi where mi.sender.userId = ?)";
+        Query query = session.createQuery(hql);
+        query.setParameter(0, id);
+        
+        List<DbMessage> messages = query.list();
+        if(messages == null) {
+        	return new ArrayList<DbMessage>();
+        }
+        return messages;
+	}
+
 	public List<DbMessage> getMessagesById(Long id) {
 		Session session = sessionFactory.getCurrentSession();
 //		String hql = "from DbMessage m join fetch m.recipients r where r.recipient.userId = ? and m.deleted = 0 and r.deleted = 0";
