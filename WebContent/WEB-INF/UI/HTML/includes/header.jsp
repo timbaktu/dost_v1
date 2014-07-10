@@ -24,8 +24,9 @@
 					  <li id="patientHistory"><a href="patientHistory">Patient History</a></li>
 					  <li id="onlineCounseling"><a href="onlineCounseling">Online Counseling</a></li>
 					  <li id="onlineCounseling"><a href="forums/show/1.page">Discussions</a></li>
-					  <li id="quotes"><a href="quotes">Quotes</a></li>
 					  <li id="faqs"><a href="faqs">FAQs</a></li>
+					  <li id="quotes"><a href="quotes">Quotes</a></li>
+					  <li id="blog"><a href="http://blog.yourdost.com"  target="_blank">Blog</a></li>
 				</ul>
 			
 		  </div><!--/.nav-collapse -->
@@ -43,7 +44,8 @@
 			  <div class="nav-collapse navbar-collapse ">
 				<ul class="nav navbar-nav pull-right ">
 					<sec:authorize ifNotGranted="ROLE_USER">
-						<li><a href="login" class="btn btn-primary btn-large signup_now">SIGNUP NOW</a></li>
+						<li><a href="login" class="btn btn-primary btn-large login_now">LOGIN</a></li>
+						<li><a href="signupNow" class="btn btn-primary btn-large signup_now">SIGNUP NOW</a></li>
 					</sec:authorize>
 					<sec:authorize access="hasRole('ROLE_USER')">
 						<li><a href="#" class="navbar-link">${pageContext.request.userPrincipal.name}</a></li>
@@ -59,7 +61,8 @@
 				  	<li id="talkToFriend"><a href="talkToFriend">Talk To a Friend</a></li>
 				  </sec:authorize>
 				  <li id="faqs"><a href="faqs">FAQs</a></li>
-				  <li id="resources"><a href="resources">Resources</a></li>
+				  <li id="quotes"><a href="quotes">Quotes</a></li>
+				  <li id="resources"><a href="http://blog.yourdost.com" target="_blank">Resources</a></li>
 				</ul>
 			  </div><!--/.nav-collapse -->
 			</div>

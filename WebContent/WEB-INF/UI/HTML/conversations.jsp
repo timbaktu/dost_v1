@@ -40,39 +40,45 @@
 			if(messages.length>0){
 					for (var i = 0 ; i < messages.length; i++) {
 						$(".conversationsUser").append('<li class="well media conversation_topic">'+
-							'<a class="pull-left col-md-2" href="#">'+
-								'<div class="friend_name"><img class="avatar" id='+messages[i].sender.avatar+' src=avatar/'+messages[i].sender.avatar+'.jpg name='+messages[i].sender.avatar+ '/></div>'+
-								'<div class="friend_name">'+messages[i].sender.username+'</div>'+
-								'<div class="date_of_conversation">'+messages[i].sentDate+'</div>'+
+							'<a class="each_conversation" href="conversationsExpanded?='+messages[i].msgId+'">'+
+								'<div class="pull-left col-md-2" href="#">'+
+									'<div class="friend_name"><img class="avatar" id='+messages[i].sender.avatar+' src=avatar/'+messages[i].sender.avatar+'.png name='+messages[i].sender.avatar+ '/></div>'+
+									'<div class="friend_name">'+messages[i].sender.username+'</div>'+
+									'<div class="date_of_conversation">'+messages[i].sentDate+'</div>'+
+								'</div>'+
+								'<div class="media-body col-md-8">'+
+										'<h4>'+messages[i].subject+'</h4>'+
+										'<span>'+messages[i].content+'</span>'+
+								'</div>'+
+								'<div class="pull-right col-md-1">'+
+									'<div href="conversationsExpanded?='+messages[i].msgId+'">View'+
+										'<span class="glyphicon glyphicon-chevron-right"></span>'+
+									'</div>'+
+								'</div>'+
+								'<div class="clearfix"></div>'+
 							'</a>'+
-							'<div class="media-body col-md-8">'+
-									'<h4>'+messages[i].subject+'</h4>'+
-									'<span>'+messages[i].content+'</span>'+
-							'</div>'+
-							'<div class="pull-right col-md-1">'+
-							'<a href="conversationsExpanded?='+messages[i].msgId+'">View'+
-									'<span class="glyphicon glyphicon-chevron-right"></span>'+
-								'</a>'+
-							'</div>'+
 						'</li>');		
 					}
 			
 					for (var j = 0 ; j < messages.length; j++) {
 						$(".conversationsCounselor").append('<li class="well media conversation_topic">'+
-							'<a class="pull-left col-md-2" href="conversationsExpanded">'+
-								'<span class="conversationalist">'+messages[j].sender.username+'</span>'+
-								'<span>(20)</span>'+
+							'<a class="each_conversation" href="conversationsExpanded?='+messages[j].msgId+'">'+
+								'<div class="pull-left col-md-2" >'+
+									'<span class="conversationalist">'+messages[j].sender.username+'</span>'+
+									'<span>(20)</span>'+
+								'</div>'+
+								'<div class="pull-left media-body col-md-7">'+
+									'<h4 class="media-heading">'+messages[j].subject+'</h4>'+
+									'<span style="conversation_summary">'+messages[j].content+'</span>'+
+								'</div>'+
+								'<div class="pull-left">'+messages[j].sentDate+'</div>'+
+								'<div class="pull-right col-md-1">'+
+									'<div href="conversationsExpanded?='+messages[j].msgId+'">'+
+										'<span class="glyphicon glyphicon-chevron-right"></span>'+
+									'</div>'+
+								'</div>'+
 							'</a>'+
-							'<div class="pull-left media-body col-md-7">'+
-								'<h4 class="media-heading">'+messages[j].subject+'</h4>'+
-								'<span style="conversation_summary">'+messages[j].content+'</span>'+
-							'</div>'+
-							'<div class="pull-left">'+messages[j].sentDate+'</div>'+
-							'<div class="pull-right col-md-1">'+
-							'<a href="conversationsExpanded?='+messages[j].msgId+'">'+
-									'<span class="glyphicon glyphicon-chevron-right"></span>'+
-								'</a>'+
-							'</div>'+
+							'<div class="clearfix"></div>'+
 						'</li>');
 					}
 				}

@@ -76,13 +76,13 @@
 						</div><label class="chooseAvatar">Choose your avatar <span>(This is how I will know you)</span></label>
 
 						<div id="avatarId" class="avatarHolder">
-							<img class="avatar" src="avatar/avatar1.jpg" id="avatar1"/>
-							<img class="avatar" src="avatar/avatar2.jpg" id="avatar2"/>
-							<img class="avatar" src="avatar/avatar3.jpg" id="avatar3"/>
-							<img class="avatar" src="avatar/avatar4.jpg" id="avatar4"/>
-							<img class="avatar" src="avatar/avatar5.jpg" id="avatar5"/>
-							<img class="avatar" src="avatar/avatar6.jpg" id="avatar6"/>
-							<img class="avatar" src="avatar/avatar7.jpg" id="avatar7"/>
+							<img class="avatar" src="avatar/avatar1.png" id="avatar1"/>
+							<img class="avatar" src="avatar/avatar2.png" id="avatar2"/>
+							<img class="avatar" src="avatar/avatar3.png" id="avatar3"/>
+							<img class="avatar" src="avatar/avatar4.png" id="avatar4"/>
+							<img class="avatar" src="avatar/avatar5.png" id="avatar5"/>
+							<img class="avatar" src="avatar/avatar6.png" id="avatar6"/>
+							<img class="avatar" src="avatar/avatar7.png" id="avatar7"/>
 							
 						</div>
 						<br/><br/>

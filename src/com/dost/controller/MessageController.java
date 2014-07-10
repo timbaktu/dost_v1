@@ -147,7 +147,7 @@ public class MessageController {
 		List<DbMessageRecipient> lists = new ArrayList<DbMessageRecipient>();
 		String recipientIds = message.getRecipients();
 		String[] recipientArray = null;
-		if(recipientIds != "all") {
+		if(!recipientIds.equals("all")){
 			recipientArray = recipientIds.split(",");	
 		}
 		// If UI didnt send the recipient id then get list of available couselors

@@ -6,14 +6,22 @@
 
 
 <html lang="en">
-	<jsp:include page="user/includes/commonHeader.jsp"></jsp:include>
+	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
+	<script>
+		$( document ).ready(function() {
+			$(".horoscopes a").click(function(){
+				var clickedZodiac =$(this).text();
+				$(this).attr("href","horoscope?="+clickedZodiac);
+			});
+		});
+	</script>
 	<body class="container-fluid   theme-default">
-		<jsp:include page="user/includes/headerUser.jsp"></jsp:include>
+		<jsp:include page="includes/header.jsp"></jsp:include>
 		<div class="container row-fluid welcomePage">
 			<div class="col-md-7">
 				<ul>
 					<li class="exploration_option well" id="discussions">
-						<a href="${pageContext.request.contextPath}/user/discussionsAll">
+						<a href="${pageContext.request.contextPath}/discussions">
 							<h3 class="categoryName">Dicussions</h3>
 							<ul class="details_box">
 								<li>
@@ -64,9 +72,22 @@
 						<div></div>
 					</li>
 					
-					<li class="exploration_option well">
-						<h3>Horoscopes</h3>
-						<div></div>
+					<li class="exploration_option well horoscopes">
+						<h3 class="categoryName">Horoscopes</h3>
+						<ul>
+							<li><a>Aquarius</a></li>
+							<li><a>Pisces</a></li>
+							<li><a>Aries</a></li>
+							<li><a>Taurus</a></li>
+							<li><a>Gemini</a></li>
+							<li><a>Cancer</a></li>
+							<li><a>Leo</a></li>
+							<li><a>Virgo</a></li>
+							<li><a>Libra</a></li>
+							<li><a>Scorpio</a></li>
+							<li><a>Saggitarius</a></li>
+							<li><a>Capricon</a></li>
+						</ul>
 					</li>
 					
 					<li class="exploration_option well" >
@@ -76,7 +97,10 @@
 					
 				</ul>
 			</div>
-			<jsp:include page="user/includes/signUp.jsp"></jsp:include>
+			<sec:authorize ifNotGranted="ROLE_USER">
+				
+				<jsp:include page="user/includes/signUp.jsp"></jsp:include>
+			</sec:authorize>
 		</div>
 		<jsp:include page="user/includes/commonFooter.jsp"></jsp:include>
 	</body>
