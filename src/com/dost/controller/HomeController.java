@@ -83,9 +83,13 @@ public class HomeController {
 	public ModelAndView counselor_conversationsExpanded() {
 		return new ModelAndView("conversationsExpanded"); 
 	}
-	@RequestMapping("patientHistory")  
-	public ModelAndView counselor_patientHistory() {
-		return new ModelAndView("patientHistory"); 
+	@RequestMapping("patientList")  
+	public ModelAndView counselor_patientList() {
+		return new ModelAndView("patientList"); 
+	}
+	@RequestMapping("patientDetails")  
+	public ModelAndView patientDetails() {
+		return new ModelAndView("patientDetails"); 
 	}
 	@RequestMapping("onlineCounseling")  
 	public ModelAndView counselor_onlineCounseling() {

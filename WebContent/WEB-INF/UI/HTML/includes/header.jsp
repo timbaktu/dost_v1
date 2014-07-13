@@ -21,7 +21,7 @@
 				</ul>
 				<ul class="nav navbar-nav pull-left menuItems">
 					  <li id="conversations"><a href="conversations">Conversations</a></li>
-					  <li id="patientHistory"><a href="patientHistory">Patient History</a></li>
+					  <li id="patientHistory"><a href="patientList">Patient History</a></li>
 					  <li id="onlineCounseling"><a href="onlineCounseling">Online Counseling</a></li>
 					  <li id="onlineCounseling"><a href="forums/show/1.page">Discussions</a></li>
 					  <li id="faqs"><a href="faqs">FAQs</a></li>
