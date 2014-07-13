@@ -35,12 +35,37 @@ public class MessageController {
 	/*messages received*/
 	@RequestMapping(value="/user/{id}/messages/all", method=RequestMethod.GET)  
 	@ResponseBody
-	public List<DbMessage> getAllUserMessagesForHistory(@PathVariable Long id) {
+	public Map<Long, List<DbMessage>> getAllUserMessagesForHistory(@PathVariable Long id) {
 		List<DbMessage> messages = messageService.getAllUserMessages(id);
 		for(DbMessage msg : messages) {
 			msg.setSentDate(Utils.formatDate(msg.getSentDateDb()));
 		}
-		return messages;
+		// Formatting as Gudia needs
+		Map<Long, List<DbMessage>> messageMap = new HashMap<Long, List<DbMessage>>();
+		for(DbMessage msg : messages) {
+			// New record
+			if(messageMap.get(msg.getMsgId()) == null) {
+				List<DbMessage> messageList = new ArrayList<DbMessage>();
+				messageList.add(msg);
+				messageMap.put(msg.getMsgId(), messageList);
+			}
+			// Existing record
+			else {
+				List<DbMessage> existingMessageList = messageMap.get(msg.getMsgId());
+				existingMessageList.add(msg);
+			}
+		}
+		
+//		// Creating output
+//		Map<Map<String, Long>, List<DbMessage>> outputMap = new HashMap<Map<String, Long>, List<DbMessage>>();
+//		for (Map.Entry<Long, List<DbMessage>> entry : messageMap.entrySet()) {
+//			Long key = entry.getKey();
+//			List<DbMessage> value = entry.getValue();
+//			Map<String, Long> keyMap = new HashMap<String, Long>();
+//			keyMap.put("msgId", key);
+//			outputMap.put(keyMap, value);
+//		}
+		return messageMap;
 	}
 	
 	/*messages received*/
