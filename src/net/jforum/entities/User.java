@@ -45,6 +45,9 @@
 package net.jforum.entities;
 
 import java.io.Serializable;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -52,7 +55,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import net.jforum.JForumExecutionContext;
 import net.jforum.SessionFacade;
+import net.jforum.exceptions.DatabaseException;
+import net.jforum.util.DbUtils;
 import net.jforum.util.preferences.ConfigKeys;
 import net.jforum.util.preferences.SystemGlobals;
 
@@ -186,9 +192,33 @@ public class User implements Serializable
 	 * @return String with the avatar
 	 */
 	public String getAvatar() {
-		return this.avatar;
+		return getAvatar(this.username) + ".png";
 	}
 
+	
+	private String getAvatar(String username) {
+		PreparedStatement p = null;
+		ResultSet rs = null;
+		try {
+			p = JForumExecutionContext.getConnection().prepareStatement("select avatar from user where username = ? ");
+			p.setString(1, username);
+
+			rs = p.executeQuery();
+			String avatar = null;
+
+			if (rs.next()) {
+				avatar = rs.getString(1);
+			}
+
+			return avatar;
+		}
+		catch (SQLException e) {
+			throw new DatabaseException(e);
+		}
+		finally {
+			DbUtils.close(rs, p);
+		}		
+	}
 	/**
 	 * Checks if avatar is enabled
 	 * 
