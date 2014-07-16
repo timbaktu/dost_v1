@@ -1,5 +1,5 @@
 <a class="pull-left" href="${JForumContext.encodeURL("/user/profile/${topic.postedBy.id}")}">
-	<img class="media-object profile_pic">
+	<img class="media-object profile_pic" src="http://localhost:8800/dost/avatar/${user.avatar}">
 	<span class="owner_name">${user.username?html}</span>
 </a>
 <#if karmaEnabled && post.userId != 1>
@@ -14,7 +14,7 @@
 <#if (user.avatar?exists && user.avatar?length > 0)>
 	<#if user.isExternalAvatar() || user.avatar.startsWith("http://")>
 		<#if avatarAllowExternalUrl>
-			<img src="${user.avatar?html}" border="0" alt="[Avatar]" />
+			<img src="${contextPath}/avatar/${user.avatar}" border="0" alt="[Avatar]" />
 		</#if>
 	<#else>
 		<img src="${contextPath}/images/avatar/${user.avatar}" border="0" alt="[Avatar]" />
