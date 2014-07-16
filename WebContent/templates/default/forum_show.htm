@@ -122,23 +122,5 @@
 				</#list>
 	</div>
 </div>
-<#if !logged>
-	<div class="col-md-3" >
-		<div class="login_unit">
-			<p>Is something bothering you? Feeling lonely/uninterested?</p>
-			<p>Get advice from professionals annonymously (no name, no email, no photo) - think of me as your friend who would be there for you when you need him</p>
-			<div class="signupLoginOption">
-				<p><a href="signupNow" class="btn btn-primary btn-large signup_now">SIGNUP NOW</a></p>
-				<a href="login" class="login_acc">Login to your account</a></p> 
-			</div>
-		</div>
-	</div>
-</#if>
-<#if logged>
-	<div class="col-md-3" >
-		<h4>Most Popular Topics</h4>
-		<iframe src="/dost/hottestTopics/list.page"></iframe>
-		
-	</div>
-</#if>
+
 <#include "bottom.htm"/>
