@@ -95,14 +95,18 @@ $( document ).ready(function() {
 		});
 		/*end of next previous navigation*/
 		
+		/*searchBar for Discussion topics*/
+		
+		$(".allDiscussion_topic").sieve();
 		
 		
+		/*end of searchBar for Discussion topics*/
 	});
 
 		
 	/*for adding edit/delete options for a question*/
 	if(window.location.pathname == "/dost/counselor/faqs"){
-		alert("1212");
+		
 		$(".questionAnswer").hover(
 				function(){
 					$(this).prepend('<div class="editDeleteOptions pull-right">'+

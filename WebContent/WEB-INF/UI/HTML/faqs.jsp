@@ -14,6 +14,7 @@
 		//alert($("#faq").serialize());
 		
 		$("#dialog").dialog({
+			modal: true,
 			autoOpen : false,
 			width : 600,
 			buttons : [ {
@@ -38,11 +39,13 @@
 		$("#addbutton").click(function(event) {
 			$("#dialog").dialog("option","title", "Add New Question");
 			$("#dialog").dialog("open");
+			$('.ui-widget-overlay').css('background', 'white');
 			
 			$(".questionForm").val("");
 			$(".answerForm").val("");
 		});
 		
+		$(".FAQList").sieve({ itemSelector: ".question" });
 	});
 </script>
 </head>

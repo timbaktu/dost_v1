@@ -89,14 +89,14 @@
 						<div class="clearfix"></div>
 					</div>
 					
-					<ul class="pull-left col-md-2 left_nav">
+					<!-- <ul class="pull-left col-md-2 left_nav">
 						<li><a href="#">Compose</a><br/><br/></li>
 						<li class="active"><a href="#">Inbox</a></li>
 						<li><a href="#">Sent Items</a></li>
 						<li><a href="#">Drafts</a><br/><br/></li>
 						<li><a href="#">Label 1</a></li>
-						<li><a href="#">Label 2</a></li>
-					</ul>
+						<li><a href="#">Label 2</a></li> 
+					</ul>-->
 					<div class="pull-right col-md-10">
 						<div class="pull-left col-md-9">
 							<h4 id="subjectHeading" class="pull-left"></h4>

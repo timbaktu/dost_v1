@@ -145,9 +145,11 @@
 		
 		$(".leaveMessage").click(function(){
 			$("#dialogMessage").dialog("open");
+			$('.ui-widget-overlay').css('background', 'white');
 		});
 		
 		$("#dialogMessage").dialog({
+				modal: true,
 				autoOpen : false,
 				width : 600,
 				buttons : [ {
