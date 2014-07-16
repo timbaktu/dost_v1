@@ -231,6 +231,9 @@
 	.categoryList:first-child{
 		margin-top:0;
 	}
+	.categoryList{
+		margin-top: 40px;
+	}
 	h4{
 		margin-top:0
 	}
@@ -276,6 +279,12 @@
 	.right-unit iframe ul, .right-unit iframe li{
 		list-style-type :none;
 	}
+	.secondary_heading{
+		font-size: 14px;
+		font-weight: bold;
+		margin-top: 0;
+	}
+	
 	/*signUp Button*/
 	.theme-default a.signup_now{
 		font-size: 15px;

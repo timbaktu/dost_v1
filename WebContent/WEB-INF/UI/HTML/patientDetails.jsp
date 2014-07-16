@@ -8,24 +8,22 @@
 	<script>
 		$("document").ready(function() {
 			var userId = window.location.href.split("=");
+			
 			$.getJSON('/dost/api/user/'+userId[1]+'/messages/all', function(messages) {
-				for(i=0; i < 20; i++){
-					var number=i+1;
-					alert(messages[1][0].length);
-					/*$(".conversations").append('<div class="well categoryList"><h3 class="subject" id='+messages[i].number[0].subject+'>'+messages[i].number[0].subject+'</h3>');
-					$("#"+messages[i].number[0].subject).after("<ul></ul></div>");*/
-					/*for (var j = 0 ; j < messages[i].[i+1].length; j++) {
-							$("#"+ messages[i].[i+1].subject).siblings("ul").append('<li class="well media each_conversation">'+
+				for (var i in messages) {
+					$(".conversations").append('<div class="categoryList"><h3 class="subject secondary_heading" id='+i+'_subject>'+messages[i][0].subject+'</h3>');
+					$("#"+ i+"_subject").after("<ul></ul></div>");
+						for (var j in messages[i]) {
+							$("#"+ i+"_subject").siblings("ul").append('<li class="well media each_conversation">'+
 												'<div class="pull-left col-md-2">'+
-													'<div class="patient_name">'+messages[i].[i+1][j].sender.username+'</div>'+
-													'<div class="patient_name"><img class="avatar" id='+messages[i].[i+1][j].sender.avatar+' src="avatar/'+messages[i].[i+1][j].avatar+'.png" name='+messages[i].[i+1][j].sender.avatar+'/></div>'+
+													'<div class="patient_name"><strong>'+messages[i][j].sender.username+'</strong></div>'+
+													'<div class="post_details">'+messages[i][j].sentDate +'</div>'+
 												'</div>'+
 												'<div class="media-body col-md-8">'+
-														'<h4>'+messages[i].[i+1][j].subject+'</h4>'+
-														'<span>'+messages[i].[i+1][j].content+'</span>'+
+														'<span>'+messages[i][j].content+'</span>'+
 												'</div>'+
 											'</li>');
-					}*/
+					}
 				}
 			});	
 		});
@@ -48,19 +46,6 @@
 					<div class="clearfix"></div>
 				</div>
 				<br/>
-				<!-- <ul class="counselor_notes">
-					<li>
-						Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante .
-						<h4 class="media-sub-heading counselor_name">Prashant <small> 31st July - 6pm</small></h4>
-					</li>
-					<li>
-						Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sol congue felis in faucibus.
-						<h4 class="media-sub-heading counselor_name">Shahrukh <small> 31st July - 6pm</small></h4>
-					</li>
-				</ul>
-				<a href="#" class="pull-right">View All</a>
-				<div class="clearfix"></div>
-				<h4>Conversations</h4>-->
 				 
 				<ul class="conversations">
 					
