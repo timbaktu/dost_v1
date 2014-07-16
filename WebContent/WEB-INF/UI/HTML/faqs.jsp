@@ -25,7 +25,7 @@
 				text : "ADD",
 				click : function() {
 					debugger;
-					var datatosend = 'answer='+$("#answer").val()+'&question=' + $("#question").val();
+					var datatosend = 'answer='+$("#answer").val()+'&question=' + $("#question").val()/*+'&category=' + $("#categoryid: selected").val()*/;
 					$.post('http://localhost:8800/dost/api/faq/add', $("#faq").serialize(), function(response) {
 						//$('#visitFormResponse').text(response);
 					});
@@ -91,7 +91,9 @@
 				
 				Select Category : <select id="categoryid" name="category">
 									  <option id="1" name="career" value="career">Career</option>
+									  <option id="2" name="Love/Relationships" value="relationship">Love/Relationship</option>
 									  <option id="2" name="family" value="family">Family</option>
+									  <option id="3" name="friends" value="friends">Friends</option>
 									  <option id="3" name="other" value="other">Other</option>
 									</select> </br>
 				

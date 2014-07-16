@@ -59,6 +59,13 @@
 			/*End of Manipulating json for conversation thread*/
 		});	
 		
+		$(".addNote").click(function(){
+			$(".notePopup").show();		
+		});
+		
+		$(".cancelButton").click(function(){
+			$(this).closest(".notePopup").hide();
+		});
 		
 	});
 	
@@ -95,10 +102,10 @@
 							<h4 id="subjectHeading" class="pull-left"></h4>
 							<div class="pull-right">
 								<div class="btn-group">
-								  <button type="button" class="btn btn-default">Reply</button>
-								  <button type="button" class="btn btn-default">Add Note</button>
+								  <a href="#replyArea" type="button" class="btn btn-default">Reply</a>
+								  <button type="button" class="btn btn-default addNote">Add Note</button>
 	
-								  <div class="btn-group">
+								  <!-- <div class="btn-group">
 									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 									  Label
 									  <span class="caret"></span>
@@ -108,24 +115,24 @@
 									  <li><a href="#">love relationship</a></li>
 									  <li><a href="#">office stress</a></li>
 									</ul>
-								  </div>
+								  </div> -->
 								</div>
 							</div>
 							<div class="clearfix"></div>
 							<ul class="conversation_history">
 								
 							</ul>
-							<a href="#" class="pull-right conversationDetails"> View more conversations
+							<!--<a href="#" class="pull-right conversationDetails"> View more conversations
 								<span class="glyphicon glyphicon-chevron-right"></span>
-							</a>
+							</a> -->
 							<div class="clearfix"></div>
-							<div class="reply_to_conversation">
+							<div id="replyArea" class="reply_to_conversation">
 								<textarea class="form-control" id="messageContent" rows="3"></textarea>
 								<button type="button" class="sendReply pull-right btn btn-primary">Submit</button>
 							
 							</div>
 						</div>
-						<jsp:include page="includes/patientHistory.jsp"></jsp:include>
+						<!--<jsp:include page="includes/patientHistory.jsp"></jsp:include>-->
 						<div class="clearfix"></div>
 						
 					</div>
@@ -187,7 +194,15 @@
 			</div>
 				
 		</sec:authorize>
-		
+		<div class="notePopup">
+			<form>
+				<textarea class="form-control" id="messageContent" rows="3"></textarea>
+				<button type="button"  class="addNoteButton pull-right btn btn-primary">Submit</button>
+				<button type="button"  class="cancelButton pull-right btn btn-outline">Cancel</button>
+				
+				
+			</form>
+		</div>
 		<jsp:include page="includes/commonFooter.jsp"></jsp:include>
 	</body>
 </html>

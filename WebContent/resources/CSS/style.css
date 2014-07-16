@@ -14,6 +14,17 @@
 		font-size: 14px;
 		
 	}
+	.conversation_topic:hover,.questionAnswer:hover{
+		background: rgb(255,249,210);
+	}
+	.categoryList .clicked:hover{
+		background: rgb(256,256,256);
+	}
+	
+	.form-signin-heading p{
+		font-size:14px;
+		font-weight:bold;
+	}
 	.container{
 		margin-top: 50px;
 	}
@@ -138,6 +149,7 @@
 	}
 	.owner_name{
 		color:#000;
+		font-weight:bold;
 	}
 	.comment_action li{
 		display: inline-block;
@@ -234,7 +246,26 @@
 	.horoscopes a{
 		cursor:pointer;
 	}
-	
+	.notePopup{
+		display:none;
+		width: 400px;
+		position: absolute;
+		top: 151px;
+		right: 449px;
+		padding: 15px;
+		border: 1px solid #ddd;
+		background: #fff;
+	}
+	.notePopup textarea{
+		margin-bottom: 10px;
+	}
+	.cancelButton{
+		margin-right:10px;	
+	}
+	iframe{
+		border:0;
+		
+	}
 	/*signUp Button*/
 	.theme-default a.signup_now{
 		font-size: 15px;
@@ -304,6 +335,9 @@
 	.theme-default .well{
 		background-color: #FFFFFF;
 	}
+	.theme-default .btn-default {
+		color: #000;
+	}
 	.theme-default .page-header{background:#f6f6f6;border-color:#e9e9e9}
 	.theme-default .bordered,.theme-default .panel,.theme-default .table,.theme-default hr{border-color:#e2e2e2}
 	.theme-default .bordered[class*=bg-],.theme-default [class*=bg-] .border-t{border-color:#fff;border-color:rgba(0,0,0,.2)}
@@ -353,6 +387,9 @@
 	.theme-default-counselor a:hover,.theme-default-counselor a:focus,.theme-default-counselor a, .theme-default-counselor .pagination > li > a, .theme-default-counselor .pagination > li > span {
     	color: #2E9784;
     }
+    .theme-default-counselor .btn-default {
+		color: #000;
+	}
 	
 	/*end of counselor end theming*/
 	
@@ -391,8 +428,8 @@
 		cursor:pointer;
 		border-top: 1px dotted #666666;
     	cursor: pointer;
-    	margin-top: 10px;
     	padding-top:5px;
+		padding-bottom: 5px;
 	}
 	.question:hover{
 		color: #000;
@@ -464,6 +501,7 @@
 .icon_topic_move, .icon_topic_lock {
 	display:none;
 }
+
 .icon_topic_delete {
 	margin: 9px 20px 0 0;
 }
@@ -475,10 +513,20 @@
 .theme-default .forumline {
     border: 0;
 }
-.theme-default .nav,.theme-default .topictitle {
-    font-size:	1em;
+.theme-default .nav{
+	font-size:	1em;
     font-weight: normal;
     font-family: 'Open Sans', sans-serif;
+}
+
+.theme-default .topictitle {
+    font-size:	1em;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+}
+.theme-default .topictitle .postdetails a{
+	font-weight:normal;
+	display:none;
 }
 .theme-default  .discussion_summary, .discussionComments, .breadcrumbContainer a, font, th, td, p{
     font-size:	13px;
@@ -523,6 +571,4 @@ ul.ui-autocomplete{
 	
 }
 /* end of styling for autocomplete*/
-
-
 

@@ -99,9 +99,9 @@
 			</div>
 			<sec:authorize ifNotGranted="ROLE_USER">
 				
-				<jsp:include page="user/includes/signUp.jsp"></jsp:include>
+				<jsp:include page="includes/signUp.jsp"></jsp:include>
 			</sec:authorize>
 		</div>
-		<jsp:include page="user/includes/commonFooter.jsp"></jsp:include>
+		<jsp:include page="includes/commonFooter.jsp"></jsp:include>
 	</body>
 </html>

@@ -1,0 +1,108 @@
+<#import "../macros/pagination.ftl" as pagination/>
+<#import "../macros/presentation.ftl" as presentation/>
+
+<#setting number_format = "#"/>
+<#setting datetime_format = dateTimeFormat/>
+<#assign logged = logged?default(false)/>
+<#assign counselor = counselor?default(false)/>
+<#assign language = language?default("en_US")/>
+<#assign hasCodeBlock = hasCodeBlock?default(false)/>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=${encoding}" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+<style type="text/css">@import url( ${contextPath}/templates/${templateName}/styles/style.css?${startupTime} );</style>
+<style type="text/css">@import url( ${contextPath}/templates/${templateName}/styles/${language}.css?${startupTime} );</style>
+
+<#if hasCodeBlock>
+	<style type="text/css">@import url( ${contextPath}/templates/${templateName}/styles/SyntaxHighlighter.css?${startupTime} );</style>
+</#if>
+
+<script src="http://localhost:8800/dost/resources/JS/jquery.js"></script>
+<script src="http://localhost:8800/dost/resources/JS/bootstrap.min.js"></script>
+<script src="http://localhost:8800/dost/resources/JS/script.js"></script>
+<link href="http://localhost:8800/dost/resources/CSS/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="http://localhost:8800/dost/resources/CSS/style.css" rel="stylesheet" media="screen">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=latin-ext' rel='stylesheet' type='text/css'>
+
+<title>${pageTitle?default("JForum")?html}</title>
+
+</head>
+<body class="${language} theme-default"">
+
+<!--
+Original theme from phpBB (http://www.phpbb.com) subSilver
+Created by subBlue design
+http://www.subBlue.com
+
+Modifications by JForum Team
+-->
+
+<table width="100%" border="0">
+	<tr>
+		<td>
+			<#if counselor>
+				<header id="main-navbar" class="navbar navbar-default navbar-fixed-top">
+					  <div class="navbar-inner">
+						<div>
+						   <a class="navbar-brand" href="http://localhost:8800/dost/index" >
+							  	<img src="http://localhost:8800/dost/resources/img/logoSmall.jpg" height="47px"/>
+						  </a>
+						  <div class="nav-collapse nav-collapse navbar-collapse">
+						  
+								<ul class="nav navbar-nav pull-right ">
+									<li><a href="#" class="navbar-link">Counselor</a></li>
+									<li><a href="dost/j_spring_security_logout" class="navbar-link">Logout</a></li>
+								</ul>
+								<ul class="nav navbar-nav pull-left menuItems">
+									  <li id="conversations"><a href="http://localhost:8800/dost/conversations">Conversations</a></li>
+									  <li id="patientHistory"><a href="http://localhost:8800/dost/patientHistory">Patient History</a></li>
+									  <li id="onlineCounseling"><a href="http://localhost:8800/dost/onlineCounseling">Online Counseling</a></li>
+									  <li id="quotes"><a href="http://localhost:8800/dost/forums/show/1.pages">Dicussions</a></li>
+									  <li id="quotes"><a href="http://localhost:8800/dost/quotes">Quotes</a></li>
+									  <li id="faqs"><a href="http://localhost:8800/dost/faqs">FAQs</a></li>
+								</ul>
+							</div><!--/.nav-collapse -->
+						</div>
+					  </div>
+					</header>
+			</#if>
+			<#if !counselor>
+				<header id="main-navbar" class="navbar navbar-inverse navbar-fixed-top">
+				  <div class="navbar-inner">
+					  <a class="navbar-brand" href="http://localhost:8800/dost/index" >
+					  	<img src="http://localhost:8800/dost/resources/img/logoSmall.jpg" height="47px"/>
+					  </a>
+				  </div>
+				   <div class="nav-collapse navbar-collapse ">
+						<ul class="nav navbar-nav pull-right ">
+							<#if !logged>
+								<li><a href="http://localhost:8800/dost/signupNow" class="btn btn-primary btn-large signup_now">SIGNUP NOW</a></li>
+							</#if>
+							<#if logged>
+							 	<li><a href="#" class="navbar-link">User</a></li>
+							 	<li><a href="dost/j_spring_security_logout" class="navbar-link">Logout</a></li>
+							</#if>
+						</ul>
+						<ul class="nav navbar-nav pull-left menuItems">
+						  <#if logged>
+							<li id="conversations"><a href="http://localhost:8800/dost/conversations">My Conversations</a></li>
+						  </#if>
+						  <li id="discussions"><a href="http://localhost:8800/dost/forums/show/1.page">Discussions</a></li>
+						  <#if logged>
+						  	<li id="talkToFriend"><a href="http://localhost:8800/dost/talkToFriend">Talk To a Friend</a></li>
+						  </#if>
+						  <li id="faqs"><a href="http://localhost:8800/dost/faqs">FAQs</a></li>
+						  <li id="resources"><a href="resources">Resources</a></li>
+						</ul>
+						
+					</div>
+				</header>
+			</#if>
+		</td>
+	</tr>
+</table>
+	<tr>
+		<td>
+

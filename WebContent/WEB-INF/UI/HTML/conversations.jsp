@@ -217,7 +217,7 @@
 					<div class="pageTop">
 						<h2 class="pull-left pageHeading">Conversations</h2>
 						<div class="pull-right">
-							<ul class="pagination">
+							<!--<ul class="pagination">
 							  <li class="disabled"><a href="#">&laquo;</a></li>
 							  <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
 							  <li><a href="#">2</a></li>
@@ -225,18 +225,18 @@
 							  <li><a href="#">4</a></li>
 							  <li><a href="#">5</a></li>
 							  <li><a href="#">&raquo;</a></li>
-							</ul>
+							</ul>  -->
 						</div>
 						<div class="clearfix"></div>
 					</div>
 					
 					<ul class="pull-left col-md-2 left_nav">
-						<li><a class="leaveMessage">Compose</a><br/><br/></li>
-						<li class="active inbox">Inbox</li>
-						<li class="sentItems">Sent Items</li>
-						<li><a href="#">Drafts</a><br/><br/></li>
+						<li><a class="leaveMessage" href="#">Compose</a><br/><br/></li>
+						<li class="active inbox"><a href="#">Inbox</a></li>
+						<li class="sentItems"><a href="#">Sent Items</a></li>
+						<!-- <li><a href="#">Drafts</a><br/><br/></li>
 						<li><a href="#">Label 1</a></li>
-						<li><a href="#">Label 2</a></li>
+						<li><a href="#">Label 2</a></li>  -->
 					</ul>
 					<ul class="pull-right conversations conversationsCounselor col-md-10">
 						<!-- each conversation-->
@@ -252,7 +252,7 @@
 					<div class="pageTop">
 						<h2 class="pull-left pageHeading">Conversations</h2>
 						<div class="pull-right">
-							<ul class="pagination">
+							<!-- <ul class="pagination">
 							  <li class="disabled"><a href="#">&laquo;</a></li>
 							  <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
 							  <li><a href="#">2</a></li>
@@ -260,7 +260,7 @@
 							  <li><a href="#">4</a></li>
 							  <li><a href="#">5</a></li>
 							  <li><a href="#">&raquo;</a></li>
-							</ul>
+							</ul> -->
 							<a href="talkToFriend" class="btn btn-primary btn-large login_btn">Speak to friend online</a>
 							<input type="button" class="leaveMessage btn btn-primary btn-large login_btn" value="Leave a message to your friend"></input>
 						</div>
@@ -275,7 +275,7 @@
 				</div>
 			</div>
 		</sec:authorize>
-		<input type="text" id="user_id" />
+		
 		<jsp:include page="includes/popupEmail.jsp"></jsp:include>
 		<jsp:include page="includes/commonFooter.jsp"></jsp:include>
 	</body>

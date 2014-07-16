@@ -32,6 +32,7 @@ $( document ).ready(function() {
 		/*clicking FAQs*/
 		$(".question").click(function(){
 				$(this).addClass("clickedQuestion");
+				$(this).closest(".questionAnswer").addClass("clicked");
 				$(".nextPreviousNav").show();
 				$(".allQuestions").show();
 				$(".question").not(this).hide();
@@ -45,6 +46,7 @@ $( document ).ready(function() {
 		$(".allQuestions").click(function(){
 				$(".categoryName").show();
 				$(".question").removeClass("clickedQuestion");
+				(".questionAnswer").removeClass("clicked");
 				$(".nextPreviousNav").hide();
 				$(".allQuestions").hide();
 				$(".categoryList").show();
