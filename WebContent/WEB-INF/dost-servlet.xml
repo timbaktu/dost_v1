@@ -49,6 +49,8 @@
 				<value>com.dost.hibernate.DbMessage</value>
 				<value>com.dost.hibernate.DbMessageRecipient</value>
 				<value>com.dost.hibernate.DbUserRole</value>
+				<value>com.dost.hibernate.DbForumPost</value>
+				<value>com.dost.hibernate.DbForumTopic</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
