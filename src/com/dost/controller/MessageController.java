@@ -32,6 +32,15 @@ public class MessageController {
 	@Autowired
 	UserService userService;
 	
+	@RequestMapping(value="/user/{id}/unreadcount", method=RequestMethod.GET)  
+	@ResponseBody
+	public Map<Long, Integer> getUnreadMessageCount(@PathVariable Long id) {
+		int unreadCount = messageService.getUnreadMessageCount(id);
+		Map<Long, Integer> countMap = new HashMap<Long, Integer>();
+		countMap.put(id, unreadCount);
+		return countMap;
+	}
+	
 	@RequestMapping(value="/message/{messageId}/user/{userId}/markasread", method=RequestMethod.GET)  
 	@ResponseBody
 	public void markAsRead(@PathVariable Long messageId, @PathVariable Long userId) {
