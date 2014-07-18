@@ -26,4 +26,5 @@ public interface MessageService {
 
 	public Long getMsgCount(Long id);
 
+	public int getUnreadMessageCount(Long id);
 }
