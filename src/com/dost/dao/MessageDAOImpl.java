@@ -131,6 +131,7 @@ public class MessageDAOImpl implements MessageDAO {
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("select count(*) from DbMessageRecipient mr where mr.recipient.userId = :id and  mr.viewed = 0");
 		query.setParameter("id", id);
-		return (Integer)query.uniqueResult();			
+		Long count = (Long)query.uniqueResult();
+		return count.intValue();
 	}
 }
