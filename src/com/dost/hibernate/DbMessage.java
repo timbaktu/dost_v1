@@ -50,7 +50,7 @@ public class DbMessage extends DbGeneric implements Serializable {
     @Column(name="important")
 	private Long important;
     @OneToMany (fetch=FetchType.EAGER, mappedBy="message")
-    @JsonIgnore
+    //@JsonIgnore
     @Cascade({CascadeType.ALL, CascadeType.DELETE_ORPHAN})
     private List<DbMessageRecipient> recipients;
     @Column(name="msgId")
