@@ -93,7 +93,7 @@ public class MessageDAOImpl implements MessageDAO {
 		DbMessage message = getMessageDetails(id);
 		for (Iterator i = message.getRecipients().iterator(); i.hasNext();) {
 			DbMessageRecipient recipient = (DbMessageRecipient) i.next();
-			if(recipient.getRecipient().getUserId() == userId) {
+			if(recipient.getRecipient().getUserId().longValue() == userId) {
 				recipient.setViewed(1l);
 				session.saveOrUpdate(recipient);
 			}
