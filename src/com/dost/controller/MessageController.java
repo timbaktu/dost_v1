@@ -32,6 +32,12 @@ public class MessageController {
 	@Autowired
 	UserService userService;
 	
+	@RequestMapping(value="/message/{messageId}/user/{userId}/markasread", method=RequestMethod.GET)  
+	@ResponseBody
+	public void markAsRead(@PathVariable Long messageId, @PathVariable Long userId) {
+		messageService.setViewed(messageId, userId);
+	}
+	
 	/*messages received*/
 	@RequestMapping(value="/user/{id}/messages/all", method=RequestMethod.GET)  
 	@ResponseBody
