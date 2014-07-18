@@ -127,5 +127,10 @@ public class MessageDAOImpl implements MessageDAO {
 		return (Long)query.uniqueResult();		
 	}
 	
-	
+	public int getUnreadMessageCount(Long id) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("select count(*) from DbMessageRecipient mr where mr.recipient.userId = :id and  mr.viewed = 0");
+		query.setParameter("id", id);
+		return (Integer)query.uniqueResult();			
+	}
 }
