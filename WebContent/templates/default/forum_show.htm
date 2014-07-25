@@ -3,7 +3,14 @@
 <#import "../macros/pagination.ftl" as pagination>
 <#import "../macros/presentation.ftl" as presentation/>
 
-
+<script>
+	$(document).ready(function(){
+		/*searchBar for Discussion topics*/
+		$(".allDiscussion_topic").sieve();
+		$(".allDiscussion_topic").prev("div").addClass("searchBox searchBoxDiscussions");
+		/*end of searchBar for Discussion topics*/
+	});
+</script>
 <div class="container-fluid theme-default"> 
 	<div class="container row-fluid">
 
@@ -11,7 +18,6 @@
 				<div class="pageTop">
 					<h2 class="pull-left pageHeading">Discussions</h2>
 			
-
 					<div class="pull-right">
 						
 							<#if !readonly && !replyOnly>
@@ -28,7 +34,6 @@
 				<div class="clearfix"></div>
 			 
 			<div class="forumline allDiscussion_topic">
-
 				<!-- TOPICS LISTING -->
 				<#list topics as topic>
 					<#assign class1>class="<@presentation.row1Class topic/>"</#assign>

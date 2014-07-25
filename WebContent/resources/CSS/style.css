@@ -15,6 +15,35 @@
 		height:440px;
 	}
 	
+	div.searchBox {
+		float: right;
+    	margin-top: -35px;
+	}
+	.eachDiscussion{
+		margin-bottom: 10px;
+	}
+	
+	.theme-default-counselor div.searchBoxDiscussions, .theme-default div.searchBoxDiscussions {
+		margin-right: 190px;
+		margin-top: -42px;
+	}
+	.theme-default-counselor div.searchBox {
+		margin-right: 100px;
+		margin-top: -42px;
+	}
+	.searchBox input{
+		 background-color: #fff;
+	    border: 1px solid #ccc;
+	    border-radius: 4px;
+	    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+	    color: #555;
+	    font-size: 14px;
+	    height: 29px;
+	    line-height: 1.42857;
+	    padding: 6px 12px;
+	    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+	}
+	
 	div.messageForQuotes{
 		margin-left: 70px;
    		margin-top: 35px;
@@ -44,6 +73,7 @@
 	}
 	.container{
 		margin-top: 50px;
+		min-height: 600px;
 	}
 	.form-signin-heading{
 		margin-top: 50px;
@@ -510,8 +540,8 @@
 		cursor:pointer;
 		border-top: 1px dotted #666666;
     	cursor: pointer;
-    	padding-top:5px;
-		padding-bottom: 5px;
+    	padding-top:10px;
+		padding-bottom: 10px;
 	}
 	.question:hover{
 		color: #000;
@@ -553,6 +583,9 @@
 /*End of counselor end */
 
 /* jQuery UI Module */
+	#dialog{
+		display:none;
+	}
 	.theme-default .ui-dialog, .theme-default .ui-widget{
 		font-family: 'Open Sans', sans-serif;
 		font-size: 13px;

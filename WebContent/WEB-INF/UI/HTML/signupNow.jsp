@@ -106,6 +106,6 @@
 			</form>
     </div> <!-- /container -->
 
-	<footer></footer>
+	<jsp:include page="includes/commonFooter.jsp"></jsp:include>
 	</body>
 </html>

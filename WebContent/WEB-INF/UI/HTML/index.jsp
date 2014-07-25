@@ -13,6 +13,27 @@
 				var clickedZodiac =$(this).text();
 				$(this).attr("href","horoscope?="+clickedZodiac);
 			});
+			
+			/*FAQ listing on index page*/
+			$.getJSON("/dost/api/faqcategory/all", function(FAQ) {	
+				for (var i = 0 ; i < FAQ.length; i++) {
+					var numberOfQuestions = FAQ[i].faqs.length;
+					$("#faqs ul").append('<li>'+ FAQ[i].faqs[numberOfQuestions -1].question +'</li>');
+				}
+			});
+			/*end of FAQ listing on index page*/
+			
+			/*Discussion listing on index page*/
+			$.getJSON("/dost/api/topics/count/5", function(discussionTopic) {	
+				for (var i = 0 ; i < discussionTopic.length; i++) {
+					
+					$("ul.discussions_list").append('<li class="eachDiscussion ">'+
+														'<div>'+ discussionTopic[i].topicTitle +'</div>'+
+														'<span class="time_taken">Last updated:'+discussionTopic[i].forumPosts[0].postTime+'</span>'+	
+													'</li>');			
+				}
+			});
+			/*end of discussion listing on index page*/
 		});
 	</script>
 	<body class="container-fluid   theme-default">
@@ -21,22 +42,9 @@
 			<div class="col-md-7">
 				<ul>
 					<li class="exploration_option well" id="discussions">
-						<a href="${pageContext.request.contextPath}/discussions">
+						<a href="${pageContext.request.contextPath}/forums/show/1.page">
 							<h3 class="categoryName">Dicussions</h3>
-							<ul class="details_box">
-								<li>
-									<h4 class="topic_categoryName">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h4>
-									<div>
-										<span>Last updated:</span><span>25<sup>th</sup> May 2013</span>
-									</div>
-								</li>
-								
-								<li>
-									<h4 class="topic_categoryName">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h4>
-									<div>
-										<span>Last updated:</span><span>25<sup>th</sup> May 2013</span>
-									</div>
-								</li>
+							<ul class="discussions_list details_box">
 								
 							</ul>
 							

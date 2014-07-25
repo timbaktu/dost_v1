@@ -3,7 +3,27 @@
 	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	<body class="theme-default" >
 		<jsp:include page="includes/header.jsp"></jsp:include>
-		<div class="container">
+		
+		<div class="container row-fluid">
+			<div class="col-md-7 message quotesBg">
+				<div class="pageTop messageForQuotes">
+					<h2 class="subHeading ">Hey, we are working to get this page up and running. </h2>
+					<p class="subHeading">In the mean-time, why don't you check out <a href="${pageContext.request.contextPath}/faqs">Frequently Asked Questions</a>. It is a comprehensive list put together by experts.</p>
+    			</div>
+    			<ul class="stickyNote">
+				    <li>
+				      <a href="#">
+				        <h2>Work in Progress</h2>
+				      </a>
+				    </li>
+				  </ul>
+    			
+			</div>
+			
+		</div>
+		
+		<!--chat module
+		 <div class="container">
 			<div class="col-md-11">
 				<div class="pageTop">
 					<h2 class="pageHeading">Talk To A Friend</h2>
@@ -17,7 +37,7 @@
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<!-- chat window-->
+				
 				<div>
 					<nav class="chat_nav navbar navbar-default col-md-6" role="navigation"" role="navigation">
 					<div class="chat_container ">
@@ -39,16 +59,18 @@
 							  <span class="input-group-btn">
 								<button class="btn btn-default" type="button">SEND</button>
 							  </span>
-							</div><!-- /input-group -->
+							</div>
 						 </div>
 						 <div class="clearfix"></div>
 					</div>
 					</nav>
 
 				</div>
-				<!-- end of each conversation-->
+
+				
 			</div>
-		<jsp:include page="includes/popupEmail.jsp"></jsp:include>
+		<div class="clearfix"></div>	 
+		end of chat module-->
 		<jsp:include page="includes/commonFooter.jsp"></jsp:include>
 	</body>
 </html>
