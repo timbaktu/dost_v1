@@ -94,7 +94,7 @@
 				
 				Select Category : <select id="categoryid" name="category">
 									  <option id="1" name="career" value="career">Career</option>
-									  <option id="2" name="Love/Relationships" value="relationship">Love/Relationship</option>
+									  <option id="2" name="Love-Relationships" value="relationship">Love/Relationship</option>
 									  <option id="2" name="family" value="family">Family</option>
 									  <option id="3" name="friends" value="friends">Friends</option>
 									  <option id="3" name="other" value="other">Other</option>

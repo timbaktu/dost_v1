@@ -14,7 +14,7 @@ $( document ).ready(function() {
 			for (var i = 0 ; i < FAQ.length; i++) {
 				
 				/*FAQ listing on faq page*/
-				$(".FAQList").append('<div class="well categoryList"><h3 class="categoryName" id='+FAQ[i].faqCategoryName+">"+FAQ[i].faqCategoryName+"</h3>");
+				$(".FAQList").append('<div class="well categoryList"><h3 class="categoryName subHeading" id='+FAQ[i].faqCategoryName+">"+FAQ[i].faqCategoryName+"</h3>");
 				$("#"+FAQ[i].faqCategoryName).after("<ul></ul></div>");
 
 				for (var j = 0 ; j < FAQ[i].faqs.length; j++) {

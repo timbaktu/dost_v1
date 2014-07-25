@@ -17,6 +17,11 @@ public class HomeController {
 		return new ModelAndView("horoscope"); 
 	}
 	
+	@RequestMapping("quotes")  
+	public ModelAndView quotes() {
+		return new ModelAndView("quotes"); 
+	}
+	
 	@RequestMapping("conversations")  
 	public ModelAndView conversations() {
 		return new ModelAndView("conversations"); 
