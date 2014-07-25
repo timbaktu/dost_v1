@@ -41,7 +41,7 @@
 
 			</div>
 		</div>
-		<jsp:include page="user/includes/commonFooter.jsp"></jsp:include>
+		<jsp:include page="includes/commonFooter.jsp"></jsp:include>
 
 </body>
 </html>
