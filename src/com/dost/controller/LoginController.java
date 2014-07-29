@@ -99,11 +99,11 @@ public class LoginController {
 
 	if(request.isUserInRole("ROLE_ADMIN")){
 			//return "redirect:/forums/show/1.page";
-		return "conversations";
+		return "redirect:/conversations";
 	}
 	else {
 //			return "redirect:/forums/show/1.page";
-		return "conversations";
+		return "redirect:/conversations";
 	}
 	}
 
