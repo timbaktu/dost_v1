@@ -125,7 +125,7 @@ public class PermissionControl implements Serializable
 		Role role = this.roles.get(roleName);
 
 		if (role == null) {
-			return false;
+			return true;
 		}
 
 		return role.getValues().contains(new RoleValue(roleValue));
