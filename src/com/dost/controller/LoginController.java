@@ -98,11 +98,13 @@ public class LoginController {
 	model.addObject("message", "This is default page!");
 
 	if(request.isUserInRole("ROLE_ADMIN")){
-			return "redirect:/forums/show/1.page";
-		}
-		else {
-			return "redirect:/forums/show/1.page";
-		}
+			//return "redirect:/forums/show/1.page";
+		return "conversations";
+	}
+	else {
+//			return "redirect:/forums/show/1.page";
+		return "conversations";
+	}
 	}
 
 	@RequestMapping(value = { "/", "/admin**" }, method = RequestMethod.GET)
