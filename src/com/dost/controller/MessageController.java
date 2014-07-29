@@ -177,7 +177,9 @@ public class MessageController {
 			dbMessage.setMsgId(maxMsgId + 1);
 		}
 		dbMessage.setRecipients(createRecipientList(message, dbMessage));
-		message.setSenderId(102l);
+		if(message.getSenderId() == null) {
+			message.setSenderId(102l);
+		}
 		dbMessage.setSender(userService.getUser(message.getSenderId()));
 		dbMessage.setSentDateDb(new Date());
 		return dbMessage;
