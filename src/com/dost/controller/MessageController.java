@@ -160,6 +160,11 @@ public class MessageController {
 		return null;
 	}
 	
+	/**
+	 * Same copy is in SignupController
+	 * @param message
+	 * @return
+	 */
 	private DbMessage populateDbMessage(Message message) {
 		
 		DbMessage dbMessage = new DbMessage();
@@ -185,6 +190,12 @@ public class MessageController {
 		return dbMessage;
 	}
 	
+	/**
+	 * Same copy is in SignupController
+	 * @param message
+	 * @param dbMessage
+	 * @return
+	 */
 	private List<DbMessageRecipient> createRecipientList(Message message, DbMessage dbMessage) {
 		List<DbMessageRecipient> lists = new ArrayList<DbMessageRecipient>();
 		String recipientIds = message.getRecipients();
