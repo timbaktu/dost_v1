@@ -38,9 +38,11 @@
 					event.preventDefault();
 				}
 				else{
-					$.post('http://localhost:8800/dost/api/signup', datatosend, function(data,status) {
-					});
-					$(".alert-success").show().html("Account created successfully").delay(5000).fadeOut();
+						alert(datatosend);
+						$.get('http://localhost:8800/dost/api/signup', datatosend, function(data,status) {
+						});
+						$(".alert-success").show().html("Account created successfully").delay(5000).fadeOut();
+						event.stopPropagation();
 				}
 				
 				//$('#visitFormResponse').text(response);
@@ -63,7 +65,7 @@
 				
 		<div class="container">
 			
-			<form  class="form-signin" action="">
+			<form  class="form-signin" action="http://localhost:8800/dost/api/signup">
 				<div class="col-md-7 col-md-offset-2 form-signin-heading">
 					<p>Hi,</p>
 					<p>Don't worry, whatever it is.. we can fix it together. <em>Get Started!</em></p>
@@ -88,13 +90,13 @@
 						<br/><br/>
 						
 						<label>Username</label>
-						<input id="username" required type="text" class="form-control input-block-level" placeholder="Create a username">
+						<input id="username" name="username" required type="text" class="form-control input-block-level" placeholder="Create a username">
 
 						<br/><br/>
 						
 						<label>Password</label>
 
-						<input id="password" required  type="password" class="form-control input-block-level" placeholder="Set a password">
+						<input id="password" name="password" required  type="password" class="form-control input-block-level" placeholder="Set a password">
 
 						<br/><br/>
 						<button id="signin" class="pull-right btn btn-large btn-primary" type="submit">Proceed &gt;</button>
