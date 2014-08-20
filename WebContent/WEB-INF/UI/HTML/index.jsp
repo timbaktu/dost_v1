@@ -16,17 +16,20 @@
 			
 			/*FAQ listing on index page*/
 			$.getJSON("/dost/api/faqcategory/all", function(FAQ) {	
-				for (var i = 0 ; i < FAQ.length; i++) {
+				var numberOfCategories = FAQ.length;
+				
+				
+				for (var i = 0 ; i < numberOfCategories; i++) {
 					var numberOfQuestions = FAQ[i].faqs.length;
-					$("#faqs ul").append('<li>'+ FAQ[i].faqs[numberOfQuestions -1].question +'</li>');
+					$("#faqs ul").append('<li class="questionIndex"><a href="faqs?='+FAQ[i].faqs[numberOfQuestions-1].faqId+'"+>'+ FAQ[i].faqs[numberOfQuestions-1].question +'</a></li>');
 				}
+				 
 			});
 			/*end of FAQ listing on index page*/
 			
 			/*Discussion listing on index page*/
 			$.getJSON("/dost/api/topics/count/5", function(discussionTopic) {	
 				for (var i = 0 ; i < discussionTopic.length; i++) {
-					
 					$("ul.discussions_list").append('<li class="eachDiscussion ">'+
 														'<div>'+ discussionTopic[i].topicTitle +'</div>'+
 														'<span class="time_taken">Last updated:'+discussionTopic[i].forumPosts[0].postTime+'</span>'+	
@@ -53,12 +56,9 @@
 					</li>
 					
 					<li class="exploration_option well" id="faqs">
-						<a href="${pageContext.request.contextPath}/user/faqs">
-							<h3 class="categoryName">Frequently Asked Questions</h3>
+						<h3 class="categoryName">Frequently Asked Questions</h3>
 							<ul class="details_box">
-								
 							</ul>
-						</a>
 					</li>
 					
 					<li class="exploration_option well" id="personalityTest">

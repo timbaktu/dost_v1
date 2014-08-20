@@ -14,6 +14,7 @@
 		
 		/*Manipulating json for FAQ*/
 		$.getJSON("/dost/api/faqcategory/all", function(FAQ) {	
+			
 			for (var i = 0 ; i < FAQ.length; i++) {
 				
 				/*FAQ listing on faq page*/
@@ -21,7 +22,7 @@
 				$("#"+FAQ[i].faqCategoryName).after("<ul></ul></div>");
 
 				for (var j = 0 ; j < FAQ[i].faqs.length; j++) {
-					$("#"+FAQ[i].faqCategoryName).siblings("ul").append('<li class="questionAnswer" id='+FAQ[i].faqCategoryName+j+'><div class="question">'+FAQ[i].faqs[j].question+'</div><div class="answer">'+ FAQ[i].faqs[j].answer +"</div></li>");
+					$("#"+FAQ[i].faqCategoryName).siblings("ul").append('<li class="questionAnswer" id='+FAQ[i].faqs[j].faqId+'><div class="question">'+FAQ[i].faqs[j].question+'</div><div class="answer">'+ FAQ[i].faqs[j].answer +"</div></li>");
 				}
 				/* end of FAQ listing on faq page*/
 				
@@ -29,9 +30,12 @@
 				var numberOfQuestions = FAQ[i].faqs.length;
 				$("#faqs ul").append('<li>'+ FAQ[i].faqs[numberOfQuestions -1].question +'</li>');
 				/*end of FAQ listing on index page*/
+				
+				
 		}
 		/*End of manipulating json for FAQ*/
-
+		
+		
 		/*clicking FAQs*/
 		$(".question").click(function(){
 				$(this).addClass("clickedQuestion");
@@ -61,6 +65,13 @@
 				$(".searchBox").show();
 		});
 		/*End of Moving through FAQs*/
+		
+		if(window.location.href.indexOf("?=") > -1){
+			var element = window.location.href.split("=");
+			setTimeout(function() {
+					$("#"+element[1]).children(".question").trigger("click");
+			},10);
+		}
 		
 		/*Next Previous navigation*/
 		$(".next").click(function(){

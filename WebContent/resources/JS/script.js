@@ -15,6 +15,8 @@ $( document ).ready(function() {
 		if(window.location.href.indexOf("signupNow") > -1){
 			$(".signup_now").hide();
 		}
+		
+		
 		/*end of applying properties based on url*/	
 	
 });
