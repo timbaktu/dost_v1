@@ -104,4 +104,9 @@ public class HomeController {
 	public ModelAndView counselor_popups() {
 		return new ModelAndView("counselor/popups"); 
 	}
+	
+	@RequestMapping("blog")  
+	public String blog() {
+		return "blog";
+	}
 }
