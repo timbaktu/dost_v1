@@ -38,11 +38,7 @@
 					event.preventDefault();
 				}
 				else{
-						alert(datatosend);
-						$.get('http://localhost:8800/dost/api/signup', datatosend, function(data,status) {
-						});
-						$(".alert-success").show().html("Account created successfully").delay(5000).fadeOut();
-						event.stopPropagation();
+
 				}
 				
 				//$('#visitFormResponse').text(response);
@@ -55,6 +51,7 @@
 			 $(".avatar").removeClass("selectedImage");
 			 $(this).addClass("selectedImage");
 			 avatar = this.id;
+			 $("input[id=avatarinput]").val(avatar);
 		 });
 	});
 	
@@ -88,7 +85,7 @@
 							
 						</div>
 						<br/><br/>
-						
+						<input id="avatarinput" type="hidden" name="avatarinput">
 						<label>Username</label>
 						<input id="username" name="username" required type="text" class="form-control input-block-level" placeholder="Create a username">
 

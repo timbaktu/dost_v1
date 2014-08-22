@@ -26,7 +26,8 @@
 					  <li id="onlineCounseling"><a href="forums/show/1.page">Discussions</a></li>
 					  <li id="faqs"><a href="faqs">FAQs</a></li>
 					  <li id="quotes"><a href="quotes">Quotes</a></li>
-					  <li id="blog"><a href="http://blog.yourdost.com"  target="_blank">Blog</a></li>
+					  <!-- <li id="blog"><a href="http://blog.yourdost.com"  target="_blank">Blog</a></li> -->
+					  <li id="blog"><a href="blog" >Blog</a></li>
 				</ul>
 			
 		  </div><!--/.nav-collapse -->
@@ -62,7 +63,8 @@
 				  </sec:authorize>
 				  <li id="faqs"><a href="faqs">FAQs</a></li>
 				  <li style="" id="quotes"><a href="quotes">Quotes</a></li>
-				  <li id="blogs"><a href="http://blog.yourdost.com" target="_blank">Blog</a></li>
+				  <!-- <li id="blogs"><a href="http://blog.yourdost.com" target="_blank">Blog</a></li>-->
+				  <li id="blogs"><a href="blog">Blog</a></li>
 				</ul>
 			  </div><!--/.nav-collapse -->
 			</div>

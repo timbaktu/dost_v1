@@ -12,8 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,7 +62,7 @@ public class SignupController {
 		User user = new User();
 		user.setUsername(request.getParameter("username"));
 		user.setPassword(request.getParameter("password"));
-		user.setAvatarId(request.getParameter("avatarId"));
+		user.setAvatarId(request.getParameter("avatarinput"));
 		Map<String, Boolean> output = new HashMap<String, Boolean>();
 		if(user.getUsername() == null) {
 			output.put("status", false);
@@ -76,11 +78,13 @@ public class SignupController {
 			messageService.sendMessage(populateDbMessage(welcomeMessage));
 			//return new ModelAndView("index");
 			
-			UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword(), AuthorityUtils.NO_AUTHORITIES);
-			authMgr.authenticate(auth);
+			UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
+			token.setDetails(new WebAuthenticationDetails(request));
+			//authMgr.authenticate(auth);
+			Authentication authentication = authMgr.authenticate(token);
 		      // redirect into secured main page if authentication successful
-		  if(auth.isAuthenticated()) {
-		    SecurityContextHolder.getContext().setAuthentication(auth);
+		  if(authentication.isAuthenticated()) {
+		    SecurityContextHolder.getContext().setAuthentication(authentication);
 		    return "redirect:/conversations";
 		  }
 		}
