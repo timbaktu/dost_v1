@@ -90,13 +90,16 @@ public class MessageDAOImpl implements MessageDAO {
 
 	public void setViewed(Long id, Long userId) {
 		Session session = sessionFactory.getCurrentSession();
-		DbMessage message = getMessageDetails(id);
-		for (Iterator i = message.getRecipients().iterator(); i.hasNext();) {
-			DbMessageRecipient recipient = (DbMessageRecipient) i.next();
-			if(recipient.getRecipient().getUserId().longValue() == userId) {
-				recipient.setViewed(1l);
-				session.saveOrUpdate(recipient);
-			}
+//		DbMessage message = getMessageDetails(id);
+		List<DbMessage> messagesByMsgId = getMessagesById(id);
+		for(DbMessage message : messagesByMsgId) {
+			for (Iterator i = message.getRecipients().iterator(); i.hasNext();) {
+				DbMessageRecipient recipient = (DbMessageRecipient) i.next();
+				if(recipient.getRecipient().getUserId().longValue() == userId) {
+					recipient.setViewed(1l);
+					session.saveOrUpdate(recipient);
+				}
+			}			
 		}
 	}
 	

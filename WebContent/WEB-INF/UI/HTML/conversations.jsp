@@ -61,6 +61,15 @@
 					}
 			
 					for (var j = 0 ; j < messages.length; j++) {
+						var ismessagenew = messages[j].recipients[0].viewed;
+						var messageHeading = '';
+						// 1 means viewed
+						if(ismessagenew == 0) {
+							messageHeading = '<h4 class="media-heading" style="font-weight:bold">'+messages[j].subject+'</h4>';
+						}
+						else {
+							messageHeading = '<h4>'+messages[j].subject+'</h4>';
+						}
 						$(".conversationsCounselor").append('<li class="well media conversation_topic">'+
 							'<a class="each_conversation" href="conversationsExpanded?='+messages[j].msgId+'">'+
 								'<div class="pull-left col-md-2" >'+
@@ -68,8 +77,8 @@
 									'<span>(20)</span>'+
 								'</div>'+
 								'<div class="pull-left media-body col-md-7">'+
-									'<h4 class="media-heading">'+messages[j].subject+'</h4>'+
-									'<span style="conversation_summary">'+messages[j].content+'</span>'+
+								messageHeading + 
+								'<span style="conversation_summary">'+messages[j].content+'</span>'+
 								'</div>'+
 								'<div class="pull-left">'+messages[j].sentDate+'</div>'+
 								'<div class="pull-right col-md-1">'+
@@ -89,7 +98,7 @@
 		}
 		
 		$(".conversations").on("click",".leaveMessageLink", function(){
-				$( ".leaveMessage" ).trigger( "click" );	
+			$( ".leaveMessage" ).trigger( "click" );	
 		});
 		
 		

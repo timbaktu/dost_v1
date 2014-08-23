@@ -13,6 +13,12 @@
 			userRole = user.dbUserRole.role;
 			var threadId = window.location.href.split("=");
 		
+			// Setting message as read
+			//message/{messageId}/user/{userId}/markasread"
+			$.getJSON("/dost/api/message/"+threadId[1]+"/user/" + userid +"/markasread", function(messages) {
+				
+			});
+			
 			/*Manipulating json for conversation thread*/
 			$.getJSON("/dost/api/message/"+threadId[1]+"/", function(messages) {
 				$("#subjectHeading").text(messages[0].subject);
