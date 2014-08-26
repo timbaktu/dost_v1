@@ -30,10 +30,11 @@
 			/*Discussion listing on index page*/
 			$.getJSON("/dost/api/topics/count/5", function(discussionTopic) {	
 				for (var i = 0 ; i < discussionTopic.length; i++) {
-					$("ul.discussions_list").append('<li class="eachDiscussion ">'+
-														'<div>'+ discussionTopic[i].topicTitle +'</div>'+
-														'<span class="time_taken">Last updated:'+discussionTopic[i].forumPosts[0].postTime+'</span>'+	
-													'</li>');			
+					$("#discussions ul").append('<li class="eachDiscussion ">'+
+							'<a href="http://localhost:8800/dost/posts/list/' + discussionTopic[i].topicId + '.page">'+
+							'<div>'+ discussionTopic[i].topicTitle +'</div>'+
+							'<span class="time_taken">Last updated:'+discussionTopic[i].forumPosts[0].postTime+'</span>'+	
+						'</a></li>');	
 				}
 			});
 			/*end of discussion listing on index page*/
@@ -45,14 +46,10 @@
 			<div class="col-md-7">
 				<ul>
 					<li class="exploration_option well" id="discussions">
-						<a href="${pageContext.request.contextPath}/forums/show/1.page">
-							<h3 class="categoryName">Dicussions</h3>
+							<h3 class="categoryName">Discussions</h3>
 							<ul class="discussions_list details_box">
 								
 							</ul>
-							
-							
-						</a>
 					</li>
 					
 					<li class="exploration_option well" id="faqs">
