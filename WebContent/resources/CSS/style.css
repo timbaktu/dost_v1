@@ -17,7 +17,8 @@
 	
 	div.searchBox {
 		float: right;
-    	margin-top: -35px;
+		margin-top: -44px;
+		margin-right: 100px;
 	}
 	.eachDiscussion{
 		margin-bottom: 10px;

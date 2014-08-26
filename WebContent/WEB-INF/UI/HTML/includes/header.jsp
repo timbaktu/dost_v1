@@ -23,10 +23,9 @@
 					  <li id="conversations"><a href="conversations">Conversations</a></li>
 					  <li id="patientHistory"><a href="patientList">Patient History</a></li>
 					  <li id="onlineCounseling"><a href="onlineCounseling">Online Counseling</a></li>
-					  <li id="onlineCounseling"><a href="forums/show/1.page">Discussions</a></li>
+					  <li id="forums"><a href="forums/show/1.page">Discussions</a></li>
 					  <li id="faqs"><a href="faqs">FAQs</a></li>
 					  <li id="quotes"><a href="quotes">Quotes</a></li>
-					  <!-- <li id="blog"><a href="http://blog.yourdost.com"  target="_blank">Blog</a></li> -->
 					  <li id="blog"><a href="blog" >Blog</a></li>
 				</ul>
 			
