@@ -148,3 +148,5 @@ INSERT INTO `dost`.`user` (`userid`, `username`, `password`, `deleted`, `ENABLED
 insert into user_roles values(5,'prashant', 'ROLE_ADMIN', 104);
 
 alter table user add column avatar varchar(100);
+--DDL to add discussion topics with huge text
+ALTER TABLE jforum_topics MODIFY topic_title TEXT(65536)
