@@ -150,3 +150,24 @@ insert into user_roles values(5,'prashant', 'ROLE_ADMIN', 104);
 alter table user add column avatar varchar(100);
 --DDL to add discussion topics with huge text
 ALTER TABLE jforum_topics MODIFY topic_title TEXT(65536)
+
+--Creating DDL for security questions
+CREATE TABLE `security_question` (
+  `question_id` INTEGER NOT NULL AUTO_INCREMENT,
+  `text` varchar(255) NOT NULL,
+  `createdate` varchar(255) DEFAULT NULL,
+  `createby` bigint(20) DEFAULT NULL,
+  `updatedate` varchar(255)  DEFAULT NULL,
+  `updateby` bigint(20) DEFAULT NULL,
+  `deleted` INTEGER DEFAULT 0,
+  PRIMARY KEY (`question_id`)
+);
+
+insert into security_question values(1, 'What is your nick name', '', 0, '', 0, 0)
+insert into security_question values(2, 'What is you first school’s name', '', 0, '', 0, 0)
+insert into security_question values(3, 'Which city are you born in', '', 0, '', 0, 0)
+insert into security_question values(4, 'What was your maternal grandfather’s first name', '', 0, '', 0, 0)
+insert into security_question values(5, 'In what city or town does your nearest sibling live', '', 0, '', 0, 0)
+insert into security_question values(6, 'What was the name of your elementary / primary school', '', 0, '', 0, 0)
+insert into security_question values(7, 'In what city or town does your nearest sibling live', '', 0, '', 0, 0)
+
