@@ -113,14 +113,35 @@ public class SignupController {
 		return dbUser;
 	}
 	
+	
+
+	
 	/**
 	 * All this and below is for welcome message
 	 * @param recipient
 	 * @return
 	 */
 	private Message createWelcomeMessage(String recipient) {
+		StringBuilder welcomeBuffer = new StringBuilder();
+		welcomeBuffer.append("Hi!");
+		welcomeBuffer.append("\r\n ");
+		welcomeBuffer.append("Every problem has a solution and together we will find a solution to the problems that are bothering you.");
+		welcomeBuffer.append("\r\n ");
+		welcomeBuffer.append("I am your friend, a real qualified counselor - not a computer program and I am here to help you come out of your problems. You can talk to me whenever you want and I can guarantee you that I will make you feel better. ");
+		welcomeBuffer.append("\r\n ");
+		welcomeBuffer.append("Steps to get started");
+		welcomeBuffer.append("Read more<LINK> on frequently asked questions by people around");
+		welcomeBuffer.append("Participate in discussions<LINK> and get views of your peers, professionals");
+		welcomeBuffer.append("Write<LINK> a mail to me and I will respond within 4 hours");
+		welcomeBuffer.append("Talk<LINK> to me online and get quick reponse");
+		welcomeBuffer.append("\r\n ");
+		welcomeBuffer.append("Regards,");
+		welcomeBuffer.append("\r\n ");
+		welcomeBuffer.append("Counselors at Dost");
+		
+		
 		Message welcomeMessage = new Message();
-		welcomeMessage.setContent("Welcome to your Dost.");
+		welcomeMessage.setContent(welcomeBuffer.toString());
 		welcomeMessage.setImportant(0l);
 		welcomeMessage.setRecipients(recipient);
 		// Trigger populates sent date

@@ -6,6 +6,21 @@
 
 	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	<script>
+	$( document ).ready(function() {
+		$.get('/dost/api/securityquestions/all', function(response) {
+			$("#question1").append('<option value="blank">Select</option>');
+			$.each(JSON.parse(JSON.stringify(response)), function(index, value){
+				$("#question1").append($('<option></option>').val(value.questionId).html(value.question));
+			});
+		});
+		
+		$.get('/dost/api/securityquestions/all', function(response) {
+			$("#question2").append('<option value="blank">Select</option>');
+			$.each(JSON.parse(JSON.stringify(response)), function(index, value){
+				$("#question2").append($('<option></option>').val(value.questionId).html(value.question));
+			});
+		});
+	});
 	var avatar = null;
 	$(function() {
 		/* Adding question*/
@@ -44,6 +59,7 @@
 				//$('#visitFormResponse').text(response);
 				
 			});
+			
 		});
 		
 			
@@ -53,6 +69,7 @@
 			 avatar = this.id;
 			 $("input[id=avatarinput]").val(avatar);
 		 });
+		 
 	});
 	
 	</script>
@@ -94,6 +111,20 @@
 						<label>Password</label>
 
 						<input id="password" name="password" required  type="password" class="form-control input-block-level" placeholder="Set a password">
+						
+						<br><br>
+						
+						<label>Secret Question</label>
+						<select id="question1" name="question1"></select>
+						<br><br>
+						<input id="answer1" name="answer1" required type="text" class="form-control input-block-level" placeholder="Set answer1">
+						
+						<br><br>
+						
+						<label>Secret Question</label>
+						<select id="question2" name="question2"></select>
+						<br><br>
+						<input id="answer2" name="answer2" required type="text" class="form-control input-block-level" placeholder="Set answer2">
 
 						<br/><br/>
 						<button id="signin" class="pull-right btn btn-large btn-primary" type="submit">Proceed &gt;</button>
