@@ -24,4 +24,13 @@ public class SecurityQuestionDAOImpl implements SecurityQuestionDAO {
 		return questions;
 	}
 
+	public DbSecurityQuestion getSecurityQuestionById(Long id) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from DbSecurityQuestion q where q.questionId = :id");
+		query.setLong("id", id);
+		
+		DbSecurityQuestion question = (DbSecurityQuestion)query.uniqueResult();
+		return question;
+	}
+
 }

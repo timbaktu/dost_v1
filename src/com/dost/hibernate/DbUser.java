@@ -1,6 +1,7 @@
 package com.dost.hibernate;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,11 +11,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonManagedReference;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.IndexColumn;
 
 @Entity
 @Table(name="USER")
@@ -43,6 +47,15 @@ public class DbUser extends DbGeneric implements Serializable {
 	private Integer enabled;
 	@Column(name = "avatar")
 	private String avatar;
+//	@JsonManagedReference
+//	@IndexColumn(name="userId")
+//    @OneToMany (fetch = FetchType.EAGER, mappedBy="user", cascade = CascadeType.ALL)
+//    private List<DbUserSecurity> userSecurities;
+	
+	@JsonManagedReference
+	@IndexColumn(name="questionId")
+    @OneToMany (fetch = FetchType.EAGER, mappedBy="user", cascade = CascadeType.ALL)
+    private List<DbUserSecurity> userSecurities;
 	
 	//TODO: Need place holder for images or avatar, may be clob or blob. Satya you decide
 	
@@ -87,6 +100,12 @@ public class DbUser extends DbGeneric implements Serializable {
 	}
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
+	}
+	public List<DbUserSecurity> getUserSecurities() {
+		return userSecurities;
+	}
+	public void setUserSecurities(List<DbUserSecurity> userSecurities) {
+		this.userSecurities = userSecurities;
 	}
 	
 	

@@ -12,6 +12,11 @@ public class HomeController {
 		return new ModelAndView("index"); 
 	}
 	
+	@RequestMapping("forgotPassword")  
+	public ModelAndView forgotPassword() {
+		return new ModelAndView("forgotPassword"); 
+	}
+	
 	@RequestMapping("horoscope")  
 	public ModelAndView horoscope() {
 		return new ModelAndView("horoscope"); 

@@ -52,6 +52,7 @@
 				<value>com.dost.hibernate.DbForumPost</value>
 				<value>com.dost.hibernate.DbForumTopic</value>
 				<value>com.dost.hibernate.DbSecurityQuestion</value>
+				<value>com.dost.hibernate.DbUserSecurity</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

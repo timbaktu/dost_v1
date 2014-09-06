@@ -7,4 +7,6 @@ import com.dost.hibernate.DbSecurityQuestion;
 public interface SecurityQuestionService {
 
 	public List<DbSecurityQuestion> getListOfSecurityQuestions();
+	
+	public DbSecurityQuestion getSecurityQuestionById(Long id);
 }

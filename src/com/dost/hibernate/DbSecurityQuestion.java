@@ -20,6 +20,10 @@ public class DbSecurityQuestion extends DbGeneric implements Serializable {
 	@Column(name = "text")
 	private String question;
 	
+//	@JsonBackReference
+//	@OneToOne (fetch=FetchType.EAGER, mappedBy="dbSecurityQuestion", cascade = CascadeType.ALL)
+//	private DbUserSecurity dbUserSecurity;
+	
 	public Long getQuestionId() {
 		return questionId;
 	}
@@ -32,6 +36,12 @@ public class DbSecurityQuestion extends DbGeneric implements Serializable {
 	public void setQuestion(String question) {
 		this.question = question;
 	}
-	
-	
+//	public DbUserSecurity getDbUserSecurity() {
+//		return dbUserSecurity;
+//	}
+//	public void setDbUserSecurity(DbUserSecurity dbUserSecurity) {
+//		this.dbUserSecurity = dbUserSecurity;
+//	}
+//	
+//	
 }

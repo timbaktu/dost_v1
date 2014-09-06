@@ -171,3 +171,11 @@ insert into security_question values(5, 'In what city or town does your nearest 
 insert into security_question values(6, 'What was the name of your elementary / primary school', '', 0, '', 0, 0)
 insert into security_question values(7, 'In what city or town does your nearest sibling live', '', 0, '', 0, 0)
 
+--DDL to store user security questions and answers
+CREATE TABLE `user_question` (
+  `USER_QUESTION_ID` INTEGER NOT NULL AUTO_INCREMENT,
+  `USERID` INTEGER NOT NULL,
+  `QUESTIONID` INTEGER NOT NULL,
+  `ANSWER` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`USER_QUESTION_ID`)
+);

@@ -21,4 +21,10 @@ public class SecurityQuestionServiceImpl implements SecurityQuestionService {
 		return securityQuestionDAO.getListOfSecurityQuestions();
 	}
 
+	public DbSecurityQuestion getSecurityQuestionById(Long id) {
+		return securityQuestionDAO.getSecurityQuestionById(id);
+	}
+	
+	
+
 }

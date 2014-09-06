@@ -24,11 +24,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dost.hibernate.DbMessage;
 import com.dost.hibernate.DbMessageRecipient;
+import com.dost.hibernate.DbSecurityQuestion;
 import com.dost.hibernate.DbUser;
 import com.dost.hibernate.DbUserRole;
+import com.dost.hibernate.DbUserSecurity;
 import com.dost.model.Message;
 import com.dost.model.User;
 import com.dost.service.MessageService;
+import com.dost.service.SecurityQuestionService;
 import com.dost.service.SignupService;
 import com.dost.service.UserService;
 
@@ -49,6 +52,9 @@ public class SignupController {
 	@Autowired @Qualifier("authMgr") 
 	private AuthenticationManager authMgr;
 	
+	@Autowired
+	SecurityQuestionService questionService; 
+	
 	@RequestMapping(value="/su/{id}", method=RequestMethod.GET)  
 	@ResponseBody
 	public void signup1(@PathVariable Long id) {
@@ -56,6 +62,7 @@ public class SignupController {
 
 	}
 	
+	// Method to handle initial signup
 	@RequestMapping(value="/signup", method=RequestMethod.GET)  
 	public String signup(HttpServletRequest request) {
 		
@@ -71,7 +78,7 @@ public class SignupController {
 		DbUser existingUser = userService.getUserByUsername(user.getUsername());
 		// User does not exists
 		if(existingUser == null) {
-			DbUser newUser = populateDbUser(user);	
+			DbUser newUser = populateDbUser(user, request);	
 			signupService.signupUser(newUser);
 			output.put("status", true);
 			Message welcomeMessage = createWelcomeMessage(newUser.getUserId()+"");
@@ -96,20 +103,44 @@ public class SignupController {
 		return "redirect:/conversations";
 	}
 
-	private DbUser populateDbUser(User user) {
+	private DbUser populateDbUser(User user, HttpServletRequest request) {
 		DbUser dbUser = new DbUser();
 		dbUser.setUsername(user.getUsername());
 		dbUser.setPassword(user.getPassword());
 		dbUser.setDeleted("0");
 		dbUser.setEnabled(1);
 		dbUser.setAvatar(user.getAvatarId());
-		
+		// Setting user role
 		DbUserRole userRole = new DbUserRole();
 		userRole.setUsername(user.getUsername());
 		userRole.setRole("ROLE_USER");
 		userRole.setDbUser(dbUser);
 		
 		dbUser.setDbUserRole(userRole);
+		
+		List<DbUserSecurity> securityQuestions = new ArrayList<DbUserSecurity>();
+		// Setting user questions
+		DbUserSecurity question1 = new DbUserSecurity();
+		question1.setUser(dbUser);
+		question1.setAnswer(request.getParameter("answer1"));
+		question1.setQuestionId(Long.parseLong(request.getParameter("question1")));
+//		DbSecurityQuestion ques1 = questionService.getSecurityQuestionById(Long.parseLong(request.getParameter("question1")));
+//		List<DbSecurityQuestion> list1 = new ArrayList<DbSecurityQuestion>();
+//		list1.add(ques1);
+//		question1.setDbSecurityQuestion(list1);
+		
+		DbUserSecurity question2 = new DbUserSecurity();
+		question2.setUser(dbUser);
+		question2.setAnswer(request.getParameter("answer2"));
+		question2.setQuestionId(Long.parseLong(request.getParameter("question2")));
+//		DbSecurityQuestion ques2 = questionService.getSecurityQuestionById(Long.parseLong(request.getParameter("question2")));
+//		List<DbSecurityQuestion> list2 = new ArrayList<DbSecurityQuestion>();
+//		list2.add(ques2);
+//		question1.setDbSecurityQuestion(list2);
+
+		securityQuestions.add(question1);
+		securityQuestions.add(question2);
+		dbUser.setUserSecurities(securityQuestions);
 		return dbUser;
 	}
 	
@@ -203,5 +234,25 @@ public class SignupController {
 			lists.add(dbMessageRecipient);
 		}
 		return lists;
+	}
+	
+	// Method to handle initial signup
+	@RequestMapping(value="/forgotPasswordSignup", method=RequestMethod.GET)  
+	public String forgotPasswordSignup(HttpServletRequest request) {
+		
+		String question1 = request.getParameter("question1");
+		String question2 = request.getParameter("question2");
+		String answer1 = request.getParameter("answer1");
+		String answer2 = request.getParameter("answer2");
+//		UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
+//		token.setDetails(new WebAuthenticationDetails(request));
+//		//authMgr.authenticate(auth);
+//		Authentication authentication = authMgr.authenticate(token);
+//	      // redirect into secured main page if authentication successful
+//		if(authentication.isAuthenticated()) {
+//		  SecurityContextHolder.getContext().setAuthentication(authentication);
+//		  return "redirect:/conversations";
+//		}
+		return "";
 	}
 }
