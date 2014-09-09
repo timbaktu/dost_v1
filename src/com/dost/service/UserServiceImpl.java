@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserDAO userDAO;
-	
+
 	public void saveUser(String username, String password, String role) {
 		userDAO.saveUser(username, password, role);
 	}
@@ -33,13 +33,18 @@ public class UserServiceImpl implements UserService {
 	public List<DbUser> getAllUsers() {
 		return userDAO.getAllUsers();
 	}
-	
+
 	public List<DbUser> getAllCounselors() {
 		return userDAO.getAllCounselors();
 	}
-	
+
 	public DbUser getUserByUsername(String username) {
 		return userDAO.getUserByUsername(username);
+	}
+
+	public DbUser checkUserBySecurityQuestion(String username, String question1, String question2,
+			String answer1, String answer2) {
+		return userDAO.checkUserBySecurityQuestion(username, question1, question2, answer1, answer2);
 	}
 
 	

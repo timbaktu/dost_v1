@@ -29,6 +29,9 @@
 			<form name='forgotPasswordSignupForm' action="/dost/api/forgotPasswordSignup">
 				<div class="well well-large row  col-md-offset-2 signinFormOuterContainer">
 					<div class="col-md-offset-1">
+						<label>Username</label>
+						<input type="text" required id="username" name="username" class="input-block-level form-control" placeholder="Username">
+						<br/><br/>
 						<label id="question1">Question1</label>
 						<h4 id="q1"></h4>
 						<input id="question1" type="hidden" name="question1">

@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
@@ -24,7 +23,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dost.hibernate.DbMessage;
 import com.dost.hibernate.DbMessageRecipient;
-import com.dost.hibernate.DbSecurityQuestion;
 import com.dost.hibernate.DbUser;
 import com.dost.hibernate.DbUserRole;
 import com.dost.hibernate.DbUserSecurity;
@@ -244,15 +242,18 @@ public class SignupController {
 		String question2 = request.getParameter("question2");
 		String answer1 = request.getParameter("answer1");
 		String answer2 = request.getParameter("answer2");
-//		UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
-//		token.setDetails(new WebAuthenticationDetails(request));
-//		//authMgr.authenticate(auth);
-//		Authentication authentication = authMgr.authenticate(token);
-//	      // redirect into secured main page if authentication successful
-//		if(authentication.isAuthenticated()) {
-//		  SecurityContextHolder.getContext().setAuthentication(authentication);
-//		  return "redirect:/conversations";
-//		}
-		return "";
+		String username = request.getParameter("username");
+		DbUser user = userService.checkUserBySecurityQuestion(username, question1, question2, answer1, answer2);
+		if(user != null) {
+			UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
+			token.setDetails(new WebAuthenticationDetails(request));
+			Authentication authentication = authMgr.authenticate(token);
+		      // redirect into secured main page if authentication successful
+			if(authentication.isAuthenticated()) {
+			  SecurityContextHolder.getContext().setAuthentication(authentication);
+			  return "redirect:/conversations";
+			}			
+		}
+		return "forgotPassword";
 	}
 }

@@ -10,7 +10,9 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.dost.hibernate.DbSecurityQuestion;
 import com.dost.hibernate.DbUser;
+import com.dost.hibernate.DbUserSecurity;
 import com.dost.hibernate.Role;
 
 @Repository("userDao")
@@ -84,6 +86,31 @@ public class UserDAOImpl implements UserDAO {
 		query.setParameter("username", username);
 		DbUser user = (DbUser)query.uniqueResult();
 		return user;
+	}
+
+	public DbUser checkUserBySecurityQuestion(String username, String question1, String question2,
+			String answer1, String answer2) {
+		DbUser dbUser = getUserByUsername(username);
+		Session session = sessionFactory.getCurrentSession();
+		Query query1 = session.createQuery("from DbUserSecurity us where us.questionId = :question1 " +
+										"and us.answer = :answer1 and us.user.userId = :userId");
+		query1.setParameter("question1", Long.parseLong(question1));
+		query1.setParameter("answer1", answer1);
+		query1.setParameter("userId", dbUser.getUserId());
+		DbUserSecurity userQuestion1 = (DbUserSecurity)query1.uniqueResult();
+		
+		Query query2 = session.createQuery("from DbUserSecurity us where us.questionId = :question2 " +
+		"and us.answer = :answer2 and us.user.userId = :userId");
+		query2.setParameter("question2", Long.parseLong(question2));
+		query2.setParameter("answer2", answer2);
+		query2.setParameter("userId", dbUser.getUserId());
+		
+		DbUserSecurity userQuestion2 = (DbUserSecurity)query2.uniqueResult();
+		
+		if(userQuestion1 != null && userQuestion2 != null) {
+			return dbUser;
+		}
+		return null;
 	}
 	
 	
