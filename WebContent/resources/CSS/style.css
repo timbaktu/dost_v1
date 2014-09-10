@@ -231,6 +231,13 @@
 	.discussion_topic .well{
 		margin-bottom:0;
 	}
+	
+	/*for ellipsis*/
+	.wrapper{
+		max-height:40px;
+	}
+	/*end of for ellipsis*/
+	
 	.discussion_topic{
 		cursor:pointer;
 	}
