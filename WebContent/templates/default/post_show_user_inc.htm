@@ -2,15 +2,17 @@
 	<img class="media-object profile_pic" src="http://localhost:8800/dost/avatar/${user.avatar}">
 	<span class="owner_name">${user.username?html}</span>
 </a>
+<!-- not required stars
 <#if karmaEnabled && post.userId != 1>
 	<script type="text/javascript">writeStars(${user.karma.karmaPoints}, "${user.id}${post.id}");</script>
 </#if>
-
+End of not required stars -->
 <span class="gensmall">
 <#if post.userId != 1>
 	${rank.getRankTitle(user.rankId, user.totalPosts)}
 </#if>
 
+<!--  not required user details 
 <#if (user.avatar?exists && user.avatar?length > 0)>
 	<#if user.isExternalAvatar() || user.avatar.startsWith("http://")>
 		<#if avatarAllowExternalUrl>
@@ -30,7 +32,7 @@
 	${I18n.getMessage("PostShow.userFrom")}: ${user.from?html}
 	
 </#if>
-
+end of not required user details -->
 <!-- IP Not Required
  <#if post.userIp?exists && isModerator>
 	${I18n.getMessage("PostShow.userIP")}: ${post.userIp}

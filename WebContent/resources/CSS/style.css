@@ -23,7 +23,10 @@
 	.eachDiscussion{
 		margin-bottom: 10px;
 	}
-	
+	.theme-default .forgotPasswordContainer{
+		margin-top: 50px;
+		padding-top: 50px;
+	}
 	.theme-default-counselor div.searchBoxDiscussions, .theme-default div.searchBoxDiscussions {
 		margin-right: 190px;
 		margin-top: -42px;
@@ -330,9 +333,13 @@
 	
 	iframe{
 		border:0;
+		font-style: 'Open Sans', sans-serif;
 	}
 	.right-unit iframe ul, .right-unit iframe li{
-		list-style-type :none;
+		list-style :none;
+	}
+	.right-unit iframe ul, .right-unit iframe li{
+		margin-bottom: 10px;
 	}
 	.secondary_heading{
 		font-size: 14px;
@@ -642,10 +649,15 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.theme-default .topictitle {
-    font-size:	1em;
+.theme-default .topictitle a {
     font-weight: bold;
     font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    line-height:17px;
+    color: #333333;
+}
+.theme-default .topictitle a:hover {
+    text-decoration: none;
 }
 .theme-default .topictitle .postdetails a{
 	font-weight:normal;

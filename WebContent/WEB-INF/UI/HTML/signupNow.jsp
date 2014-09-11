@@ -110,21 +110,21 @@
 						
 						<label>Password</label>
 
-						<input id="password" name="password" required  type="password" class="form-control input-block-level" placeholder="Set a password">
+						<input id="password" name="password" c  type="password" class="form-control input-block-level" placeholder="Set a password">
 						
 						<br><br>
 						
 						<label>Secret Question</label>
-						<select id="question1" name="question1"></select>
-						<br><br>
-						<input id="answer1" name="answer1" required type="text" class="form-control input-block-level" placeholder="Set answer1">
+						<br>
+						<select required class="form-control" id="question1" name="question1"></select>
+						<br/>
+						<input required id="answer1" name="answer1" required type="text" class="form-control input-block-level" placeholder="Please provide the answer">
 						
 						<br><br>
 						
-						<label>Secret Question</label>
-						<select id="question2" name="question2"></select>
-						<br><br>
-						<input id="answer2" name="answer2" required type="text" class="form-control input-block-level" placeholder="Set answer2">
+						<select required class="form-control" id="question2" name="question2"></select>
+						<br/>
+						<input id="answer2" required  name="answer2" required type="text" class="form-control input-block-level" placeholder="Please provide the answer">
 
 						<br/><br/>
 						<button id="signin" class="pull-right btn btn-large btn-primary" type="submit">Proceed &gt;</button>

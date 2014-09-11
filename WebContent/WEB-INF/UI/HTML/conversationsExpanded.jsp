@@ -125,7 +125,7 @@
 								</div>
 							</div>
 							<div class="clearfix"></div>
-							<ul class="conversation_history">
+							<ul class="conversation_history well">
 								
 							</ul>
 							<!--<a href="#" class="pull-right conversationDetails"> View more conversations
@@ -178,7 +178,7 @@
 								</div>
 							</div>
 							<div class="clearfix"></div>
-							<ul class="conversation_history">
+							<ul class="conversation_history well">
 								
 							</ul>
 							<a href="#" class="pull-right conversationDetails"> View more conversations
