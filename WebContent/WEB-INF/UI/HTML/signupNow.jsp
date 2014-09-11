@@ -8,14 +8,14 @@
 	<script>
 	$( document ).ready(function() {
 		$.get('/dost/api/securityquestions/all', function(response) {
-			$("#question1").append('<option value="blank">Select</option>');
+			$("#question1").append('<option value="blank">Select your first secret question</option>');
 			$.each(JSON.parse(JSON.stringify(response)), function(index, value){
 				$("#question1").append($('<option></option>').val(value.questionId).html(value.question));
 			});
 		});
 		
 		$.get('/dost/api/securityquestions/all', function(response) {
-			$("#question2").append('<option value="blank">Select</option>');
+			$("#question2").append('<option value="blank">Select your second secret question</option>');
 			$.each(JSON.parse(JSON.stringify(response)), function(index, value){
 				$("#question2").append($('<option></option>').val(value.questionId).html(value.question));
 			});
@@ -114,13 +114,13 @@
 						
 						<br><br>
 						
-						<label>Secret Question</label>
+						<label>Secret Question <span>(It will help you generate your password, even if you forget)</span></label>
 						<br>
 						<select required class="form-control" id="question1" name="question1"></select>
 						<br/>
 						<input required id="answer1" name="answer1" required type="text" class="form-control input-block-level" placeholder="Please provide the answer">
 						
-						<br><br>
+						<br/><br/><br/>
 						
 						<select required class="form-control" id="question2" name="question2"></select>
 						<br/>

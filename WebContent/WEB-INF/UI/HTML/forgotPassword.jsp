@@ -30,16 +30,16 @@
 								<label>Username</label>
 								<input type="text" required id="username" name="username" class="input-block-level form-control" placeholder="Username">
 								<br/><br/>
-								<h4 id="q1"></h4>
+								<label id="q1"></label>
 								<input id="question1" type="hidden" name="question1">
 								<input type="text" required id="answer1" name="answer1" class="input-block-level form-control" placeholder="answer1">
 								<br/><br/>
 								
-								<h4 id="q2"></h4>
+								<label id="q2"></label>
 								<input id="question2" type="hidden" name="question2">
 								<input type="text" required id="answer2" name="answer2" class="input-block-level form-control" placeholder="answer2">
 								<br/><br/>
-								<button class="pull-right btn btn-large btn-primary" type="submit">Sign in</button>
+								<button class="pull-right btn btn-large btn-primary" type="submit">Proceed ></button>
 							</div>
 						</div>
 						<div class="clearfix"></div>

@@ -25,13 +25,12 @@
 						
 						<label>Password</label>
 						<input type="password" required id="password" name="password" class="input-block-level form-control" placeholder="Password">
-						<!-- <a class="pull-right" alt="Forgot Password" href="forgotPassword">Forgot Password?</a> -->
+						<a class="pull-right forgotPasswordText" alt="Forgot Password" href="forgotPassword">Forgot Password?</a>
 						<label class="checkbox">
 							<input type="checkbox" value="remember-me"> Remember me
 						</label>
 						<br/><br/>
 						<button class="pull-right btn btn-large btn-primary" type="submit">Sign in</button>
-						<a class="pull-right forgotPasswordText" href="forgotPassword" alt="Forgot Password">Forgot Password</a>
 						<a class="pull-right signupNowText" href="signupNow" alt="Signup for a new account">Don't have an account? SIGNUP NOW</a>
 									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 					</div>
