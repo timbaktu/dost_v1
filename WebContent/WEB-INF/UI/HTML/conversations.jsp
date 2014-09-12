@@ -9,6 +9,7 @@
 	<script>
 	/*Manipulating json for messages*/
 	$( document ).ready(function() {
+		$(".loading").show();
 		var userid;
 		var UrlForData;
 
@@ -35,6 +36,7 @@
 		
 		function showData(UrlForData){
 			$.getJSON(UrlForData, function(messages) {	
+				$(".loading").hide();
 			$(".conversationsUser").html("");
 			$(".conversationsCounselor").html("");
 			if(messages.length>0){
@@ -292,7 +294,9 @@
 							
 					
 					</ul>
-					
+			<div class="loading" id="loading">
+				<img src="images/ajax-loader.gif" alt="Loader" />
+			</div>					
 				</div>
 				<div class="status col-md-11"></div>
 			</div>
