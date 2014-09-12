@@ -142,7 +142,6 @@
 					terms.push( "" );*/
 					receipient = ui.item.name;
 					/*this.value = terms.join( ", " );*/
-					alert(receipient);
 					return false;
 				}
 		});
@@ -173,20 +172,31 @@
 							$(".error").html("");
 							$(".error").hide();
 							
-							alert(receipient);
 							var datatosend = 'subject='+$("#subject").val()+'&content=' + $("#messageContent").val()+ '&recipients='+receipient+'&senderId=' + userid;
-							
+							 
 							if($("#recipient").val()== '' || $("#subject").val()== '' || $("#messageContent").val() =='') {
 								$(".error").show().text("Please fill in details");
 							}
 							else{
 								
 								$.post('http://localhost:8800/dost/api/user/message', datatosend, function(response) {							
-								//$('#visitFormResponse').text(response);
+									if(response = ""){
+											$(".status").show().html("sending..");
+									}
 								});
 								
-								window.setTimeout('location.reload()', 1000);
-								debugger;
+								setTimeout(function(){
+									alert("assd");
+									location.reload(function(){
+										
+										
+										
+									});
+									$(".status").show().html("sent");
+								}, 1000);
+								
+								
+								$debugger;
 								receipient = 'all';
 							}
 					}
@@ -284,6 +294,7 @@
 					</ul>
 					
 				</div>
+				<div class="status col-md-11"></div>
 			</div>
 		</sec:authorize>
 		

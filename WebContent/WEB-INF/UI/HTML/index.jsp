@@ -35,8 +35,9 @@
 							'<a style="display:block" href="http://localhost:8800/dost/posts/list/' + discussionTopic[i].topicId + '.page">'+
 								'<div style="max-height:40px" class="wrapper" >'+ discussionTopic[i].topicTitle +
 								'</div>'+
-								'<span class="time_taken">Last updated:'+discussionTopic[i].forumPosts[0].postTime+'</span>'+	
-							'</a></li>');	
+							'</a>'+
+							'<span class="time_taken">Last updated:'+discussionTopic[i].forumPosts[0].postTime+'</span>'+	
+						 '</li>');	
 				}
 			});
 			

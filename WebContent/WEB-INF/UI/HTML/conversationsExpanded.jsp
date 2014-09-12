@@ -133,7 +133,7 @@
 							</a> -->
 							<div class="clearfix"></div>
 							<div id="replyArea" class="reply_to_conversation">
-								<textarea class="form-control" id="messageContent" rows="3"></textarea>
+								<textarea class="form-control"   id="messageContent" rows="3"></textarea>
 								<button type="button" class="sendReply pull-right btn btn-primary">Submit</button>
 							
 							</div>
@@ -187,7 +187,7 @@
 							<div class="clearfix"></div>
 							<div class="reply_to_conversation">
 								<div class="error alert alert-danger" role="alert"></div>
-								<textarea class="form-control" id="messageContent" rows="3"></textarea>
+								<textarea placeholder="Write your reply"class="form-control" id="messageContent" rows="3"></textarea>
 								<button type="button"  class="sendReply pull-right btn btn-primary">Submit</button>
 							
 							</div>

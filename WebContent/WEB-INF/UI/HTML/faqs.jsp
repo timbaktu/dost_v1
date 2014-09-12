@@ -126,10 +126,12 @@
 	/*end of for search*/
 		
 	/*for adding edit/delete options for a question*/
-		if($(body).hasClass("theme-default-counselor")){
+		if($(".theme-default").hasClass("theme-default-counselor")){
+			alert("this");
 			$(".questionAnswer").hover(
 					function(){
-						$(this).prepend('<div class="editDeleteOptions pull-right">'+
+						
+						$(this).append('<div class="editDeleteOptions pull-right">'+
 											'<div class="editQuestion col-md-1">Edit </div>'+ 
 											'<div class="deleteQuestion  col-md-1"> Delete</div>'+
 										'</div>');
@@ -208,9 +210,6 @@
 			<div class="pageTop">
 				<h2 class="pull-left pageHeading">Frequently Asked Questions</h2>
 				<sec:authorize access="hasRole('ROLE_ADMIN')">
-					<button type="button" id="addbutton" class="addFAQs btn btn-primary pull-right">ADD FAQs</button>
-				</sec:authorize>
-				<sec:authorize access="hasRole('ROLE_USER')">
 					<button type="button" id="addbutton" class="addFAQs btn btn-primary pull-right">ADD FAQs</button>
 				</sec:authorize>
 				<div class="clearfix"></div>
