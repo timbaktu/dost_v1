@@ -24,7 +24,7 @@
 	<body class="container-fluid  theme-default" onload='document.loginForm.username.focus();'>
 			<jsp:include page="includes/header.jsp"></jsp:include>
 			<div class="container row-fluid welcomePage">
-				<form name='forgotPasswordSignupForm' action="/dost/api/forgotPasswordSignup">
+				<form name='forgotPasswordSignupForm' action="/dost/api/forgotPasswordSignup" method="POST">
 						<div class="well well-large row col-md-7 col-md-offset-2 forgotPasswordContainer">
 							<div class="col-md-offset-1">
 								<label>Username</label>

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.dost.hibernate.DbMessage;
 import com.dost.hibernate.DbMessageRecipient;
@@ -238,9 +239,9 @@ public class SignupController {
 	}
 	
 	// Method to handle initial signup
-	@RequestMapping(value="/forgotPasswordSignup", method=RequestMethod.GET)  
-	public String forgotPasswordSignup(HttpServletRequest request) {
-		
+	@RequestMapping(value="/forgotPasswordSignup", method=RequestMethod.POST)  
+	public ModelAndView forgotPasswordSignup(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
 		String question1 = request.getParameter("question1");
 		String question2 = request.getParameter("question2");
 		String answer1 = request.getParameter("answer1");
@@ -248,15 +249,38 @@ public class SignupController {
 		String username = request.getParameter("username");
 		DbUser user = userService.checkUserBySecurityQuestion(username, question1, question2, answer1, answer2);
 		if(user != null) {
-			UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
-			token.setDetails(new WebAuthenticationDetails(request));
-			Authentication authentication = authMgr.authenticate(token);
-		      // redirect into secured main page if authentication successful
-			if(authentication.isAuthenticated()) {
-			  SecurityContextHolder.getContext().setAuthentication(authentication);
-			  return "redirect:/conversations";
-			}			
+//			UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
+//			token.setDetails(new WebAuthenticationDetails(request));
+//			Authentication authentication = authMgr.authenticate(token);
+//		      // redirect into secured main page if authentication successful
+//			if(authentication.isAuthenticated()) {
+//			  SecurityContextHolder.getContext().setAuthentication(authentication);
+//			  return "redirect:/resetPassword";
+//			}	
+			// We dont want user to login at this point. We will ask user to first reset password.
+			// And this should happen only when security question answer matches.
+			mav = new ModelAndView("resetPassword");
+			mav.addObject("username", username);
+			return mav;
 		}
-		return "forgotPassword";
+		return new ModelAndView("forgotPassword");
+	}
+	
+	// Method to handle initial signup
+	@RequestMapping(value="/resetPassword", method=RequestMethod.POST)  
+	public String resetPassword(HttpServletRequest request) {
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		DbUser user = userService.updatePassword(username, password);
+		UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
+		token.setDetails(new WebAuthenticationDetails(request));
+		Authentication authentication = authMgr.authenticate(token);
+	      // redirect into secured main page if authentication successful
+		if(authentication.isAuthenticated()) {
+		  SecurityContextHolder.getContext().setAuthentication(authentication);
+		  return "redirect:/conversations";
+		}
+		// It should never come here
+		return "redirect:/resetPassword"; 
 	}
 }

@@ -113,6 +113,13 @@ public class UserDAOImpl implements UserDAO {
 		return null;
 	}
 	
-	
-	
+	public DbUser updatePassword(String username, String password) {
+		Session session = sessionFactory.getCurrentSession();
+		DbUser user = getUserByUsername(username);
+		
+		user.setPassword(password);
+		session.saveOrUpdate(user);
+		
+		return user;
+	}
 }

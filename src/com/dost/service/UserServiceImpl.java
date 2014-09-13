@@ -47,5 +47,7 @@ public class UserServiceImpl implements UserService {
 		return userDAO.checkUserBySecurityQuestion(username, question1, question2, answer1, answer2);
 	}
 
-	
+	public DbUser updatePassword(String username, String password) {
+		return userDAO.updatePassword(username, password);
+	}
 }

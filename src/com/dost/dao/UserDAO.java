@@ -14,4 +14,5 @@ public interface UserDAO {
 	public List<DbUser> getAllCounselors();
 	public DbUser getUserByUsername(String username);
 	public DbUser checkUserBySecurityQuestion(String username, String question1, String question2,	String answer1, String answer2);
+	public DbUser updatePassword(String username, String password);
 }
