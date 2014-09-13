@@ -34,6 +34,21 @@
 			 showData(UrlForData);
 		});
 		
+		/* Unread message count*/
+		$.getJSON("/dost/api/user/${pageContext.request.userPrincipal.name}", function(user) {
+			userid = user.userId;
+			 UrlForData = '/dost/api/user/'+userid+'/unreadcount';
+				$.getJSON(UrlForData, function(count) {	
+					var unreadcount = count[userid];
+					if(unreadcount > 0) {
+						$('#count').text('Inbox(' + unreadcount +  ')');
+					}
+					else {
+						$('#count').text('Inbox');
+					}
+				});
+		});
+		
 		function showData(UrlForData){
 			$.getJSON(UrlForData, function(messages) {	
 				$(".loading").hide();
@@ -255,7 +270,7 @@
 					
 					<ul class="pull-left col-md-2 left_nav">
 						<li><a class="leaveMessage" href="#">Compose</a><br/><br/></li>
-						<li class="active inbox"><a href="#">Inbox</a></li>
+						<li class="active inbox"><a id="count" href="#">Inbox</a></li>
 						<li class="sentItems"><a href="#">Sent Items</a></li>
 						<!-- <li><a href="#">Drafts</a><br/><br/></li>
 						<li><a href="#">Label 1</a></li>
