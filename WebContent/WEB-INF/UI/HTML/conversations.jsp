@@ -63,7 +63,7 @@
 						
 						// 1 means viewed
 						if(ismessagenew == 0) {
-							messageHeading = '<h4 class="media-heading" style="font-weight:bold">'+messages[j].subject+'</h4>';
+							messageHeading = '<h4 class="media-heading" style="font-weight:bold">'+messages[i].subject+'</h4>';
 						}
 						else {
 							messageHeading = '<h4>'+messages[i].subject+'</h4>';
