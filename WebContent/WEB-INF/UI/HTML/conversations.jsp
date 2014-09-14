@@ -58,6 +58,16 @@
 			
 			if(messages.length>0){
 					for (var i = 0 ; i < messages.length; i++) {
+						var ismessagenew = messages[i].recipients[0].viewed;
+						var messageHeading = '';
+						
+						// 1 means viewed
+						if(ismessagenew == 0) {
+							messageHeading = '<h4 class="media-heading" style="font-weight:bold">'+messages[j].subject+'</h4>';
+						}
+						else {
+							messageHeading = '<h4>'+messages[i].subject+'</h4>';
+						}						
 						$(".conversationsUser").append('<li class="well media conversation_topic">'+
 							'<a class="each_conversation" href="conversationsExpanded?='+messages[i].msgId+'">'+
 								'<div class="pull-left col-md-2" href="#">'+
@@ -66,7 +76,7 @@
 									'<div class="date_of_conversation">'+messages[i].sentDate+'</div>'+
 								'</div>'+
 								'<div class="media-body col-md-8">'+
-										'<h4>'+messages[i].subject+'</h4>'+
+										messageHeading +
 										'<div class="wrapperConversations">'+messages[i].content+'</div>'+
 								'</div>'+
 								'<div class="pull-right col-md-1">'+
@@ -82,9 +92,10 @@
 					for (var j = 0 ; j < messages.length; j++) {
 						var ismessagenew = messages[j].recipients[0].viewed;
 						var messageHeading = '';
+						
 						// 1 means viewed
 						if(ismessagenew == 0) {
-							messageHeading = '<h4 class="media-heading unread">'+messages[j].subject+'</h4>';
+							messageHeading = '<h4 class="media-heading" style="font-weight:bold">'+messages[j].subject+'</h4>';
 						}
 						else {
 							messageHeading = '<h4>'+messages[j].subject+'</h4>';
