@@ -73,6 +73,12 @@
 			$(this).closest(".notePopup").hide();
 		});
 		
+		$(".replyBtn").click(function(){
+			$('html, body').animate({
+			    scrollTop: $("#replyArea").offset().top
+			}, 1000);
+		});
+		
 	});
 	
 	</script>
@@ -108,7 +114,7 @@
 							<h4 id="subjectHeading" class="pull-left"></h4>
 							<div class="pull-right">
 								<div class="btn-group">
-								  <a href="#replyArea" type="button" class="btn btn-default">Reply</a>
+								  <button type="button" class="replyBtn btn btn-default">Reply</button>
 								  <button type="button" class="btn btn-default addNote">Add Note</button>
 	
 								  <!-- <div class="btn-group">
@@ -138,7 +144,6 @@
 							
 							</div>
 						</div>
-						<!--<jsp:include page="includes/patientHistory.jsp"></jsp:include>-->
 						<div class="clearfix"></div>
 						
 					</div>
@@ -161,7 +166,7 @@
 							<h4 id="subjectHeading" class="pull-left"></h4>
 							<div class="pull-right">
 								<div class="btn-group">
-								  <button type="button" class="btn btn-default">Reply</button>
+								  <button type="button" class="replyBtn btn-default">Reply</button>
 								  <button type="button" class="btn btn-default">Add Note</button>
 	
 								  <div class="btn-group">
@@ -181,9 +186,10 @@
 							<ul class="conversation_history well">
 								
 							</ul>
-							<a href="#" class="pull-right conversationDetails"> View more conversations
+							<!-- <a href="#" class="pull-right conversationDetails"> View more conversations
 								<span class="glyphicon glyphicon-chevron-right"></span>
-							</a>
+							</a>					 
+							-->
 							<div class="clearfix"></div>
 							<div class="reply_to_conversation">
 								<div class="error alert alert-danger" role="alert"></div>

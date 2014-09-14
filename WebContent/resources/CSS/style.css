@@ -254,6 +254,9 @@
 	.wrapper{
 		max-height:40px;
 	}
+	.wrapperConversations{
+		max-height:80px;
+	}
 	/*end of for ellipsis*/
 	
 	.discussion_topic{
@@ -548,6 +551,11 @@
 	}
 	.conversation_history li{
 		margin-bottom:10px;
+		border-bottom:1px solid #DDDDDD;
+		padding-bottom: 20px;
+	}
+	.conversation_history li:last-child{
+		border-bottom:none;
 	}
 	.reply_to_conversation{
 		margin-top:20px;
@@ -638,6 +646,9 @@
 	}
 	.theme-default .ui-widget-content {
 		background:#FFF;
+	}
+	ul.conversations li.unreadConversations{
+		background:rgb(255,249,210);
 	}
 	.messageModal .mainMessage{
 		font-size: 16px;

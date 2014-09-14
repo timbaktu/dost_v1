@@ -6,6 +6,7 @@
 <html lang="en">
 	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	
+	<script src="${pageContext.request.contextPath}/resources/JS/jquery.dotdotdot.js" type="text/javascript"></script>
 	<script>
 	/*Manipulating json for messages*/
 	$( document ).ready(function() {
@@ -54,6 +55,7 @@
 				$(".loading").hide();
 			$(".conversationsUser").html("");
 			$(".conversationsCounselor").html("");
+			
 			if(messages.length>0){
 					for (var i = 0 ; i < messages.length; i++) {
 						$(".conversationsUser").append('<li class="well media conversation_topic">'+
@@ -65,7 +67,7 @@
 								'</div>'+
 								'<div class="media-body col-md-8">'+
 										'<h4>'+messages[i].subject+'</h4>'+
-										'<span>'+messages[i].content+'</span>'+
+										'<div class="wrapperConversations">'+messages[i].content+'</div>'+
 								'</div>'+
 								'<div class="pull-right col-md-1">'+
 									'<div href="conversationsExpanded?='+messages[i].msgId+'">View'+
@@ -82,7 +84,7 @@
 						var messageHeading = '';
 						// 1 means viewed
 						if(ismessagenew == 0) {
-							messageHeading = '<h4 class="media-heading" style="font-weight:bold">'+messages[j].subject+'</h4>';
+							messageHeading = '<h4 class="media-heading unread">'+messages[j].subject+'</h4>';
 						}
 						else {
 							messageHeading = '<h4>'+messages[j].subject+'</h4>';
@@ -107,6 +109,11 @@
 							'<div class="clearfix"></div>'+
 						'</li>');
 					}
+					
+					/*for highlighting unread conversations*/
+					$(".unread").closest("li").addClass("unreadConversations");
+					
+					/*for highlighting unread conversations*/	
 				}
 				else{
 					$(".conversations").html('<div class="noConversationsText">There are no conversations <br/> <a class="leaveMessageLink">Leave a message</a></div>'); 
@@ -118,6 +125,13 @@
 			$( ".leaveMessage" ).trigger( "click" );	
 		});
 		
+		/*Showing Ellipsis - dotdotdot plugin*/
+		setTimeout(function(){
+				$(".wrapperConversations").dotdotdot({
+					
+				});
+		},10000);
+		/*End of showing ellipsis*/
 		
 		
 		var receipient = 'all' ; /*to go as receipientID*/
@@ -310,7 +324,7 @@
 					
 					</ul>
 			<div class="loading" id="loading">
-				<img src="images/ajax-loader.gif" alt="Loader" />
+				<img src="${pageContext.request.contextPath}/resources/img/ajax-loader.gif" alt="Loader" />
 			</div>					
 				</div>
 				<div class="status col-md-11"></div>

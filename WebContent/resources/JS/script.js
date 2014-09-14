@@ -16,5 +16,21 @@ $( document ).ready(function() {
 			$(".signup_now").hide();
 		}
 		/*end of applying properties based on url*/	
+		
+		$("button:last-child").addClass("btn-primary");
+		
+		setTimeout(function(){
+			$("iframe.popularDiscussions").contents().find("li").css({
+					'list-style':'none',
+					'margin-bottom':'10px',
+					
+			});
+			
+			$("iframe.popularDiscussions").contents().find("a").css({
+				'color':'#333333',
+				'font-family':'Arial,Helvetica,sans-serif',
+				'font-size':'12px'
+			});
+		},100);
 	
 });

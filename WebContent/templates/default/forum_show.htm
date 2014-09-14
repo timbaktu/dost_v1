@@ -8,6 +8,8 @@
 		/*searchBar for Discussion topics*/
 		$(".allDiscussion_topic").sieve({ itemSelector: ".discussion_topic" });
 		$(".allDiscussion_topic").prev("div").addClass("searchBox searchBoxDiscussions");
+		
+		
 		/*end of searchBar for Discussion topics*/
 	});
 </script>
@@ -142,7 +144,7 @@
 	<div class="col-md-3" >
 		<div class="right_unit"> 
 			<h4>Most Popular Topics</h4>
-			<iframe class="well" src="/dost/hottestTopics/list.page"></iframe>
+			<iframe class="popularDiscussions" name="popularDiscussions" class="well" src="/dost/hottestTopics/list.page"></iframe>
 		</div>
 	</div>
 </#if>
