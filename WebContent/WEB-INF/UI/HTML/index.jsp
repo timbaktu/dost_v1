@@ -91,11 +91,11 @@
 					</li>
 					
 					<li class="exploration_option well" id="personalityTest">
-						<a href="${pageContext.request.contextPath}/user/personalityTests">
+						<a href="#">
 							<h3 class="categoryName">Personality Tests</h3>
 							<ul class="details_box">
 								<li>
-									<h4 class="topic_categoryName">Find out about your personality!</h4>
+									<h4 class="topic_categoryName">Find out about your personality!.. COMING SOON</h4>
 								</li>
 								
 							</ul>
@@ -105,13 +105,23 @@
 					</li>
 					
 					<li class="exploration_option well" >
-						<h3>Quotes</h3>
-						<div></div>
+						<h3 class="categoryName">Quotes</h3>
+						<ul class="details_box">
+								<li>
+									<h4 class="topic_categoryName">COMING SOON</h4>
+								</li>
+								
+							</ul>
 					</li>
 					
 					<li class="exploration_option well" >
-						<h3>Destressing Games</h3>
-						<div></div>
+						<h3 class="categoryName">Destressing Games</h3>
+						<ul class="details_box">
+								<li>
+									<h4 class="topic_categoryName">COMING SOON</h4>
+								</li>
+								
+						</ul>
 					</li>
 					
 				</ul>

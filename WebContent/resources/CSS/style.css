@@ -95,7 +95,13 @@
 		list-style:none;
 	}
 	.exploration_option:first-child{
-		margin-top:	70px;
+		margin-top:	20px;
+	}
+	.exploration_option:nth-child(odd){
+		border-top: 3px solid #FECA12;
+	}
+	.welcomePage .right_unit {
+		margin-top: 20px;
 	}
 	.exploration_option a{
 		color:#000;
@@ -720,8 +726,9 @@
 	margin-bottom: 20px;
 }
 h4.media-heading{
-	font-size: 16px;
+	font-size: 14px;
 	font-weight:bold;	
+	line-height:20px;
 }
 /*end of jforum module*/
 /*styling for autocomplete*/
@@ -729,6 +736,9 @@ ul.ui-autocomplete{
 	z-index: 200;
 	position: absolute
 	
+}
+.each_interaction a.pull-left{
+	text-align:center;
 }
 /* end of styling for autocomplete*/
 
