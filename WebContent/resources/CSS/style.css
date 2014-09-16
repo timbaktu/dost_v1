@@ -210,6 +210,10 @@
 	.discussion_topic {
 		margin-top:20px;
 	}
+	.discussion_topic a{
+		text-align:center;
+	}
+	
 	.discussion_topic:first-child {
 		margin-top:0px;
 	}
@@ -351,7 +355,7 @@
 	
 	iframe{
 		border:0;
-		font-style: 'Open Sans', sans-serif;
+		font-style: 'Open Sans', Arial, sans-serif;
 	}
 	.right-unit iframe ul, .right-unit iframe li{
 		list-style :none;

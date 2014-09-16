@@ -19,6 +19,7 @@ $( document ).ready(function() {
 		
 		$("button:last-child").addClass("btn-primary");
 		
+		/*styling the favorite discussion iframe*/
 		setTimeout(function(){
 			$("iframe.popularDiscussions").contents().find("li").css({
 					'list-style':'none',
@@ -29,8 +30,17 @@ $( document ).ready(function() {
 			$("iframe.popularDiscussions").contents().find("a").css({
 				'color':'#333333',
 				'font-family':'Arial,Helvetica,sans-serif',
-				'font-size':'12px'
+				'font-size':'12px',
+				'text-decoration': 'none',
+			});
+
+			$("iframe.popularDiscussions").contents().find("a:hover").css({
+				'text-decoration': 'underline',
+			});
+			
+			$("iframe.popularDiscussions").contents().find("ul").css({
+				'padding-left': '0',
 			});
 		},100);
-	
+		/*end of styling the favorite discussion iframe*/
 });
