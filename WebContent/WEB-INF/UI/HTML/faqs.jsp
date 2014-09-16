@@ -127,7 +127,6 @@
 		
 	/*for adding edit/delete options for a question*/
 		if($(".theme-default").hasClass("theme-default-counselor")){
-			alert("this");
 			$(".questionAnswer").hover(
 					function(){
 						
