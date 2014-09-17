@@ -7,7 +7,10 @@
 	<script>
 	
 	$( document ).ready(function() {
-		$.getJSON("/dost/api/user/morning", function(user) {
+		
+		var username = GetQueryStringParams('username');
+		$('#username').val(username);
+		$.getJSON("/dost/api/user/" + username, function(user) {
 			$.getJSON("/dost/api/securityquestions/" + user.userSecurities[1].questionId, function(question) {
 				$('#q1').append(question.question);
 				$("input[id=question1]").val(question.questionId);
@@ -19,6 +22,19 @@
 		});		
 		
 	});
+	
+	function GetQueryStringParams(sParam) {
+	    var sPageURL = window.location.search.substring(1);
+	    var sURLVariables = sPageURL.split('&');
+	    for (var i = 0; i < sURLVariables.length; i++) 
+	    {
+	        var sParameterName = sURLVariables[i].split('=');
+	        if (sParameterName[0] == sParam) 
+	        {
+	            return sParameterName[1].replace("%20"," ");
+	        }
+	    }
+	}
 	</script>
 	
 	<body class="container-fluid  theme-default" onload='document.loginForm.username.focus();'>

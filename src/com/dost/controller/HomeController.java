@@ -1,7 +1,10 @@
 package com.dost.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -12,8 +15,11 @@ public class HomeController {
 		return new ModelAndView("index"); 
 	}
 	
-	@RequestMapping("forgotPassword")  
-	public ModelAndView forgotPassword() {
+	@RequestMapping(value="/forgotPassword", method=RequestMethod.GET)  
+	public ModelAndView forgotPassword(HttpServletRequest request) {
+		String username = request.getParameter("username");
+		ModelAndView mav = new ModelAndView("forgotPassword");
+		mav.addObject("username", username);
 		return new ModelAndView("forgotPassword"); 
 	}
 	

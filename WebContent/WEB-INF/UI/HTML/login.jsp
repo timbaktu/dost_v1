@@ -3,7 +3,18 @@
 <html>
 
 	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
+
+	<script>
+	$(document).ready( function() {
+	$('#forgot').click(function() {
+	    $('form').attr("action", "forgotPassword");  //change the form action
+	    $('form').attr("method", "GET");  //change the form action
+	    $('form').submit();  // submit the form
+	});
+	});
+	</script>
 	
+		
 	<body class="container-fluid  theme-default" onload='document.loginForm.username.focus();'>
 			<jsp:include page="includes/header.jsp"></jsp:include>
 		<div class="container row-fluid welcomePage">
@@ -25,7 +36,7 @@
 						
 						<label>Password</label>
 						<input type="password" required id="password" name="password" class="input-block-level form-control" placeholder="Password">
-						<a class="pull-right forgotPasswordText" alt="Forgot Password" href="forgotPassword">Forgot Password?</a>
+						<a id="forgot" class="pull-right forgotPasswordText" alt="Forgot Password" href="#">Forgot Password?</a>
 						<label class="checkbox">
 							<input type="checkbox" value="remember-me"> Remember me
 						</label>
