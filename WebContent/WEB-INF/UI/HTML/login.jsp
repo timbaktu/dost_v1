@@ -7,6 +7,11 @@
 	<script>
 	$(document).ready( function() {
 	$('#forgot').click(function() {
+		    var x = document.forms["loginForm"]["username"].value;
+		    if (x == null || x == "") {
+		        alert("Username must be filled out");
+		        return false;
+		    }
 	    $('form').attr("action", "forgotPassword");  //change the form action
 	    $('form').attr("method", "GET");  //change the form action
 	    $('form').submit();  // submit the form
