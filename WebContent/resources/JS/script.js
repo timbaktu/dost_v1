@@ -17,7 +17,6 @@ $( document ).ready(function() {
 		}
 		/*end of applying properties based on url*/	
 		
-		$("button:last-child").addClass("btn-primary");
 		
 		/*styling the favorite discussion iframe*/
 		setTimeout(function(){

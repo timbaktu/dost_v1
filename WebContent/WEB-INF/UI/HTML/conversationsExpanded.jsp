@@ -162,14 +162,15 @@
 					</div>
 					
 					<div class="pull-right col-md-10">
-						<div class="pull-left col-md-9">
+						<div class="">
 							<h4 id="subjectHeading" class="pull-left"></h4>
 							<div class="pull-right">
 								<div class="btn-group">
-								  <button type="button" class="replyBtn btn-default">Reply</button>
-								  <button type="button" class="btn btn-default">Add Note</button>
-	
-								  <div class="btn-group">
+								  
+								  <button type="button" class="replyBtn btn btn-default">Reply</button>
+								  <button type="button" class="btn btn-default addNote">Add Note</button>
+								  
+								  <!--  <div class="btn-group">
 									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 									  Label
 									  <span class="caret"></span>
@@ -179,6 +180,7 @@
 									  <li><a href="#">love relationship</a></li>
 									  <li><a href="#">office stress</a></li>
 									</ul>
+								  -->
 								  </div>
 								</div>
 							</div>
@@ -191,7 +193,7 @@
 							</a>					 
 							-->
 							<div class="clearfix"></div>
-							<div class="reply_to_conversation">
+							<div id="replyArea" class="reply_to_conversation">
 								<div class="error alert alert-danger" role="alert"></div>
 								<textarea placeholder="Write your reply"class="form-control" id="messageContent" rows="3"></textarea>
 								<button type="button"  class="sendReply pull-right btn btn-primary">Submit</button>
