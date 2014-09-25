@@ -21,4 +21,20 @@ public class Utils {
 		}
 		return date;
 	}
+	
+	public static String formatDate(String format, Date date) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat(format);
+		return dateFormat.format(date);
+	}
+	
+	public static Date formatDate(String format, String dateStr) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat(format);
+		Date date = null;
+		try {
+			date = dateFormat.parse(dateStr);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return date;
+	}
 }

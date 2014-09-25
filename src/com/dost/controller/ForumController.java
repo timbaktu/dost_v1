@@ -4,9 +4,9 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.dost.hibernate.DbForumPost;
 import com.dost.hibernate.DbForumTopic;
 import com.dost.service.ForumService;
+import com.dost.util.Utils;
 
 @Controller
 @RequestMapping("api")
@@ -38,6 +39,8 @@ public class ForumController {
 				postDates.add(post.getPostTime());
 			}
 			String recentPostDate = latestDate(postDates);
+			Date tempDate = Utils.formatDate("yyyy-MM-dd HH:mm:ss.S", recentPostDate);	
+			recentPostDate = Utils.formatDate("hh:mm a, dd MMMM yyyy", tempDate);	
 			
 			// Create return data
 			List<DbForumPost> outputPosts = new ArrayList<DbForumPost>();
