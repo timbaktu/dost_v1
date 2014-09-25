@@ -65,7 +65,7 @@
 	}
 	.subHeading{
 		font-size: 14px;
-		font-weight: bold;
+		font-weight: 400;
 		margin-top:0;
 	}
 	
@@ -73,7 +73,7 @@
 		font-size: 14px;
 		
 	}
-	.conversation_topic:hover,.questionAnswer:hover{
+	.theme-default .conversation_topic:hover, .theme-default-counselor .conversation_topic:hover, .theme-default .questionAnswer:hover, .theme-default-counselor .questionAnswer:hover{
 		background: rgb(255,249,210);
 	}
 	.categoryList .clicked:hover{
@@ -82,7 +82,7 @@
 	
 	.form-signin-heading p{
 		font-size:14px;
-		font-weight:bold;
+		font-weight:400;
 	}
 	.container{
 		margin-top: 50px;
@@ -209,6 +209,7 @@
 	}
 	.discussion_topic {
 		margin-top:20px;
+		background: none;
 	}
 	.discussion_topic a{
 		text-align:center;
@@ -219,7 +220,7 @@
 	}
 	.owner_name{
 		color:#000;
-		font-weight:bold;
+		font-weight:400;
 	}
 	.comment_action li{
 		display: inline-block;
@@ -241,7 +242,6 @@
 	}
 	h2.pageHeading{
 		font-size: 18px;
-		font-weight: bold;
 	}
 	.pageTop{
 		margin-top:20px;
@@ -294,7 +294,7 @@
 		background: url("../img/callingImage.png") no-repeat scroll -20px 120px #FECA12;
 	}
 	.login_unit p{
-		font-weight: bold;
+		font-weight: 400;
 		color: #ffffff;
 	}
 	.login_unit p:first-child{
@@ -305,7 +305,7 @@
 	}
 	.categoryName{
 		font-size: 14px;
-		font-weight: bold;
+		font-weight: 400;
 		margin-top:0;
 	}
 	.categoryList:first-child{
@@ -350,7 +350,7 @@
 	}
 	.right_unit h4{
 		font-size:13px;
-		font-weight:bold;
+		font-weight:400;
 	}
 	
 	iframe{
@@ -365,7 +365,7 @@
 	}
 	.secondary_heading{
 		font-size: 14px;
-		font-weight: bold;
+		font-weight: 400;
 		margin-top: 0;
 	}
 	
@@ -394,7 +394,7 @@
 	}
 	ul.stickyNote li h2{
 	  font-size:140%;
-	  font-weight:bold;
+	  font-weight:400;
 	  padding-bottom:10px;
 	}
 	ul.stickyNote li a{
@@ -419,14 +419,14 @@
 	.theme-default a.signup_now{
 		font-size: 15px;
 		background: #000000;
-		font-weight:bold;
+		font-weight:400;
 		padding: 10px 40px;
 		border:1px solid #000;
 		margin-top: 4px;
 	}
 	.theme-default a.login_now{
 		font-size: 15px;
-		font-weight:bold;
+		font-weight:400;
 		padding: 10px 40px;
 		margin-top: 4px;
 		margin-right: 10px;
@@ -458,7 +458,7 @@
 	
 	.theme-default .signupLoginOption a.login_acc{
 		color: #C71B1B;
-    	font-weight: bold;
+    	font-weight: 400;
 	}
 	/*theme*/
 	.theme-default label{
@@ -498,7 +498,7 @@
 	.theme-default #main-navbar #main-menu-toggle{background:#f8f8f8}
 	.theme-default #main-navbar #main-menu-toggle .fa:before{color:#555}
 	.theme-default #main-navbar .navbar-collapse{border-top:1px solid #f1f1f1;background:#fff;-webkit-box-shadow:none;box-shadow:none}
-	.theme-default #main-navbar .dropdown-menu>li>a,.theme-default #main-navbar .dropdown>a,.theme-default #main-navbar .nav>li>a{color:#555}
+	.theme-default #main-navbar .dropdown-menu>li>a,.theme-default #main-navbar .dropdown>a,.theme-default #main-navbar .nav>li>a{color:#555; font-weight:600;}
 	.theme-default #main-navbar .nav+.nav,.theme-default #main-navbar .nav+.right,.theme-default #main-navbar li+li{border-top:1px solid #f1f1f1}.theme-default #main-navbar .dropdown.open>a{border-bottom:1px solid #e4e4e4;border-top:1px solid #dfdfdf;margin-top:-1px;background:#f6f6f6;color:#555}.theme-default #main-navbar form.navbar-form{-webkit-box-shadow:none;box-shadow:none}.theme-default #main-navbar form.navbar-form .form-control{background:#f8f8f8;border:none;color:#999}.theme-default #main-navbar form.navbar-form .form-control:focus{color:#555;-webkit-box-shadow:none;box-shadow:none}@media (min-width:768px){.theme-default #main-navbar .navbar-header{background:#fff}.theme-default #main-navbar .navbar-collapse{background:#fff;border:none}.theme-default #main-navbar .navbar-collapse>div>.navbar-nav{border-left:1px solid #f1f1f1}.theme-default #main-navbar .right>.navbar-nav>li{border-left:1px solid #f1f1f1;border-right:none}.theme-default #main-navbar .navbar-nav>li{border-right:1px solid #f1f1f1}.theme-default #main-navbar .navbar-nav>li>a{color:#555}.theme-default #main-navbar .navbar-nav>li.active>a,.theme-default #main-navbar .navbar-nav>li.dropdown.open>a,.theme-default #main-navbar .navbar-nav>li>a:hover{background:#f8f8f8;border-top:none!important;border-bottom:none!important}.theme-default #main-navbar .nav+.nav,.theme-default #main-navbar .nav+.right,.theme-default #main-navbar li+li{border-top:none}.theme-default #main-navbar .dropdown.open>a{margin:0;border-top:none}.theme-default #main-navbar .dropdown-menu{background:#fff;padding:5px 0}
 	.theme-default #main-navbar .dropdown-menu .divider{background-color:#f1f1f1}.theme-default #main-navbar .dropdown-menu>li>a{color:#555}.theme-default #main-navbar .dropdown-menu>li>a:hover{background:#f1f1f1}.theme-default #main-navbar .widget-notifications a{color:!important}.theme-default #main-navbar .widget-notifications .notification,.theme-default #main-navbar .widget-notifications .notifications-link{border-color:#f1f1f1;-webkit-box-shadow:0 1px 0 rgba(255,255,255,.05)inset;box-shadow:0 1px 0 rgba(255,255,255,.05)inset;border-bottom-right-radius:3px;border-bottom-left-radius:3px}.theme-default #main-navbar .widget-notifications .notification-description{color:#999}.theme-default #main-navbar .widget-notifications .notification-ago{color:#bbb}.theme-default #main-navbar .widget-notifications .notifications-link:hover{background:#f1f1f1}.theme-default #main-navbar .widget-messages-alt a{color:!important}.theme-default #main-navbar .widget-messages-alt .message,.theme-default #main-navbar .widget-messages-alt .messages-link{border-color:#f1f1f1;border-bottom-right-radius:3px;border-bottom-left-radius:3px}.theme-default #main-navbar .widget-messages-alt .message-subject{color:#555!important}.theme-default #main-navbar .widget-messages-alt .message-description{color:#aaa}.theme-default #main-navbar .widget-messages-alt .message-description a{color:#888}.theme-default #main-navbar .widget-messages-alt .messages-link:hover{background:#f1f1f1}.theme-default.main-menu-right #main-navbar .navbar-header,.theme-default.mmc #main-navbar .navbar-header{background:#fff}.theme-default.main-menu-right #main-navbar .navbar-header{border-right:1px solid #f1f1f1}}@media (min-width:768px){.theme-default.right-to-left #main-navbar .right>.navbar-nav>li{border-right:1px solid #f1f1f1;border-left:none}}.theme-default #main-menu-bg{background-color:#23272d}.theme-default #main-menu .mmc-dropdown-open-ul a,.theme-default #main-menu .navigation a{color:#808b9c;position:relative;-webkit-transition:all .2s;transition:all .2s}
 	.theme-default #main-menu .mmc-dropdown-open-ul a:after,.theme-default #main-menu .navigation a:after{content:"";top:0;bottom:0;width:4px;position:absolute;right:auto;background:#1a7ab9;display:none;left:0}.theme-default #main-menu .mmc-dropdown-open-ul a:hover,.theme-default #main-menu .navigation a:hover{color:#fff}.theme-default #main-menu .mmc-dropdown-open-ul a:hover:after,.theme-default #main-menu .navigation a:hover:after{display:block!important}.theme-default #main-menu li.active>a{background:#181b1f;color:#fff}.theme-default #main-menu li.active>a .menu-icon{color:#21B7D2}.theme-default #main-menu li.active>a:after{display:block}.theme-default #main-menu .mm-dropdown.active>a{background:0 0}.theme-default #main-menu .mm-dropdown.active>a:after{display:none}.theme-default #main-menu .mm-dropdown>ul,.theme-default #main-menu .mmc-dropdown-open-ul{background:#2a2e36}.theme-default #main-menu .mmc-dropdown-open-ul .mmc-title{background:#181b1f;color:#fff}.theme-default #main-menu .mmc-dropdown-open>a{background:#181b1f!important}.theme-default #main-menu .mmc-dropdown-open>a,.theme-default #main-menu .mmc-dropdown-open>a .menu-icon{color:#fff!important}.theme-default #main-menu .mmc-dropdown-open>a:hover:after{display:none!important}.theme-default #main-menu .menu-content{border-color:#2e333b}.theme-default #main-menu .menu-content .btn-outline{border-color:#2e333b;color:#808b9c}.theme-default #main-menu .menu-content .btn-outline:hover,.theme-default .mmc-dropdown-open .mm-dropdown.open>a,.theme-default.mme #main-menu .mm-dropdown.open>a{color:#fff}@media (min-width:768px){.theme-default #main-menu .mm-dropdown.open>a{color:#fff}.theme-default.mmc #main-menu .navigation>.mm-dropdown.open>a{color:#808b9c}}.theme-default.right-to-left #main-menu .navigation a:after{left:auto;right:0}.theme-default #main-navbar .navbar-brand div,.theme-default .demo-logo{background:#21B7D2}.theme-default #main-navbar .navbar-header a{text-transform:uppercase;font-size:11px;font-weight:600}.theme-default.page-signin .signin-info,.theme-default.page-signup .signup-header{background:#21B7D2;background:rgba(29,137,207,.8)}.theme-default .timeline:after,.theme-default .timeline:before,.theme-default .tl-header,.theme-default .tl-icon{background:#ddd}.theme-default .tl-header,.theme-default .tl-icon{box-shadow:0 0 0 4px #f6f6f6}.theme-default .tl-entry:before{background:#21B7D2;box-shadow:0 0 0 3px #f6f6f6}.theme-default .tl-body:before{border-color:transparent #e2e2e2 transparent transparent}@media (min-width:768px){.theme-default .timeline.centered .tl-entry.left .tl-body:before{border-color:transparent transparent transparent #e2e2e2}.theme-default.right-to-left .timeline.centered .tl-entry.left .tl-body:before{border-color:transparent #e2e2e2 transparent transparent}}.theme-default.right-to-left .tl-body:before{border-color:transparent transparent transparent #e2e2e2}.theme-default.page-mail .mail-nav,.theme-default.page-mail .mail-nav:before{background:#f6f6f6}.theme-default.page-mail .mail-nav .sections li.active .badge,.theme-default.page-mail .mail-nav .sections li.active .label{background:#21B7D2}.theme-default.page-mail .mail-nav,.theme-default.page-mail .mail-nav .compose-btn,.theme-default.page-mail .mail-nav .sections li.active,.theme-default.page-mail .mail-nav:before{border-color:#e2e2e2}.theme-default.page-mail .mail-nav .navigation.open .sections li.active{background:#ececec}.theme-default.page-mail .mail-nav li.divider{background:#e2e2e2}.theme-default.page-mail .mail-nav .sections li.active a{color:#444}.theme-default.page-mail .mail-nav .sections li.active:after{color:#aaa}.theme-default.page-mail .mail-nav .sections a{color:#6a6a6a}.theme-default.page-mail .mail-nav .add-more a,.theme-default.page-mail .mail-nav-header{color:#aaa}@media (min-width:992px){.theme-default.page-mail .mail-nav .navigation .sections li.active{background:#ececec}.theme-default.page-mail .mail-nav .sections a:hover{color:#444}}
@@ -623,12 +623,12 @@
 		top: 50px;
 		display:none;
 		color: #000;
-		font-weight: bold;
+		font-weight: 400;
 	}
 	.editDeleteOptions div {
 		color:#21B7D2;
 		cursor:pointer;
-		font-weight:bold;
+		font-weight:400;
 	}
 	.editQuestion{
 		border-right: 1px solid black;
@@ -643,6 +643,10 @@
 		font-family: 'Open Sans', sans-serif;
 		font-size: 13px;
 	}
+	.ui-dialog .ui-dialog-title {
+		font-size: 1.3em;
+		font-weight: 400;
+	}
 	.theme-default .ui-widget-header {
 		background:#FFF;
 		color: #333;
@@ -656,7 +660,7 @@
 	}
 	.messageModal .mainMessage{
 		font-size: 16px;
-		font-weight: bold;
+		font-weight: 400;
 	}
 	.centerButton .btn{
 		margin: 30px 200px;
@@ -728,6 +732,21 @@
     margin-left: 0
 	
 }
+.theme-default .replyCount{
+	background: #21B7D2;
+	color : #FFF;
+	display: block;
+	width: 150px;
+	text-align:center;
+	padding: 5px;
+	margin: 0 auto;
+}
+.theme-default-counselor .replyCount{
+	background: #1b80c2;
+}
+span.numberOfReplies{
+	font-size: 14px;
+}
 .each_interaction{
 	margin-left:20px;
 	border-bottom: 1px dotted #DDDDDD;
@@ -742,9 +761,13 @@
 }
 h4.media-heading{
 	font-size: 14px;
-	font-weight:bold;	
+	font-weight:400;	
 	line-height:20px;
 }
+.allDiscussion_topic, .discussions_detail_full, .reply_to_conversation{
+	margin-bottom: 20px;	
+}
+
 /*end of jforum module*/
 /*styling for autocomplete*/
 ul.ui-autocomplete{

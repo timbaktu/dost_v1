@@ -97,8 +97,6 @@
 							</p>
 							
 						</div>
-
-						<div ${class2} valign="middle"  align="center"><span class="postdetails">${topic.totalReplies}</span></div>
 						
 
 						<!--Total views , not required now
@@ -120,11 +118,17 @@
 						 			<span class="time_taken pull-right">15 seconds ago</span>
 								</div>
 							</#if>	
+							
+							<#if (topic.totalReplies>0)>
+								<a href="${JForumContext.encodeURL("/posts/list/${topic.id}")}" class="replyCount" ${class2} >View all <span class="postdetails numberOfReplies"><strong>${topic.totalReplies}</span></strong> replies</a>
+								<div class="clearfix"></div>
+							</#if>
 								
 							
 						
 					
 				</div>
+				
 				</#list>
 	</div>
 </div>
@@ -144,7 +148,7 @@
 	<div class="col-md-3" >
 		<div class="right_unit"> 
 			<h4>Most Popular Topics</h4>
-			<iframe style="height:500px" class="popularDiscussions" name="popularDiscussions" class="well" src="/dost/hottestTopics/list.page"></iframe>
+			<iframe style="height:600px" class="well popularDiscussions" name="popularDiscussions" class="well" src="/dost/hottestTopics/list.page"></iframe>
 		</div>
 	</div>
 </#if>

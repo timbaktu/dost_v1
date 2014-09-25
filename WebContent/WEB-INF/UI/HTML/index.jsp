@@ -29,7 +29,7 @@
 			/*end of FAQ listing on index page*/
 			
 			/*Discussion listing on index page*/
-			$.getJSON("/dost/api/topics/count/5", function(discussionTopic) {	
+			$.getJSON("/dost/api/topics/count/4", function(discussionTopic) {	
 				for (var i = 0 ; i < discussionTopic.length; i++) {
 					$("#discussions ul").append('<li class="eachDiscussion">'+
 							'<a style="display:block" href="http://localhost:8800/dost/posts/list/' + discussionTopic[i].topicId + '.page">'+

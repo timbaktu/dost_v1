@@ -80,7 +80,7 @@
 										'<div class="wrapperConversations">'+messages[i].content+'</div>'+
 								'</div>'+
 								'<div class="pull-right col-md-1">'+
-									'<div href="conversationsExpanded?='+messages[i].msgId+'">View'+
+									'<div title="view complete conversation" href="conversationsExpanded?='+messages[i].msgId+'">View'+
 										'<span class="glyphicon glyphicon-chevron-right"></span>'+
 									'</div>'+
 								'</div>'+
@@ -103,8 +103,8 @@
 						$(".conversationsCounselor").append('<li class="well media conversation_topic">'+
 							'<a class="each_conversation" href="conversationsExpanded?='+messages[j].msgId+'">'+
 								'<div class="pull-left col-md-2" >'+
-									'<span class="conversationalist">'+messages[j].sender.username+'</span>'+
-									'<span>(20)</span>'+
+									'<div class="friend_name"><img class="avatar" id='+messages[j].sender.avatar+' src=avatar/'+messages[j].sender.avatar+'.png name='+messages[j].sender.avatar+ '/></div>'+
+									'<div class="friend_name">'+messages[j].sender.username+'</div>'+
 								'</div>'+
 								'<div class="pull-left media-body col-md-7">'+
 								messageHeading + 
@@ -112,7 +112,7 @@
 								'</div>'+
 								'<div class="pull-left">'+messages[j].sentDate+'</div>'+
 								'<div class="pull-right col-md-1">'+
-									'<div href="conversationsExpanded?='+messages[j].msgId+'">'+
+									'<div title="view complete conversation" href="conversationsExpanded?='+messages[j].msgId+'">'+
 										'<span class="glyphicon glyphicon-chevron-right"></span>'+
 									'</div>'+
 								'</div>'+

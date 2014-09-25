@@ -141,7 +141,7 @@
 							<div id="replyArea" class="reply_to_conversation">
 								<textarea class="form-control"   id="messageContent" rows="3"></textarea>
 								<button type="button" class="sendReply pull-right btn btn-primary">Submit</button>
-							
+								<div class="clearfix"></div>
 							</div>
 						</div>
 						<div class="clearfix"></div>
@@ -197,7 +197,7 @@
 								<div class="error alert alert-danger" role="alert"></div>
 								<textarea placeholder="Write your reply"class="form-control" id="messageContent" rows="3"></textarea>
 								<button type="button"  class="sendReply pull-right btn btn-primary">Submit</button>
-							
+								<div class="clearfix"></div>
 							</div>
 						</div>
 						<div class="clearfix"></div>
