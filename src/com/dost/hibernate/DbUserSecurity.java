@@ -14,7 +14,7 @@ import org.codehaus.jackson.annotate.JsonBackReference;
 import org.codehaus.jackson.annotate.JsonIgnore;
 
 @Entity
-@Table(name="user_question")
+@Table(name="USER_QUESTION")
 public class DbUserSecurity {
 
 	@Id
