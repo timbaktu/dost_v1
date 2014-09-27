@@ -35,7 +35,7 @@
 			$.getJSON("/dost/api/topics/count/4", function(discussionTopic) {	
 				for (var i = 0 ; i < discussionTopic.length; i++) {
 					$("#discussions ul").append('<li class="eachDiscussion">'+
-							'<a style="display:block" href="http://localhost:8800/dost/posts/list/' + discussionTopic[i].topicId + '.page">'+
+							'<a style="display:block" href="posts/list/' + discussionTopic[i].topicId + '.page">'+
 								'<div class="wrapper" >'+ discussionTopic[i].topicTitle +
 								'</div>'+
 							'</a>'+
