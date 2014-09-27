@@ -7,7 +7,10 @@
 
 <html lang="en">
 	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
-	<script src="${pageContext.request.contextPath}/resources/JS/jquery.dotdotdot.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/CSS/jquery.more.css"> 
+	<script src="${pageContext.request.contextPath}/resources/JS/jquery.plugin.js" type="text/javascript"></script>
+	<script src="${pageContext.request.contextPath}/resources/JS/jquery.more.js" type="text/javascript"></script>
+	
 	<script>
 		$( document ).ready(function() {
 			$(".horoscopes a").click(function(){
@@ -33,10 +36,10 @@
 				for (var i = 0 ; i < discussionTopic.length; i++) {
 					$("#discussions ul").append('<li class="eachDiscussion">'+
 							'<a style="display:block" href="http://localhost:8800/dost/posts/list/' + discussionTopic[i].topicId + '.page">'+
-								'<div style="max-height:40px" class="wrapper" >'+ discussionTopic[i].topicTitle +
+								'<div class="wrapper" >'+ discussionTopic[i].topicTitle +
 								'</div>'+
 							'</a>'+
-							'<span class="time_taken">Last updated:'+discussionTopic[i].forumPosts[0].postTime+'</span>'+	
+							'<span class="secondary_information">Last updated: '+discussionTopic[i].forumPosts[0].postTime+'</span>'+	
 						 '</li>');	
 				}
 			});
@@ -45,10 +48,12 @@
 			
 			/*Showing Ellipsis - dotdotdot plugin*/
 			setTimeout(function(){
-					$(".wrapper").dotdotdot({
-						
-					});
-			},1000);
+					/*$(".wrapper").dotdotdot({
+							
+					});*/
+					$('.wrapper').more({length: 120});
+			},10000);
+			
 			/*End of showing ellipsis*/
 			 
 			
@@ -69,6 +74,19 @@
 					<li class="exploration_option well" id="faqs">
 						<h3 class="categoryName">Frequently Asked Questions</h3>
 							<ul class="details_box">
+							</ul>
+					</li>
+					
+					<li class="exploration_option well" >
+						<h3 class="categoryName">Quotes</h3>
+						<ul class="details_box">
+								<li>
+									Our greatest weekness lies in giving up. The more certain way to succeed is always to try just one more time  <span class="secondary_information">~Thomas A Edison</span>
+								</li>
+								<li>
+									If God gives you a dream, he gives you an ability to achieve it.
+								</li>
+								
 							</ul>
 					</li>
 					
@@ -104,15 +122,7 @@
 						</a>
 					</li>
 					
-					<li class="exploration_option well" >
-						<h3 class="categoryName">Quotes</h3>
-						<ul class="details_box">
-								<li>
-									<h4 class="topic_categoryName">COMING SOON</h4>
-								</li>
-								
-							</ul>
-					</li>
+					
 					
 					<li class="exploration_option well" >
 						<h3 class="categoryName">Destressing Games</h3>

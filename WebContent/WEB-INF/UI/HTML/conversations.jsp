@@ -13,7 +13,15 @@
 		$(".loading").show();
 		var userid;
 		var UrlForData;
-
+		
+		
+		/*opening leave a message popup if redirected from chat*/
+		var redirectionPage = window.location.href.split("=");
+		if (redirectPage=='chat'){
+			$( ".leaveMessage" ).trigger( "click" );	
+		}
+		/* end of opening leave a message popup if redirected from chat*/
+		
 		/*Sent messages and inbox toggle active class*/
 		$(".sentItems").click(function(){
 			$(".inbox").removeClass("active");

@@ -65,7 +65,7 @@
 	}
 	.subHeading{
 		font-size: 14px;
-		font-weight: 400;
+		font-weight: 600;
 		margin-top:0;
 	}
 	
@@ -82,7 +82,7 @@
 	
 	.form-signin-heading p{
 		font-size:14px;
-		font-weight:400;
+		font-weight:600;
 	}
 	.container{
 		margin-top: 50px;
@@ -104,8 +104,13 @@
 		margin-top: 20px;
 	}
 	.exploration_option a{
-		color:#000;
+		color:#666;
+		text-decoration: none
 	}
+	.eachDiscussion a:hover{
+		color: #000;
+	}
+	
 	h3{
 		font-size: 16px;
 	}
@@ -120,8 +125,8 @@
 		margin-top: 15px;
 	}
 	.exploration_option li{
-		font-size: 14px;
-		margin-top: 5px;
+		font-size: 13px;
+		margin-top: 10px;
 	}
 	
 	.exploration_option h4, .exploration_option h3{
@@ -220,7 +225,7 @@
 	}
 	.owner_name{
 		color:#000;
-		font-weight:400;
+		font-weight:600;
 	}
 	.comment_action li{
 		display: inline-block;
@@ -246,7 +251,7 @@
 	.pageTop{
 		margin-top:20px;
 	}
-	h4.media-heading span, .time_taken{
+	h4.media-heading span, .secondary_information{
 		color: #999;
 		font-size:12px;
 	}
@@ -255,9 +260,7 @@
 	}
 	
 	/*for ellipsis*/
-	.wrapper{
-		max-height:40px;
-	}
+	
 	.wrapperConversations{
 		max-height:80px;
 	}
@@ -294,7 +297,7 @@
 		background: url("../img/callingImage.png") no-repeat scroll -20px 120px #FECA12;
 	}
 	.login_unit p{
-		font-weight: 400;
+		font-weight: 600;
 		color: #ffffff;
 	}
 	.login_unit p:first-child{
@@ -305,7 +308,7 @@
 	}
 	.categoryName{
 		font-size: 14px;
-		font-weight: 400;
+		font-weight: 600;
 		margin-top:0;
 	}
 	.categoryList:first-child{
@@ -331,7 +334,7 @@
 	}
 	.notePopup{
 		display:none;
-		width: 400px;
+		width: 600px;
 		position: absolute;
 		top: 151px;
 		right: 449px;
@@ -350,7 +353,7 @@
 	}
 	.right_unit h4{
 		font-size:13px;
-		font-weight:400;
+		font-weight:600;
 	}
 	
 	iframe{
@@ -365,7 +368,7 @@
 	}
 	.secondary_heading{
 		font-size: 14px;
-		font-weight: 400;
+		font-weight: 600;
 		margin-top: 0;
 	}
 	
@@ -394,7 +397,7 @@
 	}
 	ul.stickyNote li h2{
 	  font-size:140%;
-	  font-weight:400;
+	  font-weight:600;
 	  padding-bottom:10px;
 	}
 	ul.stickyNote li a{
@@ -419,14 +422,14 @@
 	.theme-default a.signup_now{
 		font-size: 15px;
 		background: #000000;
-		font-weight:400;
+		font-weight:600;
 		padding: 10px 40px;
 		border:1px solid #000;
 		margin-top: 4px;
 	}
 	.theme-default a.login_now{
 		font-size: 15px;
-		font-weight:400;
+		font-weight:600;
 		padding: 10px 40px;
 		margin-top: 4px;
 		margin-right: 10px;
@@ -458,7 +461,7 @@
 	
 	.theme-default .signupLoginOption a.login_acc{
 		color: #C71B1B;
-    	font-weight: 400;
+    	font-weight: 600;
 	}
 	/*theme*/
 	.theme-default label{
@@ -623,12 +626,12 @@
 		top: 50px;
 		display:none;
 		color: #000;
-		font-weight: 400;
+		font-weight: 600;
 	}
 	.editDeleteOptions div {
 		color:#21B7D2;
 		cursor:pointer;
-		font-weight:400;
+		font-weight:600;
 	}
 	.editQuestion{
 		border-right: 1px solid black;
@@ -645,7 +648,7 @@
 	}
 	.ui-dialog .ui-dialog-title {
 		font-size: 1.3em;
-		font-weight: 400;
+		font-weight: 600;
 	}
 	.theme-default .ui-widget-header {
 		background:#FFF;
@@ -660,7 +663,7 @@
 	}
 	.messageModal .mainMessage{
 		font-size: 16px;
-		font-weight: 400;
+		font-weight: 600;
 	}
 	.centerButton .btn{
 		margin: 30px 200px;
@@ -736,9 +739,9 @@
 	background: #21B7D2;
 	color : #FFF;
 	display: block;
-	width: 150px;
+	width: 130px;
 	text-align:center;
-	padding: 5px;
+	padding: 2px;
 	margin: 0 auto;
 }
 .theme-default-counselor .replyCount{
@@ -761,7 +764,7 @@ span.numberOfReplies{
 }
 h4.media-heading{
 	font-size: 14px;
-	font-weight:400;	
+	font-weight:600;	
 	line-height:20px;
 }
 .allDiscussion_topic, .discussions_detail_full, .reply_to_conversation{
@@ -779,4 +782,21 @@ ul.ui-autocomplete{
 	text-align:center;
 }
 /* end of styling for autocomplete*/
+
+/*styling for more*/
+
+#discussions .more-link {
+	margin-left: 1em;
+	padding: 0.125em;
+	background-color: transparent;
+	border: 0px;
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	text-decoration: none;
+	color: #428bca;
+	font-size: 0.9em;
+}
+.more-link {
+/*end of styling for more*/
 

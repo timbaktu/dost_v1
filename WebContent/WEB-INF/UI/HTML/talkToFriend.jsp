@@ -5,6 +5,14 @@
 		<jsp:include page="includes/header.jsp"></jsp:include>
 		
 		<div class="container row-fluid">
+		<script language="JavaScript" type="text/javascript" src="http://54.209.217.90:8800/webchat/jivelive.jsp"></script>
+		<script>showChatButton('demo@workgroup.win-kefqjr14ps3');</script>
+		</div>
+		
+
+		
+		<!-- 
+		<div class="container row-fluid">
 			<div class="col-md-7 message quotesBg">
 				<div class="pageTop messageForQuotes">
 					<h2 class="subHeading ">Hey, we are working to get this page up and running. </h2>
@@ -19,8 +27,8 @@
 				  </ul>
     			
 			</div>
-			
 		</div>
+		-->
 		
 		<!--chat module
 		 <div class="container">
@@ -29,7 +37,7 @@
 					<h2 class="pageHeading">Talk To A Friend</h2>
 					<div class="col-md-7 message_counselor">
 						<p>Hi Prashant,</p>
-						<p>I am here for you. Just tell me what’s on your mind and we can talk it through. 
+						<p>I am here for you. Just tell me whatâ€™s on your mind and we can talk it through. 
 						   Believe me even I have been in those situations and I know how hard it can get times.
 						   I can assure you.
 						</p>
