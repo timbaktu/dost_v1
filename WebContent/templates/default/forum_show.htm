@@ -93,7 +93,10 @@
 							</h4>
 							
 							<p class="discussion_summary">
-								${posts.get(topic.id)[0].text}
+								<#assign count = posts.get(topic.id)?size/>
+								<#if (count > 1) >
+									${posts.get(topic.id)[0].text}
+								</#if>
 							</p>
 							
 						</div>

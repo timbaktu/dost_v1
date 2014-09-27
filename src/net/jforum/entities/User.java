@@ -444,7 +444,7 @@ public class User implements Serializable
 	 * @return String with the username
 	 */
 	public String getUsername() {
-		return this.username;
+		return this.username == null ? "" : this.username;
 	}
 
 	/**
