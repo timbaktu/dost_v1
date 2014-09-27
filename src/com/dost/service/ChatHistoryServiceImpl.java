@@ -1,6 +1,7 @@
 package com.dost.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +18,12 @@ public class ChatHistoryServiceImpl implements ChatHistoryService {
 	@Autowired
 	ChatHistoryDAO chatHistoryDAO;
 	
-	public List<DbChatHistory> getAllChatHistory() {
-		return chatHistoryDAO.getAllChatHistory();
+	public Map<Long, List<DbChatHistory>> getAllChatHistory(int count) {
+		return chatHistoryDAO.getAllChatHistory(count);
+	}
+
+	public List<DbChatHistory> getAllChatsById(Long id) {
+		return chatHistoryDAO.getAllChatsById(id);
 	}
 
 }
