@@ -161,11 +161,11 @@ public class SignupController {
 		welcomeBuffer.append("<br><br>");
 		welcomeBuffer.append("<u>Steps to get started</u>");
 		welcomeBuffer.append("<br>");
-		welcomeBuffer.append("Read more <a href='faqs'>FAQ</a> on frequently asked questions by people around");
+		welcomeBuffer.append("Read on <a href='faqs'><strong>frequently asked questions</strong></a> by people around");
 		welcomeBuffer.append("<br>");
-		welcomeBuffer.append("Participate in discussions <LINK> and get views of your peers, professionals");
+		welcomeBuffer.append("Participate in <a href='forums/show/1.page'><strong>discussions</strong></a> and get views of your peers, professionals");
 		welcomeBuffer.append("<br>");
-		welcomeBuffer.append("Write <LINK> a mail to me and I will respond within 4 hours");
+		welcomeBuffer.append("<a class='mail'><strong>Write a mail</strong></a> to me and I will respond within 4 hours");
 		welcomeBuffer.append("<br>");
 		welcomeBuffer.append("<a href='talkToFriend'>Talk</a> to me online and get quick reponse");
 		welcomeBuffer.append("<br><br>");

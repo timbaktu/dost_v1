@@ -28,21 +28,24 @@
 		</div>
 		-->
 		
-		 <div class="container  row-fluid">
+		 <div class="container  row-fluid ">
 				<script language="JavaScript" type="text/javascript" src="http://54.209.217.90:8800/webchat/jivelive.jsp"></script>
 				<script>showButtonWithoutUI('demo@workgroup.win-kefqjr14ps3', 'username=${pageContext.request.userPrincipal.name}');</script>
 				<div class="col-md-11">
 				<div class="pageTop">
 					<h2 class="pageHeading">Talk To A Friend</h2>
-					<div class="col-md-7 message_counselor">
-						<p>Hi ${pageContext.request.userPrincipal.name},</p>
-						<p>I am here for you. Just tell me what’s on your mind and we can talk it through. 
-						   Believe me even I have been in those situations and I know how hard it can get times.
-						   I can assure you.
-						</p>
-						
+					<div class="well">
+						<div class="col-md-7 message_counselor">
+							<p>Hi ${pageContext.request.userPrincipal.name},</p>
+							<p>I am here for you. Just tell me what&rsquo;s on your mind and we can talk it through. 
+							   Believe me even I have been in those situations and I know how hard it can get times.
+							   I can assure you.
+							</p>
+						</div>
+						<iframe width="500" height="500" src="http://54.209.217.90:8800/webchat/start.jsp?workgroup=demo@workgroup.win-kefqjr14ps3&location=http://localhost:8800/dost/talkToFriend&noUI=true&username=${pageContext.request.userPrincipal.name}"> </iframe>	
+					
+						<div class="clearfix"></div>
 					</div>
-					<div class="clearfix"></div>
 				</div>
 				
 				<div>
@@ -72,7 +75,7 @@
 					</div>
 					</nav>
 					-->
-					<iframe width="500" height="500" src="http://54.209.217.90:8800/webchat/start.jsp?workgroup=demo@workgroup.win-kefqjr14ps3&location=http://localhost:8800/dost/talkToFriend&noUI=true&username=${pageContext.request.userPrincipal.name}"> </iframe>
+					
 				</div>
 
 				
