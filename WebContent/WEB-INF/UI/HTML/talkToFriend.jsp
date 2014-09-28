@@ -5,7 +5,7 @@
 		<jsp:include page="includes/header.jsp"></jsp:include>
 		<script>
 			$(document).ready(function(){
-				launchWin('framemain','http://54.209.217.90:8800/webchat/start.jsp?workgroup=demo@workgroup.win-kefqjr14ps3&location=http://localhost:8800/dost/talkToFriend&noUI=true&username=alex',500, 400);return false;
+				
 			});
 		</script>
 		
@@ -72,7 +72,7 @@
 					</div>
 					</nav>
 					-->
-					<iframe width="500" height="500" src="http://54.209.217.90:8800/webchat/chatmain.jsp?workgroup=demo@workgroup.win-kefqjr14ps3&chatID=nY1KNE1c7C"> </iframe>
+					<iframe width="500" height="500" src="http://54.209.217.90:8800/webchat/start.jsp?workgroup=demo@workgroup.win-kefqjr14ps3&location=http://localhost:8800/dost/talkToFriend&noUI=true&username=${pageContext.request.userPrincipal.name}"> </iframe>
 				</div>
 
 				

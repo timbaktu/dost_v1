@@ -9,6 +9,7 @@
 		font-size: 12px;
 		padding-top: 20px; 	
 		margin-bottom:20px;
+		color: #fff;
 	}
 	strong{
 		font-weight:600;
@@ -146,7 +147,7 @@
 		margin-top: 15px;
 	}
 	.exploration_option li{
-		font-size: 13px;
+		font-size: 1em;
 		margin-top: 10px;
 	}
 	
@@ -157,6 +158,7 @@
 		padding:10px;
 		border: 1px solid #f7f7f7;
 		margin-top: 70px;
+		border-radius: 4px;
 	}
 	.signupNowText{
 		margin-right: 20px;
@@ -268,9 +270,11 @@
 	}
 	h2.pageHeading{
 		font-size: 18px;
+		
 	}
 	.pageTop{
 		margin-top:20px;
+		color: #fff;
 	}
 	h4.media-heading span, .secondary_information{
 		color: #999;
@@ -427,7 +431,7 @@
 	  -moz-transform:rotate(-6deg);
 	}
 	
-	ul.stickyNote li a:hover,ul li a:focus{
+	ul.stickyNote li a:hover,ul.stickyNote li a:focus{
 	  box-shadow:10px 10px 7px rgba(0,0,0,.7);
 	  -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
 	  -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
@@ -440,7 +444,7 @@
 	/*end of sticky note*/
 	
 	/*talk to friend*/
-	.theme-default div.start_talking{
+	.theme-default a.start_talking{
 		font-size: 1em;
 		background: #000;
 		border: 1px solid #000;
@@ -522,7 +526,7 @@
 		padding-top: 0;
 	}
 	.theme-default {
-    	background: none repeat scroll 0 0 #F6F6F6;
+    	background: none repeat scroll 0 0 #999;
 	}
 	.theme-default .media-body{
 		color: #333;
