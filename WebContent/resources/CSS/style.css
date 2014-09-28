@@ -1,6 +1,7 @@
 	body{
 		font-family: 'Open Sans', sans-serif;;
 		font-size: 13px;
+		background: #ffcc00;
 	}
 	footer{
 		text-align: center;
@@ -12,11 +13,15 @@
 	strong{
 		font-weight:600;
 	}
-	div.loading{
+	.loading{
 		position: absolute;
 		top: 50%;
 		left: 50%;
 	}
+	.loadingIndex{
+		left: 50%;
+	}
+	
 	.conversation_history{
 		min-height:200px;
 	}
@@ -120,7 +125,7 @@
 		margin-top: 20px;
 	}
 	.exploration_option a{
-		color:#666;
+		color:#333;
 		text-decoration: none
 	}
 	.eachDiscussion a:hover{

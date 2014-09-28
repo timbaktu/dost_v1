@@ -20,9 +20,9 @@
 			
 			/*FAQ listing on index page*/
 			$.getJSON("/dost/api/faqcategory/all", function(FAQ) {	
+				$("#faqs .loadingIndex").hide();
+				
 				var numberOfCategories = FAQ.length;
-				
-				
 				for (var i = 0 ; i < numberOfCategories; i++) {
 					var numberOfQuestions = FAQ[i].faqs.length;
 					$("#faqs ul").append('<li class="questionIndex"><a href="faqs?='+FAQ[i].faqs[numberOfQuestions-1].faqId+'"+>'+ FAQ[i].faqs[numberOfQuestions-1].question +'</a></li>');
@@ -33,6 +33,7 @@
 			
 			/*Discussion listing on index page*/
 			$.getJSON("/dost/api/topics/count/4", function(discussionTopic) {	
+				$("#discussions .loadingIndex").hide();
 				for (var i = 0 ; i < discussionTopic.length; i++) {
 					$("#discussions ul").append('<li class="eachDiscussion">'+
 							'<a style="display:block" href="posts/list/' + discussionTopic[i].topicId + '.page">'+
@@ -67,13 +68,18 @@
 					<li class="exploration_option well" id="discussions">
 							<h3 class="categoryName">Discussions</h3>
 							<ul class="discussions_list details_box">
-								
+								<li class="loadingIndex" id="loading">
+									<img src="${pageContext.request.contextPath}/resources/img/ajax-loader.gif" alt="Loader" />
+								</li>	
 							</ul>
 					</li>
 					
 					<li class="exploration_option well" id="faqs">
 						<h3 class="categoryName">Frequently Asked Questions</h3>
 							<ul class="details_box">
+								<li class="loadingIndex" id="loading">
+									<img src="${pageContext.request.contextPath}/resources/img/ajax-loader.gif" alt="Loader" />
+								</li>
 							</ul>
 					</li>
 					

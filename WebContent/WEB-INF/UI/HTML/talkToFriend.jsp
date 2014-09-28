@@ -3,13 +3,11 @@
 	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	<body class="theme-default" >
 		<jsp:include page="includes/header.jsp"></jsp:include>
-		
-		<div class="container row-fluid">
-		<script language="JavaScript" type="text/javascript" src="http://54.209.217.90:8800/webchat/jivelive.jsp"></script>
-		<script>showButtonWithoutUI('demo@workgroup.win-kefqjr14ps3', 'username=${pageContext.request.userPrincipal.name}');</script>
-		</div>
-		
-
+		<script>
+			$(document).ready(function(){
+				launchWin('framemain','http://54.209.217.90:8800/webchat/start.jsp?workgroup=demo@workgroup.win-kefqjr14ps3&location=http://localhost:8800/dost/talkToFriend&noUI=true&username=alex',500, 400);return false;
+			});
+		</script>
 		
 		<!-- 
 		<div class="container row-fluid">
@@ -30,13 +28,14 @@
 		</div>
 		-->
 		
-		<!--chat module
-		 <div class="container">
-			<div class="col-md-11">
+		 <div class="container  row-fluid">
+				<script language="JavaScript" type="text/javascript" src="http://54.209.217.90:8800/webchat/jivelive.jsp"></script>
+				<script>showButtonWithoutUI('demo@workgroup.win-kefqjr14ps3', 'username=${pageContext.request.userPrincipal.name}');</script>
+				<div class="col-md-11">
 				<div class="pageTop">
 					<h2 class="pageHeading">Talk To A Friend</h2>
 					<div class="col-md-7 message_counselor">
-						<p>Hi Prashant,</p>
+						<p>Hi ${pageContext.request.userPrincipal.name},</p>
 						<p>I am here for you. Just tell me what’s on your mind and we can talk it through. 
 						   Believe me even I have been in those situations and I know how hard it can get times.
 						   I can assure you.
@@ -47,7 +46,7 @@
 				</div>
 				
 				<div>
-					<nav class="chat_nav navbar navbar-default col-md-6" role="navigation"" role="navigation">
+					<!-- <nav class="chat_nav navbar navbar-default col-md-6" role="navigation"" role="navigation">
 					<div class="chat_container ">
 						<ul class="nav navbar-nav chat_options">
 						  <li class="active text_chat"><a href="#">Chat</a></li>
@@ -72,13 +71,13 @@
 						 <div class="clearfix"></div>
 					</div>
 					</nav>
-
+					-->
+					<iframe width="500" height="500" src="http://54.209.217.90:8800/webchat/chatmain.jsp?workgroup=demo@workgroup.win-kefqjr14ps3&chatID=nY1KNE1c7C"> </iframe>
 				</div>
 
 				
 			</div>
 		<div class="clearfix"></div>	 
-		end of chat module-->
 		<jsp:include page="includes/commonFooter.jsp"></jsp:include>
 	</body>
 </html>
