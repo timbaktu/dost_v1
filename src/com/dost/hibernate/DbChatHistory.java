@@ -5,23 +5,37 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 @Entity
+@IdClass(DbChatHistory.class)
 @Table(name="ofMessageArchive")
 public class DbChatHistory implements Serializable {
 
-	@Id
+//	@Id
+//	@Column(name = "ROWID")
+//	private String rowId;
 	@Column(name = "conversationID")
 	private Long conversationID;
 	@Column(name = "fromJIDResource")
 	private String fromJIDResource;
 	@Column(name = "toJIDResource")
 	private String toJIDResource;	
+	@Id
 	@Column(name = "sentDate")
 	private String sentDate;	
 	@Column(name = "body")
 	private String body;
+	
+	
+	
+//	public String getRowId() {
+//		return rowId;
+//	}
+//	public void setRowId(String rowId) {
+//		this.rowId = rowId;
+//	}
 	public Long getConversationID() {
 		return conversationID;
 	}
