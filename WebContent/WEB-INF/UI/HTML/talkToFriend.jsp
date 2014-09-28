@@ -6,7 +6,7 @@
 		
 		<div class="container row-fluid">
 		<script language="JavaScript" type="text/javascript" src="http://54.209.217.90:8800/webchat/jivelive.jsp"></script>
-		<script>showChatButton('demo@workgroup.win-kefqjr14ps3');</script>
+		<script>showButtonWithoutUI('demo@workgroup.win-kefqjr14ps3', 'username=${pageContext.request.userPrincipal.name}');</script>
 		</div>
 		
 
