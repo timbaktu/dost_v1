@@ -140,6 +140,9 @@
 				
 				<jsp:include page="includes/signUp.jsp"></jsp:include>
 			</sec:authorize>
+			<sec:authorize access="hasRole('ROLE_USER')">
+				<jsp:include page="includes/side_unit.jsp"></jsp:include>
+			</sec:authorize>
 		</div>
 		<jsp:include page="includes/commonFooter.jsp"></jsp:include>
 	</body>

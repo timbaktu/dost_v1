@@ -10,11 +10,12 @@
 			var userId = window.location.href.split("=");
 			
 			$.getJSON('/dost/api/user/'+userId[1]+'/messages/all', function(messages) {
+				$(".loading").hide();
 				for (var i in messages) {
 					$(".conversations").append('<div class="categoryList"><h3 class="subject secondary_heading" id='+i+'_subject>'+messages[i][0].subject+'</h3>');
 					$("#"+ i+"_subject").after("<ul></ul></div>");
 						for (var j in messages[i]) {
-							$("#"+ i+"_subject").siblings("ul").append('<li class="well media each_conversation">'+
+							$("#"+ i+"_subject").siblings("ul").append('<li class=" media each_conversation">'+
 												'<div class="pull-left col-md-2">'+
 													'<div class="patient_name"><strong>'+messages[i][j].sender.username+'</strong></div>'+
 													'<div class="post_details">'+messages[i][j].sentDate +'</div>'+
@@ -42,13 +43,15 @@
 				
 				<div class="summary_patient">
 					<h2 class="pageHeading">${pageContext.request.userPrincipal.name}</h2>
-					<label>Label 1</label> | <label>Label 2</label>
+					<label>Relationship</label> | <label>Repeat</label>
 					<div class="clearfix"></div>
 				</div>
 				<br/>
 				 
 				<ul class="conversations">
-					
+					<li class="loading" id="loading">
+							<img src="${pageContext.request.contextPath}/resources/img/ajax-loader.gif" alt="Loader" />
+					</li>
 				</ul>
 			</div>
 			<!--end of patient summary-->

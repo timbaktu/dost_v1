@@ -15,13 +15,6 @@
 		var UrlForData;
 		
 		
-		/*opening leave a message popup if redirected from chat*/
-		var redirectionPage = window.location.href.split("=");
-		if (redirectPage=='chat'){
-			$( ".leaveMessage" ).trigger( "click" );	
-		}
-		/* end of opening leave a message popup if redirected from chat*/
-		
 		/*Sent messages and inbox toggle active class*/
 		$(".sentItems").click(function(){
 			$(".inbox").removeClass("active");
@@ -310,7 +303,9 @@
 						<li><a href="#">Label 2</a></li>  -->
 					</ul>
 					<ul class="pull-right conversations conversationsCounselor col-md-10">
-						<!-- each conversation-->
+						<li class="loading" id="loading">
+							<img src="${pageContext.request.contextPath}/resources/img/ajax-loader.gif" alt="Loader" />
+						</li>
 					</ul>
 						
 				</div>
@@ -339,12 +334,11 @@
 					</div>
 					<!-- each conversation-->
 					<ul class="conversationsUser conversations">
-							
-					
+						<li class="loading" id="loading">
+							<img src="${pageContext.request.contextPath}/resources/img/ajax-loader.gif" alt="Loader" />
+						</li>				
 					</ul>
-			<div class="loading" id="loading">
-				<img src="${pageContext.request.contextPath}/resources/img/ajax-loader.gif" alt="Loader" />
-			</div>					
+								
 				</div>
 				<div class="status col-md-11"></div>
 			</div>

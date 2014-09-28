@@ -22,6 +22,11 @@ $( document ).ready(function() {
 		}
 		/*end of applying properties based on url*/	
 		
+		/*open send message from email*/
+		$(".mail").click(function(){
+			$( ".leaveMessage" ).trigger( "click" );	
+		});
+		/*end */
 		
 		/*styling the favorite discussion iframe*/
 		setTimeout(function(){

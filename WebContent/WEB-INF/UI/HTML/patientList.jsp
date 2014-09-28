@@ -8,6 +8,7 @@
 	<script>
 		$("document").ready(function() {
 			$.getJSON("/dost/api/users", function(user) {
+				$(".loading").hide();
 				for(i=0; i<user.length; i++){
 					$(".patient_list").append('<li class="well media ceac_patient">'+
 												'<a class="pull-left col-md-2" href="patientDetails?='+user[i].userId+'">'+
@@ -38,6 +39,9 @@
 			<div class="col-md-11 well">
 				<div class="pull-left col-md-12">
 					<ul class="patient_list">
+						<li class="loading" id="loading">
+							<img src="${pageContext.request.contextPath}/resources/img/ajax-loader.gif" alt="Loader" />
+						</li>
 					</ul>
 					<div class="clearfix"></div>
 				</div>

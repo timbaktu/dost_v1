@@ -16,11 +16,13 @@
 			// Setting message as read
 			//message/{messageId}/user/{userId}/markasread"
 			$.getJSON("/dost/api/message/"+threadId[1]+"/user/" + userid +"/markasread", function(messages) {
-				
 			});
 			
 			/*Manipulating json for conversation thread*/
 			$.getJSON("/dost/api/message/"+threadId[1]+"/", function(messages) {
+
+				$(".loading").hide();	
+				
 				$("#subjectHeading").text(messages[0].subject);
 				for (var i = 0 ; i < messages.length ; i++) {
 						$(".conversation_history").append('<li>'+
@@ -132,7 +134,9 @@
 							</div>
 							<div class="clearfix"></div>
 							<ul class="conversation_history well">
-								
+								<li class="loading" id="loading">
+									<img src="${pageContext.request.contextPath}/resources/img/ajax-loader.gif" alt="Loader" />
+								</li>
 							</ul>
 							<!--<a href="#" class="pull-right conversationDetails"> View more conversations
 								<span class="glyphicon glyphicon-chevron-right"></span>
@@ -186,6 +190,9 @@
 							</div>
 							<div class="clearfix"></div>
 							<ul class="conversation_history well">
+								<li class="loading" id="loading">
+									<img src="${pageContext.request.contextPath}/resources/img/ajax-loader.gif" alt="Loader" />
+								</li>
 								
 							</ul>
 							<!-- <a href="#" class="pull-right conversationDetails"> View more conversations
