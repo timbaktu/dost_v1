@@ -12,12 +12,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.dost.hibernate.DbChatHistory;
+import com.dost.hibernate.DbUser;
 
 @Repository("chatHistoryDAO")
 public class ChatHistoryDAOImpl implements ChatHistoryDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	@Autowired
+	UserDAO userDAO;
 	
 	public Map<Long, List<DbChatHistory>> getAllChatHistory(int count) {
 		Map<Long, List<DbChatHistory>> output = new HashMap<Long, List<DbChatHistory>>();
@@ -57,4 +61,36 @@ public class ChatHistoryDAOImpl implements ChatHistoryDAO {
 		}
 		return chats;
 	}
+
+	public List<String> getUsersHavingChatHistory() {
+		Session session = sessionFactory.getCurrentSession();
+		// Take only those users who are not counselors. We donot want to show counselors in patient history..Counselors are not patients.
+		Query query = session.createQuery("select username from DbUserRole ur where ur.username in (select toJIDResource from DbChatHistory ch) and role = 'ROLE_USER'");
+		List<String> chats = query.list();
+		if(chats == null) {
+			chats = new ArrayList<String>();
+		}
+		return chats;
+	}
+
+	public List<DbChatHistory> getAllChatsByUser(String username) {
+		Session session = sessionFactory.getCurrentSession();
+		List<DbUser> counselors = userDAO.getAllCounselors();
+		// Adding counselors to list
+		List<String> usernames = new ArrayList<String>();
+		for(DbUser user : counselors) {
+			usernames.add(user.getUsername());
+		}
+		// Adding current user to list
+		usernames.add(username);
+		Query query = session.createQuery("from DbChatHistory ch where ch.toJIDResource in (:usernames) order by ch.sentDate");
+		query.setParameterList("usernames", usernames);
+		List<DbChatHistory> chats = query.list();
+		if(chats == null) {
+			chats = new ArrayList<DbChatHistory>();
+		}
+		return chats;
+	}
+	
+	
 }

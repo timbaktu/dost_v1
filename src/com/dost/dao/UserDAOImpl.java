@@ -87,6 +87,19 @@ public class UserDAOImpl implements UserDAO {
 		DbUser user = (DbUser)query.uniqueResult();
 		return user;
 	}
+	
+	
+
+	public List<DbUser> getUsersByUsernames(List<String> usernames) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from DbUser u where u.username in (:usernames)");
+		query.setParameterList("usernames", usernames);
+		List<DbUser> users = query.list();
+		if(users == null) {
+			users = new ArrayList<DbUser>();
+		}
+		return users;
+	}
 
 	public DbUser checkUserBySecurityQuestion(String username, String question1, String question2,
 			String answer1, String answer2) {
