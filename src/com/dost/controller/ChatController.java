@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dost.hibernate.DbChatHistory;
+import com.dost.model.UserChat;
 import com.dost.service.ChatHistoryService;
 
 @Controller
@@ -31,5 +32,11 @@ public class ChatController {
 	@ResponseBody
 	public List<DbChatHistory> getChatHistoryById(@PathVariable Long id) {
 		return chatHistoryService.getAllChatsById(id);
+	}
+	
+	@RequestMapping(value="/chathistory/users", method=RequestMethod.GET)  
+	@ResponseBody
+	public List<UserChat> getUsersHavingChatHistory() {
+		return chatHistoryService.getUsersChatHistory();
 	}
 }
