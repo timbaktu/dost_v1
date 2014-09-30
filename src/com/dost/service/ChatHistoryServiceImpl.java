@@ -1,7 +1,8 @@
 package com.dost.service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -41,29 +42,31 @@ public class ChatHistoryServiceImpl implements ChatHistoryService {
 			users = userDAO.getUsersByUsernames(usernames);
 		}
 		List<UserChat> userChats = new ArrayList<UserChat>();
+		Map<String, List<Long>> conversationIdsByUser = chatHistoryDAO.getConversationIdsByUserName(usernames);
+//		for(Map.Entry<String, List<Long>> map : conversationIdsByUser.entrySet()) {
+//			
+//		}
 		for(DbUser user : users) {
-			List<DbChatHistory> chats = chatHistoryDAO.getAllChatsByUser(user.getUsername());
+			List<Long> conversationIdsForUserList = conversationIdsByUser.get(user.getUsername());
+		    Collections.sort(conversationIdsForUserList, new Comparator<Long>() {
+		          public int compare(Long o1, Long o2) {
+		                  return o1==null?Integer.MAX_VALUE:o2==null?Integer.MIN_VALUE:o2.compareTo(o1);
 
-			Map<Long, List<DbChatHistory>> output = new HashMap<Long, List<DbChatHistory>>();//userChat.getUserChats();
-			List<DbChatHistory> innerChat = null;
-			for(DbChatHistory chatHistory : chats) {
-				
-
-				// If there is no data in the map, then create new list and add data in it
-				if(output.get(chatHistory.getConversationID()) == null) {
-					innerChat = new ArrayList<DbChatHistory>();
-					output.put(chatHistory.getConversationID(), innerChat);
-				}
-				innerChat.add(chatHistory);
+		        }
+		    });
+		    Collections.reverse(conversationIdsForUserList);
+		    
+			UserChat userChat = new UserChat();
+			userChat.setUser(user);
+			List<DbChatHistory> chatsByConversation = chatHistoryDAO.getAllChatsById(conversationIdsForUserList.get(0)); // Get chats based on recent id
+			List<DbChatHistory> chatToShowOnUI = new ArrayList<DbChatHistory>();
+			for(DbChatHistory chatHistory : chatsByConversation) {
+				chatToShowOnUI.add(chatHistory);
 			}
 			
-			// Now iterate over map to populate UserChat
-			for(Map.Entry<Long, List<DbChatHistory>> entry : output.entrySet()) {
-				UserChat userChat = new UserChat();
-				userChat.setUser(user);
-				userChat.setUserChats(entry.getValue());
-				userChats.add(userChat);				
-			}
+			userChat.setUserChats(chatToShowOnUI);	// adding only 2 lines of chat. This is only what we show on UI
+//			userChat.setUserChatsMap(output);
+			userChats.add(userChat);			
 		}
 		return userChats;
 	}

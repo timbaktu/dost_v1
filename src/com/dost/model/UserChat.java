@@ -13,7 +13,7 @@ public class UserChat {
 	private Long conversationId;
 //	private String username;
 	private DbUser user;
-//	Map<Long, List<DbChatHistory>> userChats = new HashMap<Long, List<DbChatHistory>>();
+	Map<Long, List<DbChatHistory>> userChatsMap = new HashMap<Long, List<DbChatHistory>>();
 	List<DbChatHistory> userChats = new ArrayList<DbChatHistory>();
 	
 	public Long getConversationId() {
@@ -29,12 +29,13 @@ public class UserChat {
 	public void setUser(DbUser user) {
 		this.user = user;
 	}
-//	public Map<Long, List<DbChatHistory>> getUserChats() {
-//		return userChats;
-//	}
-//	public void setUserChats(Map<Long, List<DbChatHistory>> userChats) {
-//		this.userChats = userChats;
-//	}
+
+	public Map<Long, List<DbChatHistory>> getUserChatsMap() {
+		return userChatsMap;
+	}
+	public void setUserChatsMap(Map<Long, List<DbChatHistory>> userChatsMap) {
+		this.userChatsMap = userChatsMap;
+	}
 	public List<DbChatHistory> getUserChats() {
 		return userChats;
 	}

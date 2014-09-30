@@ -11,6 +11,10 @@ public interface ChatHistoryDAO {
 	List<DbChatHistory> getAllChatsById(Long id);
 	
 	List<DbChatHistory> getAllChatsByUser(String username);
+	
+	Map<String, List<Long>> getConversationIdsByUserName(List<String> usernames);
 
 	List<String> getUsersHavingChatHistory();
+	
+	
 }

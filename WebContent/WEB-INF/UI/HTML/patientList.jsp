@@ -7,17 +7,29 @@
 	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	<script>
 		$("document").ready(function() {
-			$.getJSON("/dost/api/users", function(user) {
+			$.getJSON("/dost/api/chathistory/users", function(userchat) {
+				debugger;
 				$(".loading").hide();
-				for(i=0; i<user.length; i++){
+				for(var i=0; i<userchat.length; i++){
+					debugger;
+					var user = userchat[i].user;
+					var chats = userchat[i].userChats;
+					
+					var mergedChatToShow = '';
+					for(var j=0; j<chats.length; j++) {
+						if(j > 0)
+							mergedChatToShow = mergedChatToShow + '<br>';
+						mergedChatToShow = mergedChatToShow + chats[j].body;
+					}
+					
 					$(".patient_list").append('<li class="well media ceac_patient">'+
-												'<a class="pull-left col-md-2" href="patientDetails?='+user[i].userId+'">'+
-													'<div class="patient_name">'+user[i].username+'</div>'+
-													'<div class="patient_name"><img class="avatar" id='+user[i].avatar+' src="avatar/'+user[i].avatar+'.png" name='+user[i].avatar+'/></div>'+
+												'<a class="pull-left col-md-2" href="patientDetails?='+user.userId+'">'+
+													'<div class="patient_name">'+user.username+'</div>'+
+													'<div class="patient_name"><img class="avatar" id='+user.avatar+' src="avatar/'+user.avatar+'.png" name='+user.avatar+'/></div>'+
 												'</a>'+
-												'<div class="media-body col-md-8">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</div>'+
+												'<div class="media-body col-md-8">'+mergedChatToShow+'</div>'+
 												'<div class="pull-right col-md-1">'+
-													'<a href="patientDetails?='+user[i].userId+'"> View'+
+													'<a href="patientDetails?='+user.userId+'"> View'+
 														'<span class="glyphicon glyphicon-chevron-right"></span>'+
 													'</a>'+
 												'</div>'+

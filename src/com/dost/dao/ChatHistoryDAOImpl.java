@@ -79,11 +79,11 @@ public class ChatHistoryDAOImpl implements ChatHistoryDAO {
 		// Adding counselors to list
 		List<String> usernames = new ArrayList<String>();
 		for(DbUser user : counselors) {
-			usernames.add(user.getUsername());
+			//usernames.add(user.getUsername());
 		}
 		// Adding current user to list
 		usernames.add(username);
-		Query query = session.createQuery("from DbChatHistory ch where ch.toJIDResource in (:usernames) order by ch.sentDate");
+		Query query = session.createQuery("select ch.conversationID, ch.body from DbChatHistory ch where ch.toJIDResource in (:usernames) order by ch.sentDate");
 		query.setParameterList("usernames", usernames);
 		List<DbChatHistory> chats = query.list();
 		if(chats == null) {
@@ -91,6 +91,27 @@ public class ChatHistoryDAOImpl implements ChatHistoryDAO {
 		}
 		return chats;
 	}
+
+	public Map<String, List<Long>> getConversationIdsByUserName(List<String> usernames) {
+		Map<String, List<Long>> usernameConversationMap = new HashMap<String, List<Long>>();
+		Session session = sessionFactory.getCurrentSession();
+		// Take only those users who are not counselors. We do not want to show counselors in patient history..Counselors are not patients.
+		Query query = session.createQuery("from DbChatHistory ch where toJIDResource in (:usernames)");
+		query.setParameterList("usernames", usernames);
+		
+		List<DbChatHistory> chats = query.list();
+		for(DbChatHistory chatHistory : chats) {
+			List<Long> ids = usernameConversationMap.get(chatHistory.getToJIDResource());
+			if(ids == null) {
+				ids = new ArrayList<Long>();
+				usernameConversationMap.put(chatHistory.getToJIDResource(), ids);
+			}
+			ids.add(chatHistory.getConversationID());
+		}
+		return usernameConversationMap;
+	}
+	
+	
 	
 	
 }
