@@ -29,8 +29,7 @@
 		-->
 		
 		 <div class="container  row-fluid ">
-				<script language="JavaScript" type="text/javascript" src="http://54.209.217.90:8800/webchat/jivelive.jsp"></script>
-				<script>showButtonWithoutUI('demo@workgroup.win-kefqjr14ps3', 'username=${pageContext.request.userPrincipal.name}');</script>
+				
 				<div class="col-md-11">
 				<div class="pageTop">
 					<h2 class="pageHeading">Talk To A Friend</h2>
@@ -42,7 +41,9 @@
 							   I can assure you.
 							</p>
 						</div>
-						<iframe width="500" height="500" src="http://54.209.217.90:8800/webchat/start.jsp?workgroup=demo@workgroup.win-kefqjr14ps3&location=http://localhost:8800/dost/talkToFriend&noUI=true&username=${pageContext.request.userPrincipal.name}"> </iframe>	
+						<script language="JavaScript" type="text/javascript" src="http://localhost:8800/webchat/jivelive.jsp"></script>
+						<script>showButtonWithoutUI('demo@workgroup.win-kefqjr14ps3', 'username=${pageContext.request.userPrincipal.name}');</script>
+						<iframe width="500" height="500" src="localhost:8800/webchat/start.jsp?workgroup=demo@workgroup.win-kefqjr14ps3&location=http://localhost:8800/dost/talkToFriend&noUI=true&username=${pageContext.request.userPrincipal.name}"> </iframe>	
 					
 						<div class="clearfix"></div>
 					</div>

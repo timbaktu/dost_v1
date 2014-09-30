@@ -6,14 +6,22 @@
 <html lang="en">
 	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	
-	<script src="${pageContext.request.contextPath}/resources/JS/jquery.dotdotdot.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/CSS/jquery.more.css"> 
+	<script src="${pageContext.request.contextPath}/resources/JS/jquery.plugin.js" type="text/javascript"></script>
+	<script src="${pageContext.request.contextPath}/resources/JS/jquery.more.js" type="text/javascript"></script>
 	<script>
 	/*Manipulating json for messages*/
 	$( document ).ready(function() {
 		$(".loading").show();
 		var userid;
+		var redirected = window.location.href.split("=");
 		var UrlForData;
 		
+		if(redirected[1]=='chat'){
+			setTimeout(function(){
+				$( ".leaveMessage" ).trigger( "click" );
+			},2000);
+		}
 		
 		/*Sent messages and inbox toggle active class*/
 		$(".sentItems").click(function(){
@@ -139,10 +147,8 @@
 		
 		/*Showing Ellipsis - dotdotdot plugin*/
 		setTimeout(function(){
-				$(".wrapperConversations").dotdotdot({
-					
-				});
-		},10000);
+			$('.wrapperConversation').more({length: 120});
+		},1000);
 		/*End of showing ellipsis*/
 		
 		
@@ -229,7 +235,6 @@
 								});
 								
 								setTimeout(function(){
-									alert("assd");
 									location.reload(function(){
 										
 										

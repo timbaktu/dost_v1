@@ -1,7 +1,6 @@
 	body{
 		font-family: 'Open Sans', sans-serif;;
 		font-size: 13px;
-		background: #ffcc00;
 	}
 	footer{
 		text-align: center;
@@ -9,7 +8,6 @@
 		font-size: 12px;
 		padding-top: 20px; 	
 		margin-bottom:20px;
-		color: #fff;
 	}
 	strong{
 		font-weight:600;
@@ -274,7 +272,7 @@
 	}
 	.pageTop{
 		margin-top:20px;
-		color: #fff;
+	
 	}
 	h4.media-heading span, .secondary_information{
 		color: #999;
@@ -527,7 +525,7 @@
 		padding-top: 0;
 	}
 	.theme-default {
-    	background: none repeat scroll 0 0 #999;
+    	background: none repeat scroll 0 0 #ffff99;
 	}
 	.theme-default .media-body{
 		color: #333;
