@@ -77,6 +77,7 @@
 						else {
 							messageHeading = '<h4>'+messages[i].subject+'</h4>';
 						}						
+						debugger;
 						$(".conversationsUser").append('<li class="well media conversation_topic">'+
 							'<div class="each_conversation" id="conversationsExpanded?='+messages[i].msgId+'">'+
 								'<div class="pull-left col-md-2" href="#">'+

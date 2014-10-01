@@ -13,6 +13,7 @@
 			userRole = user.dbUserRole.role;
 			var threadId = window.location.href.split("=");
 		
+			
 			// Setting message as read
 			//message/{messageId}/user/{userId}/markasread"
 			$.getJSON("/dost/api/message/"+threadId[1]+"/user/" + userid +"/markasread", function(messages) {
@@ -20,7 +21,7 @@
 			
 			/*Manipulating json for conversation thread*/
 			$.getJSON("/dost/api/message/"+threadId[1]+"/", function(messages) {
-
+				
 				$(".loading").hide();	
 				
 				$("#subjectHeading").text(messages[0].subject);
@@ -39,15 +40,18 @@
 						for (var i = 0 ; i < messages.length ; i++){
 							if(messages[i].sender.dbUserRole.role=="ROLE_USER"){
 								var receipient = messages[i].sender.userId;
+								break;
 							}
-							break;
+
 						}
 						
 					}
 					$(".error").html("");
 					$(".error").hide();
 					
+					
 					var datatosend = 'subject='+messages[0].subject+'&content=' + $("#messageContent").val()+ '&recipients='+receipient+'&senderId=' + userid+'&msgId='+threadId[1];
+					
 					
 					if($("#messageContent").val() =='') {
 						$(".error").show().text("Please type out the reply");
