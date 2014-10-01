@@ -38,11 +38,12 @@ $( document ).ready(function() {
 			
 			$("iframe.popularDiscussions").contents().find("a").css({
 				'color':'#333333',
-				'font-family':'Arial,Helvetica,sans-serif',
+				'font-family': 'Arial,Helvetica,sans-serif',
 				'font-size':'12px',
 				'text-decoration': 'none',
 			});
-
+			$("iframe.popularDiscussions").contents().find("a").attr('target','_blank');
+			
 			$("iframe.popularDiscussions").contents().find("a:hover").css({
 				'text-decoration': 'underline',
 			});
@@ -50,6 +51,10 @@ $( document ).ready(function() {
 			$("iframe.popularDiscussions").contents().find("ul").css({
 				'padding-left': '0',
 			});
-		},100);
+			$("iframe.popularDiscussions").contents().find("li").css({
+				'list-style': 'none',
+				'margin-left': '0px'
+			});
+		},1000);
 		/*end of styling the favorite discussion iframe*/
 });

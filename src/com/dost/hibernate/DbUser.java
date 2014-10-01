@@ -21,7 +21,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.IndexColumn;
 
 @Entity
-@Table(name="USER")
+@Table(name="user")
 public class DbUser extends DbGeneric implements Serializable {
 	/**
 	 * 

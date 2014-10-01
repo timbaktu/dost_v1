@@ -726,6 +726,11 @@
 
 /* jforum module*/
 
+div.most_popular_discussions{
+	margin-top: 34px;	
+	border:0;
+}
+
 .icon_topic_move, .icon_topic_lock {
 	display:none;
 }

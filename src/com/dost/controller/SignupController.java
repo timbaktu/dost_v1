@@ -202,7 +202,7 @@ public class SignupController {
 		}
 		dbMessage.setRecipients(createRecipientList(message, dbMessage));
 		if(message.getSenderId() == null) {
-			message.setSenderId(102l);
+			message.setSenderId(104l);
 		}
 		dbMessage.setSender(userService.getUser(message.getSenderId()));
 		dbMessage.setSentDateDb(new Date());

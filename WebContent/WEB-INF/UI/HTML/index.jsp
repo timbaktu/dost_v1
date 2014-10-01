@@ -66,7 +66,7 @@
 			<div class="col-md-7">
 				<ul>
 					<li class="exploration_option well" id="discussions">
-							<h3 class="categoryName">Discussions</h3>
+							<h3 class="categoryName"><a href="forums/show/1.page">Discussions</a></h3>
 							<ul class="discussions_list details_box">
 								<li class="loadingIndex" id="loading">
 									<img src="${pageContext.request.contextPath}/resources/img/ajax-loader.gif" alt="Loader" />
@@ -143,7 +143,6 @@
 				</ul>
 			</div>
 			<sec:authorize ifNotGranted="ROLE_USER">
-				
 				<jsp:include page="includes/signUp.jsp"></jsp:include>
 			</sec:authorize>
 			<sec:authorize access="hasRole('ROLE_USER')">

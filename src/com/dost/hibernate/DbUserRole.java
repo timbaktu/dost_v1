@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import org.codehaus.jackson.annotate.JsonBackReference;
 
 @Entity
-@Table(name="USER_ROLES")
+@Table(name="user_roles")
 public class DbUserRole extends DbGeneric implements Serializable  {
 
 	@Id
