@@ -232,11 +232,16 @@
 			</div>
 			<p>We are extremely thankful to <a target="_blank" href="https://www.linkedin.com/profile/view?id=21998428">Mahalakshmi Rajagopal</a>, <a target="_blank" href="http://in.linkedin.com/in/tarun911">Tarun Verma</a>, <a target="_blank" href="http://ca.linkedin.com/pub/namrta-mohan/42/519/802">Namrta Moha</a>, <a target="_blank" href="http://in.linkedin.com/pub/veena-bose/3b/921/471">Veena Bose </a>, <a target="_blank" href="https://www.linkedin.com/profile/view?id=117319614">Anamika Papriwal</a> for helping us with frequenly asked questions</p>
 		</div>
-		<sec:authorize ifNotGranted="ROLE_USER">
+		
+		
+		<sec:authorize access="!hasRole('ROLE_ADMIN')">
+			<sec:authorize ifNotGranted="ROLE_USER">
 				<jsp:include page="includes/signUp.jsp"></jsp:include>
-		</sec:authorize>
-		<sec:authorize access="hasRole('ROLE_USER')">
-				<jsp:include page="includes/side_unit.jsp"></jsp:include>
+			</sec:authorize>
+			
+			<sec:authorize access="hasRole('ROLE_USER')">
+					<jsp:include page="includes/side_unit.jsp"></jsp:include>
+			</sec:authorize>
 		</sec:authorize>
 	</div>
 	<jsp:include page="includes/commonFooter.jsp"></jsp:include>
