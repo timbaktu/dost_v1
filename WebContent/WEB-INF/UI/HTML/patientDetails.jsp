@@ -7,7 +7,10 @@
 	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	<script>
 		$("document").ready(function() {
-			var userId = window.location.href.split("=");
+			var username = window.location.href.split("=");
+			var userId = username[1].split("+");
+			
+			$("h2.patientName").text(userId[0]);
 			
 			$.getJSON('/dost/api/user/'+userId[1]+'/messages/all', function(messages) {
 				$(".loading").hide();
@@ -42,7 +45,7 @@
 			<div class="col-md-11 well">
 				
 				<div class="summary_patient">
-					<h2 class="pageHeading">${pageContext.request.userPrincipal.name}</h2>
+					<h2 class="pageHeading patientName"></h2>
 					<label>Relationship</label> | <label>Repeat</label>
 					<div class="clearfix"></div>
 				</div>

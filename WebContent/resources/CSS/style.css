@@ -1,5 +1,5 @@
 	body{
-		font-family: 'Open Sans', sans-serif;;
+		font-family: 'Open Sans', Arial,sans-serif;
 		font-size: 13px;
 	}
 	footer{
@@ -8,6 +8,19 @@
 		font-size: 12px;
 		padding-top: 20px; 	
 		margin-bottom:20px;
+	}
+	.patient_name{
+		padding-left: 20px;
+	}
+	.ceac_patient .glyphicon{
+		top: 26px;
+	}
+	.ceac_patient{
+		border-bottom: 1px solid #dddddd;
+		padding: 5px;
+	}
+	.ceac_patient :hover{
+		background: rgb(255,249,210);
 	}
 	strong{
 		font-weight:600;
@@ -34,6 +47,7 @@
 	}
 	.each_conversation{
 		padding:5px;
+		cursor: pointer;
 	}
 	.theme-default-counselor .div.searchBox {
 		float: right;

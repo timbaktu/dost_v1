@@ -28,6 +28,9 @@ $( document ).ready(function() {
 		});
 		/*end */
 		
+				
+		/*end of highlighting the new mail*/
+		
 		/*styling the favorite discussion iframe*/
 		setTimeout(function(){
 			$("iframe.popularDiscussions").contents().find("li").css({

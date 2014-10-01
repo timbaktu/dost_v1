@@ -72,13 +72,13 @@
 						
 						// 1 means viewed
 						if(ismessagenew == 0) {
-							messageHeading = '<h4 class="media-heading" style="font-weight:bold">'+messages[i].subject+'</h4>';
+							messageHeading = '<h4 class="media-heading unread" style="font-weight:bold">'+messages[i].subject+'</h4>';
 						}
 						else {
 							messageHeading = '<h4>'+messages[i].subject+'</h4>';
 						}						
 						$(".conversationsUser").append('<li class="well media conversation_topic">'+
-							'<a class="each_conversation" href="conversationsExpanded?='+messages[i].msgId+'">'+
+							'<div class="each_conversation" id="conversationsExpanded?='+messages[i].msgId+'">'+
 								'<div class="pull-left col-md-2" href="#">'+
 									'<div class="friend_name"><img class="avatar" id='+messages[i].sender.avatar+' src=avatar/'+messages[i].sender.avatar+'.png name='+messages[i].sender.avatar+ '/></div>'+
 									'<div class="friend_name">'+messages[i].sender.username+'</div>'+
@@ -94,8 +94,16 @@
 									'</div>'+
 								'</div>'+
 								'<div class="clearfix"></div>'+
-							'</a>'+
-						'</li>');		
+							'</div>'+
+						'</li>');
+						
+						<!-- open the conversation detail for user -->
+						$(".each_conversation").click(function(){
+							var link = $(this).attr("id");
+							window.open(link,"_self");
+						});
+						<!-- end of click to open the conversation for user-->
+						
 					}
 			
 					for (var j = 0 ; j < messages.length; j++) {
@@ -104,11 +112,13 @@
 						
 						// 1 means viewed
 						if(ismessagenew == 0) {
-							messageHeading = '<h4 class="media-heading" style="font-weight:bold">'+messages[j].subject+'</h4>';
+							messageHeading = '<h4 class="media-heading unread" style="font-weight:bold">'+messages[j].subject+'</h4>';
 						}
 						else {
 							messageHeading = '<h4>'+messages[j].subject+'</h4>';
 						}
+												
+						
 						$(".conversationsCounselor").append('<li class="well media conversation_topic">'+
 							'<a class="each_conversation" href="conversationsExpanded?='+messages[j].msgId+'">'+
 								'<div class="pull-left col-md-2" >'+

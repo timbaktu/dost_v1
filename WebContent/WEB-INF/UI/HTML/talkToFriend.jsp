@@ -43,7 +43,7 @@
 						</div>
 						<script language="JavaScript" type="text/javascript" src="http://localhost:8800/webchat/jivelive.jsp"></script>
 						<script>showButtonWithoutUI('demo@workgroup.richasingh-pc', 'username=${pageContext.request.userPrincipal.name}');</script>
-						<iframe width="500" height="500" src="localhost:8800/webchat/start.jsp?workgroup=demo@workgroup.richasingh-pc&location=http://localhost:8800/dost/talkToFriend&noUI=true&username=${pageContext.request.userPrincipal.name}"> </iframe>	
+						<iframe width="500" height="500" src="http://localhost:8800/webchat/start.jsp?workgroup=demo@workgroup.richasingh-pc&location=http://localhost:8800/dost/talkToFriend&noUI=true&username=${pageContext.request.userPrincipal.name}"> </iframe>	
 					
 						<div class="clearfix"></div>
 					</div>

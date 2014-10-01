@@ -7,32 +7,16 @@
 	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	<script>
 		$("document").ready(function() {
-			$.getJSON("/dost/api/chathistory/users", function(userchat) {
-				debugger;
+			$.getJSON("/dost/api/users", function(user) {
 				$(".loading").hide();
-				for(var i=0; i<userchat.length; i++){
-					debugger;
-					var user = userchat[i].user;
-					var chats = userchat[i].userChats;
-					
-					var mergedChatToShow = '';
-					for(var j=0; j<chats.length; j++) {
-						if(j > 0)
-							mergedChatToShow = mergedChatToShow + '<br>';
-						mergedChatToShow = mergedChatToShow + chats[j].body;
-					}
-					
-					$(".patient_list").append('<li class="well media ceac_patient">'+
-												'<a class="pull-left col-md-2" href="patientDetails?='+user.userId+'">'+
-													'<div class="patient_name">'+user.username+'</div>'+
-													'<div class="patient_name"><img class="avatar" id='+user.avatar+' src="avatar/'+user.avatar+'.png" name='+user.avatar+'/></div>'+
+				for(i=0; i<user.length; i++){
+					$(".patient_list").append('<li class="media ceac_patient">'+
+												'<a class="pull-left col-md-6" href="patientDetails?='+user[i].username+"+"+user[i].userId+'">'+
+													'<img class="avatar" id='+user[i].avatar+' src="avatar/'+user[i].avatar+'.png" name='+user[i].avatar+'/>'+
+													'<span class="patient_name">'+user[i].username+'</span>'+
+													'<span class="pull-right glyphicon glyphicon-chevron-right"></span>'+
 												'</a>'+
-												'<div class="media-body col-md-8">'+mergedChatToShow+'</div>'+
-												'<div class="pull-right col-md-1">'+
-													'<a href="patientDetails?='+user.userId+'"> View'+
-														'<span class="glyphicon glyphicon-chevron-right"></span>'+
-													'</a>'+
-												'</div>'+
+												
 											'</li>');
 					}				
 			});	
