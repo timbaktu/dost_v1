@@ -1,6 +1,11 @@
 package com.dost.controller;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -102,7 +107,52 @@ public class MessageController {
 		for(DbMessage msg : messages) {
 			msg.setSentDate(Utils.formatDate(msg.getSentDateDb()));
 		}
-		return messages;
+		
+		// Creating map of msgId and messages which I can later use to get the latest message
+		Map<Long, List<DbMessage>> messageMap = new HashMap<Long, List<DbMessage>>();
+		for(DbMessage msg : messages) {
+			// New record
+			if(messageMap.get(msg.getMsgId()) == null) {
+				List<DbMessage> messageList = new ArrayList<DbMessage>();
+				messageList.add(msg);
+				messageMap.put(msg.getMsgId(), messageList);
+			}
+			// Existing record
+			else {
+				List<DbMessage> existingMessageList = messageMap.get(msg.getMsgId());
+				existingMessageList.add(msg);
+			}
+		}
+		
+		// Select one message you want to show in UI
+		List<DbMessage> messagesToReturn = new ArrayList<DbMessage>();
+		for(Map.Entry<Long, List<DbMessage>> entry : messageMap.entrySet()) {
+			List<DbMessage> messagesByMsgId = messageMap.get(entry.getKey());
+			// Select one from the list
+			if(messagesByMsgId.size() > 1) {
+				// Sort the messages in list and pick the last one or first one based on Richa
+				Collections.sort(messagesByMsgId, new Comparator<DbMessage>() {
+					public int compare(DbMessage o1, DbMessage o2) {
+						return o1.getMessageId().compareTo(o2.getMessageId());
+					}
+				});	
+				// Add the most recent message in return list
+				messagesToReturn.add(messagesByMsgId.get(messagesByMsgId.size() - 1));
+			}
+			else {
+				messagesToReturn.add(messagesByMsgId.get(0));
+			}
+		}
+		
+		
+		// Sort messages based on dates
+		Collections.sort(messagesToReturn, new Comparator<DbMessage>() {
+			public int compare(DbMessage o1, DbMessage o2) {
+				// Sort in descending order date
+				return o2.getSentDate().compareTo(o1.getSentDate());
+			}
+		});	
+		return messagesToReturn;
 	}
 	
 	@RequestMapping(value="/user/{id}/draftmessages", method=RequestMethod.GET)  
