@@ -1,8 +1,5 @@
 package com.dost.controller;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -23,6 +20,7 @@ import com.dost.hibernate.DbMessageRecipient;
 import com.dost.hibernate.DbUser;
 import com.dost.model.Faq;
 import com.dost.model.Message;
+import com.dost.service.ChatHistoryService;
 import com.dost.service.MessageService;
 import com.dost.service.UserService;
 import com.dost.util.Utils;
@@ -36,6 +34,9 @@ public class MessageController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	ChatHistoryService chatHistoryService;
 	
 	@RequestMapping(value="/user/{id}/unreadcount", method=RequestMethod.GET)  
 	@ResponseBody
@@ -228,7 +229,8 @@ public class MessageController {
 		}
 		// If msgId is null then create new..Using bad way of doing it for now
 		else {
-			Long maxMsgId = messageService.getMaxMsgId();
+//			Long maxMsgId = messageService.getMaxMsgId();
+			Long maxMsgId = chatHistoryService.getMaxMsgId();
 			dbMessage.setMsgId(maxMsgId + 1);
 		}
 		dbMessage.setRecipients(createRecipientList(message, dbMessage));

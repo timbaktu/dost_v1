@@ -13,4 +13,8 @@ public interface ChatHistoryService {
 	public List<DbChatHistory> getAllChatsById(Long id);
 
 	public List<UserChat> getUsersChatHistory();
+	
+	public Map<Long, UserChat> getUsersChatHistoryByUserId(Long userId);
+	
+	public Long getMaxMsgId();
 }

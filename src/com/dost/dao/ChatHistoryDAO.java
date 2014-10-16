@@ -15,6 +15,8 @@ public interface ChatHistoryDAO {
 	Map<String, List<Long>> getConversationIdsByUserName(List<String> usernames);
 
 	List<String> getUsersHavingChatHistory();
+
+	Long getMaxMsgId();
 	
 	
 }

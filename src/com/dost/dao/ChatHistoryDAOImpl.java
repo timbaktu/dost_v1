@@ -111,7 +111,12 @@ public class ChatHistoryDAOImpl implements ChatHistoryDAO {
 		return usernameConversationMap;
 	}
 	
-	
+	public Long getMaxMsgId() {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("select max(ch.conversationID) from DbChatHistory ch ");
+		return (Long)query.uniqueResult();
+		
+	}
 	
 	
 }

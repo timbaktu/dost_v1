@@ -24,7 +24,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 @Entity
-@Table(name="MESSAGE")
+@Table(name="message")
 public class DbMessage extends DbGeneric implements Serializable {
 
 	@Id

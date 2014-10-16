@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="SECURITY_QUESTION")
+@Table(name="security_question")
 public class DbSecurityQuestion extends DbGeneric implements Serializable {
 
 	@Id

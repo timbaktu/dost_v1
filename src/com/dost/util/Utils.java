@@ -3,6 +3,7 @@ package com.dost.util;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class Utils {
 
@@ -36,5 +37,19 @@ public class Utils {
 			e.printStackTrace();
 		}
 		return date;
+	}
+	
+	public static String unixToDate(String unix_timestamp) {    
+	    long timestamp = Long.parseLong(unix_timestamp) * 1000;
+
+	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	    String date = null;
+	    date = sdf.format(timestamp);
+	    return date.toString();
+	}
+	
+	public static Long dateToUnix(String date) {    
+	    Date localDate = formatDate("yyyy-mm-dd hh mm ss.mmm", date);
+	    return localDate.getTime() / 1000L;
 	}
 }

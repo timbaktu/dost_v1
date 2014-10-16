@@ -12,24 +12,56 @@
 			
 			$("h2.patientName").text(userId[0]);
 			
-			$.getJSON('/dost/api/user/'+userId[1]+'/messages/all', function(messages) {
+			$.getJSON('/dost/api/user/'+userId[1]+'/patienthistory/all', function(messages) {
 				$(".loading").hide();
+				debugger;
 				for (var i in messages) {
-					$(".conversations").append('<div class="categoryList"><h3 class="subject secondary_heading" id='+i+'_subject>'+messages[i][0].subject+'</h3>');
-					$("#"+ i+"_subject").after("<ul></ul></div>");
-						for (var j in messages[i]) {
-							$("#"+ i+"_subject").siblings("ul").append('<li class=" media each_conversation">'+
-												'<div class="pull-left col-md-2">'+
-													'<div class="patient_name"><strong>'+messages[i][j].sender.username+'</strong></div>'+
-													'<div class="post_details">'+messages[i][j].sentDate +'</div>'+
-												'</div>'+
-												'<div class="media-body col-md-8">'+
-														'<span>'+messages[i][j].content+'</span>'+
-												'</div>'+
-											'</li>');
+					var entry = messages[i];
+					for(var s in entry) {
+						// If messages only
+						if(s.indexOf("C") < 0) {
+							for (var j in entry) {
+								var inner = entry[j];
+								$(".conversations").append('<div class="categoryList"><h3 class="subject secondary_heading" id='+i+'_subject>'+inner[0].subject+'</h3>');
+								$("#"+ i+"_subject").after("<ul></ul></div>");						
+								for(var k in inner) {
+									$("#"+ i+"_subject").siblings("ul").append('<li class=" media each_conversation">'+
+											'<div class="pull-left col-md-2">'+
+												'<div class="patient_name"><strong>'+inner[k].sender.username+'</strong></div>'+
+												'<div class="post_details">'+inner[k].sentDate +'</div>'+
+											'</div>' +
+											'<div class="media-body col-md-8">'+
+													'<span>'+inner[k].content+'</span>'+
+											'</div>'+
+										'</li>');							
+								}
+							}
+						}
+						else {
+							for (var j in entry) {
+								var inner = entry[j];
+								$(".conversations").append('<div class="categoryList"><h3 class="subject secondary_heading" id='+i+'_subject>'+'Chat' + j +'</h3>');
+								$("#"+ i+"_subject").after("<ul></ul></div>");						
+								for(var k in inner.userChats) {
+									//debugger;
+									$("#"+ i+"_subject").siblings("ul").append('<li class=" media each_conversation">'+
+											'<div class="pull-left col-md-2">'+
+												'<div class="patient_name"><strong>'+ inner.userChats[k].toJIDResource +'</strong></div>'+
+												'<div class="post_details">'+inner.userChats[k].sentDate +'</div>'+
+											'</div>' +
+											'<div class="media-body col-md-8">'+
+													'<span>'+inner.userChats[k].body+'</span>'+
+											'</div>'+
+										'</li>');							
+								}
+							}					
+						}						
 					}
+				
 				}
 			});	
+			
+
 		});
 	</script>
 	<body class="theme-default theme-default-counselor" >

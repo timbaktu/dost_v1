@@ -39,4 +39,12 @@ public class ChatController {
 	public List<UserChat> getUsersHavingChatHistory() {
 		return chatHistoryService.getUsersChatHistory();
 	}
+	
+	@RequestMapping(value="/chathistory/user/{id}", method=RequestMethod.GET)  
+	@ResponseBody
+	public Map<Long, UserChat> getChatHistoryByUserId(@PathVariable Long id) {
+		Map<Long, UserChat> userChatMap = chatHistoryService.getUsersChatHistoryByUserId(id);
+		return userChatMap;
+	}
+	
 }

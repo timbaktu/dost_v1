@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import org.codehaus.jackson.annotate.JsonIgnore;
 
 @Entity
-@Table(name="MESSAGERECIPIENT")
+@Table(name="messagerecipient")
 public class DbMessageRecipient extends DbGeneric implements Serializable {
 
 	@Id

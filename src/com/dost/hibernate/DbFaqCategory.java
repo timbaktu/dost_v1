@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import org.codehaus.jackson.annotate.JsonManagedReference;
 
 @Entity
-@Table(name="FAQCATEGORY")
+@Table(name="faqcategory")
 public class DbFaqCategory extends DbGeneric implements Serializable {
 
 	/**
