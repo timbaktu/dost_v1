@@ -124,7 +124,9 @@ public class PatientHistoryController {
 	public Map<String, Object> getAllUserMessagesForHistory(@PathVariable Long id) {
 		List<DbMessage> messages = messageService.getAllUserMessages(id);
 		for(DbMessage msg : messages) {
-			msg.setSentDate(Utils.formatDate("yyyy-mm-dd hh mm ss.mmm", msg.getSentDateDb()));
+			msg.setSentDate(Utils.formatDate("yyyy-MM-dd hh:mm:s", msg.getSentDateDb()));
+			System.out.println(msg.getSentDate());
+			System.out.println(Utils.dateToUnix(msg.getSentDate()));
 		}
 		// Formatting as Gudia needs
 		Map<String, List<DbMessage>> messageMap = new HashMap<String, List<DbMessage>>();
@@ -173,8 +175,8 @@ public class PatientHistoryController {
 		Map<String, Object> sortedMap = new TreeMap<String, Object>();
 		for(Map.Entry<String, Map<String, List<DbMessage>>> message : finalMessageMap.entrySet()) {
 			// key should be date so that it orders itself
-			System.out.println("tree map " + (message.getValue().get("M" + message.getKey())).get(0).getSentDate());
-			sortedMap.put(Utils.dateToUnix((message.getValue().get("M" + message.getKey())).get(0).getSentDate()) +"", message.getValue());
+			System.out.println("tree map " + (message.getValue().get("M" + message.getKey())).get(message.getValue().get("M" + message.getKey()).size() - 1).getSentDate());
+			sortedMap.put(Utils.dateToUnix((message.getValue().get("M" + message.getKey())).get(message.getValue().get("M" + message.getKey()).size() - 1).getSentDate()) +"", message.getValue());
 		}
 		System.out.println("Sorted map size : " + sortedMap.size());
 		for(Map.Entry<String, Map<String, UserChat>> chat : finalChatMap.entrySet()) {

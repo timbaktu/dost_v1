@@ -42,14 +42,15 @@ public class Utils {
 	public static String unixToDate(String unix_timestamp) {    
 	    long timestamp = Long.parseLong(unix_timestamp) * 1000;
 
-	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 	    String date = null;
 	    date = sdf.format(timestamp);
 	    return date.toString();
 	}
 	
 	public static Long dateToUnix(String date) {    
-	    Date localDate = formatDate("yyyy-mm-dd hh mm ss.mmm", date);
-	    return localDate.getTime() / 1000L;
+	    Date localDate = formatDate("yyyy-M-dd hh:mm:ss", date);
+//	    return localDate.getTime() / 1000L;
+	    return localDate.getTime();
 	}
 }
