@@ -50,6 +50,7 @@ public class Utils {
 	
 	public static Long dateToUnix(String date) {    
 	    Date localDate = formatDate("yyyy-M-dd hh:mm:ss", date);
+	    localDate.setHours(localDate.getHours() - 4);
 //	    return localDate.getTime() / 1000L;
 	    return localDate.getTime();
 	}
