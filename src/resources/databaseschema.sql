@@ -179,3 +179,15 @@ CREATE TABLE `user_question` (
   `ANSWER` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`USER_QUESTION_ID`)
 );
+
+CREATE TABLE `note` (
+  `noteid` INTEGER NOT NULL AUTO_INCREMENT,
+  `userid` INTEGER NOT NULL,
+  `messageId` INTEGER NOT NULL,
+  `createdate` varchar(255) DEFAULT NULL,
+  `createby` bigint(20) DEFAULT NULL,
+  `updatedate` varchar(255)  DEFAULT NULL,
+  `updateby` bigint(20) DEFAULT NULL,
+  `deleted` INTEGER DEFAULT 0,
+  PRIMARY KEY (`noteid`)
+);
