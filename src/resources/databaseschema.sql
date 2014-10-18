@@ -194,6 +194,9 @@ CREATE TABLE `conversationnote` (
   PRIMARY KEY (`noteid`)
 );
 
+--Trigger to insert note date 
+CREATE TRIGGER conversationnote_OnInsert BEFORE INSERT ON `conversationnote`
+    FOR EACH ROW SET NEW.notedate = NOW();
 
 select * from fpSessionMetadata m,fpSession s
 where m.sessionid = s.sessionid and metadataValue = 'alex'
