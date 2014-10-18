@@ -191,3 +191,7 @@ CREATE TABLE `note` (
   `deleted` INTEGER DEFAULT 0,
   PRIMARY KEY (`noteid`)
 );
+
+
+select * from fpSessionMetadata m,fpSession s
+where m.sessionid = s.sessionid and metadataValue = 'alex'
