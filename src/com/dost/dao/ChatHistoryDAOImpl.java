@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -116,6 +117,17 @@ public class ChatHistoryDAOImpl implements ChatHistoryDAO {
 		Query query = session.createQuery("select max(ch.conversationID) from DbChatHistory ch ");
 		return (Long)query.uniqueResult();
 		
+	}
+
+	public String getNoteBySessionId(String sessionId) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createSQLQuery("select notes from fpSession where sessionID = :sessionid").addScalar("notes", Hibernate.STRING);
+		query.setParameter("sessionid", sessionId);
+		String note = (String)query.uniqueResult();
+		if(note == null) {
+			note = "";
+		}
+		return note;
 	}
 	
 	

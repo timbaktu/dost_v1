@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.dost.hibernate.DbChatHistory;
 import com.dost.hibernate.DbUser;
 
 public class UserChat {
@@ -13,8 +12,9 @@ public class UserChat {
 	private Long conversationId;
 //	private String username;
 	private DbUser user;
-	Map<Long, List<DbChatHistory>> userChatsMap = new HashMap<Long, List<DbChatHistory>>();
-	List<DbChatHistory> userChats = new ArrayList<DbChatHistory>();
+	Map<Long, List<ChatHistory>> userChatsMap = new HashMap<Long, List<ChatHistory>>();
+	List<ChatHistory> userChats = new ArrayList<ChatHistory>();
+	private String note; // Spark IM supports only 1 notes for a chat session. It allows you to put multiple notes but they are all stored in one column as single entry
 	
 	public Long getConversationId() {
 		return conversationId;
@@ -30,17 +30,23 @@ public class UserChat {
 		this.user = user;
 	}
 
-	public Map<Long, List<DbChatHistory>> getUserChatsMap() {
+	public Map<Long, List<ChatHistory>> getUserChatsMap() {
 		return userChatsMap;
 	}
-	public void setUserChatsMap(Map<Long, List<DbChatHistory>> userChatsMap) {
+	public void setUserChatsMap(Map<Long, List<ChatHistory>> userChatsMap) {
 		this.userChatsMap = userChatsMap;
 	}
-	public List<DbChatHistory> getUserChats() {
+	public List<ChatHistory> getUserChats() {
 		return userChats;
 	}
-	public void setUserChats(List<DbChatHistory> userChats) {
+	public void setUserChats(List<ChatHistory> userChats) {
 		this.userChats = userChats;
+	}
+	public String getNote() {
+		return note;
+	}
+	public void setNote(String note) {
+		this.note = note;
 	}
 	
 	

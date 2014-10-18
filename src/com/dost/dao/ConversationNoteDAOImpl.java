@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.dost.hibernate.DbNote;
 
 @Repository("noteDAO")
-public class NoteDAOImpl implements NoteDAO {
+public class ConversationNoteDAOImpl implements ConversationNoteDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;

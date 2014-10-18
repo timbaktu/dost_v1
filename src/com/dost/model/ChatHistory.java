@@ -1,43 +1,16 @@
-package com.dost.hibernate;
+package com.dost.model;
 
-import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.Table;
+public class ChatHistory {
 
-@Entity
-@IdClass(DbChatHistory.class)
-@Table(name="ofMessageArchive")
-public class DbChatHistory implements Serializable {
-
-//	@Id
-//	@Column(name = "ROWID")
-//	private String rowId;
-	@Column(name = "conversationID")
 	private Long conversationID;
-	@Column(name = "fromJIDResource")
 	private String fromJIDResource;
-	@Column(name = "toJIDResource")
 	private String toJIDResource;	
-	@Column(name = "toJID")
-	private String toJID;	
-	@Id
-	@Column(name = "sentDate")
+	private String toJID;
 	private String sentDate;	
-	@Column(name = "body")
 	private String body;
+	private String note;
 	
-	
-	
-//	public String getRowId() {
-//		return rowId;
-//	}
-//	public void setRowId(String rowId) {
-//		this.rowId = rowId;
-//	}
 	public Long getConversationID() {
 		return conversationID;
 	}
@@ -68,12 +41,18 @@ public class DbChatHistory implements Serializable {
 	public void setBody(String body) {
 		this.body = body;
 	}
+	public String getNote() {
+		return note;
+	}
+	public void setNote(String note) {
+		this.note = note;
+	}
 	public String getToJID() {
 		return toJID;
 	}
 	public void setToJID(String toJID) {
 		this.toJID = toJID;
-	}	
+	}
 	
 	
 }

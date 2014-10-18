@@ -1,9 +1,6 @@
 package com.dost.controller;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,14 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.dost.hibernate.DbChatHistory;
 import com.dost.hibernate.DbMessage;
-import com.dost.model.PatientHistoryData;
+import com.dost.model.ChatHistory;
 import com.dost.model.UserChat;
 import com.dost.service.ChatHistoryService;
 import com.dost.service.MessageService;
 import com.dost.util.Utils;
-import com.sun.jmx.snmp.Timestamp;
 
 @Controller
 @RequestMapping("api")
@@ -158,7 +153,7 @@ public class PatientHistoryController {
 		Map<Long, UserChat> userChatMap = chatHistoryService.getUsersChatHistoryByUserId(id);
 		for(Map.Entry<Long, UserChat> userchat : userChatMap.entrySet()) {
 			UserChat localChat = userchat.getValue();
-			DbChatHistory lastChat = localChat.getUserChats().get(0);
+			ChatHistory lastChat = localChat.getUserChats().get(0);
 //			chatOutputMap.put(Utils.unixToDate(lastChat.getSentDate()), userchat.getValue());
 			chatOutputMap.put(lastChat.getConversationID() + "", userchat.getValue());
 		}

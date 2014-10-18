@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import org.codehaus.jackson.annotate.JsonBackReference;
 
 @Entity
-@Table(name="note")
+@Table(name="conversationnote")
 public class DbNote extends DbGeneric implements Serializable {
 	
 	/**
@@ -35,7 +35,13 @@ public class DbNote extends DbGeneric implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "userid", nullable = false)
 	private DbUser user;
+	
+	@Column(name="note")
+	private String note;
 
+	@Column(name="notedate")
+	private String noteDate;
+	
 	public Long getNoteId() {
 		return noteId;
 	}
@@ -59,4 +65,22 @@ public class DbNote extends DbGeneric implements Serializable {
 	public void setUser(DbUser user) {
 		this.user = user;
 	}
+
+	public String getNote() {
+		return note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
+	}
+
+	public String getNoteDate() {
+		return noteDate;
+	}
+
+	public void setNoteDate(String noteDate) {
+		this.noteDate = noteDate;
+	}
+	
+	
 }

@@ -180,10 +180,12 @@ CREATE TABLE `user_question` (
   PRIMARY KEY (`USER_QUESTION_ID`)
 );
 
-CREATE TABLE `note` (
+CREATE TABLE `conversationnote` (
   `noteid` INTEGER NOT NULL AUTO_INCREMENT,
   `userid` INTEGER NOT NULL,
   `messageId` INTEGER NOT NULL,
+  `note` VARCHAR(4500) DEFAULT NULL,
+  `notedate` varchar(255) DEFAULT NULL,
   `createdate` varchar(255) DEFAULT NULL,
   `createby` bigint(20) DEFAULT NULL,
   `updatedate` varchar(255)  DEFAULT NULL,

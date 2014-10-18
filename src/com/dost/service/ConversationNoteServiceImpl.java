@@ -7,15 +7,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.dost.dao.NoteDAO;
+import com.dost.dao.ConversationNoteDAO;
 import com.dost.hibernate.DbNote;
 
-@Service("noteService")
+@Service("conversationNoteService")
 @Transactional(propagation = Propagation.SUPPORTS)
-public class NoteServiceImpl implements NoteService {
+public class ConversationNoteServiceImpl implements ConversationNoteService {
 
 	@Autowired
-	NoteDAO noteDAO;
+	ConversationNoteDAO noteDAO;
 
 	public List<DbNote> getAllNotesForMsgId(Long msgId) {
 		return noteDAO.getAllNotesForMsgId(msgId);
