@@ -59,6 +59,16 @@ public class DbUser extends DbGeneric implements Serializable {
 	
 	//TODO: Need place holder for images or avatar, may be clob or blob. Satya you decide
 	
+	@Column(name = "fname")
+	private String fname;
+	@Column(name = "lname")
+	private String lname;
+	@Column(name = "hostel")
+	private String hostel;
+	@Column(name = "year")
+	private Integer year;
+	
+	
 	public Long getUserId() {
 		return userId;
 	}
@@ -106,6 +116,30 @@ public class DbUser extends DbGeneric implements Serializable {
 	}
 	public void setUserSecurities(List<DbUserSecurity> userSecurities) {
 		this.userSecurities = userSecurities;
+	}
+	public String getFname() {
+		return fname;
+	}
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+	public String getLname() {
+		return lname;
+	}
+	public void setLname(String lname) {
+		this.lname = lname;
+	}
+	public String getHostel() {
+		return hostel;
+	}
+	public void setHostel(String hostel) {
+		this.hostel = hostel;
+	}
+	public Integer getYear() {
+		return year;
+	}
+	public void setYear(Integer year) {
+		this.year = year;
 	}
 	
 	

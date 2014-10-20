@@ -200,3 +200,9 @@ CREATE TRIGGER conversationnote_OnInsert BEFORE INSERT ON `conversationnote`
 
 select * from fpSessionMetadata m,fpSession s
 where m.sessionid = s.sessionid and metadataValue = 'alex'
+
+ALTER TABLE user
+ADD COLUMN `fname` VARCHAR(100) DEFAULT NULL AFTER `avatar`,
+ADD COLUMN `lname` VARCHAR(100) DEFAULT NULL AFTER `fname`,
+ADD COLUMN `hostel` VARCHAR(100) DEFAULT NULL AFTER `lname`,
+ADD COLUMN `year` INT(10) UNSIGNED DEFAULT NULL AFTER `hostel`;

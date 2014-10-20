@@ -7,6 +7,10 @@ public class User {
 	private String password;
 	private String role;
 	private String avatarId;
+	private String fname;
+	private String lname;
+	private String hostel;
+	private Integer year;
 	
 	public Long getUserId() {
 		return userId;
@@ -37,6 +41,30 @@ public class User {
 	}
 	public void setAvatarId(String avatarId) {
 		this.avatarId = avatarId;
+	}
+	public String getFname() {
+		return fname;
+	}
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+	public String getLname() {
+		return lname;
+	}
+	public void setLname(String lname) {
+		this.lname = lname;
+	}
+	public String getHostel() {
+		return hostel;
+	}
+	public void setHostel(String hostel) {
+		this.hostel = hostel;
+	}
+	public Integer getYear() {
+		return year;
+	}
+	public void setYear(Integer year) {
+		this.year = year;
 	}
 	
 	
