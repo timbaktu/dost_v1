@@ -67,6 +67,8 @@ public class DbUser extends DbGeneric implements Serializable {
 	private String hostel;
 	@Column(name = "year")
 	private Integer year;
+	@Column(name = "branch")
+	private String branch;
 	
 	
 	public Long getUserId() {
@@ -140,6 +142,12 @@ public class DbUser extends DbGeneric implements Serializable {
 	}
 	public void setYear(Integer year) {
 		this.year = year;
+	}
+	public String getBranch() {
+		return branch;
+	}
+	public void setBranch(String branch) {
+		this.branch = branch;
 	}
 	
 	

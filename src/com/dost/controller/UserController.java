@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dost.hibernate.DbUser;
+import com.dost.model.User;
+import com.dost.model.UserPopulator;
 import com.dost.service.UserService;
 
 @Controller
@@ -30,5 +32,21 @@ public class UserController {
 	@ResponseBody
 	public DbUser getUserByUsername(@PathVariable String username) {
 		return userService.getUserByUsername(username);
+	}
+	
+	@RequestMapping(value="/userdetail/add", method=RequestMethod.POST)  
+	@ResponseBody
+	public User addUserDetail(User user) {
+		DbUser dbUser = userService.getUser(user.getUserId());
+		dbUser.setFname(user.getFname());
+		dbUser.setLname(user.getLname());
+		dbUser.setHostel(user.getHostel());
+		dbUser.setYear(user.getYear());
+		dbUser.setBranch(user.getBranch());
+		
+		dbUser = userService.updateUser(dbUser);
+		User userToReturn = new User();
+		UserPopulator.populateUser(userToReturn, dbUser);
+		return userToReturn;
 	}
 }

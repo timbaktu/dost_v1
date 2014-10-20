@@ -135,4 +135,12 @@ public class UserDAOImpl implements UserDAO {
 		
 		return user;
 	}
+
+	public DbUser updateUser(DbUser dbUser) {
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(dbUser);
+		return dbUser;
+	}
+	
+	
 }

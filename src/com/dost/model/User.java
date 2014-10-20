@@ -11,6 +11,7 @@ public class User {
 	private String lname;
 	private String hostel;
 	private Integer year;
+	private String branch;
 	
 	public Long getUserId() {
 		return userId;
@@ -65,6 +66,12 @@ public class User {
 	}
 	public void setYear(Integer year) {
 		this.year = year;
+	}
+	public String getBranch() {
+		return branch;
+	}
+	public void setBranch(String branch) {
+		this.branch = branch;
 	}
 	
 	

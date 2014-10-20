@@ -50,4 +50,10 @@ public class UserServiceImpl implements UserService {
 	public DbUser updatePassword(String username, String password) {
 		return userDAO.updatePassword(username, password);
 	}
+
+	public DbUser updateUser(DbUser dbUser) {
+		return userDAO.updateUser(dbUser);
+	}
+	
+	
 }

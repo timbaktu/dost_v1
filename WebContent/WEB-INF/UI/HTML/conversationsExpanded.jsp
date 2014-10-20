@@ -8,6 +8,7 @@
 	
 	<script>
 	$( document ).ready(function() {
+		var selectedUser;
 		$.getJSON("/dost/api/user/${pageContext.request.userPrincipal.name}", function(user) {
 			userid = user.userId;
 			userRole = user.dbUserRole.role;
@@ -30,6 +31,10 @@
 														'<h4 class="media-heading">'+ messages[i].sender.username+ '<span> &nbsp' +messages[i].sentDate +'</span></h4>'+
 														messages[i].content+
 													'</li>');
+						// Richa?? I am not sure if this is the correct way of getting Sohil
+						if(messages[i].sender.dbUserRole.role=="ROLE_USER"){
+							selectedUser = messages[i].sender;
+						}
 				}
 				
 				$(".sendReply").click(function(){
@@ -79,11 +84,69 @@
 			$(this).closest(".notePopup").hide();
 		});
 		
+		$(".addDetail").click(function(){
+			//$(".detailPopup").show();	
+			$("#dialogMessage").dialog("open");
+			$('.ui-widget-overlay').css('background', 'white');
+		});
+		
+		$("#dialogMessage").dialog({
+			modal: true,
+			autoOpen : false,
+			width : 600,
+			buttons : [ {
+				text : "CANCEL",
+				click : function() {
+					$(this).dialog("close");
+				}
+			}, 
+			{
+				text : "SEND",
+				click : function() {
+						$(".error").html("");
+						$(".error").hide();
+						
+						var datatosend = 'fname='+$("#fname").val()+'&lname=' + $("#lname").val()+'&hostel=' + $("#hostel").val()+
+											'&year=' + $("#year").val()+'&branch=' + $("#branch").val()+'&userId=' + selectedUser.userId;
+						 
+						if($("#fname").val()== '' || $("#lname").val()== '') {
+							$(".error").show().text("Please fill in details");
+						}
+						else{
+							
+							$.post('http://localhost:8800/dost/api/userdetail/add', datatosend, function(response) {							
+								if(response = ""){
+										$(".status").show().html("sending..");
+								}
+							});
+							
+							setTimeout(function(){
+								location.reload(function(){
+									
+									
+									
+								});
+								$(".status").show().html("sent");
+							}, 1000);
+							
+							
+							//$debugger;
+							//receipient = 'all';
+						}
+				}
+			}]	
+	});
+		
+		$(".cancelButton").click(function(){
+			$(this).closest(".detailPopup").hide();
+		});
+		
 		$(".replyBtn").click(function(){
 			$('html, body').animate({
 			    scrollTop: $("#replyArea").offset().top
 			}, 1000);
 		});
+		
 		
 	});
 	
@@ -122,6 +185,7 @@
 								<div class="btn-group">
 								  <button type="button" class="replyBtn btn btn-default">Reply</button>
 								  <button type="button" class="btn btn-default addNote">Add Note</button>
+								  <button type="button" class="btn btn-default addDetail">Add Detail</button>
 	
 								  <!-- <div class="btn-group">
 									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -224,10 +288,10 @@
 				<textarea class="form-control" id="messageContent" rows="3"></textarea>
 				<button type="button"  class="addNoteButton pull-right btn btn-primary">Submit</button>
 				<button type="button"  class="cancelButton pull-right btn btn-outline">Cancel</button>
-				
-				
 			</form>
 		</div>
+
+		<jsp:include page="includes/popupUserDetails.jsp"></jsp:include>
 		<jsp:include page="includes/commonFooter.jsp"></jsp:include>
 	</body>
 </html>
