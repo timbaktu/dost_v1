@@ -12,9 +12,12 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.codehaus.jackson.annotate.JsonBackReference;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Table(name="user_roles")
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="database")
 public class DbUserRole extends DbGeneric implements Serializable  {
 
 	@Id

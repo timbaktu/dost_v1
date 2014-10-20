@@ -8,9 +8,13 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 @Entity
 @IdClass(DbChatHistory.class)
 @Table(name="ofMessageArchive")
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="database")
 public class DbChatHistory implements Serializable {
 
 //	@Id

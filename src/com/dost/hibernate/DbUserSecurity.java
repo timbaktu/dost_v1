@@ -12,9 +12,12 @@ import javax.persistence.Table;
 
 import org.codehaus.jackson.annotate.JsonBackReference;
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Table(name="user_question")
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="database")
 public class DbUserSecurity {
 
 	@Id

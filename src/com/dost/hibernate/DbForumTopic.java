@@ -11,9 +11,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.codehaus.jackson.annotate.JsonManagedReference;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Table(name="jforum_topics")
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="database")
 public class DbForumTopic implements Serializable {
 
 	@Id

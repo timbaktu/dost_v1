@@ -9,8 +9,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 @Entity
 @Table(name="security_question")
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="database")
 public class DbSecurityQuestion extends DbGeneric implements Serializable {
 
 	@Id
