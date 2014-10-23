@@ -36,7 +36,7 @@
 							selectedUser = messages[i].sender;
 						}
 				}
-				// Send message
+				
 				$(".sendReply").click(function(){
 					if(userRole == "ROLE_USER"){
 						var receipient = "all";
@@ -71,15 +71,6 @@
 						receipient = 'all';
 					}
 				});	
-				
-				$(".addNoteButton").click(function(){
-					var datatosend = 'messageSubject='+messages[0].subject+'&note=' + $("#noteContent").val()+ '&userId=' + userid+'&messageId='+threadId[1];
-					$.post('http://localhost:8800/dost/api/notes/add', datatosend, function(response) {							
-						//$('#visitFormResponse').text(response);
-						$(".status").show().html("Note Added");
-						$(".notePopup").hide();
-					});
-				});
 				
 			} );
 			/*End of Manipulating json for conversation thread*/
@@ -292,9 +283,10 @@
 			</div>
 				
 		</sec:authorize>
+		<jsp:include page="includes/notesPopup.jsp"></jsp:include>
 		<div class="notePopup">
 			<form>
-				<textarea class="form-control" id="noteContent" rows="3"></textarea>
+				<textarea class="form-control" id="messageContent" rows="3"></textarea>
 				<button type="button"  class="addNoteButton pull-right btn btn-primary">Submit</button>
 				<button type="button"  class="cancelButton pull-right btn btn-outline">Cancel</button>
 			</form>
