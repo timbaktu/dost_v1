@@ -72,9 +72,10 @@
 					<h2 class="pull-left pageHeading">
 						<a  href="patientList">&larr; Back to all Patients</a>
 					</h2>
+					<div class="clearfix"></div>
 			</div>
 						
-			<div class="col-md-11 well">
+			<div class="col-md-8 well">
 				
 				<div class="summary_patient">
 					<h2 class="pageHeading patientName"></h2>
@@ -89,6 +90,7 @@
 					</li>
 				</ul>
 			</div>
+			<jsp:include page="includes/notesRightUnit.jsp"></jsp:include>
 			<!--end of patient summary-->
 	</div>
 	<jsp:include page="includes/commonFooter.jsp"></jsp:include>
