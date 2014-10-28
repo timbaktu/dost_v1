@@ -17,15 +17,15 @@
 					<input id="lname" required type="text" id="autocomplete" class="form-control questionForm autocomplete" placeholder="Last Name"/>
 					<br/>
 					
-					<label>Hostel</label>
+					<label>Hostel <span class="secondary_information">(eg Dihing, Kameng, Subansiri)</span></label>
 					<input id="hostel" required type="text" id="autocomplete" class="form-control questionForm autocomplete" placeholder="Hostel"/>
 					<br/>
 					
-					<label>Year</label>
+					<label>Year of Study <span class="secondary_information">(eg BTech I Year, II Year, MTech II Year etc)</span></label>
 					<input id="year" required type="text" id="autocomplete" class="form-control questionForm autocomplete" placeholder="Year"/>
 					<br/>
 					
-					<label>Branch</label>
+					<label>Branch <span class="secondary_information">(eg Design, ECE, EEE etc)</span></label>
 					<input id="branch" required type="text" id="autocomplete" class="form-control questionForm autocomplete" placeholder="Branch"/>
 					<br/>
 	      		</form>

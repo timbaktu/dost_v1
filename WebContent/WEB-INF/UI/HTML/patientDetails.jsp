@@ -14,7 +14,6 @@
 			
 			$.getJSON('/dost/api/user/'+userId[1]+'/patienthistory/all', function(messages) {
 				$(".loading").hide();
-				debugger;
 				for (var i in messages) {
 					var entry = messages[i];
 					for(var s in entry) {
@@ -22,10 +21,10 @@
 						if(s.indexOf("C") < 0) {
 							for (var j in entry) {
 								var inner = entry[j];
-								$(".conversations").append('<div class="categoryList"><h3 class="subject secondary_heading" id='+i+'_subject>'+inner[0].subject+'</h3>');
-								$("#"+ i+"_subject").after("<ul></ul></div>");						
+								$(".conversations").append('<div class="categoryList"><h3 class="subject secondary_heading" id='+inner[0].messageId+'>'+inner[0].subject+'</h3>');
+								$("#"+inner[0].messageId).after("<ul></ul></div>");						
 								for(var k in inner) {
-									$("#"+ i+"_subject").siblings("ul").append('<li class=" media each_conversation">'+
+									$("#"+ inner[0].messageId).siblings("ul").append('<li class=" media each_conversation">'+
 											'<div class="pull-left col-md-2">'+
 												'<div class="patient_name"><strong>'+inner[k].sender.username+'</strong></div>'+
 												'<div class="post_details">'+inner[k].sentDate +'</div>'+
@@ -40,11 +39,10 @@
 						else {
 							for (var j in entry) {
 								var inner = entry[j];
-								$(".conversations").append('<div class="categoryList"><h3 class="subject secondary_heading" id='+i+'_subject>'+'Chat' + j +'</h3>');
-								$("#"+ i+"_subject").after("<ul></ul></div>");						
+								$(".conversations").append('<div class="categoryList"><h3 class="subject secondary_heading" id='+inner[0].messageId+'>'+'Chat' + j +'</h3>');
+								$("#"+ inner[0].messageId).after("<ul></ul></div>");						
 								for(var k in inner.userChats) {
-									//debugger;
-									$("#"+ i+"_subject").siblings("ul").append('<li class=" media each_conversation">'+
+									$("#"+ inner[0].messageId).siblings("ul").append('<li class=" media each_conversation">'+
 											'<div class="pull-left col-md-2">'+
 												'<div class="patient_name"><strong>'+ inner.userChats[k].toJIDResource +'</strong></div>'+
 												'<div class="post_details">'+inner.userChats[k].sentDate +'</div>'+
@@ -61,6 +59,37 @@
 				}
 			});	
 			
+			$.getJSON('/dost/api/user/'+userId[0], function(user_details) {
+				$(".summary_patient").append(
+						'<div class="user_actual_details">'+
+						'<span>'+user_details.fname +'&nbsp'+ user_details.lname+ +'</span>'+
+						'<span>'+user_details.hostel +'</span>'+
+						'<span>'+user_details.year +'</span>'+
+						'<span>'+user_details.branch +'</span>'+
+					
+					'</div>'
+				);
+			});
+			/*displaying notes*/
+			$.getJSON('/dost/api/user/'+userId[1]+'/notes/all', function(notes){
+				for(i=0; i<notes.length; i++){
+					$(".counselor_notes").append(
+						'<li class="each_note">'+
+							'<span>'+ notes[i].note +'</span>'+
+								'<div class="media-sub-heading secondary_information"><span>'+notes[i].username +'</span> | <span>'+notes[i].noteDate+'</span></div>'+
+								'<span title="'+notes[i].messageId+'" class="related_conversation">View related conversation</span>'+
+						'</li>'
+					);
+				}
+			});
+			/*end of Displaying Notes*/
+			
+			$(".counselor_notes").on("click",".related_conversation", function(){
+				var idToScroll=$(this).attr("title");
+				$('html, body').animate({
+				    scrollTop: $("#"+idToScroll).offset().top
+				}, 1000);
+			});
 
 		});
 	</script>

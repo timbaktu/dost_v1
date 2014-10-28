@@ -19,6 +19,17 @@
 		border-bottom: 1px solid #dddddd;
 		padding: 5px;
 	}
+	.user_actual_details span{
+		margin-right:20px;
+	}
+	.each_note {
+		margin-bottom: 20px;
+	}
+	.related_conversation{
+		color:#2E9784;
+		font-size: 0.9em;
+		cursor: pointer;
+	}
 	.ceac_patient :hover{
 		background: rgb(255,249,210);
 	}

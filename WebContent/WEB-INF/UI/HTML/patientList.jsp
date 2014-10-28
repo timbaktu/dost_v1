@@ -18,8 +18,16 @@
 											'</a>'+
 											
 										'</li>');
-				}				
+			}
+			
+			/*adding search for patient*/
+			
+			$(".col-md-11").sieve({ itemSelector: ".ceac_patient" });
+			$(".col-md-11").prev("div").addClass("searchBox");
+			/*end of adding search for patient*/
 		});	
+		
+		
 	});
 	</script>
 		

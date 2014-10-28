@@ -179,3 +179,33 @@ CREATE TABLE `user_question` (
   `ANSWER` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`USER_QUESTION_ID`)
 );
+
+CREATE TABLE `conversationnote` (
+  `noteid` INTEGER NOT NULL AUTO_INCREMENT,
+  `userid` INTEGER NOT NULL,
+  `messageId` INTEGER NOT NULL,
+  `note` VARCHAR(4500) DEFAULT NULL,
+  `notedate` varchar(255) DEFAULT NULL,
+  `createdate` varchar(255) DEFAULT NULL,
+  `createby` bigint(20) DEFAULT NULL,
+  `updatedate` varchar(255)  DEFAULT NULL,
+  `updateby` bigint(20) DEFAULT NULL,
+  `deleted` INTEGER DEFAULT 0,
+  PRIMARY KEY (`noteid`)
+);
+
+--Trigger to insert note date 
+CREATE TRIGGER conversationnote_OnInsert BEFORE INSERT ON `conversationnote`
+    FOR EACH ROW SET NEW.notedate = NOW();
+
+select * from fpSessionMetadata m,fpSession s
+where m.sessionid = s.sessionid and metadataValue = 'alex'
+
+ALTER TABLE user
+ADD COLUMN `fname` VARCHAR(100) DEFAULT NULL AFTER `avatar`,
+ADD COLUMN `lname` VARCHAR(100) DEFAULT NULL AFTER `fname`,
+ADD COLUMN `hostel` VARCHAR(100) DEFAULT NULL AFTER `lname`,
+ADD COLUMN `year` INT(10) UNSIGNED DEFAULT NULL AFTER `hostel`;
+
+ALTER TABLE user
+ADD COLUMN `branch` VARCHAR(100) DEFAULT NULL AFTER `year`;
