@@ -49,4 +49,13 @@ public class UserController {
 		UserPopulator.populateUser(userToReturn, dbUser);
 		return userToReturn;
 	}
+	
+	@RequestMapping(value="user/{userId}/userdetail", method=RequestMethod.GET)  
+	@ResponseBody
+	public User getUserDetail(@PathVariable String userId) {
+		DbUser dbUser = userService.getUser(Long.parseLong(userId));
+		User userToReturn = new User();
+		UserPopulator.populateUser(userToReturn, dbUser);
+		return userToReturn;
+	}
 }
