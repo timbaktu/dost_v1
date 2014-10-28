@@ -57,7 +57,7 @@ public class ConversationNoteController {
 	@RequestMapping(value="/user/{userId}/notes/all", method=RequestMethod.GET)  
 	@ResponseBody
 	public List<ConversationNote> getAllNotesByUser(@PathVariable Long userId) {
-		List<DbNote> notes = noteService.getAllNotesForMsgId(userId);
+		List<DbNote> notes = noteService.getAllNotesForUserId(userId);
 		List<ConversationNote> outputNotes = new ArrayList<ConversationNote>();
 		for(DbNote dbnote : notes) {
 			ConversationNote note = new ConversationNote();
