@@ -9,6 +9,7 @@ public class ConversationNote {
 	private String messageSubject;
 	private String note;
 	private String noteDate;
+	private Long msgId;
 	
 	public Long getNoteId() {
 		return noteId;
@@ -51,6 +52,12 @@ public class ConversationNote {
 	}
 	public void setNoteDate(String noteDate) {
 		this.noteDate = noteDate;
+	}
+	public Long getMsgId() {
+		return msgId;
+	}
+	public void setMsgId(Long msgId) {
+		this.msgId = msgId;
 	}
 	
 	

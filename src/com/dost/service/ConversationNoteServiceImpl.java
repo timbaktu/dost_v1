@@ -21,6 +21,10 @@ public class ConversationNoteServiceImpl implements ConversationNoteService {
 		return noteDAO.getAllNotesForMsgId(msgId);
 	}
 
+	public List<DbNote> getAllNotesForUserId(Long userId) {
+		return noteDAO.getAllNotesForUserId(userId);
+	}
+
 	public DbNote saveNote(DbNote note) {
 		return noteDAO.saveNote(note);
 		

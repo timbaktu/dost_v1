@@ -50,6 +50,24 @@ public class ConversationNoteController {
 	}
 	
 	/**
+	 * Get all notes by userId
+	 * @param userId
+	 * @return
+	 */
+	@RequestMapping(value="/user/{userId}/notes/all", method=RequestMethod.GET)  
+	@ResponseBody
+	public List<ConversationNote> getAllNotesByUser(@PathVariable Long userId) {
+		List<DbNote> notes = noteService.getAllNotesForMsgId(userId);
+		List<ConversationNote> outputNotes = new ArrayList<ConversationNote>();
+		for(DbNote dbnote : notes) {
+			ConversationNote note = new ConversationNote();
+			populateNote(dbnote, note);
+			outputNotes.add(note);
+		}
+		return outputNotes;
+	}
+	
+	/**
 	 * MessageId in ConversationNote is messageId and not msgId
 	 * @param note
 	 * @return
@@ -84,5 +102,7 @@ public class ConversationNoteController {
 		note.setNoteId(dbnote.getNoteId());
 		note.setUserId(dbnote.getUser().getUserId());
 		note.setUserName(dbnote.getUser().getUsername());
+		note.setNoteDate(dbnote.getNoteDate());
+		note.setMsgId(dbnote.getMessage().getMsgId());
 	}
 }

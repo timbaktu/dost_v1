@@ -27,6 +27,21 @@ public class ConversationNoteDAOImpl implements ConversationNoteDAO {
 		}
 		return notes;
 	}
+	
+	
+
+	public List<DbNote> getAllNotesForUserId(Long userId) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from DbNote n where n.user.userId = :userId");
+		query.setParameter("userId", userId);
+		List<DbNote> notes = query.list();
+		if(notes == null) {
+			notes = new ArrayList<DbNote>();
+		}
+		return notes;
+	}
+
+
 
 	public DbNote saveNote(DbNote note) {
 		Session session = sessionFactory.getCurrentSession();
