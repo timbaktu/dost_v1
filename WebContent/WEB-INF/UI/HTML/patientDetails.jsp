@@ -84,13 +84,19 @@
 			});
 			/*end of Displaying Notes*/
 			
+			/*scrolling to the related conversation for the note*/
 			$(".counselor_notes").on("click",".related_conversation", function(){
 				var idToScroll=$(this).attr("title");
 				$('html, body').animate({
 				    scrollTop: $("#"+idToScroll).offset().top
 				}, 1000);
 			});
-
+			/*end of scrolling to the related conversation for the note*/
+			
+			/*adding search for conversation*/
+			$(".col-md-8").sieve({ itemSelector: ".each_conversation" });
+			$(".col-md-8").prev("div").addClass("searchBox");
+			/*end of adding search for patient*/
 		});
 	</script>
 	<body class="theme-default theme-default-counselor" >
