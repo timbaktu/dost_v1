@@ -18,7 +18,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Table(name="faqcategory")
-@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="database")
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE, region="database")
 public class DbFaqCategory extends DbGeneric implements Serializable {
 
 	/**

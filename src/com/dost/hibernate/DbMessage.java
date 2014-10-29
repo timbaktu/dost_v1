@@ -27,7 +27,7 @@ import org.hibernate.annotations.CascadeType;
 
 @Entity
 @Table(name="message")
-@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="database")
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE, region="database")
 public class DbMessage extends DbGeneric implements Serializable {
 
 	@Id

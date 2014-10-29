@@ -10,7 +10,7 @@ public class User {
 	private String fname;
 	private String lname;
 	private String hostel;
-	private Integer year;
+	private String year;
 	private String branch;
 	
 	public Long getUserId() {
@@ -61,10 +61,10 @@ public class User {
 	public void setHostel(String hostel) {
 		this.hostel = hostel;
 	}
-	public Integer getYear() {
+	public String getYear() {
 		return year;
 	}
-	public void setYear(Integer year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
 	public String getBranch() {

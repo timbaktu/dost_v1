@@ -16,7 +16,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Table(name="jforum_posts")
-@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="database")
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE, region="database")
 public class DbForumPost implements Serializable {
 
 	@Id

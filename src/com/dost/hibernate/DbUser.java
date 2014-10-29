@@ -22,7 +22,7 @@ import org.hibernate.annotations.IndexColumn;
 
 @Entity
 @Table(name="user")
-@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="database")
+//@Cache(usage=CacheConcurrencyStrategy.READ_WRITE, region="database")
 public class DbUser extends DbGeneric implements Serializable {
 	/**
 	 * 
@@ -67,7 +67,7 @@ public class DbUser extends DbGeneric implements Serializable {
 	@Column(name = "hostel")
 	private String hostel;
 	@Column(name = "year")
-	private Integer year;
+	private String year;
 	@Column(name = "branch")
 	private String branch;
 	
@@ -138,10 +138,10 @@ public class DbUser extends DbGeneric implements Serializable {
 	public void setHostel(String hostel) {
 		this.hostel = hostel;
 	}
-	public Integer getYear() {
+	public String getYear() {
 		return year;
 	}
-	public void setYear(Integer year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
 	public String getBranch() {

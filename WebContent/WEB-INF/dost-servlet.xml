@@ -67,7 +67,7 @@
 				
 				<prop key="hibernate.cache.provider_class">net.sf.ehcache.hibernate.SingletonEhCacheProvider</prop>
 				<!-- enable second level cache and query cache -->
-		        <prop key="hibernate.cache.use_second_level_cache">true</prop>
+		        <prop key="hibernate.cache.use_second_level_cache">false</prop>
 		        <prop key="hibernate.cache.use_query_cache">true</prop>
 		        <prop key="net.sf.ehcache.configurationResourceName">/myehcache.xml</prop>
 			</props>
