@@ -150,7 +150,7 @@ public class PatientHistoryController {
 		}
 		
 		Map<String, UserChat> chatOutputMap = new HashMap<String, UserChat>();
-		Map<Long, UserChat> userChatMap = new HashMap<Long, UserChat>();
+		Map<Long, UserChat> userChatMap = chatHistoryService.getUsersChatHistoryByUserId(id);
 		for(Map.Entry<Long, UserChat> userchat : userChatMap.entrySet()) {
 			UserChat localChat = userchat.getValue();
 			ChatHistory lastChat = localChat.getUserChats().get(0);

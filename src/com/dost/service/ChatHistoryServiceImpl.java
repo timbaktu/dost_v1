@@ -96,6 +96,13 @@ public class ChatHistoryServiceImpl implements ChatHistoryService {
 		DbUser user = userDAO.getUser(userId);
 		Map<String, List<Long>> conversationIdsByUser = chatHistoryDAO.getConversationIdsByUserName(Arrays.asList(user.getUsername()));
 		List<Long> conversationIdsForUserList = conversationIdsByUser.get(user.getUsername());
+
+	    // Get Chats based on ids
+	    Map<Long, UserChat> chatWithIdMap = new HashMap<Long, UserChat>();
+
+	    if(conversationIdsForUserList == null || conversationIdsForUserList.size() == 0) {
+	    	return chatWithIdMap;
+	    }
 	    // Sorting conversations
 		Collections.sort(conversationIdsForUserList, new Comparator<Long>() {
 	          public int compare(Long o1, Long o2) {
@@ -103,11 +110,6 @@ public class ChatHistoryServiceImpl implements ChatHistoryService {
 
 	        }
 	    });
-		// Reversing conversations
-//	    Collections.reverse(conversationIdsForUserList);
-
-	    // Get Chats based on ids
-	    Map<Long, UserChat> chatWithIdMap = new HashMap<Long, UserChat>();
 	    for(Long chatId : conversationIdsForUserList) {
 			UserChat userChat = new UserChat();
 			userChat.setUser(user);
