@@ -121,31 +121,31 @@ public class DbUser extends DbGeneric implements Serializable {
 		this.userSecurities = userSecurities;
 	}
 	public String getFname() {
-		return fname;
+		return fname == null ? "" : fname;
 	}
 	public void setFname(String fname) {
 		this.fname = fname;
 	}
 	public String getLname() {
-		return lname;
+		return lname == null ? "" : lname;
 	}
 	public void setLname(String lname) {
 		this.lname = lname;
 	}
 	public String getHostel() {
-		return hostel;
+		return hostel == null ? "" : hostel;
 	}
 	public void setHostel(String hostel) {
 		this.hostel = hostel;
 	}
 	public String getYear() {
-		return year;
+		return year == null ? "" : year;
 	}
 	public void setYear(String year) {
 		this.year = year;
 	}
 	public String getBranch() {
-		return branch;
+		return branch  == null ? "" : branch;
 	}
 	public void setBranch(String branch) {
 		this.branch = branch;

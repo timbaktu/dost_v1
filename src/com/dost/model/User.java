@@ -1,6 +1,5 @@
 package com.dost.model;
 
-import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 public class User {
 
@@ -9,17 +8,11 @@ public class User {
 	private String password;
 	private String role;
 	private String avatarId;
-	// This annotation does not send these attributes if value is null
-	@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
-	private String fname;
-	@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
-	private String lname;
-	@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
-	private String hostel;
-	@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
-	private String year;
-	@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
-	private String branch;
+	private String fname = "";
+	private String lname = "";
+	private String hostel = "";
+	private String year = "";
+	private String branch = "";
 	
 	public Long getUserId() {
 		return userId;
