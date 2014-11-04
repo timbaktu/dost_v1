@@ -1,3 +1,4 @@
+<%@page import="com.dost.util.Utils"%>
 <%@taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -27,7 +28,7 @@
 									$("#"+ inner[0].messageId).siblings("ul").append('<li class=" media each_conversation">'+
 											'<div class="pull-left col-md-2">'+
 												'<div class="patient_name"><strong>'+inner[k].sender.username+'</strong></div>'+
-												'<div class="post_details">'+inner[k].sentDate +'</div>'+
+												'<div class="post_details">'+ inner[k].sentDate +'</div>'+
 											'</div>' +
 											'<div class="media-body col-md-8">'+
 													'<span>'+inner[k].content+'</span>'+
@@ -39,13 +40,14 @@
 						else {
 							for (var j in entry) {
 								var inner = entry[j];
-								$(".conversations").append('<div class="categoryList"><h3 class="subject secondary_heading" id='+inner[0].messageId+'>'+'Chat' + j +'</h3>');
-								$("#"+ inner[0].messageId).after("<ul></ul></div>");						
+								$(".conversations").append('<div class="categoryList"><h3 class="subject secondary_heading" id='+i+'_subject>'+'Chat' + j +'</h3>');
+								$("#"+ i+"_subject").after("<ul></ul></div>");						
 								for(var k in inner.userChats) {
-									$("#"+ inner[0].messageId).siblings("ul").append('<li class=" media each_conversation">'+
+									//debugger;
+									$("#"+ i+"_subject").siblings("ul").append('<li class=" media each_conversation">'+
 											'<div class="pull-left col-md-2">'+
 												'<div class="patient_name"><strong>'+ inner.userChats[k].toJIDResource +'</strong></div>'+
-												'<div class="post_details">'+inner.userChats[k].sentDate +'</div>'+
+												'<div class="post_details">'+timeConverter(inner.userChats[k].sentDate) +'</div>'+
 											'</div>' +
 											'<div class="media-body col-md-8">'+
 													'<span>'+inner.userChats[k].body+'</span>'+
@@ -59,10 +61,25 @@
 				}
 			});	
 			
+			function timeConverter(UNIX_timestamp){
+				  var a = new Date(UNIX_timestamp * 1);
+				  debugger;
+				  var months = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+				  var year = a.getFullYear();
+				  var month = months[a.getMonth()];
+				  var date = a.getDate();
+				  var hour = a.getHours();
+				  var min = a.getMinutes();
+				  var sec = a.getSeconds();
+				  var time = year + '-' + month + '-' + date + ' ' + hour + ':' + min + ':' + sec ;
+				  return time;
+				}
+			
 			$.getJSON('/dost/api/user/'+userId[0], function(user_details) {
+				debugger;
 				$(".summary_patient").append(
 						'<div class="user_actual_details">'+
-						'<span>'+user_details.fname +'&nbsp'+ user_details.lname+ +'</span>'+
+						'<span>'+user_details.fname +'&nbsp'+ user_details.lname+'</span>'+
 						'<span>'+user_details.hostel +'</span>'+
 						'<span>'+user_details.year +'</span>'+
 						'<span>'+user_details.branch +'</span>'+
