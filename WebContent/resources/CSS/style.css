@@ -877,6 +877,12 @@ ul.ui-autocomplete{
 	color: #428bca;
 	font-size: 0.9em;
 }
+
+.errorMsg {
+	color : red ;
+	display:none ;
+}
+
 .more-link {
 /*end of styling for more*/
 

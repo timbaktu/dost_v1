@@ -20,7 +20,57 @@
 				$("#question2").append($('<option></option>').val(value.questionId).html(value.question));
 			});
 		});
+		
+		$('input[name="username"]').blur( function(){
+			var valid_user = validate_username();
+		});
+		
+		$('input[name="password"]').blur( function(){
+			var valid_password = validate_password() ;			
+		});
+		
+		$('input[name="username"]').keyup( function(){
+			var valid_user = validate_username();
+		});
+		
+		$('input[name="password"]').keyup( function(){
+			var valid_password = validate_password() ;			
+		});
+
+	
 	});
+	
+	function validate_username(){
+		var username = $('input[name="username"]').val() ;
+		if( !username.match( /[a-zA-Z]/ ) ){
+			$("#usernameError").show()           ;
+			$("#signin").attr("disabled","true") ;
+			return  0                            ;	
+		}else{
+			$("#usernameError").hide()          ;
+			$("#signin").removeAttr("disabled") ;
+			return 1                            ;
+		}
+		
+		
+	}
+	
+	function validate_password(){
+		var password       = $('input[name="password"]').val()   ;
+		var contains_space = check_if_contains_space( password ) ;
+		if( contains_space || !password ){
+			$("#passwordError").show()           ;
+			$("#signin").attr("disabled","true") ;
+			return  0                            ;	
+		}else{
+			$("#passwordError").hide()          ;
+			$("#signin").removeAttr("disabled") ;
+			return 1                            ;
+		}
+		
+		
+	}
+	
 	var avatar = null;
 	$(function() {
 		/* Adding question*/
@@ -32,6 +82,13 @@
 				
 				$(".alert-success").html("");
 				$(".alert-success").hide();
+				
+				var valid_username = validate_user()     ;
+				var valid_password = validate_password() ;
+				
+				if( !valid_username || !valid_password ){
+					return 0 ;
+				}
 				
 				var checkAvatar = $(".avatar").hasClass("selectedImage");
 				var datatosend = 'username='+$("#username").val()+'&password=' + $("#password").val()+'&avatarId=' + avatar;
@@ -105,13 +162,14 @@
 						<input id="avatarinput" type="hidden" name="avatarinput">
 						<label>Username</label>
 						<input id="username" name="username" required type="text" class="form-control input-block-level" placeholder="Create a username">
-
+                        <div id="usernameError" class="errorMsg">Username should contain atleast one alphabet</div>
 						<br/><br/>
 						
 						<label>Password</label>
 
-						<input id="password" name="password" c  type="password" class="form-control input-block-level" placeholder="Set a password">
-						
+						<input id="password" name="password"  type="password" class="form-control input-block-level" placeholder="Set a password">
+					
+					   <div id="passwordError" class="errorMsg">Invalid Passoword</div>
 						<br><br>
 						
 						<label>Secret Question <span>(It will help you generate your password, even if you forget)</span></label>

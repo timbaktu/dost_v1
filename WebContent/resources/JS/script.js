@@ -61,3 +61,14 @@ $( document ).ready(function() {
 		},1000);
 		/*end of styling the favorite discussion iframe*/
 });
+
+
+function check_if_contains_space( value ){
+	
+	if( value.match( /\s/ ) ){
+		return 1 ;	
+	}else{
+		return 0 ;
+	}
+	
+}

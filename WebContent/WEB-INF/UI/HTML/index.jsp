@@ -6,6 +6,7 @@
 
 
 <html lang="en">
+<title>DOST</title>
 	<jsp:include page="includes/commonHeader.jsp"></jsp:include>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/CSS/jquery.more.css"> 
 	<script src="${pageContext.request.contextPath}/resources/JS/jquery.plugin.js" type="text/javascript"></script>
