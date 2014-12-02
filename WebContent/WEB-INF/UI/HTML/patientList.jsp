@@ -36,7 +36,7 @@
 		<div class="container row-fluid">
 			<div class="pageTop">
 					<h2 class="pull-left pageHeading">
-						Patient History
+						Client History
 					</h2>
 					<div class="clearfix"></div>
 			</div>
