@@ -52,7 +52,7 @@
 
 					<div class="bg_small_yellow discussion_topic ">
 						<div class=" well media">	
-							<a class="pull-left" href="${JForumContext.encodeURL("/user/profile/${topic.postedBy.id}")}">
+							<a class="pull-left" href="")}">
 								<img class="media-object profile_pic" src="http://localhost:8800/dost/avatar/${topic.postedBy.avatar}">
 								<span class="owner_name">${topic.postedBy.username}</span>
 							</a>
@@ -80,7 +80,7 @@
 								<span ${class3}  >
 									<#if (topic.lastPostTime?length > 0)>
 										<span class="postdetails">${topic.lastPostTime}<br />
-										<a href="${JForumContext.encodeURL("/user/profile/${topic.lastPostBy.id}")}">${topic.lastPostBy.username}</a>
+										<a href="">${topic.lastPostBy.username}</a>
 		
 										<#assign startPage = ""/>
 										<#if (topic.totalReplies + 1 > postsPerPage?number)>

@@ -29,7 +29,7 @@
 					<td valign="middle" align="left" colspan="${colspan?default("0")}">
 						<#assign breadCrumb>
 							<a class="nav" href="${JForumContext.encodeURL("/forums/list")}">${I18n.getMessage("ForumListing.forumIndex")}</a> &raquo;
-							<a class="nav" href="${JForumContext.encodeURL("/user/profile/${u.id}")}">${I18n.getMessage("UserProfile.profileFor")} ${u.username}</a> 
+							<a class="nav" href="">${I18n.getMessage("UserProfile.profileFor")} ${u.username}</a> 
 							&raquo;
             				<a class="nav" href="${JForumContext.encodeURL("/posts/listByUser/${u.id}")}">${I18n.getMessage("PostShow.userPosts")} ${u.username}</a>
 						</#assign>
