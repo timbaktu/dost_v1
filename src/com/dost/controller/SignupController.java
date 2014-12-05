@@ -157,7 +157,7 @@ public class SignupController {
 		welcomeBuffer.append("<br><br>");
 		welcomeBuffer.append("Every problem has a solution and together we will find a solution to the problems that are bothering you.");
 		welcomeBuffer.append("<br><br>");
-		welcomeBuffer.append("I am your friend, a real qualified counselor - not a computer program and I am here to help you come out of your problems. You can talk to me whenever you want and I can guarantee you that I will make you feel better. ");
+		welcomeBuffer.append("I am your friend - not a computer program and I am here to help you come out of your problems. I will be here to support you and help you in any way I can. ");
 		welcomeBuffer.append("<br><br>");
 		welcomeBuffer.append("<u>Steps to get started</u>");
 		welcomeBuffer.append("<br>");
