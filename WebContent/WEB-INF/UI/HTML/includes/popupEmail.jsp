@@ -9,8 +9,8 @@
 	    			<div class="mainMessage">
 	    				<p>Hi ${pageContext.request.userPrincipal.name},</p>
 						<p>I am here for you. Just tell me what’s on your mind and I will help you. 
-					   		Believe me even I have been in those situations and I know how hard it can get times.
-					   		I can assure you.
+					   		Believe me even I have been in some situations myself and I know how hard it can get at times.
+					   		I can assure you, I am your friend - not a computer program and I am here to help you in any way I can.
 						</p>
 					</div>
 					<br/>	
