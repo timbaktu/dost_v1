@@ -1,5 +1,5 @@
 <footer>
-	Copyright 2014, Dost. All rights reserved | Contact us at <strong><a title="Contact for enquiries" target="_blank" href="mailto:yourtruedost@gmail.com">yourtruedost@gmail.com</a></strong> for any queries, we respond really fast!
+	Copyright 2014, Dost. All rights reserved | Contact us at <strong><a title="Contact for enquiries" target="_blank" href="mailto:customersupport@yourdost.com">customersupport@yourdost.com</a></strong> for any queries, we respond really fast!
 </footer>
 
 <link href="${pageContext.request.contextPath}/resources/CSS/openSansFont.css" rel="stylesheet" type="text/css">
