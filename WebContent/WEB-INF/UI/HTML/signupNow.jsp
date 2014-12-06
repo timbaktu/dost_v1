@@ -158,20 +158,20 @@
 							<img class="avatar" src="avatar/avatar7.png" id="avatar7"/>
 							
 						</div>
-						<br/><br/>
+						<br/>
 						<input id="avatarinput" type="hidden" name="avatarinput">
 						<label>Username</label>
 						<input id="username" name="username" required type="text" class="form-control input-block-level" placeholder="Create a username">
                         <div id="usernameError" class="errorMsg">Username should contain atleast one alphabet</div>
-						<br/><br/>
+						<br/>
 						
 						<label>Password</label>
 
 						<input id="password" name="password"  type="password" class="form-control input-block-level" placeholder="Set a password">
 					
 					   <div id="passwordError" class="errorMsg">Invalid Passoword</div>
-						<br><br>
-						
+						<br>
+<!-- Commenting for now, we think we are asking too much information to users						
 						<label>Secret Question <span>(It will help you generate your password, even if you forget)</span></label>
 						<br>
 						<select required class="form-control" id="question1" name="question1"></select>
@@ -183,8 +183,8 @@
 						<select required class="form-control" id="question2" name="question2"></select>
 						<br/>
 						<input id="answer2" required  name="answer2" required type="text" class="form-control input-block-level" placeholder="Please provide the answer">
-
-						<br/><br/>
+ -->
+						<br/>
 						<button id="signin" class="pull-right btn btn-large btn-primary" type="submit">Proceed &gt;</button>
 						<a class="pull-right loginText" href="login" alt="Login to an existing account">Have an account? Login Now</a>
 
