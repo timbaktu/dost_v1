@@ -162,14 +162,14 @@
 						<input id="avatarinput" type="hidden" name="avatarinput">
 						<label>Username</label>
 						<input id="username" name="username" required type="text" class="form-control input-block-level" placeholder="Create a username">
-                        <div id="usernameError" class="errorMsg">Username should contain atleast one alphabet</div>
+                        <!-- <div id="usernameError" class="errorMsg">Username should contain atleast one alphabet</div> -->
 						<br/>
 						
 						<label>Password</label>
 
 						<input id="password" name="password"  type="password" class="form-control input-block-level" placeholder="Set a password">
 					
-					   <div id="passwordError" class="errorMsg">Invalid Passoword</div>
+					   <!-- <div id="passwordError" class="errorMsg">Invalid Password</div> -->
 						<br>
 <!-- Commenting for now, we think we are asking too much information to users						
 						<label>Secret Question <span>(It will help you generate your password, even if you forget)</span></label>

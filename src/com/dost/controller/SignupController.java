@@ -119,24 +119,27 @@ public class SignupController {
 		
 		List<DbUserSecurity> securityQuestions = new ArrayList<DbUserSecurity>();
 		// Setting user questions
+		// TODO: Commenting temporarily
+//		DbUserSecurity question1 = new DbUserSecurity();
+//		question1.setUser(dbUser);
+//		question1.setAnswer(request.getParameter("answer1"));
+//		question1.setQuestionId(Long.parseLong(request.getParameter("question1")));
+//		
+//		DbUserSecurity question2 = new DbUserSecurity();
+//		question2.setUser(dbUser);
+//		question2.setAnswer(request.getParameter("answer2"));
+//		question2.setQuestionId(Long.parseLong(request.getParameter("question2")));
+
 		DbUserSecurity question1 = new DbUserSecurity();
 		question1.setUser(dbUser);
-		question1.setAnswer(request.getParameter("answer1"));
-		question1.setQuestionId(Long.parseLong(request.getParameter("question1")));
-//		DbSecurityQuestion ques1 = questionService.getSecurityQuestionById(Long.parseLong(request.getParameter("question1")));
-//		List<DbSecurityQuestion> list1 = new ArrayList<DbSecurityQuestion>();
-//		list1.add(ques1);
-//		question1.setDbSecurityQuestion(list1);
+		question1.setAnswer("dost");
+		question1.setQuestionId(1l);
 		
 		DbUserSecurity question2 = new DbUserSecurity();
 		question2.setUser(dbUser);
-		question2.setAnswer(request.getParameter("answer2"));
-		question2.setQuestionId(Long.parseLong(request.getParameter("question2")));
-//		DbSecurityQuestion ques2 = questionService.getSecurityQuestionById(Long.parseLong(request.getParameter("question2")));
-//		List<DbSecurityQuestion> list2 = new ArrayList<DbSecurityQuestion>();
-//		list2.add(ques2);
-//		question1.setDbSecurityQuestion(list2);
-
+		question2.setAnswer("bhopal");
+		question2.setQuestionId(3l);
+		
 		securityQuestions.add(question1);
 		securityQuestions.add(question2);
 		dbUser.setUserSecurities(securityQuestions);

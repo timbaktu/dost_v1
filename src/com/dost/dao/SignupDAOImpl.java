@@ -19,7 +19,7 @@ public class SignupDAOImpl implements SignupDAO {
 		session.save(dbUser);
 		
 		// Create jforum users
-		Query jforumUser = session.createSQLQuery("insert into jforum_users (user_id,username, user_regdate) values (?,?,NOW())");
+		Query jforumUser = session.createSQLQuery("insert into jforum_users (user_id,username, user_password,user_email, user_regdate) values (?,?,'sso','sso@user', NOW())");
 		jforumUser.setParameter(0, dbUser.getUserId());
 		jforumUser.setParameter(1, dbUser.getUsername());
 		jforumUser.executeUpdate();
