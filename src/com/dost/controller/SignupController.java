@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -90,7 +91,11 @@ public class SignupController {
 			Authentication authentication = authMgr.authenticate(token);
 		      // redirect into secured main page if authentication successful
 		  if(authentication.isAuthenticated()) {
-		    SecurityContextHolder.getContext().setAuthentication(authentication);
+			  // Adding this because new signup user after going to discussion page was getting header as logged out user.
+			HttpSession session = request.getSession();
+			session.setAttribute("myAppUser", user.getUsername());
+			  
+			SecurityContextHolder.getContext().setAuthentication(authentication);
 		    return "redirect:/conversations";
 		  }
 		}
