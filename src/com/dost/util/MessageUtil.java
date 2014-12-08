@@ -36,7 +36,7 @@ public class MessageUtil {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("customersupport@yourdost.com"));
 			message.setRecipients(Message.RecipientType.CC,
-					InternetAddress.parse("satyajeet1234@gmail.com"));
+					InternetAddress.parse("satyajeet@yourdost.com, richa@yourdost.com"));
 			message.setSubject("Email from " + sender.getUsername());
 			message.setText("Dear Counselor,"
 					+ "\n There is a query from user " + sender.getUsername() + ". Please login to yourdost.com and handle this case..Thanks");
