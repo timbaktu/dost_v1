@@ -23,6 +23,7 @@ import com.dost.model.Message;
 import com.dost.service.ChatHistoryService;
 import com.dost.service.MessageService;
 import com.dost.service.UserService;
+import com.dost.util.MessageUtil;
 import com.dost.util.Utils;
 
 @Controller
@@ -237,7 +238,13 @@ public class MessageController {
 		if(message.getSenderId() == null) {
 			message.setSenderId(102l);
 		}
-		dbMessage.setSender(userService.getUser(message.getSenderId()));
+		DbUser sender = userService.getUser(message.getSenderId());
+		// Send email if message is sent from user
+		if(sender.getDbUserRole().getRole().equals("ROLE_USER")) {
+			System.out.println("Sending email to counselors..");
+			MessageUtil.sendEmail(sender);
+		}
+		dbMessage.setSender(sender);
 		dbMessage.setSentDateDb(new Date());
 		return dbMessage;
 	}
