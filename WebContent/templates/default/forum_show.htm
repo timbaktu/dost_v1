@@ -92,13 +92,17 @@
 								</span>
 							</h4>
 							
+							<h4 class="media-heading topictitle">
+							<a href="${JForumContext.encodeURL("/posts/list/${topic.id}")}">
 							<p class="discussion_summary">
 								<#assign count = posts.get(topic.id)?size/>
-								<#if (count > 1) >
+								<#if (count > 0) >
 									${posts.get(topic.id)[0].text}
+									<#else>
 								</#if>
 							</p>
-							
+							</a>
+							</h4>
 						</div>
 						
 
