@@ -795,11 +795,11 @@ div.most_popular_discussions{
     font-size:	13px;
     font-weight: normal;
      font-family: 'Open Sans', sans-serif;
-     
+     text-align: left;
 }
 .theme-default  .discussion_summary{
 	margin-top: 10px;
-	
+	text-align: left;
 }
 .theme-default .formForPosting{
 	margin-top: 20px;	
@@ -882,6 +882,11 @@ ul.ui-autocomplete{
 	color : red ;
 	display:none ;
 }
+
+div.medical_warning{
+      font-size: 0.94em;
+}
+
 
 .more-link {
 /*end of styling for more*/
