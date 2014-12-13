@@ -2,7 +2,6 @@
 
 <#import "../macros/pagination.ftl" as pagination>
 <#import "../macros/presentation.ftl" as presentation/>
-
 <script>
 	$(document).ready(function(){
 		/*searchBar for Discussion topics*/
@@ -94,11 +93,10 @@
 							
 							<h4 class="media-heading topictitle">
 							<a href="${JForumContext.encodeURL("/posts/list/${topic.id}")}">
-							<p class="discussion_summary">
+							<p class="discussion_summary " >
 								<#assign count = posts.get(topic.id)?size/>
 								<#if (count > 0) >
-									${posts.get(topic.id)[0].text}
-									<#else>
+									${posts.get(topic.id)[0].text.substring(0,160)}... <!-- This might throw exception, see what we have done below..check size and then use substring...search for 160 -->
 								</#if>
 							</p>
 							</a>
@@ -121,7 +119,12 @@
 						 	<#assign count = posts.get(topic.id)?size/>
 							<#if (count > 1) >
 								<div class="offset1 well well-small discussionComments">
-							 		<span>${posts.get(topic.id)[count-1].text}</span>
+								<#assign topicsize = posts.get(topic.id)[count-1].text?length/>
+								<#if (topicsize > 160) >
+									<span>${posts.get(topic.id)[count-1].text.substring(0,160)}...</span>
+								<#else>
+									<span>${posts.get(topic.id)[count-1].text}</span>
+								</#if>
 						 			<span class="time_taken pull-right"></span>
 								</div>
 							</#if>	
