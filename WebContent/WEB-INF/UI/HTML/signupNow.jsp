@@ -67,68 +67,51 @@
 			$("#signin").removeAttr("disabled") ;
 			return 1                            ;
 		}
-		
-		
+	}
+	
+
+	function validateForm() {
+		$(".error").html("");
+		$(".error").hide();
+
+		$(".alert-success").html("");
+		$(".alert-success").hide();
+		var checkAvatar = $(".avatar").hasClass("selectedImage");		
+		if(checkAvatar==false){
+			$(".error").show();
+			$("<p>Please select an avatar</p>").appendTo(".error");
+			$('[id$=signin]').removeAttr("disabled");
+			event.preventDefault();
+		}
+		else if($("#username").val()==false){
+			$(".error").show();
+			$("<p>Please enter username</p>").appendTo(".error");
+			$('[id$=signin]').removeAttr("disabled");
+			event.preventDefault();
+		}
+		else if($("#password").val()==false){
+			$(".error").show();
+			$("<p>Please enter password</p>").appendTo(".error");
+			$('[id$=signin]').removeAttr("disabled");
+			event.preventDefault();
+		}				
+		else{
+
+		}
 	}
 	
 	var avatar = null;
-	$(function() {
-		/* Adding question*/
-		$.getJSON("/dost/api/users", function(user) {
-			$("#signin").click(function(event) {
-				
-				$(".error").html("");
-				$(".error").hide();
-				
-				$(".alert-success").html("");
-				$(".alert-success").hide();
-				
-				var valid_username = validate_user()     ;
-				var valid_password = validate_password() ;
-				
-				if( !valid_username || !valid_password ){
-					return 0 ;
-				}
-				
-				var checkAvatar = $(".avatar").hasClass("selectedImage");
-				var datatosend = 'username='+$("#username").val()+'&password=' + $("#password").val()+'&avatarId=' + avatar;
-			
-				for(var i=0; i<user.length; i++){
-					if($("#username").val()== user[i].username){
-						var usernameExists = true;
-						break;
-					}
-				}
-				if(checkAvatar==false || usernameExists == true){
-					$(".error").show();
-					if(checkAvatar==false){
-						$("<p>Please select an avatar</p>").appendTo(".error");	
-					}
-					if(usernameExists == true){
-						$("<p>Username already exists</p>").appendTo(".error");	 	
-					}
-					event.preventDefault();
-				}
-				else{
-
-				}
-				
-				//$('#visitFormResponse').text(response);
-				
-			});
-			
-		});
-		
-			
-		 $('#avatarId').on("click", "img", function () {
+	$(function() { 
+		$('#avatarId').on("click", "img", function () {
 			 $(".avatar").removeClass("selectedImage");
 			 $(this).addClass("selectedImage");
 			 avatar = this.id;
 			 $("input[id=avatarinput]").val(avatar);
 		 });
-		 
 	});
 	
+
+
 	</script>
 	
 	<body class="container-fluid theme-default">
@@ -136,7 +119,7 @@
 				
 		<div class="container">
 			
-			<form  class="form-signin" action="http://localhost:8800/dost/api/signup">
+			<form  class="form-signin" action="http://localhost:8800/dost/api/signup" >
 				<div class="col-md-7 col-md-offset-2 form-signin-heading">
 					<p>Hi,</p>
 					<p>Don't worry, whatever it is.. we can fix it together. <em>Get Started!</em></p>
@@ -161,7 +144,7 @@
 						<br/>
 						<input id="avatarinput" type="hidden" name="avatarinput">
 						<label>Username</label>
-						<input id="username" name="username" required type="text" class="form-control input-block-level" placeholder="Create a username">
+						<input id="username"  name="username" required type="text" class="form-control input-block-level" placeholder="Create a username">
                         <!-- <div id="usernameError" class="errorMsg">Username should contain atleast one alphabet</div> -->
 						<br/>
 						
@@ -184,8 +167,12 @@
 						<br/>
 						<input id="answer2" required  name="answer2" required type="text" class="form-control input-block-level" placeholder="Please provide the answer">
  -->
-						<br/>
-						<button id="signin" class="pull-right btn btn-large btn-primary" type="submit">Proceed &gt;</button>
+ <br/>
+						<div class="medical_warning">We are not a medical service. If you are  thinking about suicide, if you think you may be in a danger of yourself or to others, 
+						or if otherwise you have any medical emergency, please immediately call 100/101 and notify the police or emergency medical service. 
+						By signing up you are agreeing to <a target="_blank" href="termsOfService">Terms and Services</a> of D.O.S.T</div>					
+						<br/><br/>
+						<button id="signin" class="pull-right btn btn-large btn-primary" type="submit" onclick="validateForm();">Proceed &gt;</button>
 						<a class="pull-right loginText" href="login" alt="Login to an existing account">Have an account? Login Now</a>
 
 					</div>
@@ -193,7 +180,6 @@
 				<div class="clearfix"></div>
 			</form>
     </div> <!-- /container -->
-
 	<jsp:include page="includes/commonFooter.jsp"></jsp:include>
 	</body>
 </html>

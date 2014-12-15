@@ -120,4 +120,9 @@ public class HomeController {
 	public String blog() {
 		return "blog";
 	}
+	
+	@RequestMapping("termsOfService")  
+	public String termsOfService() {
+		return "termsOfService";
+	}
 }
