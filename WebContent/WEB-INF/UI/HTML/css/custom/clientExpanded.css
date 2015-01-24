@@ -1,0 +1,86 @@
+.client-description{
+	background:#fff5d6;
+	padding:12px 5px;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size:20px;
+}
+.client-description img{
+	width:68px;
+	height:88px;
+	margin-top:10px;
+}
+.message-heading span{
+	color:#006699;
+	font-size:20px;
+	padding-left:30px;
+}
+.heading-padding{
+	padding-top:25px;
+}
+.orange-line{
+	border-bottom:3px solid #ffcc00;
+}
+.goto-link{
+	font-size:12px;
+	color:#006699;
+	padding-top:20px;
+}
+.client-header{
+	margin-bottom:30px;
+	padding-right:0;
+	padding-left:0;
+}
+.client-header .search-box1{
+	padding-left:0px;
+}
+.client-header .search-box1 input{ 
+	
+	margin-right:0px;
+}
+.add-detail-modal .modal-content{
+	padding:68px 100px 100px 100px;
+	border-radius:0px;
+	font-family: 'Lato', sans-serif;
+	font-size:20px;
+	color:#333;
+}
+.add-detail-modal .modal-dialog{
+	width:1075px;
+}
+.add-detail-modal input{
+	height:54px;
+	margin-bottom:44px;
+}
+.add-detail-modal span{
+	margin-bottom:20px;
+	padding:0;
+}
+.light-color{
+	color:#999;
+}
+.add-detailBtn{
+	background:#761a1a;
+	color:#fff;
+	font-size:36px;
+	font-family: 'Roboto Condensed', sans-serif;
+	border:none;
+	border-radius:0;
+	height:62px;
+	margin-top:100px;
+}
+.modal-header, .modal-footer, .modal-body{
+	border:none;
+	padding:0;
+}
+.gotoClientList{
+	cursor:pointer;
+}
+
+.noteContainer{
+	position: fixed;
+	right: 0;
+	height: 490px;
+	overflow: auto;
+	background-color: #FFF;
+	z-index: 1;
+}

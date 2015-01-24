@@ -17,16 +17,16 @@
 	<mvc:annotation-driven />
 	<context:annotation-config />
 	
-	<!-- <mvc:resources mapping="/UI/**" location="/UI/" /> 
-	<mvc:resources mapping="/WEB-INF/UI/HTML/**" location="/WEB-INF/UI/HTML/"></mvc:resources>-->
-	<mvc:resources mapping="/resources/**" location="/resources/" />
+	 <mvc:resources mapping="/UI/**" location="/WEB-INF/UI/HTML/" /> 
+	<!--<mvc:resources mapping="/WEB-INF/UI/HTML/**" location="/WEB-INF/UI/HTML/"></mvc:resources>
+	<mvc:resources mapping="/resources/**" location="/resources/" />-->
 	<mvc:default-servlet-handler />
 
-	<bean id="viewResolver"
+	<!--<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/UI/HTML/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
+		<property name="suffix" value=".html" />
+	</bean>-->
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">

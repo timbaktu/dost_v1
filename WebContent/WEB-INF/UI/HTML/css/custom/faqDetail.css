@@ -1,0 +1,83 @@
+.answers div{
+	font-size:18px;
+	font-family: 'Lato', sans-serif;
+}
+.question-expanded{
+	color:#000;
+	font-weight:400;
+	padding:20px 70px;
+}
+.answer{
+	color:#666;
+	font-weight:300;
+	padding:7px 70px;
+}
+.search-box1 button.new-create{
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size:24px;
+	padding:6px 14px;
+	background:#761a1a;
+	color:#fff;
+	border-radius:0;
+	border:none;
+	
+}
+.search-box1 button.new-create:hover{
+	background:#000;
+	color:#fff;
+}
+.search-box1 div a{
+	font-size:24px;
+	font-family: 'Lato', sans-serif;
+	color:#330000;
+	margin-right:10px;
+	margin-left:10px;
+}
+.search-box1 div a img{
+	padding-right:5px;
+	padding-left:5px;
+}
+.search-box1 div a:hover{
+	text-decoration:none;
+}
+.actionButtons button{
+	color:#000;
+}
+.actionButtons button:hover{
+	background:#000;
+	color:#fff;
+}
+
+.create-newFaq .modal-dialog{
+	width:1072px;
+}
+.create-newFaq .modal-header{
+	padding-top:50px;
+	padding-right:30px;
+}
+.create-newFaq .modal-body{
+	padding-top:20px;
+	padding-right:60px;
+	padding-left:90px;
+	font-size:20px;
+	font-family: 'Lato', sans-serif;
+	color:#333;
+	font-weight:300;
+}
+.create-newFaq .modal-body input{
+	height:56px;
+}
+.create-newFaq .modal-body select{
+	height:56px;
+}
+.create-newFaq .modal-body textarea{
+	height:268px;
+}
+
+.create-newFaq .modal-body span{
+	padding-top:47px;
+	padding-bottom:18px;
+}
+.create-newFaq .modal-footer button{
+	margin-bottom:100px;
+}

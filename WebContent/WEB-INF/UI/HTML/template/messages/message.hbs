@@ -1,0 +1,21 @@
+<div class="col-md-1">
+	<img class="photo" src="images/avatar/avatar1.png"><br>
+	<span class="inboxName">{{sender.fname}}</span>
+</div>
+<div class="col-md-9">
+	<span class="message-heading expandTheMessage {{ifinline isUnread 'unread-highlight'}}">
+		{{subject}} ({{messageCount}})
+	</span>
+	<span class="message-time pull-right">
+		{{getDateDiff sentDate}}
+	</span><br><br>
+	<div class="message-text height-fixed-message">
+		{{{content}}}
+	</div>
+</div>
+<div class="col-md-2 text-right right-view">
+	<a class="msg-view-btn expandTheMessage" href="#">
+	<span>View&nbsp;&nbsp;</span>
+	<img src="images/icons/arrow1.png"/>
+	</a>
+</div>

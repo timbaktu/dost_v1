@@ -1,0 +1,42 @@
+<div class="col-md-9">
+<div class="inbox-heading col-md-12">
+	<div class="message-heading col-md-5">
+			{{subject}} ({{count}})
+	</div>
+	<div  class="message-options col-md-7">
+		<div id="expandedMessageReplyTop" class='reply-btn col-md-3 {{ifinline isClient "pull-right"}}'>
+			<a href="#">Reply</a>
+		</div>
+		<div id="addNote" class='option-btn col-md-3 {{ifinline isClient "hidden"}}'>
+			<a data-toggle="modal" data-target=".add-note-modal" href="#">Add Note</a>
+		</div>
+		<div class='modal fade add-note-modal{{ifinline isClient "hidden"}}' tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+		</div>
+		<div class='option-btn col-md-3 {{ifinline isClient "hidden"}}'>
+			<a data-toggle="dropdown" aria-expanded="false" href="#">Label &nbsp;&nbsp;<img src="images/icons/arrow.png"></a>
+			<ul class="dropdown-menu" role="menu">
+				<li class="radioBtn"><a href="#"><input id="radioBtn" type="checkbox" value="none" name="check"/><label for="radioBtn"></label>&nbsp;&nbsp; Label 1</a></li>
+				<li class="radioBtn"><a href="#"><input id="radioBtn1" type="checkbox" value="none" name="check"/><label for="radioBtn1"></label>&nbsp;&nbsp; Label 1</a></li>
+				<li class="radioBtn"><a href="#"><input id="radioBtn2" type="checkbox" value="none" name="check"/><label for="radioBtn2"></label>&nbsp;&nbsp; Label 1</a></li>
+				<div class="option-btn pull-right">
+					<a href="#">OK</a>
+				</div>
+			</ul>
+		</div>
+		<div id="expandedMessageDelete" class='option-btn col-md-3 {{ifinline isClient "hidden"}}'>
+			<a href="#">Delete</a>
+		</div>
+	</div>
+</div>
+<div id="expandedMessageContainer"></div>
+<div class="reply-div col-md-12">
+	<div class="reply-box message-text"></div>
+	<div id="expandedMessageReplyBot" class="reply-btn pull-right">
+		<a href="">Reply</a>
+	</div>
+</div>
+
+</div>
+
+<div id="notesContainer" class='col-md-3 right-panel {{ifinline isClient "hidden"}}'>
+</div>

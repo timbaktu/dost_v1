@@ -1,0 +1,87 @@
+.inbox-messages{
+	border-bottom: 2px solid #cfcfcf;
+	padding-bottom: 36px;
+	padding-top:30px;
+}
+.inbox-messages1{
+	border-bottom: 2px solid #cfcfcf;
+	padding-bottom: 36px;
+	padding-top:35px;
+}
+.wel-message{
+padding-left:0;
+padding-top:0;
+}
+.wel-message .compose-btn {
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size:24px;
+	color:#fff;
+	background:#330000;
+	padding:3px 0px;
+	text-align:center;
+	width:154px;
+	border: none;
+	border-radius: 0;
+}
+
+.inbox-message .inbox img.photo{
+	width:60px;
+	height:70px;
+}
+.inbox-message .inbox span.inboxName{
+	font-family: 'Lato', sans-serif;
+	font-weight:300;
+	font-size:14px;
+	color:#333;
+}
+
+.message-heading, .msg-view-btn{
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size:20px;
+}
+.message-text{
+	font-family: 'Lato', sans-serif;
+	font-weight:300;
+	font-size:20px;
+}
+.message-time{
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size:14px;
+}
+.right-view{
+	position: relative;
+	top: 76px;
+	right: 40px;
+}
+.tab-content{
+	width:83%;
+	padding-top:30px;
+	margin-left: 180px;
+}
+.left-panel{
+	width:13%;
+	position:fixed;
+	top:172px;
+}
+
+.inbox-messages:last-child {
+  border:none;
+}
+.inbox-messages1:last-child {
+  border:none;
+}
+.orange-line:last-child {
+  border:none;
+}
+.inbox-messages1:hover{
+	background:#fff5d6;
+}
+.inbox-messages:hover{
+	background:#fff5d6;
+}
+
+.text-area-add-note {
+margin: 0px 0px 5px; width: 466px; height: 102px;}
+.expandTheMessage{
+	cursor: pointer;
+}

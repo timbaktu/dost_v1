@@ -1,0 +1,76 @@
+<div class="col-md-12 wel-message" role="tabpanel">
+	<div class="inbox-message">
+		<!-- Tab panes -->
+		<div class="col-md-12">
+			<div class="col-md-8 col-md-offset-1 expanded">
+				<div class="col-md-12 client-header">
+					<div class="search-box1">
+						<span class="col-md-5"><span class="gotoClientList" id="gotoClientList">CLIENT HISTORY</span> > <span id="clientDetailsFirstName">{{fname}}</span></span>
+						<input id="searchPatientHistory" class="col-md-7 pull-right" type="search" placeholder="Search">
+					</div>
+				</div>
+				<div role="tabpanel" class="tab-pane active inbox " id="inbox">
+					<div class="inbox-heading col-md-12">
+						<div class="col-md-5 client-description">
+							<div class="col-md-3"><img src="images/avatar/avatar1.png"></div>
+							<div class="col-md-9">
+								<span id="clientDetailsName">Name: {{fullname}}</span><br/>
+								<span id="clientDetailsYear">Year: {{year}}</span><br/><br/>
+								Label 1 | Label 2
+							</div>
+						</div>
+						<div class="col-md-7">
+							<div class="reply-btn col-md-3">
+								<a href="#">Message</a>
+							</div>
+							<div class="option-btn col-md-3">
+								<a data-toggle="modal" data-target=".add-detail-modal" href="#">Add Detail</a>
+							</div>
+							<div class="modal fade add-detail-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+							  <div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"><img src="images/icons/cross.png"></button>
+									</div>
+									<div class="modal-body">
+										<span class="col-md-12">Name</span>
+										<input id="userDetailName" class="col-md-12" type="text">
+										<span class="col-md-12">Year<span class="light-color">(eg Btech 2nd year)</span></span>
+										<input id="userDetailYear" class="col-md-12" type="text">
+										<span class="col-md-12">Branch<span class="light-color">(eg Electronics and communication)</span></span>
+										<input id="userDetailBranch" class="col-md-12" type="text">
+										<span class="col-md-12">Hostel</span>
+										<input id="userDetailHostel" class="col-md-12" type="text">
+									</div>
+									<div class="modal-footer text-center">
+										<button data-dismiss="modal" type="button" class="add-detailBtn col-md-12">ADD DETAIL</button>
+									</div>
+								</div>
+							  </div>
+							</div>
+							<div class="option-btn col-md-3">
+								<a data-toggle="dropdown" aria-expanded="false" href="#">Label &nbsp;&nbsp;<img src="images/icons/arrow.png"></a>
+								<ul class="dropdown-menu" role="menu">
+									<li class="radioBtn"><a href="#"><input id="radioBtn" type="checkbox" value="none" name="check"/><label for="radioBtn"></label>&nbsp;&nbsp; Label 1</a></li>
+									<li class="radioBtn"><a href="#"><input id="radioBtn1" type="checkbox" value="none" name="check"/><label for="radioBtn1"></label>&nbsp;&nbsp; Label 1</a></li>
+									<li class="radioBtn"><a href="#"><input id="radioBtn2" type="checkbox" value="none" name="check"/><label for="radioBtn2"></label>&nbsp;&nbsp; Label 1</a></li>
+									<div class="option-btn pull-right">
+										<a href="#">OK</a>
+									</div>
+								</ul>
+							</div>
+							<div class="option-btn col-md-3">
+								<a href="#">Block User</a>
+							</div>
+						</div>
+					</div>
+					<div id="historyContainer" class="col-md-12">
+						
+					</div>					
+				</div>
+			</div>
+			<div class="col-md-3 right-panel noteContainer" id="noteContainer">
+			</div>
+		</div>
+	</div>
+</div>

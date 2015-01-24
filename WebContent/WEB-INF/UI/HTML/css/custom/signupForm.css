@@ -1,0 +1,83 @@
+.signupForm .modal-dialog{
+	width: 1075px;
+	right: 87px;
+	top: 60px;
+	height: 1168px;
+	border: 1px solid #999;
+}
+.signupForm input{
+	border:1px solid;
+}
+.signupForm .modal-header{
+	border:0;
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	font-size:20px;
+	color:#660000;
+	padding: 60px 0 0px 102px;
+}
+.signupForm .modal-header button img{
+	margin-right:50px;
+	background:none;
+}
+.signupForm .modal-content{
+	border-radius:0;
+	padding-left:20px;
+}
+.signupForm .modal-body img{
+	width:90px;
+	height:80px;
+	border: 1px solid;
+	margin-right:16px;
+} 
+.signupForm .modal-body .form-group{
+	margin-bottom: 29px;
+	margin-top: 34px;
+}
+.signupForm .modal-body div.avatar{
+	padding-bottom:4px;
+}
+.signupForm .modal-body .form-group label, .signupForm .modal-body .radio-button{
+	color:#333;
+	font-size:18px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	padding-bottom:15px;
+}
+.signupForm .modal-body .radio-button{
+	margin-bottom:20px;
+ }
+.signupForm .modal-body .securityPass{
+	margin-bottom: 30px;
+}
+.signupForm .modal-body .securityText{
+	padding-bottom:46px;
+	padding-left:48px;
+}
+.signupForm .modal-body .disclaimer{
+	padding-bottom:60px;
+	padding-top:30px;
+}
+.signupForm .modal-footer{
+	border:0;
+}
+.signupForm .modal-footer button {
+	border:0px;
+	border-radius:0px;
+	background:#761a1a;
+	color:#fff;
+	font-size:36px;
+	font-family: 'Roboto Condensed', sans-serif;
+	padding:20px 330px;
+	margin-right:100px;
+}
+.signupForm .avatar label > input{ /* HIDE RADIO */
+  display:none;
+}
+.signupForm .avatar label > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+  border:1px solid black;
+}
+.signupForm .avatar label > input:checked + img{ /* (CHECKED) IMAGE STYLES */
+  border:2px solid black;
+}

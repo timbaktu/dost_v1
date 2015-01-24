@@ -1,0 +1,236 @@
+body{
+	padding-top:500px;
+}
+.navbar{
+	position: relative;
+	min-height: 113px;
+	margin-bottom: 0px;
+	border-top: 8px solid #ffcc00;
+	border-bottom: 3px solid #f3f3f3;
+	font-size:20px;
+	font-family: 'Lato', sans-serif;
+	font-weight:300;
+	background-color: #fff;
+}
+.navbar-brand{
+	padding: 3px 32px 0px 9px;
+}
+.navbar-default{
+	background-color: #fff; 
+}
+.navbar-default .navbar-nav>li>a {
+	color: #333;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+	color: #330000;
+	background-color: #fff;
+	border-top: 8px solid;
+	position: relative;
+	top: -8px;
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+	color: #555;
+	border-top: 8px solid #cc3333;
+	position: relative;
+	top: -8px;
+	background:#fff;
+	
+}
+.navbar-default .navbar-right li a{
+	color:#003399;
+}
+.navbar-btn {
+	margin: 20px 32px 0 0;
+}
+.navbar-default .navbar-right .login-btn{
+	background: #fffae6;
+	padding:18px 64px 9px 62px;
+	font-size:20px;
+	font-weight:300;
+	border:none;
+	border-radius:0;
+}
+.explore-dropdown{
+	width:762px;
+	height:332px;
+	position: absolute;
+	left: -445px;
+	border:1px solid #990000;
+	min-width: 762px;
+	padding:5px 20px 0 20px;
+}
+.explore-dropdown div.row{
+	padding-top:33px;
+}
+.explore-dropdown div span{
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size:15px;
+	color:#330000;
+}
+.explore-dropdown div a ,.explore-viewlink{
+	font-family: 'Lato', sans-serif;
+	font-size:14px;
+	padding-left:0px;
+}
+.explore-dropdown div a:hover{
+	text-decoration:none;
+}
+.explore-viewlink{
+	display:inline;
+	float:right;
+	color:#006699;
+}
+/*banner style*/
+.banner{
+	background:#ffcc00;
+}
+.banner .hand{
+	position: absolute;
+}
+.banner .sadPerson{
+	position:absolute;
+}
+.banner p{
+	position:absolute;
+	letter-spacing:-1px;
+}
+.banner p span{
+	color:#666;
+}
+.banner form{
+	position: absolute;
+}
+.banner input{
+	font-family: 'Lato', sans-serif;
+	border: none;
+	font-weight: 300;
+}
+.banner button{
+	color:#fff;
+	background:#333;
+	border:none;
+	border-radius:0px;
+	font-weight: 300;
+}
+/*banner large*/
+.bannerLarge{
+	height:350px;
+}
+.bannerLargehand{
+	top: 82px;
+	right: 225px;
+	height:130px;
+}
+.bannerLargesadPerson{
+	top: 150px;
+	left: 185px;
+	height:228px;
+}
+.bannerLargep{
+	font-size:20px;
+	top: 222px;
+	left: 365px;
+}
+
+.bannerLargeform{
+	top: 363px;
+	left: 378px;
+}
+.bannerLargeinput{
+	padding: 20px 160px 15px 20px;
+	font-size: 20px;
+}
+.bannerLargebutton{
+	padding: 19px 48px 16px 24px;
+	font-size: 20px;
+}
+/*banner small*/
+.bannerSmall{
+	height:132px;
+}
+.bannerSmallhand{
+	top: 88px;
+	right: 250px;
+	height:106px;
+}
+.bannerSmallsadPerson{
+	top: 117px;
+	left: 258px;
+	height:147px;
+}
+.bannerSmallp{
+	font-size:14px;
+	top: 120px;
+	left: 365px;
+}
+.bannerSmallform{
+	top: 193px;
+	left: 378px;
+}
+.bannerSmallinput{
+	padding: 9px 148px 7px 20px;
+	font-size: 16px;
+}
+.bannerSmallbutton{
+	padding: 9px 48px 8px 24px;
+	font-size: 16px;
+	
+}
+
+.navbar-default .navbar-right .login-btn .red-btn{
+	background: #761a1a;
+	color: #fff;
+}
+
+.navbar-default .navbar-right .login-btn .white-btn{
+	background: #fffae6;
+	color: #333;
+}
+
+.email-signup-radio{
+	padding-left:84px;
+}
+
+.feedback-container{
+	position: fixed;
+	right: -500px;
+}
+.jotform-feedback-link{
+	width: 200px!important;
+	padding-top: 10px!important;
+	color: #fff!important;
+	-ms-transform: rotate(270deg)!important;
+	-webkit-transform: rotate(270deg)!important;
+	transform: rotate(270deg)!important;
+	background: #000!important;
+	position: fixed!important;
+	right: -74px!important;
+	bottom: 108px!important;
+	font-size: 24px!important;
+	text-align: center!important;
+	border-radius: 0!important;
+}
+
+.feedback{
+	width: 200px;
+	padding-top:10px;
+	color: #fff;
+	-ms-transform: rotate(270deg); /* IE 9 */
+    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    transform: rotate(270deg);
+    background: #000;
+    position: absolute;
+	left: -119px;
+	top: 295px;
+	font-size:24px;
+	text-align:center;
+}
+
+.feedback-hidden{
+	height: 500px;
+	width: 500px;
+	border: 1px solid #666;
+	background:#fff;
+	border-right:none;
+}
+

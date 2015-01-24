@@ -1,0 +1,146 @@
+.reply-box{
+	height:212px;
+	width:100%;
+	border:1px solid;
+	margin-bottom:10px;
+	overflow:hidden;
+}
+.reply-btn , .option-btn{
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size:20px;
+	color:#fff;
+	background:#330000;
+	padding:6px 0px;
+	text-align:center;
+	width:100px;
+	margin-left:5px;
+}
+.option-btn{
+	background:#fff5d6;
+	color:#000;
+}
+.reply-btn a,.reply-btn a:hover {
+	color:#fff;
+	text-decoration:none;
+}
+.option-btn a ,.option-btn a:hover {
+	color:#333;
+	text-decoration:none;
+}
+.notes-heading, .notes-date{
+	font-family: 'Lato', sans-serif;
+	font-weight:400;
+	font-size:14px;
+}
+.notes-date{
+	font-size:12px;
+	font-weight:300;
+}
+.expanded{
+	border-right:2px solid #cfcfcf;
+}
+
+.notes-info{
+	margin-top:30px;
+}
+.message-timex{
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size:11px;
+}
+p.message-text {
+margin: 0 0px 10px;
+}
+p.height-fixed-message{
+	height: 54px;
+	overflow: hidden;
+}
+div.message-text {
+margin: 0 0px 10px;
+}
+div.height-fixed-message{
+	height: 54px;
+	overflow: hidden;
+}
+
+/*add note*/
+.add-note-modal .modal-dialog, .add-note-modal .modal-content{
+	width:487px;
+	height:175px;
+	border:1px solid #ebebeb;
+	border-radius:0;
+}
+.add-note-modal .modal-content{
+	padding:10px;
+}
+.add-note-modal .modal-dialog{
+	position: absolute;
+	top: 28%;
+	right: 47%;
+}
+.add-note-modal .add-note-box{
+	border:2px solid #ebebeb;
+	height:102px;
+	margin-bottom:5px;
+}
+/*label dropdown*/
+.option-btn .dropdown-menu{
+	width:225px;
+	height:325px;
+	border:1px solid #ccc;
+	border-radius:0;
+	padding:20px 5px 5px 0px;
+}
+.option-btn .dropdown-menu li{
+	font-family: 'Lato', sans-serif;
+	font-size:14px;
+}
+.option-btn .dropdown-menu .option-btn{
+	position: absolute;
+	top: 276px;
+	right: 7px;
+}
+/*radio btn*/
+.radioBtn {
+	width: 209px;	
+	margin: 2px auto;
+	position: relative;
+}
+.radioBtn label {
+	cursor: pointer;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	top: 0;
+	left:10px;
+	border-radius: 0px;
+	background:#fff;
+	border:1px solid #999;
+}
+.radioBtn label:after {
+	
+	filter: alpha(opacity=0);
+	opacity: 0;
+	content: '';
+	position: absolute;
+	width: 9px;
+	height: 5px;
+	background: transparent;
+	top: 4px;
+	left: 4px;
+	border: 2px solid #333;
+	border-top: none;
+	border-right: none;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+.radioBtn input[type=checkbox]:checked + label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	opacity: 1;
+}
+.inbox-heading, .message-options{
+	padding:0;
+}
