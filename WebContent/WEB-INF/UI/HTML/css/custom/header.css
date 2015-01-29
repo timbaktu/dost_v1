@@ -3,7 +3,7 @@ body{
 }
 .navbar{
 	position: relative;
-	min-height: 113px;
+	/*min-height: 113px;*/
 	margin-bottom: 0px;
 	border-top: 8px solid #ffcc00;
 	border-bottom: 3px solid #f3f3f3;
@@ -21,8 +21,27 @@ body{
 .navbar-default .navbar-nav>li>a {
 	color: #333;
 }
+/* siva code */
+.navbar-default .navbar-nav>li>a:hover{
+	color:#660000;
+	}
+	.navbar-default .navbar-right .login-btn:hover{
+	color:#ffcc33;
+	}
+	.banner button:hover{
+	color:#ffcc33;
+	}
+	.jotform-feedback-link{
+	z-index:9999!important;
+	}
+	.banner{
+	z-index: -10
+	}
+	
+	
+/* siva code */
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
-	color: #330000;
+	color: #660000;
 	background-color: #fff;
 	border-top: 8px solid;
 	position: relative;
@@ -93,6 +112,7 @@ body{
 .banner p{
 	position:absolute;
 	letter-spacing:-1px;
+	
 }
 .banner p span{
 	color:#666;
@@ -114,7 +134,7 @@ body{
 }
 /*banner large*/
 .bannerLarge{
-	height:350px;
+	height:362px;
 }
 .bannerLargehand{
 	top: 82px;
@@ -127,9 +147,10 @@ body{
 	height:228px;
 }
 .bannerLargep{
-	font-size:20px;
-	top: 222px;
-	left: 365px;
+	  font-size: 20px;
+  top: 47%;
+  font-family: 'Roboto Condensed', sans-serif;
+  left: 20%;
 }
 
 .bannerLargeform{
@@ -146,7 +167,7 @@ body{
 }
 /*banner small*/
 .bannerSmall{
-	height:132px;
+	height:170px;
 }
 .bannerSmallhand{
 	top: 88px;
@@ -205,7 +226,7 @@ body{
 	background: #000!important;
 	position: fixed!important;
 	right: -74px!important;
-	bottom: 108px!important;
+	bottom: 45%!important;
 	font-size: 24px!important;
 	text-align: center!important;
 	border-radius: 0!important;

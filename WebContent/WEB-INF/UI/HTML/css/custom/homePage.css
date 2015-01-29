@@ -36,9 +36,26 @@
 	background:#ffcc66;
 	margin:0 auto 15px auto;
 }
+/* changes by siva */
+
+.card{
+	box-shadow:initial;
+}
+.card:hover{
+	border-color:#ffcc66;
+	box-shadow:10px 10px 5px #888888;
+	 -webkit-box-shadow:0px 0px 10px #666666;
+	 -moz-box-shadow:0px 0px 10px #666666;
+}
+
+
+/* changes by siva */
 .card p{
 	font-family: 'Roboto Condensed', sans-serif;
 	color:#330000;
+	/* changes by siva */
+	padding:2px 0px;
+	margin: auto;
 } 
 .card .discussTopics{
 	margin-top:45px;

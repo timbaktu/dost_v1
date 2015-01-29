@@ -1,5 +1,7 @@
 footer{
+	font-family:'lato';
 	border-top:3px solid #ffcc00;
-	padding-top:42px;
-	padding-bottom:150px;
+	padding-top:22px;
+	padding-bottom:22px;
+	margin-top:30px;
 }

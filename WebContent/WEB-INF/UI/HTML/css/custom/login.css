@@ -1,6 +1,6 @@
 .loginForm{
 	padding-bottom:100px;
-	padding-top: 120px;
+	padding-top: 60px; -
 }
 .loginForm div{
 	padding-bottom:15px;
@@ -69,4 +69,10 @@ textarea {
 
 .forgot-pass-container{
 	height: 500px;
+}
+
+/* siva code */
+
+.loginForm .sign{
+	
 }
