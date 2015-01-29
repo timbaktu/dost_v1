@@ -7,6 +7,7 @@
 }
 .signupForm input{
 	border:1px solid;
+	border-radius:0px;
 }
 .signupForm .modal-header{
 	border:0;
@@ -52,10 +53,11 @@
 }
 .signupForm .modal-body .securityText{
 	padding-bottom:46px;
-	padding-left:48px;
+	padding-left:84px;
 }
 .signupForm .modal-body .disclaimer{
-	padding-bottom:60px;
+	font-family:'lato';
+	padding-bottom:30px;
 	padding-top:30px;
 }
 .signupForm .modal-footer{
@@ -65,11 +67,19 @@
 	border:0px;
 	border-radius:0px;
 	background:#761a1a;
+	-webkit-transition: background 0.5s linear;
+        -moz-transition: background 0.5s linear;
+        -ms-transition: background 0.5s linear;
+        -o-transition: background 0.5s linear;
+        transition: background 0.5s linear;
 	color:#fff;
-	font-size:36px;
+	font-size:25px;
 	font-family: 'Roboto Condensed', sans-serif;
 	padding:20px 330px;
 	margin-right:100px;
+}
+.signupForm .modal-footer button:hover{
+	background:#000;
 }
 .signupForm .avatar label > input{ /* HIDE RADIO */
   display:none;

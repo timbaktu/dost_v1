@@ -11,9 +11,9 @@
 
 /* siva code  // no shadow. */
 .inbox-messages1:hover,.inbox-messages:hover{
-	box-shadow:10px 10px 5px #888888; 
-	 -webkit-box-shadow:0px 0px 10px #666666;
-	 -moz-box-shadow:0px 0px 10px #666666;
+	box-shadow:0px 0px 2px #666666;; 
+	 -webkit-box-shadow:0px 0px 2px #666666;
+	 -moz-box-shadow:0px 0px 2px #666666;;
 }
 
 
@@ -62,7 +62,7 @@ padding-top:0;
 }
 .right-view{
 	position: relative;
-	top: 76px;
+	top: 0px;
 	right: 40px;
 }
 .tab-content{

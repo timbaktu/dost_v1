@@ -4,6 +4,15 @@
 	border:1px solid;
 	margin-bottom:10px;
 	overflow:hidden;
+	-webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+}
+.reply-box:focus{
+	 box-shadow: 0 0 3px rgba(50, 50, 50, 1);
+	 border: 1px solid rgba(0, 0, 0, 1);
 }
 .reply-btn , .option-btn{
 	font-family: 'Roboto Condensed', sans-serif;
