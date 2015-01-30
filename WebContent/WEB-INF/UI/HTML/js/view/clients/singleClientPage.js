@@ -32,10 +32,11 @@ define([
 			var self = this;
 			var branch = self.$el.find("#userDetailBranch").val(),
 				year =self.$el.find("#userDetailYear").val(),
-				name = self.$el.find("#userDetailName").val(),
+				fname = self.$el.find("#userFirstName").val(),
+				lname = self.$el.find("#userLastName").val(),
 				hostel = self.$el.find("#userDetailHostel").val();
-			var url = "http://localhost:8800/dost/api/userdetail/add?fname="+name+
-				"&lname=&hostel="+hostel+"&year="+year+"&branch="+branch+"&userId="+ "146";
+			var url = "http://localhost:8800/dost/api/userdetail/add?fname="+fname+
+				"&lname="+lname+"&hostel="+hostel+"&year="+year+"&branch="+branch+"&userId="+ this.getId();
 			$.ajax({
 				type: "POST",
 				url: url
@@ -50,7 +51,10 @@ define([
 			Router.__super__.navigate("#clients",{trigger: true});
 		},
 		render: function() {
-			var data = this.getData();
+			var data = this.getData();			
+			$.ajax("http://localhost:8800/dost/api/user/"+this.getId()+"/patienthistory/all").done(function(data){
+				console.log(data);
+			});
 			this.user = data["1412223651665"]["chat"].user;
 			this.$el.html(SingleClientPageLayout({
 				fname: this.user.fname,
@@ -74,6 +78,12 @@ define([
 				container.append((new MessageHistoryView({model: message})).render().$el);
                 // append this to the collectionview
             });
+		},
+		getId:function(){
+			var url= window.location.href.split("/");
+			var useridIndex=url.length-1;
+			var userId=url[useridIndex];
+			return userId;
 		},
 		renderHistory: function(){
 			// loop through all chat threads and instantiate a chatHistoryView
