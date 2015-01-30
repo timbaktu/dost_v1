@@ -31,6 +31,7 @@ define([
 			"click #inboxTab": "inboxClicked",
 			"click #sentTab": "sentClicked",
 			"click #chatsTab": "chatClicked"
+				
 		},
 		render: function() {
 			var self = this;
