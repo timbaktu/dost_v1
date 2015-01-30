@@ -36,26 +36,9 @@
 	background:#ffcc66;
 	margin:0 auto 15px auto;
 }
-/* changes by siva */
-
-.card{
-	box-shadow:initial;
-}
-.card:hover{
-	border-color:#ffcc66;
-	box-shadow:10px 10px 5px #888888;
-	 -webkit-box-shadow:0px 0px 10px #666666;
-	 -moz-box-shadow:0px 0px 10px #666666;
-}
-
-
-/* changes by siva */
 .card p{
 	font-family: 'Roboto Condensed', sans-serif;
 	color:#330000;
-	/* changes by siva */
-	padding:2px 0px;
-	margin: auto;
 } 
 .card .discussTopics{
 	margin-top:45px;
@@ -80,4 +63,23 @@
 .viewall-btn span{
 	background:#fffae5;
 	padding:15px 0 10px 40px;
+}
+.compose-msg-modal{
+	padding:10% 10% 0
+}
+.compose-msg-modal .recipients{
+	width:70%
+}
+.compose-msg-modal .subject, .compose-msg-modal .compose-msg-box, .compose-msg-modal #btnSend {
+	width:100%
+}
+
+.compose-message-modal .modal-footer{text-align:center}
+.compose-message-modal .composeMsg-send {
+	background-color: #800;
+	border: 1px solid black;
+	color: white;
+	padding:10px 0;
+	margin: 5% 0;
+	width:80%
 }
