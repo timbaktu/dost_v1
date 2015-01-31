@@ -57,7 +57,8 @@ define([
         	        "dbUserRole": {
         	            "userRoleId": 3,
         	            "username": "prashant",
-        	            "role": "ROLE_ADMIN"
+        	            "role": "ROLE_ADMIN",
+        	            "token":"abc343aawadw9900"
         	        },
         	        "avatar": "avatar7",
         	        "userSecurities": [],

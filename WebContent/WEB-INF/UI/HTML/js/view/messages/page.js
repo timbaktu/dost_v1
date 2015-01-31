@@ -39,6 +39,7 @@ define([
 		render: function() {
 			var self = this;
 			this.$el.html(MessagesPageLayout({}));
+			console.log(LoginStatus);
 			$(".banner").hide();
 			$(window).unbind('scroll');
 			$('body').css("padding-top", "114px");
