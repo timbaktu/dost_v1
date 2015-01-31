@@ -23,5 +23,5 @@ public interface UserService {
 	
 	public DbUser updateUser(DbUser dbUser);
 	
-	
+	public boolean doesUserExists(String username);
 }

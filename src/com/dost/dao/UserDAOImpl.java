@@ -141,6 +141,19 @@ public class UserDAOImpl implements UserDAO {
 		session.saveOrUpdate(dbUser);
 		return dbUser;
 	}
-	
+
+	public boolean doesUserExists(String username) {
+		boolean userExists = false;
+		Session session = sessionFactory.getCurrentSession();
+		
+		Query query = session.createQuery("select username from DbUser where username = :username");
+		query.setParameter("username", username);
+		
+		String userName = (String)query.uniqueResult();
+		if(userName != null) {
+			userExists = true;
+		}
+		return userExists;
+	}
 	
 }

@@ -17,4 +17,5 @@ public interface UserDAO {
 	public DbUser checkUserBySecurityQuestion(String username, String question1, String question2,	String answer1, String answer2);
 	public DbUser updatePassword(String username, String password);
 	public DbUser updateUser(DbUser dbUser);
+	public boolean doesUserExists(String username);
 }
