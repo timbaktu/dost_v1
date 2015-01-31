@@ -10,7 +10,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.dost.hibernate.DbSecurityQuestion;
 import com.dost.hibernate.DbUser;
 import com.dost.hibernate.DbUserSecurity;
 import com.dost.hibernate.Role;
@@ -21,18 +20,14 @@ public class UserDAOImpl implements UserDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public Role authenticateUser(String username, String password) {
+	public DbUser authenticateUser(String username, String password) {
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("from DbUser u where u.username = :username and u.password = :password");
 		query.setParameter("username", username);
 		query.setParameter("password", password);
 		
-		Role outputRole = Role.UNAUTHORIZED;
 		DbUser retUser = (DbUser)query.uniqueResult();
-		if(retUser != null) {
-			outputRole = Role.valueOf(retUser.getUserRole().toString());
-		}
-		return outputRole;
+		return retUser;
 	}
 
 	public void saveUser(String username, String password, String userRole) {
