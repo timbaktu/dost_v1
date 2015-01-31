@@ -2,6 +2,7 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
+	'lib/jquery-ui',
 	'hbs!../../template/messages/layout',
 	'event/dispatcher',
 	'model/login',
@@ -9,8 +10,10 @@ define([
 	'view/messages/messageCollectionView',
 	'hbs!../../template/messages/welcomeMessage',
 	'hbs!../../template/messages/nomessage',
+    'hbs!../../template/messages/composeMsgModal',         
+    'view/basemodal/BaseModal',     
 	'handlebars'
-], function($, _, Backbone, MessagesPageLayout, Dispatcher, LoginStatus, Router, MessageCollectionView, WelcomeMessage, NoMessage, Handlebars) {
+], function($, _, Backbone,jqueryUi,MessagesPageLayout, Dispatcher, LoginStatus, Router, MessageCollectionView, WelcomeMessage, NoMessage, ComposeMsgModal, BaseModalView, Handlebars) {
 	var MessagesPage = Backbone.View.extend({
 		el: "#main-content",
 		initialize: function() {
@@ -30,7 +33,8 @@ define([
 		events: {
 			"click #inboxTab": "inboxClicked",
 			"click #sentTab": "sentClicked",
-			"click #chatsTab": "chatClicked"
+			"click #chatsTab": "chatClicked",
+			"click .compose-btn": "composeClicked",
 		},
 		render: function() {
 			var self = this;
@@ -198,6 +202,46 @@ define([
 			$("#sent").empty().hide();
 			$("#myChats").show();
 			//activate messageCollectionView with chat messages in #myChats
+		},
+		
+		composeClicked: function(e){
+			e.preventDefault();
+			e.stopPropagation();
+			var self = this;
+			$modalBody = $('<div>').html(ComposeMsgModal);
+			var signUpModal = new BaseModalView({
+                title: "",
+                headerHidden: true,
+                className : 'modal fade compose-message-modal',
+                buttonList: [
+                    ['SEND NOW', function(modal, event){
+                    	var self = this;
+                    	var content = modal.$el.find("textarea").val().replace(/\n/g, '<br/>');
+                    	var subject= modal.$el.find(".subject").val().replace(/\n/g, '<br/>');
+                    	var recipients;
+                    	$.ajax("http://localhost:8800/dost/api/user/"+$(".recipients").val()).done(function(details){
+	                    	var url = "http://localhost:8800/dost/api/user/message?subject="+subject+"&content="+content+"&recipients="+details.userId+"&senderId=" +LoginStatus.get('userId');
+	                    	$.ajax({
+	                    		type: "POST",
+	                    		url: url
+	                    	}).done(function(response){
+	                    		console.log(response);
+	                    		var note = response,
+	                    			userName = response.user.username;
+	                    		$("<div class='notes-info'>").append("<div class='notes-heading'>"+
+	                    				note.note+"</div><div class='notes-date pull-right'>" +
+	                    				userName +" " + Utils.getDateDiff(note.noteDate) + 
+	                    				"</div>").prependTo("#notesContainer");
+	                    		
+	                    	});
+	    				});
+                    	modal.teardown();                    	
+                    }.bind(self), 'option-btn composeMsg-send btn']
+                ],
+                body: $modalBody,
+                //data: usernames
+            });
+        	signUpModal.show();
 		},
 		changeUnreadCount: function(count){
 			self.unreadCount = count;

@@ -7,7 +7,8 @@ define( [ 'underscore', 'backbone', 'hbs!template/basemodal/BaseModal',
 		template : template,
 
 		events : {
-			'hidden' : 'teardown'
+			'hidden' : 'teardown',
+		    "focus .recipients":"autoComplete"
 		},
 
 		initialize : function(options) {
@@ -103,6 +104,18 @@ define( [ 'underscore', 'backbone', 'hbs!template/basemodal/BaseModal',
 				$("body").removeClass("modal-open");
 			}
 			this.remove();
+		},
+		autoComplete:function(usersnames){
+			var usernames=[];
+			$.ajax("http://localhost:8800/dost/api/users").done(function(users){
+				$.each(users, function(i,key){
+				  usernames.push(key.username);
+				});
+			});
+			$( ".recipients" ).autocomplete({
+				source:usernames
+			    });
+			$(".ui-autocomplete").css("z-index","1060");
 		},
 		
 		hide: function(){
