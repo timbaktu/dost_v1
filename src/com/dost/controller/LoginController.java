@@ -1,5 +1,10 @@
 package com.dost.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -16,7 +21,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dost.hibernate.DbUser;
-import com.dost.hibernate.Role;
 import com.dost.service.UserService;
 
 // Adding more comments
@@ -31,17 +35,52 @@ public class LoginController {
 		return new ModelAndView("user/conversations");
 	}
 
+	/**
+	 * This API is for handling login and authentication for backbone UI
+	 * I am planning to add a filter which will check if token is present in that HashMap
+	 * @param user
+	 * @return
+	 */
 	@RequestMapping(value = "/user/authenticate")
-	public ModelAndView authenticateUser(DbUser user) {
-		Role role = userService.authenticateUser(user.getUsername(),
-				user.getPassword());
-		if (role == Role.USER) {
-			return new ModelAndView("user/conversations");
-		} else if (role == Role.COUNSELOR) {
-			return new ModelAndView("counselor/conversations");
-		} else {
-			return new ModelAndView("unauthorized");
+	@ResponseBody
+	public Map<String, String> authenticateUser(HttpServletRequest request) {
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		username = "sohil";
+		password = "dost123";
+		DbUser dbUser = userService.authenticateUser(username, password);
+
+		Map<String, String> response = new HashMap<String, String>();
+		response.put("username", username);
+		if(dbUser != null) {
+			UUID token = UUID.randomUUID();
+			
+			response.put("userId", dbUser.getUserId()+"");
+			response.put("role", dbUser.getDbUserRole().getRole());
+			response.put("token", token + "");
+			response.put("isLoggedIn", "true");
+			
+			// Add this token in HashMap and add it in servletContext which can be used later to check if user has passed proper token 
+			// and for blocking and logging user out user
+			ServletContext servletContext = request.getServletContext();
+			Object object = servletContext.getAttribute("userMap");
+			Map<String, String> userMap;
+			if(object != null) {
+				userMap = (Map<String, String>)object;
+			}
+			else {
+				userMap = new HashMap<String, String>();
+			}
+			userMap.put(token+"", dbUser.getUsername());
+			servletContext.setAttribute("userMap", userMap);
 		}
+		else {
+			response.put("token", "");
+			response.put("isLoggedIn", "false");					
+		}
+		
+		
+		return response;
 	}
 
 	@RequestMapping(value = "/faq/add", method = RequestMethod.POST)

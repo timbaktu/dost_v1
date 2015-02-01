@@ -8,7 +8,7 @@ import com.dost.hibernate.Role;
 public interface UserService {
 
 	public void saveUser(String username, String password, String role);
-	public Role authenticateUser(String username, String password);
+	public DbUser authenticateUser(String username, String password);
 	
 	public DbUser getUser(Long userId);
 	
@@ -23,5 +23,5 @@ public interface UserService {
 	
 	public DbUser updateUser(DbUser dbUser);
 	
-	
+	public boolean doesUserExists(String username);
 }

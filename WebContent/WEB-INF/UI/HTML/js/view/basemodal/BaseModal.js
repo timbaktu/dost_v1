@@ -8,7 +8,8 @@ define( [ 'underscore', 'backbone', 'hbs!template/basemodal/BaseModal',
 
 		events : {
 			'hidden' : 'teardown',
-		    "focus .recipients":"autoComplete"
+		    "focus .recipients":"autoComplete",
+		    "blur #username":"usernameCheck"
 		},
 
 		initialize : function(options) {
@@ -116,6 +117,20 @@ define( [ 'underscore', 'backbone', 'hbs!template/basemodal/BaseModal',
 				source:usernames
 			    });
 			$(".ui-autocomplete").css("z-index","1060");
+		},
+		usernameCheck:function(){
+			$(".signupForm #username").css("border-color","black");
+			$(".error").remove();
+			var text=$(".signupForm #username").val();
+			$.ajax("http://localhost:8800/dost/api/user/"+text+"/exists").done(function(response){
+				if(response.userexists=="true"){
+					$(".signupForm #username").css("border-color","red");
+					$(".signupForm #username").parent().parent().append('<span style="color:red" class="error">username exists</span>')
+				}
+				else{
+					$(".signupForm #username").css("border-color","green")
+				}
+			});
 		},
 		
 		hide: function(){

@@ -1,6 +1,8 @@
 package com.dost.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -57,5 +59,15 @@ public class UserController {
 		User userToReturn = new User();
 		UserPopulator.populateUser(userToReturn, dbUser);
 		return userToReturn;
+	}
+	
+	@RequestMapping(value="user/{username}/exists", method=RequestMethod.GET)  
+	@ResponseBody
+	public Map<String, String> checkIfUserExists(@PathVariable String username) {
+		Map<String, String> response = new HashMap<String, String>();
+		boolean exists = userService.doesUserExists(username);
+		response.put("userexists", exists+"");
+		
+		return response;
 	}
 }
