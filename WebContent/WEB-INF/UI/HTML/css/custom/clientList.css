@@ -39,7 +39,7 @@
 	color:#330000;
 }
 .search-box1 input{
-	//width: 378px;
+	width: 378px;
 	height: 46px;
 	border: 1px solid #9d9d9d;
 	margin-right:20px;
@@ -99,11 +99,4 @@
 }
 .client-sort, .client-sort:hover, .client-sort:focus, .client-sort:active{
 	border:none;
-}
-
-@media  screen and(max-width: 768px) { 
-	.filters{
-		display:none;
-	}
-	
 }
