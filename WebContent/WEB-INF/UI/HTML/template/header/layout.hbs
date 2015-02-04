@@ -13,7 +13,19 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li id="messagesNav" class="hidden"><a href="#messages">Messages<span class="sr-only">(current)</span></a></li>
+				<li id="messagesNav" class="hidden"><a href="#messages">Messages<span class="sr-only">(current)</span>
+				<!-- siva's code -->
+				<div class="col-sm-2 hidden-md hidden-lg">
+		<button type="button" class="compose-btn btn">COMPOSE</button>
+		<ul class="nav" role="tablist">
+			
+			<li role="presentation" class="active"><a href="#inbox" aria-controls="inbox" role="tab" id="inboxTab" data-toggle="tab">Inbox<span id="unreadCount"></span></a></li>
+			<li role="presentation"><a href="#sent" aria-controls="sent" role="tab" id="sentTab" data-toggle="tab">Sent</a></li>
+			<li role="presentation"><a href="#myChats" aria-controls="myChats" id="chatsTab" role="tab" data-toggle="tab">My Chats</a></li>
+		</ul>
+	</div>
+				<!-- siva's code -->
+				</a></li>
 				<li id="clientListNav" class="hidden"><a href="#clients">Client List</a></li>
 				<li><a href="#discussions">Support Discussions <span class="sr-only">(current)</span></a></li>
 				<li class="active"><a href="#dost">Your Dost</a></li>

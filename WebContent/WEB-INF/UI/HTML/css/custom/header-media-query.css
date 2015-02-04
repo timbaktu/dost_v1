@@ -78,5 +78,9 @@
 	background: rgb(0, 0, 0);
 	}
 	.navbar-toggle{
-	background-color:rgb(234, 215, 17);}
+	background-color:rgb(234, 215, 17);
+	}
+	#inboxTab,#sentTab,#chatsTab{
+	color:#333;
+	}
 }
