@@ -39,7 +39,7 @@
 	color:#330000;
 }
 .search-box1 input{
-	width: 378px;
+	//width: 378px;
 	height: 46px;
 	border: 1px solid #9d9d9d;
 	margin-right:20px;
@@ -60,12 +60,13 @@
 .client-card{
 	border:1px solid #ffcc66;
 	height:374px;
-	//width:304px;
+	//width:inherit;
 	font-size:16px;
 	
 }
 .clientCards-area .paddBottom{
 	padding-bottom:80px;
+	height:400px;
 }
 .clientPhoto img{
 	width:100px;
@@ -92,11 +93,47 @@
 .message-btn{
 	background:#ccb27f;
 	color:#000;
+	float:left;
+}
+.message-btn>img{
+	width:20%;
 }
 .detail-btn{
 	background:#000;
 	color:#fff;
+	float:left;
 }
 .client-sort, .client-sort:hover, .client-sort:focus, .client-sort:active{
 	border:none;
+}
+
+@media  screen and (max-width:768px) { 
+	.filters{
+		display:none;
+	}
+	.client-card{
+		width:inherit;
+	}
+	.client-btn{
+  width: 204px;
+  height: 26px;
+  position:relative;
+  top:18%;
+  left:0px;
+  margin: 0 auto 15px auto;
+
+	}
+	.message-btn{
+	width: 102px;
+	font-size:15px;
+	float:left;
+}
+.message-btn>img{
+	width:20%;
+	
+}
+.detail-btn{
+	width: 102px;
+	font-size:15px;
+	float:left;
 }

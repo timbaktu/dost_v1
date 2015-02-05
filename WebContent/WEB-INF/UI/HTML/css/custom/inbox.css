@@ -97,3 +97,31 @@ margin: 0px 0px 5px; width: 466px; height: 102px;}
 .expandTheMessage{
 	cursor: pointer;
 }
+
+@media screen and (max-width: 768px){
+	.tab-content{
+	width:100%;
+	padding-top:30px;
+	padding-left:2%;
+	padding-right:2%;
+	margin-left:0px;
+}
+.inbox-messages1{
+	padding-top:20px;
+	padding-left:0px;
+	padding-right:0px;
+}
+.inbox-messages1>.photo{
+	//width:60px;
+	float:left;
+}
+.pull-right{
+	float:left!important;
+}
+.right-view {
+	right:0px;
+}
+.message-heading{
+	float:left;
+}
+}

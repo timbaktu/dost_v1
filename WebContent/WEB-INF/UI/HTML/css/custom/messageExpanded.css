@@ -154,3 +154,8 @@ div.height-fixed-message{
 .inbox-heading, .message-options{
 	padding:0;
 }
+@media screen and (max-width: 768px){
+	div.height-fixed-message {
+	height:inherit;
+	}
+}

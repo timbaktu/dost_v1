@@ -7,3 +7,80 @@
 	}
 	
 }
+/* siva code */
+@media screen and (max-width: 968px){
+	.navbar{
+		font-size:14px;
+	}
+	.navbar-nav>li >a{
+		padding:42px 5px 30px 5px;
+	}
+	
+	.navbar-default .navbar-right .login-btn{
+		//width:83px;
+		margin:35px 0px 0px 0px;
+		padding:4px 3px;
+	}
+	//#bs-example-navbar-collapse-1 .navbar-nav{
+		margin-top:20px;
+	}
+	//#bs-example-navbar-collapse-1 .navbar-nav>li >a{
+		font-size:18px;
+		padding:10px 0px;
+		border:none;
+		
+	}
+}
+
+@media screen and (min-width: 968px) and (max-width: 1200px) { 
+   .navbar{
+		font-size:16px;
+	}
+	.navbar-nav>li >a{
+		padding:42px 16px 30px 16px;
+		
+	}
+	
+	.navbar-default .navbar-right .login-btn{
+		//width:100px;
+		margin:25px 0px 0px 0px;
+		padding:10px 10px;
+	}
+}
+
+@media screen and (max-width: 768px){
+	.navbar-nav>li >a{
+		padding:20px 5px 20px 5px;
+		font-size:20px;
+		text-align:left;
+	}
+	.navbar-collapse{
+	float:right;
+	margin-top:20px;
+	background:rgb(239, 211, 71);
+	width:70%;
+	
+	}
+	.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+		max-height:none;
+	}
+	.navbar-brand>img{
+	width:70%;
+	}
+	
+	.navbar-default .navbar-right .login-btn{
+		//width:100px;
+		float:right;
+		margin:25px 40px 0px 0px;
+		padding:10px 10px;
+	}
+	.navbar-default .navbar-toggle .icon-bar  {
+	background: rgb(0, 0, 0);
+	}
+	.navbar-toggle{
+	background-color:rgb(234, 215, 17);
+	}
+	#inboxTab,#sentTab,#chatsTab{
+	color:#333;
+	}
+}

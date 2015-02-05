@@ -1,11 +1,12 @@
-<div class="col-md-1">
+<div class="col-md-1 col-sm-2 photo">
 	<img class="photo" src="images/avatar/avatar1.png"><br>
 	<span class="inboxName">{{sender.fname}}</span>
 </div>
-<div class="col-md-9">
+<div class="col-md-9 heading">
 	<span class="message-heading expandTheMessage {{ifinline isUnread 'unread-highlight'}}">
 		{{subject}} ({{messageCount}})
 	</span>
+	<br>
 	<span class="message-time pull-right">
 		{{getDateDiff sentDate}}
 	</span><br><br>
