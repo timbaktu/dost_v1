@@ -84,7 +84,7 @@ public class FaqController {
 		return faq;
 	}
 	
-	@RequestMapping(value="/faq/{id}", method=RequestMethod.DELETE)  
+	@RequestMapping(value="/faq/{id}/delete", method=RequestMethod.DELETE)  
 	public Map<String, String> deleteFaqById(@PathVariable Long id) {
 		Map<String, String> response = new HashMap<String, String>();
 		boolean output = faqService.deleteFaqById(id);
