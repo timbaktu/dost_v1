@@ -16,19 +16,25 @@ define([
 		events: {},
 		render: function() {
 			var self = this;
-			this.$el.html(SingleFaqPageLayout({}));
-			if(LoginStatus.get("isLoggedIn")!== true){
-				$(".banner").show();
-				Dispatcher.trigger("header:bindBanner");
-			}
-			$.ajax("http://localhost:8800/dost/api/faqcategory/all").done(function(response){
+			var fid=window.location.hash.split("/")[1];
+			$.ajax("http://localhost:8800/dost/api/faq/"+fid).done(function(response){
+				$("#main-content").html(SingleFaqPageLayout(response));
+				$("#main-content .answer").html(response.answer);
+				if(LoginStatus.get("isLoggedIn")!== true){
+					$(".banner").show();
+					Dispatcher.trigger("header:bindBanner");
+				}
+			});
+			
+			/*$.ajax("http://localhost:8800/dost/api/faqcategory/all").done(function(response){
 				console.dir(response);
+				
 				_.each(response, function(category){					
 					self.$el.find("#faqCategoryContainer").append(new FaqCategoryView({
 						category: category
 					}).render().$el);
 				});
-			});
+			});*/
 		}
 	});
 
