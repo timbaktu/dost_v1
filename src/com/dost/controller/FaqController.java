@@ -1,6 +1,8 @@
 package com.dost.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,5 +69,26 @@ public class FaqController {
 		faq.setCategoryId(""+dbFaqCategory.getFaqCategoryId());
 		faqService.addFaq(dbFaq);
 		return faq;
+	}
+	
+	@RequestMapping(value="/faq/update", method=RequestMethod.PUT)  
+	@ResponseBody
+	public Faq updateFaq(Faq faq) {
+		DbFaqCategory dbFaqCategory = categoryService.findCategoryByName(faq.getCategory());
+		DbFaq dbFaq = faqService.getFaqById(faq.getId());
+		dbFaq.setQuestion(faq.getQuestion());
+		dbFaq.setAnswer(faq.getAnswer());
+		dbFaq.setCategory(dbFaqCategory);
+		faq.setCategoryId(""+dbFaqCategory.getFaqCategoryId());
+		faqService.addFaq(dbFaq);
+		return faq;
+	}
+	
+	@RequestMapping(value="/faq/{id}", method=RequestMethod.DELETE)  
+	public Map<String, String> deleteFaqById(@PathVariable Long id) {
+		Map<String, String> response = new HashMap<String, String>();
+		boolean output = faqService.deleteFaqById(id);
+		response.put("status", output+"");
+		return response;
 	}
 }
