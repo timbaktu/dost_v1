@@ -48,7 +48,7 @@ define([
 			e.preventDefault();
 			//if user credentials are authenticated route to messages
 			// Set user id in the Login Module. which should be returned by the service.
-			this.loginSuccess();
+        	this.loginSuccess();
         },
         loginSuccess: function(){
         	var loggedInUser = {
@@ -69,10 +69,22 @@ define([
         	        "branch": "",
         	        "isLoggedIn": true
         	    };
-        	LoginStatus.set(loggedInUser);
-        	$.cookie("loggedInUser", JSON.stringify(loggedInUser), {expires: 1000});
-        	Dispatcher.trigger("header:loggedIn");
-        	Router.__super__.navigate("#messages",{trigger: true});
+        	var username=$(".loginForm #username").val();
+			var pwd=$(".loginForm #password").val();
+			$.ajax("http://localhost:8800/dost/user/authenticate?username="+username+"&password="+pwd).done(function(data){
+				if(data.isLoggedIn=="true"){
+					$.ajax("http://localhost:8800/dost/api/user/"+username).done(function(details){
+						LoginStatus.set(details);
+						LoginStatus.set({"isLoggedIn":true});
+						$.cookie("loggedInUser", JSON.stringify(LoginStatus), {expires: 1000});
+			        	Dispatcher.trigger("header:loggedIn");
+			        	Router.__super__.navigate("#messages",{trigger: true});
+					});
+				}
+			});
+        	//LoginStatus.set(loggedInUser);
+        	//$.cookie("loggedInUser", JSON.stringify(loggedInUser), {expires: 1000});
+        	
         }
 	});
 

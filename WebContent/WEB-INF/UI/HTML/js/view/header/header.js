@@ -29,8 +29,8 @@ define([
         	'click .feedback': 'showHideFeedback',
         	'click .navbar-brand': 'homeClicked'
         },
-        render: function() {
-
+        render: function() { 
+        	
             this.$el.html(headerLayoutTemplate({}));
 
             this.bindBanner();
@@ -50,8 +50,7 @@ define([
         	}
         	
         },
-        showSignUpBanner: function(){
-        	
+        showSignUpBanner: function(){        	
         	this.showSignUp(this);
         },
         
@@ -279,7 +278,7 @@ define([
         	if(messageNav.hasClass("hidden")){
         		messageNav.removeClass("hidden");
         	}
-        	userDetailsNav.find("#dropdownName").prepend(LoginStatus.get("fname") +" &nbsp;");
+        	userDetailsNav.find("#dropdownName").prepend(LoginStatus.get("username") +" &nbsp;");
         	
         	self.changeLoginText("Logout");
         	$(".banner").hide();
