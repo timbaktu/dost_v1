@@ -158,4 +158,24 @@ div.height-fixed-message{
 	div.height-fixed-message {
 	height:inherit;
 	}
+	.reply-btn, .option-btn {
+	width:auto;
+	margin-bottom:10px;
+	}
+	.reply-div{
+	margin-bottom:30px;
+	}
+	.expanded,.orange-line,.sieve-history{
+	padding-right:0px;
+	padding-left:0px;
+	border:none;
+	}
+	.inbox-heading, .message-options{
+	 padding-left:4px;
+	 padding-right:4px;
+	}
+	#historyContainer{
+	padding-left:4px;
+	 padding-right:4px;
+	}
 }
