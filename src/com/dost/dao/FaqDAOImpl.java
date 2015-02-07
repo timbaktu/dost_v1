@@ -23,6 +23,8 @@ public class FaqDAOImpl implements FaqDAO {
 		if(dbFaq == null) {
 			return new DbFaq();
 		}
+		dbFaq.setCategoryName(dbFaq.getCategory().getFaqCategoryName());
+		dbFaq.setFaqCategoryId(dbFaq.getCategory().getFaqCategoryId());
 		return dbFaq;
 	}
 

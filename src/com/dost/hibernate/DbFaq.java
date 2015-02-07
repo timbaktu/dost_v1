@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.codehaus.jackson.annotate.JsonBackReference;
 import org.hibernate.annotations.Cache;
@@ -39,6 +40,11 @@ public class DbFaq extends DbGeneric implements Serializable {
 	private String question;
 	@Column(name="answer")
 	private String answer;
+	
+	@Transient
+	private String categoryName;
+	@Transient
+	private Long faqCategoryId;
 	
 	
 	public Long getFaqId() {
@@ -70,6 +76,18 @@ public class DbFaq extends DbGeneric implements Serializable {
 	}
 	public void setAnswer(String answer) {
 		this.answer = answer;
+	}
+	public String getCategoryName() {
+		return category.getFaqCategoryName();
+	}
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+	public Long getFaqCategoryId() {
+		return category.getFaqCategoryId();
+	}
+	public void setFaqCategoryId(Long faqCategoryId) {
+		this.faqCategoryId = faqCategoryId;
 	}
 	
 	
