@@ -15,4 +15,8 @@ public interface FaqDAO {
 	public DbFaq addFaq(DbFaq dbFaq);
 	
 	public boolean deleteFaqById(Long id);
+
+	public DbFaq getNextFaqForThisId(Long id);
+
+	public DbFaq getPreviousFaqForThisId(Long id);
 }

@@ -6,7 +6,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,14 +31,25 @@ public class FaqController {
 	
 	@RequestMapping(value="/faq/{id}", method=RequestMethod.GET)  
 	@ResponseBody
-	public DbFaq getFaqById(@PathVariable Long id) {
-		try {
-			System.out.println(new ObjectMapper().writeValueAsString(faqService.getFaqById(id).getCategory()));
+	public DbFaq getFaqById(@PathVariable Long id, HttpServletRequest request) {
+		
+		String actionType = request.getParameter("type");
+		// Set default if not present
+		if(actionType == null) {
+			actionType = "CURRENT";
 		}
-		catch (Exception e) {
-					e.printStackTrace();
+		DbFaq response = null;
+		// Start checking now
+		if(actionType.equals("CURRENT")) {
+			response = faqService.getFaqById(id); 
 		}
-		return faqService.getFaqById(id); 
+		else if(actionType.equals("NEXT")) {
+			response = faqService.getNextFaqForThisId(id); 
+		}
+		else if(actionType.equals("PREVIOUS")) {
+			response = faqService.getPreviousFaqForThisId(id); 
+		}
+		return response;
 	}
 	
 	@RequestMapping(value="/faqs/all", method=RequestMethod.GET, produces = "application/json")  

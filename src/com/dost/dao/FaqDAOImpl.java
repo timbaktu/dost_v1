@@ -63,5 +63,24 @@ public class FaqDAOImpl implements FaqDAO {
 		query.executeUpdate();
 		return true;
 	}
-	
+
+	public DbFaq getNextFaqForThisId(Long id) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from DbFaq where faqId > :id order by faqId");
+		query.setParameter("id", id);
+		query.setMaxResults(1);
+		
+		DbFaq faq = (DbFaq)query.uniqueResult();
+		return faq;
+	}
+
+	public DbFaq getPreviousFaqForThisId(Long id) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from DbFaq where faqId < :id order by faqId");
+		query.setParameter("id", id);
+		query.setMaxResults(1);
+		
+		DbFaq faq = (DbFaq)query.uniqueResult();
+		return faq;
+	}	
 }
