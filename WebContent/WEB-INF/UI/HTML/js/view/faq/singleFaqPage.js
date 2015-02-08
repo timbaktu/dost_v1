@@ -27,6 +27,9 @@ define([
 			var self = this;
 			var fid=window.location.hash.split("/")[1];
 			$.ajax("http://localhost:8800/dost/api/faq/"+fid).done(function(response){
+				if(LoginStatus.attributes.dbUserRole.role=="ROLE_ADMIN"){
+					response["admin"]=true;
+				}
 				$("#main-content").html(SingleFaqPageLayout(response));
 				$("#main-content .answer").html(response.answer);
 				if(LoginStatus.get("isLoggedIn")!== true){
@@ -91,7 +94,7 @@ define([
 			var fid=window.location.hash.split("/")[1];
 			$.ajax({
         		type:"DELETE",
-        		url: "http://localhost:8800/dost/api/faq/"+fid
+        		url: "http://localhost:8800/dost/api/faq/"+fid+"/delete"
         	}).done(function(){
         		alert(3);
         	});

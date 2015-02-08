@@ -6,7 +6,9 @@
 				<div class="col-md-12 client-header">
 					<div class="search-box1">
 						<span class="col-md-4"><img src="images/icons/small-faq.png">  &nbsp;&nbsp;MOST ASKED QUESTIONS</span>
+						{{#if admin}}
 						<button type="button" class="btn col-md-2 new-create" data-toggle="modal" data-target=".create-newFaq">CREATE NEW</button>
+						{{/if}}
 						<div class="col-md-4 col-md-offset-1">
 							<a href="javascript:void(0)" id="btn-prev"><img src="images/icons/previous.png">Previous</a>
 							<a href="javascript:void(0)" id="btn-next">Next<img src="images/icons/next.png"></a>
@@ -45,10 +47,12 @@
 				<div class="col-md-12">
 					<div class="message-heading col-md-12 heading-padding heading-fonts">
 							<div class="col-md-2">{{categoryName}}</div>
-							<div class="col-md-offset-5 col-md-3 actionButtons">
-								<button type="button" id="btn-editFaq" class="btn option-btn col-md-3 col-md-offset-4">Edit</button>
-								<button type="button" id="btn-deleteFaq" class="btn option-btn col-md-3">Delete</button>
-							</div>
+							{{#if admin}}
+								<div class="col-md-offset-5 col-md-3 actionButtons">
+									<button type="button" id="btn-editFaq" class="btn option-btn col-md-3 col-md-offset-4">Edit</button>
+									<button type="button" id="btn-deleteFaq" class="btn option-btn col-md-3">Delete</button>
+								</div>
+							{{/if}}
 					</div>
 					<div class="inbox-messages col-md-10 text-left">
 						<div class="answers">
