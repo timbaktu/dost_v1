@@ -8,8 +8,8 @@
 						<span class="col-md-4"><img src="images/icons/small-faq.png">  &nbsp;&nbsp;MOST ASKED QUESTIONS</span>
 						<button type="button" class="btn col-md-2 new-create" data-toggle="modal" data-target=".create-newFaq">CREATE NEW</button>
 						<div class="col-md-4 col-md-offset-1">
-							<a><img src="images/icons/previous.png">Previous</a>
-							<a>Next<img src="images/icons/next.png"></a>
+							<a href="javascript:void(0)" id="btn-prev"><img src="images/icons/previous.png">Previous</a>
+							<a href="javascript:void(0)" id="btn-next">Next<img src="images/icons/next.png"></a>
 						</div>
 					</div>
 					<!-- modal window-->
@@ -21,20 +21,20 @@
 									</div>
 									<div class="modal-body">
 										<span class="col-md-12">Your Question</span>
-										<input class="col-md-12" type="text">
+										<input class="col-md-12 question" type="text">
 										<span class="col-md-12">Your Answer</span>
-										<textarea class="col-md-12" type="text"></textarea>
+										<textarea class="col-md-12 new-answer" type="text"></textarea>
 										<span class="col-md-12">Category</span>
-										<select class="col-md-7">
-												<option>1</option>
-												<option>2</option>
-												<option>3</option>
-												<option>4</option>
-												<option>5</option>
+										<select class="col-md-7 category">
+												<option>Career</option>
+												<option>Family</option>
+												<option>Love-Relationship</option>
+												<option>Friends</option>
+												<option>Others</option>
 										</select>
 									</div>
 									<div class="modal-footer text-center">
-										<button type="button" class="add-detailBtn col-md-10 col-md-offset-1">CREATE</button>
+										<button type="button" id="btn-createFaq" class="add-detailBtn col-md-10 col-md-offset-1">CREATE</button>
 									</div>
 								</div>
 							  </div>
@@ -46,8 +46,8 @@
 					<div class="message-heading col-md-12 heading-padding heading-fonts">
 							<div class="col-md-2">{{categoryName}}</div>
 							<div class="col-md-offset-5 col-md-3 actionButtons">
-								<button type="button" class="btn option-btn col-md-3 col-md-offset-4">Edit</button>
-								<button type="button" class="btn option-btn col-md-3">Delete</button>
+								<button type="button" id="btn-editFaq" class="btn option-btn col-md-3 col-md-offset-4">Edit</button>
+								<button type="button" id="btn-deleteFaq" class="btn option-btn col-md-3">Delete</button>
 							</div>
 					</div>
 					<div class="inbox-messages col-md-10 text-left">
