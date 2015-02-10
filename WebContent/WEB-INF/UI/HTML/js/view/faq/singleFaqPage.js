@@ -19,9 +19,9 @@ define([
 		events: {
 			"click #btn-createFaq": "createClicked",
 			"click #btn-editFaq": "editClicked",
-			"click #btn-deleteFaq": "deleteClicked",
-			"click #btn-prev": "prevClicked",
-			"click #btn-next": "nextClicked"
+			"click #btn-deleteFaq": "deleteClicked"
+			//"click #btn-prev": "prevClicked",
+			//"click #btn-next": "nextClicked"
 		},
 		render: function() {
 			var self = this;
@@ -29,9 +29,25 @@ define([
 			$.ajax("http://localhost:8800/dost/api/faq/"+fid).done(function(response){
 				if(LoginStatus.attributes.dbUserRole.role=="ROLE_ADMIN"){
 					response["admin"]=true;
-				}
+				}			
 				$("#main-content").html(SingleFaqPageLayout(response));
 				$("#main-content .answer").html(response.answer);
+				$.ajax("http://localhost:8800/dost/api/faq/"+fid+"?type=PREVIOUS").done(function(data){
+					if(data.faqId){
+						$("#btn-prev").attr("href","#faq/"+data.faqId);
+					}
+					else{
+						$("#btn-prev").attr("disabled","disabled");
+					}
+				})
+				$.ajax("http://localhost:8800/dost/api/faq/"+fid+"?type=NEXT").done(function(data){
+					if(data.faqId){
+						$("#btn-next").attr("href","#faq/"+data.faqId);
+					}
+					else{
+						$("#btn-next").attr("disabled","disabled");
+					}
+				})
 				if(LoginStatus.get("isLoggedIn")!== true){
 					$(".banner").show();
 					Dispatcher.trigger("header:bindBanner");
@@ -82,13 +98,20 @@ define([
 			});
 		},
 		prevClicked: function(e){
-			var fid=window.location.hash.split("/")[1]-1;
-			window.location.href="http://localhost:8800/dost/UI/index.html#faq/"+fid;
+			if(!$("#btn-prev").hasClass("disabled")){
+				var fid=window.location.hash.split("/")[1];
+				$.ajax("http://localhost:8800/dost/api/faq/"+fid+"?type=PREVIOUS").done(function(response){
+					window.location.href="http://localhost:8800/dost/UI/index.html#faq/"+response.faqId;
+				});
+			}			
 		},
 		nextClicked: function(e){
-			var fid=window.location.hash.split("/")[1]
-			fid=parseInt(fid)+1;
-			window.location.href="http://localhost:8800/dost/UI/index.html#faq/"+fid;
+			if(!$("#btn-next").hasClass("disabled")){
+				var fid=window.location.hash.split("/")[1];
+				$.ajax("http://localhost:8800/dost/api/faq/"+fid+"?type=NEXT").done(function(response){
+					window.location.href="http://localhost:8800/dost/UI/index.html#faq/"+response.faqId;
+				});
+			}
 		},
 		deleteClicked: function(e){
 			var fid=window.location.hash.split("/")[1];
