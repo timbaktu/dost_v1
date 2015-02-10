@@ -1,5 +1,7 @@
 package com.dost.controller;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,9 +18,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dost.hibernate.DbFaq;
 import com.dost.hibernate.DbFaqCategory;
+import com.dost.hibernate.DbForumPost;
+import com.dost.hibernate.DbForumTopic;
 import com.dost.model.Faq;
 import com.dost.service.FaqCategoryService;
 import com.dost.service.FaqService;
+import com.dost.util.Utils;
 
 @Controller
 @RequestMapping("api")
@@ -102,6 +107,19 @@ public class FaqController {
 		Map<String, String> response = new HashMap<String, String>();
 		boolean output = faqService.deleteFaqById(id);
 		response.put("status", output+"");
+		return response;
+	}
+	
+	@RequestMapping(value = "/faqs/count/{count}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<DbFaq> getLastFewFaqs(@PathVariable Integer count) {
+		List<DbFaq> response = new ArrayList<DbFaq>();
+		List<DbFaq> faqs = faqService.getAllFaq(); 
+		if(faqs.size() > count) {
+			for(int i = 0; i < count; i++) {
+				response.add(faqs.get(i));
+			}
+		}
 		return response;
 	}
 }
