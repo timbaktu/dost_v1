@@ -31,6 +31,15 @@ define([
 			}).fail(function(error){
 				
 			});
+			$.ajax('http://localhost:8800/dost/api/faqs/count/3').done(function(response){
+				_.each(response, function(post){
+					//var time = "~" + Utils.getDateDiff(post.forumPosts[0].postTime);
+					console.log(post);
+					$(".discussFaq").append("<div class='text-left'>"+ post.question +"</div></br>")
+				});
+			}).fail(function(error){
+				
+			});
 		}
 	});
 

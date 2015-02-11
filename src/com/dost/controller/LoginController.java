@@ -60,17 +60,17 @@ public class LoginController {
 			
 			// Add this token in HashMap and add it in servletContext which can be used later to check if user has passed proper token 
 			// and for blocking and logging user out user
-//			ServletContext servletContext = request.getServletContext();
-//			Object object = servletContext.getAttribute("userMap");
-//			Map<String, String> userMap;
-//			if(object != null) {
-//				userMap = (Map<String, String>)object;
-//			}
-//			else {
-//				userMap = new HashMap<String, String>();
-//			}
-//			userMap.put(token+"", dbUser.getUsername());
-//			servletContext.setAttribute("userMap", userMap);
+			/*ServletContext servletContext = request.getServletContext();
+			Object object = servletContext.getAttribute("userMap");
+			Map<String, String> userMap;
+			if(object != null) {
+				userMap = (Map<String, String>)object;
+			}
+			else {
+				userMap = new HashMap<String, String>();
+			}
+			userMap.put(token+"", dbUser.getUsername());
+			servletContext.setAttribute("userMap", userMap);*/
 		}
 		else {
 			response.put("token", "");
