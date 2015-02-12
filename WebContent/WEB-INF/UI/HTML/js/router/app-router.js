@@ -22,7 +22,8 @@ define([
             'forgotpass': 'forgotpass',
             'dost': 'dost',
             'clients/:clientId': 'clients',
-            'clients': 'clients'
+            'clients': 'clients',
+            'quotes': 'quotes'
         },
 
         main: function() {
@@ -102,7 +103,7 @@ define([
             });
         },
         dost: function(){
-        	require(['view/app', 'view/dost/page'], function(AppView, DostPage) {
+        	require(['view/app', 'view/yourdost/page'], function(AppView, DostPage) {
 
                 if (this.appMainView) {
                     this.appMainView.remove();
@@ -129,6 +130,20 @@ define([
                 	this.appMainView = Vm.create(this.appView, 'page', SingleClientPage);
                 }
                 this.appMainView.render();
+            });
+        },
+        quotes: function(){
+        	require(['view/app', 'view/quotes/page'], function(AppView, DostPage) {
+
+                if (this.appMainView) {
+                    this.appMainView.remove();
+                }
+
+                if (!this.appView) this.appView = new AppView();
+
+                this.appMainView = Vm.create(this.appView, 'page', DostPage);
+                this.appMainView.render();
+
             });
         }
     });
