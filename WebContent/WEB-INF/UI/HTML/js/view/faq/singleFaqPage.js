@@ -27,7 +27,7 @@ define([
 			var self = this;
 			var fid=window.location.hash.split("/")[1];
 			$.ajax("http://localhost:8800/dost/api/faq/"+fid).done(function(response){
-				if(LoginStatus.attributes.dbUserRole.role=="ROLE_ADMIN"){
+				if(!_.isEmpty(LoginStatus.attributes)&&LoginStatus.attributes.dbUserRole.role=="ROLE_ADMIN"){
 					response["admin"]=true;
 				}			
 				$("#main-content").html(SingleFaqPageLayout(response));
