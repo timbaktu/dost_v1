@@ -1,22 +1,29 @@
 package com.dost.controller;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.codehaus.jackson.map.ObjectMapper;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dost.hibernate.DbFaq;
 import com.dost.hibernate.DbFaqCategory;
+import com.dost.hibernate.DbForumPost;
+import com.dost.hibernate.DbForumTopic;
 import com.dost.model.Faq;
 import com.dost.service.FaqCategoryService;
 import com.dost.service.FaqService;
+import com.dost.util.Utils;
 
 @Controller
 @RequestMapping("api")
@@ -29,14 +36,25 @@ public class FaqController {
 	
 	@RequestMapping(value="/faq/{id}", method=RequestMethod.GET)  
 	@ResponseBody
-	public DbFaq getFaqById(@PathVariable Long id) {
-		try {
-			System.out.println(new ObjectMapper().writeValueAsString(faqService.getFaqById(id).getCategory()));
+	public DbFaq getFaqById(@PathVariable Long id, HttpServletRequest request) {
+		
+		String actionType = request.getParameter("type");
+		// Set default if not present
+		if(actionType == null) {
+			actionType = "CURRENT";
 		}
-		catch (Exception e) {
-					e.printStackTrace();
+		DbFaq response = null;
+		// Start checking now
+		if(actionType.equals("CURRENT")) {
+			response = faqService.getFaqById(id); 
 		}
-		return faqService.getFaqById(id); 
+		else if(actionType.equals("NEXT")) {
+			response = faqService.getNextFaqForThisId(id); 
+		}
+		else if(actionType.equals("PREVIOUS")) {
+			response = faqService.getPreviousFaqForThisId(id); 
+		}
+		return response;
 	}
 	
 	@RequestMapping(value="/faqs/all", method=RequestMethod.GET, produces = "application/json")  
@@ -60,7 +78,7 @@ public class FaqController {
 	
 	@RequestMapping(value="/faq/add", method=RequestMethod.POST)  
 	@ResponseBody
-	public Faq addFaq(Faq faq) {
+	public Faq addFaq(@RequestBody Faq faq, HttpServletRequest request){
 		DbFaqCategory dbFaqCategory = categoryService.findCategoryByName(faq.getCategory());
 		DbFaq dbFaq = new DbFaq();
 		dbFaq.setQuestion(faq.getQuestion());
@@ -73,7 +91,7 @@ public class FaqController {
 	
 	@RequestMapping(value="/faq/update", method=RequestMethod.PUT)  
 	@ResponseBody
-	public Faq updateFaq(Faq faq) {
+	public Faq updateFaq(@RequestBody Faq faq, HttpServletRequest request) {
 		DbFaqCategory dbFaqCategory = categoryService.findCategoryByName(faq.getCategory());
 		DbFaq dbFaq = faqService.getFaqById(faq.getId());
 		dbFaq.setQuestion(faq.getQuestion());
@@ -89,6 +107,19 @@ public class FaqController {
 		Map<String, String> response = new HashMap<String, String>();
 		boolean output = faqService.deleteFaqById(id);
 		response.put("status", output+"");
+		return response;
+	}
+	
+	@RequestMapping(value = "/faqs/count/{count}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<DbFaq> getLastFewFaqs(@PathVariable Integer count) {
+		List<DbFaq> response = new ArrayList<DbFaq>();
+		List<DbFaq> faqs = faqService.getAllFaq(); 
+		if(faqs.size() > count) {
+			for(int i = 0; i < count; i++) {
+				response.add(faqs.get(i));
+			}
+		}
 		return response;
 	}
 }

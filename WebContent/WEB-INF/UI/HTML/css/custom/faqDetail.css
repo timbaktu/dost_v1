@@ -81,3 +81,6 @@
 .create-newFaq .modal-footer button{
 	margin-bottom:100px;
 }
+
+.editFaq-modal{padding: 10% 10% 0;}
+.editFaq-modal .edit-question, .editFaq-modal .edit-faq-answer{width:100%}

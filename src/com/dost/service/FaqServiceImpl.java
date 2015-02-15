@@ -36,5 +36,14 @@ public class FaqServiceImpl implements FaqService {
 	public boolean deleteFaqById(Long id) {
 		return faqDAO.deleteFaqById(id);
 	}
+
+	public DbFaq getNextFaqForThisId(Long id) {
+		return faqDAO.getNextFaqForThisId(id);
+	}
+
+	public DbFaq getPreviousFaqForThisId(Long id) {
+		return faqDAO.getPreviousFaqForThisId(id);
+	}
+
 	
 }

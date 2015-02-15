@@ -22,7 +22,11 @@ define([
             'forgotpass': 'forgotpass',
             'dost': 'dost',
             'clients/:clientId': 'clients',
-            'clients': 'clients'
+            'clients': 'clients',
+            'quotes': 'quotes',
+            'articles':'articles',
+            'personalitytests':'tests',
+            'destressing':'destressing'
         },
 
         main: function() {
@@ -102,7 +106,7 @@ define([
             });
         },
         dost: function(){
-        	require(['view/app', 'view/dost/page'], function(AppView, DostPage) {
+        	require(['view/app', 'view/yourdost/page'], function(AppView, DostPage) {
 
                 if (this.appMainView) {
                     this.appMainView.remove();
@@ -129,6 +133,62 @@ define([
                 	this.appMainView = Vm.create(this.appView, 'page', SingleClientPage);
                 }
                 this.appMainView.render();
+            });
+        },
+        quotes: function(){
+        	require(['view/app', 'view/quotes/page'], function(AppView, DostPage) {
+
+                if (this.appMainView) {
+                    this.appMainView.remove();
+                }
+
+                if (!this.appView) this.appView = new AppView();
+
+                this.appMainView = Vm.create(this.appView, 'page', DostPage);
+                this.appMainView.render();
+
+            });
+        },
+        articles: function(){
+        	require(['view/app', 'view/articles/page'], function(AppView, articles) {
+
+                if (this.appMainView) {
+                    this.appMainView.remove();
+                }
+
+                if (!this.appView) this.appView = new AppView();
+
+                this.appMainView = Vm.create(this.appView, 'page', articles);
+                this.appMainView.render();
+
+            });
+        },
+        tests: function(){
+        	require(['view/app', 'view/personalitytests/page'], function(AppView, tests) {
+
+                if (this.appMainView) {
+                    this.appMainView.remove();
+                }
+
+                if (!this.appView) this.appView = new AppView();
+
+                this.appMainView = Vm.create(this.appView, 'page', tests);
+                this.appMainView.render();
+
+            });
+        },
+        destressing: function(){
+        	require(['view/app', 'view/destressing/page'], function(AppView, tests) {
+
+                if (this.appMainView) {
+                    this.appMainView.remove();
+                }
+
+                if (!this.appView) this.appView = new AppView();
+
+                this.appMainView = Vm.create(this.appView, 'page', tests);
+                this.appMainView.render();
+
             });
         }
     });
