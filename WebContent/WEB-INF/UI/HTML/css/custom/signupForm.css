@@ -91,3 +91,26 @@
 .signupForm .avatar label > input:checked + img{ /* (CHECKED) IMAGE STYLES */
   border:2px solid black;
 }
+/* --- media styles or mobiles ---- */
+
+@media  screen and (max-width:768px){
+	.signupForm .modal-dialog{
+		width:100%;
+		right:0px;
+		margin:auto;
+	}
+	.signupForm .modal-header {
+		  padding: 34px 0 0px 1px;
+	}
+	.signupForm .modal-body .securityText{
+		  padding-bottom: 2px;
+  		  padding-left: 2px;
+	}
+	.email-signup-radio{
+		  padding-left: 2px;
+	}
+	.security-signup-radio{
+		padding-left: 2px;
+		float:left!important;
+	}
+}

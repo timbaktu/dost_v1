@@ -20,7 +20,7 @@ define([
 			if(LoginStatus.get("isLoggedIn") !== true){
 				Router.__super__.navigate("#login",{trigger: true});
 			}
-			$("#main-content").css("height", "700px");
+			//$("#main-content").css("height", "700px");
 			// if unread message count = 0 then show no message page
 			// if unread message count > 0 then show inbox page
 			// if signup user, show welcome message
