@@ -13,7 +13,14 @@ define([
 			// body...
 			Dispatcher.trigger("header:changeDocumentTitle", "FAQ");
 		},
-		events: {},
+		events: {
+			'keyup #searchFaq':'searchFaq'
+		},
+		searchFaq: function(e){
+			$('.question').show();
+			var userString=$("#searchFaq").val();
+			$('.question a:not(:contains('+ userString +'))').parent().hide(); 
+		},
 		render: function() {
 			var self = this;
 			this.$el.html(FaqPageLayout({}));
@@ -22,7 +29,6 @@ define([
 				Dispatcher.trigger("header:bindBanner");
 			}
 			$.ajax("http://localhost:8800/dost/api/faqcategory/all").done(function(response){
-				console.dir(response);
 				_.each(response, function(category){					
 					self.$el.find("#faqCategoryContainer").append(new FaqCategoryView({
 						category: category
