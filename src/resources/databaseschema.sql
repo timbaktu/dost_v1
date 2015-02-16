@@ -306,3 +306,49 @@ INSERT INTO `dost`.`dost_codes` (`codeid`, `type`, `value`, `deleted`) VALUES ('
 INSERT INTO `dost`.`dost_codes` (`codeid`, `type`, `value`, `deleted`) VALUES ('5', 'LOCATION', 'Delhi', '0');
 INSERT INTO `dost`.`dost_codes` (`codeid`, `type`, `value`, `deleted`) VALUES ('6', 'LOCATION', 'Hyderabad', '0');
 INSERT INTO `dost`.`dost_codes` (`codeid`, `type`, `value`, `deleted`) VALUES ('7', 'LOCATION', 'Bhopal', '0');
+
+CREATE TABLE `dost_counselors` (
+    `counselorid` INTEGER NOT NULL AUTO_INCREMENT,
+	`username` varchar(1000) NOT NULL,
+    `password` varchar(1000) NOT NULL,
+	`name` varchar(1000) NOT NULL,
+	`profilename` varchar(1000) NOT NULL,
+    `timing` varchar(255) DEFAULT NULL,
+    `gender` varchar(255) DEFAULT NULL,
+    `location` varchar(255) DEFAULT NULL,
+    `createdate` varchar(255) DEFAULT NULL,
+    `createby` bigint(20) DEFAULT NULL,
+    `updatedate` varchar(255) DEFAULT NULL,
+    `updateby` bigint(20) DEFAULT NULL,
+    `deleted` INTEGER DEFAULT 0,
+    PRIMARY KEY (`counselorid`)
+);
+
+
+CREATE TABLE `dost_counselortags` (
+    `tagid` INTEGER NOT NULL AUTO_INCREMENT,
+    `counselorid` INTEGER NOT NULL,
+	`tagname` varchar(255) DEFAULT NULL,
+    `createdate` varchar(255) DEFAULT NULL,
+    `createby` bigint(20) DEFAULT NULL,
+    `updatedate` varchar(255) DEFAULT NULL,
+    `updateby` bigint(20) DEFAULT NULL,
+    `deleted` INTEGER DEFAULT 0,
+    PRIMARY KEY (`tagid`)
+);
+
+
+CREATE TABLE `dost_counselorreviews` (
+    `reviewid` INTEGER NOT NULL AUTO_INCREMENT,
+    `counselorid` INTEGER NOT NULL,
+	`review` varchar(1000) DEFAULT NULL,
+    `createdate` varchar(255) DEFAULT NULL,
+    `createby` bigint(20) DEFAULT NULL,
+    `updatedate` varchar(255) DEFAULT NULL,
+    `updateby` bigint(20) DEFAULT NULL,
+    `deleted` INTEGER DEFAULT 0,
+    PRIMARY KEY (`reviewid`)
+);
+
+--Dummy data
+insert into dost_counselors values(1, 'mkyong', '123', 'Gopinath', 'Gopi', '9-11pm', 'Male', 'Bangalore', NOW(), '1', NOW(),'1',0);
