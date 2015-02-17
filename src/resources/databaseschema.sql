@@ -312,6 +312,7 @@ CREATE TABLE `dost_counselors` (
 	`username` varchar(1000) NOT NULL,
     `password` varchar(1000) NOT NULL,
 	`name` varchar(1000) NOT NULL,
+    `description` varchar(10000) NOT NULL,
 	`profilename` varchar(1000) NOT NULL,
     `timing` varchar(255) DEFAULT NULL,
     `gender` varchar(255) DEFAULT NULL,
@@ -351,4 +352,5 @@ CREATE TABLE `dost_counselorreviews` (
 );
 
 --Dummy data
-insert into dost_counselors values(1, 'mkyong', '123', 'Gopinath', 'Gopi', '9-11pm', 'Male', 'Bangalore', NOW(), '1', NOW(),'1',0);
+insert into dost_counselors values(1, 'mkyong', '123', 'Gopinath','decription1', 'Gopi', '9-11pm', 'Male', 'Bangalore', NOW(), '1', NOW(),'1',0);
+insert into dost_counselors values(2, 'sandeep', '123', 'sandeep kasani','decription12', 'sandeep', '9-11pm', 'Male', 'hyderabad', NOW(), '1', NOW(),'1',0);

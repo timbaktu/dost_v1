@@ -22,9 +22,6 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE, region="database")
 public class DbFaq extends DbGeneric implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 4665594591445884015L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

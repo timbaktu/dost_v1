@@ -4,28 +4,60 @@ define([
 	'backbone',
 	'hbs!../../template/yourdost/layout',
 	'utils',
-	'event/dispatcher'
-], function($, _, Backbone, ForgotPassLayout, Utils, Dispatcher) {
-	var dostpage = Backbone.View.extend({
+	'view/basemodal/BaseModal',
+    'router/app-router',
+    'event/dispatcher',
+    'model/login',
+    'view/yourdost/counselorCollectionView'
+], function($, _, Backbone, CounselorPageLayout, Utils, BaseModalView, Router, Dispatcher, LoginStatus, CounselorCollectionView) {
+	var CounselorPage = Backbone.View.extend({
 		el: "#main-content",
 		initialize: function() {
-			// body...
+			if(LoginStatus.get("isLoggedIn") !== true){
+				Router.__super__.navigate("#login",{trigger: true});
+			}
+			if(LoginStatus.attributes.dbUserRole.role === "ROLE_USER"){
+				Router.__super__.navigate("#messages",{trigger: true});
+			}
+			
+			Dispatcher.trigger("header:changeDocumentTitle", "Your Dost");
+			
 		},
-		events: {},
+		events: {
+			"keydown #filterConselors": "filterConselors"
+		},
 		render: function() {
-			this.$el.html(ForgotPassLayout({}));
+			this.$el.html(CounselorPageLayout({}));
 			$(".banner").hide();
 			$(window).unbind('scroll');
 			$('body').css("padding-top", "114px");
+			this.collectionView = new CounselorCollectionView();
+		},
+		filterConselors: function(e){
+			console.log("textChanged");
+			var self = this;
+			_.defer(function(){
+				var c = String.fromCharCode(e.which),
+					
+					fullString = $(e.target).val().toUpperCase(),
+					
+					filteredUsers = self.collectionView.collection.filter(function(user) {
+						var fullname = user.get("fullname").toUpperCase(),
+							username = user.get("username").toUpperCase();
+						return fullname ? fullname.indexOf(fullString) >= 0 ? true: false: username.indexOf(fullString) >= 0 ? true: false;
+				});
+				
+				self.collectionView.renderCollection(filteredUsers);
+			});
+			
 		}
+		
 	});
 
-	dostpage.prototype.remove = function() {
-		$(".banner").show();
-		Dispatcher.trigger("header:bindBanner");
+	CounselorPage.prototype.remove = function() {
+		
 	};
-	dostpage.prototype.clean = function() {
-
+	CounselorPage.prototype.clean = function() {
 	};
-	return dostpage;
+	return CounselorPage;
 });

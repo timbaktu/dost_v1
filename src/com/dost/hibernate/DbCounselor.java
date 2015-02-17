@@ -29,6 +29,8 @@ public class DbCounselor extends DbGeneric implements Serializable {
 	private String password;
 	@Column(name = "name")
 	private String name;
+	@Column(name = "description")
+	private String description;	
 	@Column(name = "profilename")
 	private String profileName;
 	@Column(name = "timing")
@@ -107,6 +109,12 @@ public class DbCounselor extends DbGeneric implements Serializable {
 	}
 	public void setTags(List<DbCounselorTag> tags) {
 		this.tags = tags;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 
