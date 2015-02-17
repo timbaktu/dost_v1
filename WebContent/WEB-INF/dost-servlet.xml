@@ -57,6 +57,10 @@
 				<value>com.dost.hibernate.DbUserSecurity</value>
 				<value>com.dost.hibernate.DbChatHistory</value>
 				<value>com.dost.hibernate.DbNote</value>
+				<value>com.dost.hibernate.DbCode</value>
+				<value>com.dost.hibernate.DbCounselor</value>
+				<value>com.dost.hibernate.DbCounselorReview</value>
+				<value>com.dost.hibernate.DbCounselorTag</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
