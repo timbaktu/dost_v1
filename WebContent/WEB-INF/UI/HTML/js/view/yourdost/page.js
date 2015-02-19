@@ -22,16 +22,24 @@ define([
 			
 			Dispatcher.trigger("header:changeDocumentTitle", "Your Dost");
 			
+			Handlebars.registerHelper('eq', function(val, val2, opts) {
+			      if(val == val2){
+			        return opts.fn(this);
+			      }
+			    });
+			
 		},
 		events: {
 			"keydown #filterConselors": "filterConselors"
 		},
 		render: function() {
-			this.$el.html(CounselorPageLayout({}));
-			$(".banner").hide();
-			$(window).unbind('scroll');
-			$('body').css("padding-top", "114px");
-			this.collectionView = new CounselorCollectionView();
+			$.ajax("http://localhost:8800/dost/api/codes/all").done(function(response){
+				$("#main-content").html(CounselorPageLayout({objects:response}));
+				$(".banner").hide();
+				$(window).unbind('scroll');
+				$('body').css("padding-top", "114px");
+				this.collectionView = new CounselorCollectionView();
+			});
 		},
 		filterConselors: function(e){
 			console.log("textChanged");
