@@ -1,6 +1,9 @@
 package com.dost.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -23,9 +26,21 @@ public class CodeController {
 	
 	@RequestMapping(value="/codes/all", method=RequestMethod.GET)  
 	@ResponseBody
-	public List<DbCode> getAllCodes() {
+	public Map<String, List<DbCode>> getAllCodes() {
 		List<DbCode> allCodes = codeService.getAllCodes();
-		return allCodes;
+		Map<String, List<DbCode>> responseMap = new HashMap<String, List<DbCode>>();
+		for(DbCode code : allCodes) {
+			List<DbCode> codes = responseMap.get(code.getType());
+			if(codes == null) {
+				codes = new ArrayList<DbCode>();
+				codes.add(code);
+				responseMap.put(code.getType(), codes);
+			}
+			else {
+				codes.add(code);
+			}
+		}
+		return responseMap;
 	}
 	
 	@RequestMapping(value="/code/{id}", method=RequestMethod.GET)  
