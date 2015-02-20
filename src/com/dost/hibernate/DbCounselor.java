@@ -39,6 +39,8 @@ public class DbCounselor extends DbGeneric implements Serializable {
 	private String gender;
 	@Column(name = "location")
 	private String location;
+	@Column(name = "avatar")
+	private String avatar;
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "counselor")
 	@Fetch(value = FetchMode.SUBSELECT)
@@ -115,6 +117,12 @@ public class DbCounselor extends DbGeneric implements Serializable {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public String getAvatar() {
+		return avatar;
+	}
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
 	}
 
 

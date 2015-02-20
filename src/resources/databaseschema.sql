@@ -352,5 +352,6 @@ CREATE TABLE `dost_counselorreviews` (
 );
 
 --Dummy data
-insert into dost_counselors values(1, 'mkyong', '123', 'Gopinath','decription1', 'Gopi', '9-11pm', 'Male', 'Bangalore', NOW(), '1', NOW(),'1',0);
-insert into dost_counselors values(2, 'sandeep', '123', 'sandeep kasani','decription12', 'sandeep', '9-11pm', 'Male', 'hyderabad', NOW(), '1', NOW(),'1',0);
+insert into dost_counselors values(1, 'mkyong', '123', 'Gopinath','decription1', 'Gopi', '9-11pm', 'Male', 'Bangalore','avatar1', NOW(), '1', NOW(),'1',0);
+insert into dost_counselors values(2, 'sandeep', '123', 'sandeep kasani','decription12', 'sandeep', '9-11pm', 'Male', 'hyderabad','avatar3', NOW(), '1', NOW(),'1',0);
+ALTER TABLE dost_counselors ADD COLUMN `avatar` VARCHAR(100) DEFAULT NULL AFTER `location`;

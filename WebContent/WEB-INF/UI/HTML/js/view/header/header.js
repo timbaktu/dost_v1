@@ -29,8 +29,7 @@ define([
         	'click .feedback': 'showHideFeedback',
         	'click .navbar-brand': 'homeClicked'
         },
-        render: function() { 
-        	
+        render: function() {
             this.$el.html(headerLayoutTemplate({}));
 
             this.bindBanner();
@@ -263,7 +262,8 @@ define([
         	var messageNav = self.$el.find("#messagesNav"),
         		volunteerNav = self.$el.find("#volunteer"),
         		userDetailsNav = self.$el.find("#userDetails"),
-        		clientListNav = self.$el.find("#clientListNav");
+        		clientListNav = self.$el.find("#clientListNav"),
+        		yourdostNav = self.$el.find("#yourdost");
         	
         	if(clientListNav.hasClass("hidden") && !(LoginStatus.attributes.dbUserRole.role == "ROLE_USER")){
         		clientListNav.removeClass("hidden");
@@ -278,6 +278,9 @@ define([
         	if(messageNav.hasClass("hidden")){
         		messageNav.removeClass("hidden");
         	}
+        	if(LoginStatus.attributes.dbUserRole.role == "ROLE_ADMIN"){
+        		yourdostNav.addClass("hidden");
+        	}
         	userDetailsNav.find("#dropdownName").prepend(LoginStatus.get("username") +" &nbsp;");
         	
         	self.changeLoginText("Logout");
@@ -290,7 +293,8 @@ define([
         		messageNav = this.$el.find("#messagesNav"),
         		volunteerNav = self.$el.find("#volunteer"),
         		userDetailsNav = self.$el.find("#userDetails"),
-        		clientListNav = self.$el.find("#clientListNav");
+        		clientListNav = self.$el.find("#clientListNav"),
+        		yourdostNav = self.$el.find("#yourdost");
         	
         	if(!clientListNav.hasClass("hidden")){
         		clientListNav.addClass("hidden");
@@ -308,10 +312,11 @@ define([
         	if(!userDetailsNav.hasClass("hidden")){
         		userDetailsNav.addClass("hidden");
         	}
+        	if(yourdostNav.hasClass("hidden")){
+        		yourdostNav.removeClass("hidden");
+        	}
         	userDetailsNav.find("#dropdownName").empty();
         	Router.__super__.navigate("#login",{trigger: true});
-        	
-        	
         },
         changeDocumentTitle: function(title){
         	document.title = title;        	
