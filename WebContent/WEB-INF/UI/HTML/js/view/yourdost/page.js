@@ -16,9 +16,6 @@ define([
 			if(LoginStatus.get("isLoggedIn") !== true){
 				Router.__super__.navigate("#login",{trigger: true});
 			}
-			if(LoginStatus.attributes.dbUserRole.role === "ROLE_USER"){
-				Router.__super__.navigate("#messages",{trigger: true});
-			}
 			
 			Dispatcher.trigger("header:changeDocumentTitle", "Your Dost");
 			
@@ -30,7 +27,8 @@ define([
 			
 		},
 		events: {
-			"keydown #filterConselors": "filterConselors"
+			'keydown #filterConselors': 'filterConselors',
+			'keyup #searchConselors':'searchConselors'
 		},
 		render: function() {
 			$.ajax("http://localhost:8800/dost/api/codes/all").done(function(response){
@@ -40,6 +38,11 @@ define([
 				$('body').css("padding-top", "114px");
 				this.collectionView = new CounselorCollectionView();
 			});
+		},
+		searchConselors: function(){
+			$('.counselor').show();
+			var userString=$("#searchConselors").val();
+			$('.counselor .card-head p:not(:contains('+ userString +'))').closest('.counselor').hide()
 		},
 		filterConselors: function(e){
 			console.log("textChanged");

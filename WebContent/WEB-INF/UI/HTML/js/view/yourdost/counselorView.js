@@ -12,7 +12,7 @@ function($, Backbone, _, counselorTemplate, Utils, Dispatcher, LoginStatus, Rout
 	var CounselorView = Backbone.View.extend({
 		template : counselorTemplate,
 		tagName : 'div',
-		className: "col-md-4 paddBottom",
+		className: "col-md-4 paddBottom counselor",
 		events : {
 			'click .message-btn': 'message',
 			'click .detail-btn': 'openDetail'
