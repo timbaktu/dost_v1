@@ -26,7 +26,10 @@ define([
             'quotes': 'quotes',
             'articles':'articles',
             'personalitytests':'tests',
-            'destressing':'destressing'
+            'destressing':'destressing',
+            'Relationships':'Relationships',
+            'addDetails':'addDetails',
+            'changePass':'changePass'
         },
 
         main: function() {
@@ -187,6 +190,48 @@ define([
                 if (!this.appView) this.appView = new AppView();
 
                 this.appMainView = Vm.create(this.appView, 'page', tests);
+                this.appMainView.render();
+
+            });
+        },
+        Relationships: function(){
+        	require(['view/app', 'view/Relationships/page'], function(AppView,Relationships) {
+
+                if (this.appMainView) {
+                    this.appMainView.remove();
+                }
+
+                if (!this.appView) this.appView = new AppView();
+
+                this.appMainView = Vm.create(this.appView, 'page', Relationships);
+                this.appMainView.render();
+
+            });
+        },
+        addDetails: function(){
+        	require(['view/app', 'view/addDetails/page'], function(AppView, addDetails) {
+
+                if (this.appMainView) {
+                    this.appMainView.remove();
+                }
+
+                if (!this.appView) this.appView = new AppView();
+
+                this.appMainView = Vm.create(this.appView, 'page', addDetails);
+                this.appMainView.render();
+
+            });
+        },
+        changePass: function(){
+        	require(['view/app', 'view/changePass/page'], function(AppView, changePass) {
+
+                if (this.appMainView) {
+                    this.appMainView.remove();
+                }
+
+                if (!this.appView) this.appView = new AppView();
+
+                this.appMainView = Vm.create(this.appView, 'page', changePass);
                 this.appMainView.render();
 
             });

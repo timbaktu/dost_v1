@@ -1,0 +1,103 @@
+<form class="form-horizontal" role="form">
+	<div class="form-group">
+		<label class="col-sm-3 control-label">Username*</label>
+		<div class="col-sm-8">
+		  <input type="text" id="username" required="required" class="form-control">
+		</div>
+	</div>
+	<div class="form-group avatar">
+		<label class="col-sm-3 control-label">Select Avatar*</label>
+		<div class="col-sm-9">
+			  <label>
+			    <input type="radio" name="avatar" required="required" value="1" />
+			    <img src="images/avatar/avatar1.png">
+			  </label>
+			  <label>
+			    <input type="radio" name="avatar" value="2" />
+			    <img src="images/avatar/avatar2.png">
+			  </label>
+			  <label>
+			    <input type="radio" name="avatar" value="3" />
+			    <img src="images/avatar/avatar3.png">
+			  </label>
+			  <label>
+			    <input type="radio" name="avatar" value="4" />
+			    <img src="images/avatar/avatar4.png">
+			  </label>
+			  <label>
+			    <input type="radio" name="avatar" value="5" />
+			    <img src="images/avatar/avatar5.png">
+			  </label>
+			  <label>
+			    <input type="radio" name="avatar" value="6" />
+			    <img src="images/avatar/avatar6.png">
+			  </label>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-3 control-label">Password*</label>
+		<div class="col-sm-8">
+		  <input type="password" required="required" class="form-control">
+		</div>
+	</div>
+	<div class="col-md-12 securityText">
+		This will help you generate password, incase you forget
+	</div>
+	<div class="form-group">
+		<div class="col-md-12 radio-button">
+			<div class="col-md-3 text-left email-signup-radio">
+			<input type="radio" name="optionsRadios" required="required" id="optionsRadios1" value="email" checked>
+			Email
+			</div>
+			<div id="emailOption" class="col-sm-8">
+				<input type="email" class="form-control" id="inputEmail1">
+			</div>
+		</div>
+		<div class="col-md-12 radio-button">
+			<div class="col-md-3 text-right security-signup-radio">
+			<input type="radio" name="optionsRadios" id="optionsRadios2" value="securityquestions">
+			Security Questions
+			</div>
+		</div>
+		<div id = "securityQuestions" class= "form-group">
+			<div class="col-md-12">
+				<label for="inputPassword1" class="col-sm-3 control-label">Security Question</label>
+				<div class="col-sm-8">
+					<select id = "questionOne" class="form-control ">
+					</select>
+				</div>
+			</div>
+			<div class="col-md-12 securityPass">
+				<label class="col-sm-3 control-label">Security Password</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-12">
+				<label class="col-sm-3 control-label">Security Question</label>
+				<div class="col-sm-8">
+					<select id="questionTwo" class="form-control ">
+					</select>
+				</div>
+			</div>
+			<div class="col-md-12 securityPass">
+				<label for="securityanswer2" class="col-sm-3 control-label">Security Password</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id="securityanswer2">
+				</div>
+			</div>
+		</div>	
+		
+	</div>
+	<div class="form-group">
+		<div class="col-sm-10 col-sm-offset-1 text-center disclaimer">
+		  We are not a medical service. If you are  thinking about suicide, 
+		  if you think you may be in a danger of yourself or to others, 
+		  or if otherwise you have any medical emergency, 
+		  please immediately call 100/101 and notify the police or emergency medical service. 
+		  By signing up you are agreeing to <a data-toggle="modal" class="tos-open" data-target=".tos">Terms of Services</a> of D.O.S.T 
+		</div>
+		
+	</div>
+	
+</form>

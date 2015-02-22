@@ -43,9 +43,9 @@ body{
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
 	color: #660000;
 	background-color: #fff;
-	border-top: 8px solid;
+	//border-top: 8px solid;
 	position: relative;
-	top: -8px;
+	//top: -8px;
 }
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
 	color: #555;
@@ -270,4 +270,15 @@ body{
 	background:#fff;
 	border-right:none;
 }
-
+.explore-tabs{  margin: 14px 0px;
+  cursor: pointer;
+  color: #330000;
+  font-size: 15px;
+  font-weight: normal;
+  margin-left: 28px;}
+  .explore-tabs>a{  margin: 14px 0px;
+  cursor: pointer;
+  color: #330000;
+  font-size: 15px;
+  font-weight: normal;
+  width:20%}

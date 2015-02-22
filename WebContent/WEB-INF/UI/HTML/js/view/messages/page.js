@@ -4,6 +4,7 @@ define([
 	'backbone',
 	'lib/jquery-ui',
 	'hbs!../../template/messages/layout',
+	
 	'event/dispatcher',
 	'model/login',
 	'router/app-router',

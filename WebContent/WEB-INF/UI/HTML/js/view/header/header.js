@@ -22,12 +22,14 @@ define([
 	    	Dispatcher.on("header:showSignUp",_.partial(this.showSignUp, this));
 	    	Dispatcher.on("header:loggedIn",_.partial(this.loggedIn, this));
 	    	Dispatcher.on("header:changeDocumentTitle",this.changeDocumentTitle);
+	    	
 	    },
         events: {
         	'click .login-btn': 'loginClicked',
         	'click .banner-signup': 'showSignUpBanner',
         	'click .feedback': 'showHideFeedback',
-        	'click .navbar-brand': 'homeClicked'
+        	'click .navbar-brand': 'homeClicked',
+        	'click .navbar-nav>li': 'navLinksClick'
         },
         render: function() {
             this.$el.html(headerLayoutTemplate({}));
@@ -37,7 +39,15 @@ define([
             	this.loggedIn(this);
             }
         },
-        
+        navLinksClick: function(e,target){
+        	 if (window.innerWidth <= 768 ) {
+        	    	 $(".navbar-collapse").collapse('hide');
+        		 //alert(2);
+        		  };
+        		 
+        	//$(".navbar-collapse").collapse('hide');
+        	
+        },
         loginClicked: function(e,target){
         	var text = $(e.target).text();
         	if(text == "LOGIN"){

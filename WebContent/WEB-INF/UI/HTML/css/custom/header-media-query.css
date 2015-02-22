@@ -53,6 +53,7 @@
 		padding:20px 5px 20px 5px;
 		font-size:20px;
 		text-align:left;
+		font-weight: normal;
 	}
 	.navbar-collapse{
 	float:right;
@@ -83,4 +84,28 @@
 	#inboxTab,#sentTab,#chatsTab{
 	color:#333;
 	}
+	.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+	color: #660000;
+	background-color: #EFD347;
+	//border-top: 8px solid;
+	position: relative;
+	//top: -8px;
+}
+	.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+	color: #555;
+	border-top: none;
+	position: relative;
+	//top: -8px;
+	background:#EFD347;
+	
+}
+.explore-dropdown div img,.explore-dropdown div .col-md-12{
+	display:none;
+}
+.explore-dropdown div img{padding-top:10px;}
+.explore-dropdown div.row{padding-top:10px;}
+.explore-dropdown{  padding: 5px 20px 0 20px;height:auto;
+}
+
+.nav>li>a>img{display:none}
 }
