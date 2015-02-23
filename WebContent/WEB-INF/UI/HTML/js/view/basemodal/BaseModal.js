@@ -9,7 +9,8 @@ define( [ 'underscore', 'backbone', 'hbs!template/basemodal/BaseModal',
 		events : {
 			'hidden' : 'teardown',
 		    "focus .recipients":"autoComplete",
-		    "blur #username":"usernameCheck"
+		    "blur #username":"usernameCheck",
+		    'click .close':'teardown'
 		},
 
 		initialize : function(options) {
