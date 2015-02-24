@@ -1,0 +1,6 @@
+.dostList{border-right:3px solid #ddd}
+.dost{padding:10px 4px; border-bottom: 2px solid #ddd}
+.dost img{padding:15px 4px} 
+.dost .details{padding:2px 4px}
+.dost .chat, .dost .email, .dost .splitter{color:#c33;font-size:14px}
+
