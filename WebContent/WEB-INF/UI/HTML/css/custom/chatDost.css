@@ -1,6 +1,13 @@
-.dostList{border-right:3px solid #ddd}
+.dostList{border-right:3px solid #ddd; margin-left:2%}
 .dost{padding:10px 4px; border-bottom: 2px solid #ddd}
 .dost img{padding:15px 4px} 
 .dost .details{padding:2px 4px}
 .dost .chat, .dost .email, .dost .splitter{color:#c33;font-size:14px}
-
+.typeChat, .chatSubmit, .supportMsg{border-radius:0!important}
+.typeChat{width:80%!important}
+.chatSubmit{width:20%!important}
+.chat-msgs{height:400px;}
+.chat-msgs, .chat-box{border: 1px solid #ccc; padding:0}
+.chatOptions{padding: 7%% 5% 15%}
+.chatOptions .alert{text-align: center}
+.chatOptions a{border-radius:0;margin-top:10px; margin-bottom:10px; margin-right:3%; margin-left:3%}

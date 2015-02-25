@@ -30,7 +30,8 @@ define([
             'Relationships':'Relationships',
             'addDetails':'addDetails',
             'changePass':'changePass',
-            'talkToDost':'chatDost'
+            'talkToDost':'chatDost',
+            'talkToDost/:userId':'chatDost'
         },
 
         main: function() {
@@ -122,9 +123,9 @@ define([
                 this.appMainView.render();
 
             });
-        },
-        chatDost: function(){
-        	require(['view/app', 'view/chatDost/page'], function(AppView, DostPage) {
+        },        
+        chatDost: function(id) {
+            require(['view/app', 'view/chatDost/page','view/chatDost/chatPage'], function(AppView, chatOptions, chatPage) {
 
                 if (this.appMainView) {
                     this.appMainView.remove();
@@ -132,7 +133,12 @@ define([
 
                 if (!this.appView) this.appView = new AppView();
 
-                this.appMainView = Vm.create(this.appView, 'page', DostPage);
+                this.appMainView = Vm.create(this.appView, 'page', chatOptions);
+                if(id === undefined){
+                    this.appMainView = Vm.create(this.appView, 'page', chatOptions);
+                } else {
+                	this.appMainView = Vm.create(this.appView, 'page', chatPage);
+                }
                 this.appMainView.render();
 
             });

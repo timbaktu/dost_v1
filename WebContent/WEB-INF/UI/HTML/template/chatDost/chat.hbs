@@ -1,0 +1,20 @@
+<div class="col-md-3 dostList">
+	{{#each objects}}
+		<div class="col-md-12 dost">
+			<img class="col-md-3" src="images/avatar/{{avatar}}.png">
+			<div class="col-md-9 details">
+				<h4>{{username}}</h4>
+				<div><span>#Relationship, #Career, #Family</span></div>
+				<div><a href="#" type="button" class="btn chat">Chat</a> <span class="splitter">|</span><a href="#" type="button" class="btn email">Email</a></div>
+			</div>
+		</div>
+	{{/each}}
+</div>
+<div class="col-md-6 chat-section">
+	<div class="col-md-12 chat-msgs">
+		<div class="supportMsg alert alert-warning">If something is bothering you a lot or you are feeling suicidal, please contact 0902238893 or 0902238893</div>
+	</div>
+	<div class="col-md-12 chat-box">
+		<input type="text" class="typeChat col-md-9 form-control" name="typeChat"><button class="btn btn-danger chatSubmit" type="submit">SEND</button>
+	</div>
+</div>
