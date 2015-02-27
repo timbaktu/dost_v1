@@ -31,7 +31,8 @@ define([
             'addDetails':'addDetails',
             'changePass':'changePass',
             'talkToDost':'chatDost',
-            'talkToDost/:userId':'chatDost'
+            'talkToDost/:userId':'chatDost',
+            'discussions':'discussions'
         },
 
         main: function() {
@@ -253,6 +254,20 @@ define([
                 if (!this.appView) this.appView = new AppView();
 
                 this.appMainView = Vm.create(this.appView, 'page', changePass);
+                this.appMainView.render();
+
+            });
+        },
+        discussions: function(){
+        	require(['view/app', 'view/discussions/page'], function(AppView,discussions) {
+
+                if (this.appMainView) {
+                    this.appMainView.remove();
+                }
+
+                if (!this.appView) this.appView = new AppView();
+
+                this.appMainView = Vm.create(this.appView, 'page',discussions);
                 this.appMainView.render();
 
             });
