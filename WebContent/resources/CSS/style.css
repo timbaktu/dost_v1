@@ -84,7 +84,7 @@
 	}
 	.theme-default-counselor div.searchBoxDiscussions, .theme-default div.searchBoxDiscussions {
 		margin-right: 35%;
-		margin-top: -42px;
+		margin-top: -39px;
 	}
 	.theme-default-counselor div.searchBox {
 		margin-right: 100px;
@@ -307,9 +307,7 @@
 	
 	}
 	
-	.row-fluid{
-	margin-left:17.33333%;
-	}
+	
 	h4.media-heading span, .secondary_information{
 		color: #444;
 		font-size:12px;
@@ -921,4 +919,8 @@ div.medical_warning{
 
 .more-link {
 /*end of styling for more*/
+ }
+.createDis{ margin-top:15px;}
+ @media screen and (max-width: 768px){
 
+}
