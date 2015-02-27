@@ -1,8 +1,13 @@
-	body{
-		font-family: 'Open Sans', Arial,sans-serif;
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+	
+	 body{
+	 font-family: 'Roboto Condensed', sans-serif;
+		//font-family: 'Roboto Condensed','Open Sans', Arial,sans-serif;
 		font-size: 13px;
 	}
 	footer{
+	font-family: 'Roboto Condensed', sans-serif;
 		text-align: center;
 		border-top: 1px solid #ddd;
 		font-size: 12px;
@@ -78,8 +83,8 @@
 		padding-top: 50px;
 	}
 	.theme-default-counselor div.searchBoxDiscussions, .theme-default div.searchBoxDiscussions {
-		margin-right: 190px;
-		margin-top: -42px;
+		margin-right: 35%;
+		margin-top: -39px;
 	}
 	.theme-default-counselor div.searchBox {
 		margin-right: 100px;
@@ -88,13 +93,13 @@
 	.searchBox input{
 		 background-color: #fff;
 	    border: 1px solid #ccc;
-	    border-radius: 4px;
+	    border-radius: 0px;
 	    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
 	    color: #555;
 	    font-size: 14px;
 	    height: 29px;
 	    line-height: 1.42857;
-	    padding: 6px 12px;
+	    padding: 16px 18px;
 	    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
 	}
 	
@@ -259,7 +264,7 @@
 		border-right:0;
 	}
 	.discussion_topic {
-		margin-top:20px;
+		margin-top:40px;
 		background: none;
 	}
 	.discussion_topic a{
@@ -292,19 +297,33 @@
 		border-bottom: 1px dotted #DDD;
 	}
 	h2.pageHeading{
-		font-size: 18px;
+		font-size: 21px;
+		font-weight:400;
+		color:#660000;
 		
 	}
 	.pageTop{
 		margin-top:20px;
 	
 	}
+	
+	
 	h4.media-heading span, .secondary_information{
-		color: #999;
+		color: #444;
 		font-size:12px;
+		float: right;
+		font-weight:bold;
 	}
 	.discussion_topic .well{
 		margin-bottom:0;
+		border: none;
+		border-bottom:2px solid #e3e3e3;
+	}
+	.discussion_topic .well.well-small{
+		margin-bottom:0;
+		border: none;
+		background:#F9F9D5;
+		
 	}
 	
 	/*for ellipsis*/
@@ -550,10 +569,14 @@
 		padding-top: 0;
 	}
 	.theme-default {
-    	background: none repeat scroll 0 0 #ffff99;
+    	background: none repeat scroll 0 0 #ffffff;
 	}
 	.theme-default .media-body{
-		color: #333;
+		font-size: 18px;
+font-weight: 300;
+font-family: 'Lato','Open Sans', sans-serif;
+text-align: left;
+color: #333;
 	}
 	.theme-default .well{
 		background-color: #FFFFFF;
@@ -577,8 +600,8 @@
 	.theme-default #main-navbar .dropdown-menu .divider{background-color:#f1f1f1}.theme-default #main-navbar .dropdown-menu>li>a{color:#555}.theme-default #main-navbar .dropdown-menu>li>a:hover{background:#f1f1f1}.theme-default #main-navbar .widget-notifications a{color:!important}.theme-default #main-navbar .widget-notifications .notification,.theme-default #main-navbar .widget-notifications .notifications-link{border-color:#f1f1f1;-webkit-box-shadow:0 1px 0 rgba(255,255,255,.05)inset;box-shadow:0 1px 0 rgba(255,255,255,.05)inset;border-bottom-right-radius:3px;border-bottom-left-radius:3px}.theme-default #main-navbar .widget-notifications .notification-description{color:#999}.theme-default #main-navbar .widget-notifications .notification-ago{color:#bbb}.theme-default #main-navbar .widget-notifications .notifications-link:hover{background:#f1f1f1}.theme-default #main-navbar .widget-messages-alt a{color:!important}.theme-default #main-navbar .widget-messages-alt .message,.theme-default #main-navbar .widget-messages-alt .messages-link{border-color:#f1f1f1;border-bottom-right-radius:3px;border-bottom-left-radius:3px}.theme-default #main-navbar .widget-messages-alt .message-subject{color:#555!important}.theme-default #main-navbar .widget-messages-alt .message-description{color:#aaa}.theme-default #main-navbar .widget-messages-alt .message-description a{color:#888}.theme-default #main-navbar .widget-messages-alt .messages-link:hover{background:#f1f1f1}.theme-default.main-menu-right #main-navbar .navbar-header,.theme-default.mmc #main-navbar .navbar-header{background:#fff}.theme-default.main-menu-right #main-navbar .navbar-header{border-right:1px solid #f1f1f1}}@media (min-width:768px){.theme-default.right-to-left #main-navbar .right>.navbar-nav>li{border-right:1px solid #f1f1f1;border-left:none}}.theme-default #main-menu-bg{background-color:#23272d}.theme-default #main-menu .mmc-dropdown-open-ul a,.theme-default #main-menu .navigation a{color:#808b9c;position:relative;-webkit-transition:all .2s;transition:all .2s}
 	.theme-default #main-menu .mmc-dropdown-open-ul a:after,.theme-default #main-menu .navigation a:after{content:"";top:0;bottom:0;width:4px;position:absolute;right:auto;background:#1a7ab9;display:none;left:0}.theme-default #main-menu .mmc-dropdown-open-ul a:hover,.theme-default #main-menu .navigation a:hover{color:#fff}.theme-default #main-menu .mmc-dropdown-open-ul a:hover:after,.theme-default #main-menu .navigation a:hover:after{display:block!important}.theme-default #main-menu li.active>a{background:#181b1f;color:#fff}.theme-default #main-menu li.active>a .menu-icon{color:#21B7D2}.theme-default #main-menu li.active>a:after{display:block}.theme-default #main-menu .mm-dropdown.active>a{background:0 0}.theme-default #main-menu .mm-dropdown.active>a:after{display:none}.theme-default #main-menu .mm-dropdown>ul,.theme-default #main-menu .mmc-dropdown-open-ul{background:#2a2e36}.theme-default #main-menu .mmc-dropdown-open-ul .mmc-title{background:#181b1f;color:#fff}.theme-default #main-menu .mmc-dropdown-open>a{background:#181b1f!important}.theme-default #main-menu .mmc-dropdown-open>a,.theme-default #main-menu .mmc-dropdown-open>a .menu-icon{color:#fff!important}.theme-default #main-menu .mmc-dropdown-open>a:hover:after{display:none!important}.theme-default #main-menu .menu-content{border-color:#2e333b}.theme-default #main-menu .menu-content .btn-outline{border-color:#2e333b;color:#808b9c}.theme-default #main-menu .menu-content .btn-outline:hover,.theme-default .mmc-dropdown-open .mm-dropdown.open>a,.theme-default.mme #main-menu .mm-dropdown.open>a{color:#fff}@media (min-width:768px){.theme-default #main-menu .mm-dropdown.open>a{color:#fff}.theme-default.mmc #main-menu .navigation>.mm-dropdown.open>a{color:#808b9c}}.theme-default.right-to-left #main-menu .navigation a:after{left:auto;right:0}.theme-default #main-navbar .navbar-brand div,.theme-default .demo-logo{background:#21B7D2}.theme-default #main-navbar .navbar-header a{text-transform:uppercase;font-size:11px;font-weight:600}.theme-default.page-signin .signin-info,.theme-default.page-signup .signup-header{background:#21B7D2;background:rgba(29,137,207,.8)}.theme-default .timeline:after,.theme-default .timeline:before,.theme-default .tl-header,.theme-default .tl-icon{background:#ddd}.theme-default .tl-header,.theme-default .tl-icon{box-shadow:0 0 0 4px #f6f6f6}.theme-default .tl-entry:before{background:#21B7D2;box-shadow:0 0 0 3px #f6f6f6}.theme-default .tl-body:before{border-color:transparent #e2e2e2 transparent transparent}@media (min-width:768px){.theme-default .timeline.centered .tl-entry.left .tl-body:before{border-color:transparent transparent transparent #e2e2e2}.theme-default.right-to-left .timeline.centered .tl-entry.left .tl-body:before{border-color:transparent #e2e2e2 transparent transparent}}.theme-default.right-to-left .tl-body:before{border-color:transparent transparent transparent #e2e2e2}.theme-default.page-mail .mail-nav,.theme-default.page-mail .mail-nav:before{background:#f6f6f6}.theme-default.page-mail .mail-nav .sections li.active .badge,.theme-default.page-mail .mail-nav .sections li.active .label{background:#21B7D2}.theme-default.page-mail .mail-nav,.theme-default.page-mail .mail-nav .compose-btn,.theme-default.page-mail .mail-nav .sections li.active,.theme-default.page-mail .mail-nav:before{border-color:#e2e2e2}.theme-default.page-mail .mail-nav .navigation.open .sections li.active{background:#ececec}.theme-default.page-mail .mail-nav li.divider{background:#e2e2e2}.theme-default.page-mail .mail-nav .sections li.active a{color:#444}.theme-default.page-mail .mail-nav .sections li.active:after{color:#aaa}.theme-default.page-mail .mail-nav .sections a{color:#6a6a6a}.theme-default.page-mail .mail-nav .add-more a,.theme-default.page-mail .mail-nav-header{color:#aaa}@media (min-width:992px){.theme-default.page-mail .mail-nav .navigation .sections li.active{background:#ececec}.theme-default.page-mail .mail-nav .sections a:hover{color:#444}}
 	.theme-default .nav-icon-btn.nav-icon-btn-primary .label{background:#21B7D2}
-	.theme-default .btn-primary{color:#fff; background-color: #21B7D2; transition: border 0.25s linear 0s, color 0.25s linear 0s, background-color 0.25s linear 0s;background-color: #21B7D2;}
-	.theme-default .btn-primary:hover{color:#fff;background-color:#3A757F;}
+	.theme-default .btn-primary{border:none;border-radius:2px;color:#fff; background-color: #FFCC00; transition: border 0.25s linear 0s, color 0.25s linear 0s, background-color 0.25s linear 0s;background-color: #ffcc00;}
+	.theme-default .btn-primary:hover{color:#fff;background-color:#660000;}
 	
 	.theme-default .btn-primary.btn-flat{background:#1b80c2; color: #FFF !important;}
 	.open .theme-default .btn-primary.btn-flat.dropdown-toggle,.theme-default .btn-primary.btn-flat.active,.theme-default .btn-primary.btn-flat:active,.theme-default .btn-primary.btn-flat:hover{background:#1b80c2!important;color:#fff}
@@ -778,11 +801,11 @@ div.most_popular_discussions{
 }
 
 .theme-default .topictitle a {
-    font-weight: normal;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 13px;
-    line-height:17px;
-    color: #000;
+    font-weight: 700;
+    font-family: 'Roboto Condensed','Open Sans', sans-serif;
+    font-size: 17px;
+    line-height:25px;
+    color:#660000;
 }
 .theme-default .topictitle a:hover {
     text-decoration: none;
@@ -792,12 +815,15 @@ div.most_popular_discussions{
 	display:none;
 }
 .theme-default  .discussion_summary, .discussionComments, .breadcrumbContainer a, font, th, td, p{
-    font-size:	13px;
-    font-weight: normal;
-     font-family: 'Open Sans', sans-serif;
+    font-size:	18px;
+    font-weight:300;
+     font-family: 'Lato','Open Sans', sans-serif;
      text-align: left;
+     color:#333;
 }
 .theme-default  .discussion_summary{
+	 font-weight: light;
+     font-family: 'Lato','Open Sans', sans-serif;
 	margin-top: 10px;
 	text-align: left;
 }
@@ -816,8 +842,8 @@ div.most_popular_discussions{
 	
 }
 .theme-default .replyCount{
-	background: #21B7D2;
-	color : #FFF;
+	background: #FFCC00;
+	color : #660000;
 	display: block;
 	width: 130px;
 	text-align:center;
@@ -843,9 +869,12 @@ span.numberOfReplies{
 	margin-bottom: 20px;
 }
 h4.media-heading{
-	font-size: 14px;
-	font-weight:600;	
-	line-height:20px;
+	font-family: 'Roboto Condensed','Open Sans', sans-serif;
+	font-size: 17px;
+	font-weight:700;	
+	line-height:40px;
+	color:#660000;
+	
 }
 .allDiscussion_topic, .discussions_detail_full, .reply_to_conversation{
 	margin-bottom: 20px;	
@@ -890,4 +919,8 @@ div.medical_warning{
 
 .more-link {
 /*end of styling for more*/
+ }
+.createDis{ margin-top:15px;}
+ @media screen and (max-width: 768px){
 
+}
