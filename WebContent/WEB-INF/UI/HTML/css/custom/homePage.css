@@ -84,7 +84,7 @@
 	width:80%
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 992px){
 	.card {
 border: 1px solid #ffcc66;
 height: 374px;
