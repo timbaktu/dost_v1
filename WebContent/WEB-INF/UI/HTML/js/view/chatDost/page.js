@@ -6,8 +6,9 @@ define([
     'hbs!../../template/chatDost/composeMsgModal',         
     'view/basemodal/BaseModal',     
 	'utils',
-	'event/dispatcher'
-], function($, _, Backbone, chatDostLayout, ComposeMsgModal, BaseModalView, Utils, Dispatcher) {
+	'event/dispatcher',
+	'model/login'
+], function($, _, Backbone, chatDostLayout, ComposeMsgModal, BaseModalView, Utils, Dispatcher, LoginStatus) {
 	var chatDostPage = Backbone.View.extend({
 		el: "#main-content",
 		initialize: function() {

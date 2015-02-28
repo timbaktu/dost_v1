@@ -3,18 +3,21 @@ define([
 	'underscore',
 	'backbone',
 	'hbs!../../template/chatDost/chat',
-    'hbs!../../template/chatDost/composeMsgModal',         
+    'hbs!../../template/chatDost/composeMsgModal',
+    'hbs!../../template/chatDost/chatWindow',
     'view/basemodal/BaseModal',
 	'utils',
-	'event/dispatcher'
-], function($, _, Backbone, chatDostLayout, ComposeMsgModal, BaseModalView, Utils, Dispatcher) {
+	'event/dispatcher',
+	'model/login'
+], function($, _, Backbone, chatDostLayout, ComposeMsgModal, ChatWindow, BaseModalView, Utils, Dispatcher, LoginStatus) {
 	var chatDostPage = Backbone.View.extend({
 		el: "#main-content",
 		initialize: function() {
 			// body...
 		},
 		events: {
-			"click .email":"composeMsg"
+			"click .email":"composeMsg",
+			"click .chat": "chatClicked"
 		},
 		render: function() {
 			$.ajax("http://localhost:8800/dost/api/counselors/all").done(function(response){
@@ -22,7 +25,13 @@ define([
 				$(".banner").hide();
 				$(window).unbind('scroll');
 				$('body').css("padding-top", "114px");
+				$(".chat-section").html(ChatWindow({"username":LoginStatus.get('username')}));
 			});
+		},
+		chatClicked: function(e){
+			e.preventDefault();
+			e.stopPropagation();
+			console.log($("#chatFrame"));
 		},
 		composeMsg: function(e){
 			e.preventDefault();
