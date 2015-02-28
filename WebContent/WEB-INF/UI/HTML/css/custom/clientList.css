@@ -76,15 +76,17 @@
 .client-card .discussTopics{
 	margin-top:16px;
 }
+.clientList-cards + div{margin-bottom:30px;}
 .client-btn{
 	color:#333;
-	font-size:18px;
+	font-size:16px;
 	font-family: 'Lato', sans-serif;
 	font-weight:300;
 	position: absolute;
-	top: 329px;
-	left:20px;
-	padding:0;
+	//top: 329px;
+	bottom:0;
+	left:8.333333%;
+	//padding:0;
 	cursor:pointer;
 }
 .client-btn div{
@@ -98,6 +100,10 @@
 .message-btn>img{
 	width:20%;
 }
+.chat-btn>img{width:20%;}
+.chat-btn.online{background:#8DC268}
+.chat-btn.offline{background:#B8B4AF}
+.chat-btn.idle{background:#F08E0C}
 .detail-btn{
 	background:#000;
 	color:#fff;
@@ -106,34 +112,42 @@
 .client-sort, .client-sort:hover, .client-sort:focus, .client-sort:active{
 	border:none;
 }
-
+.clientList-cards h3{margin:0px auto;}
 @media  screen and (max-width:768px) { 
 	.filters{
 		display:none;
 	}
-	.client-card{
+	//.client-card{
 		width:inherit;
 	}
-	.client-btn{
-  width: 204px;
-  height: 26px;
-  position:relative;
-  top:18%;
-  left:0px;
-  margin: 0 auto 15px auto;
-
-	}
-	.message-btn{
+//.client-btn{
+	color:#333;
+	font-size:18px;
+	font-family: 'Lato', sans-serif;
+	font-weight:300;
+	position: absolute;
+	//top: 329px;
+	bottom:0;
+	left:8.333333%;
+	//padding:0;
+	cursor:pointer;
+}
+	//.message-btn{
 	width: 102px;
 	font-size:15px;
 	float:left;
 }
-.message-btn>img{
+//.message-btn>img{
 	width:20%;
 	
 }
-.detail-btn{
+//.chat-btn>img{width:20%;}
+//.detail-btn{
 	width: 102px;
 	font-size:15px;
 	float:left;
+}
+}
+@media only screen and (min-width : 992px) and (max-width : 1200px){
+	.client-btn{left:0;font-size:15px;}
 }

@@ -100,7 +100,7 @@ margin: 0px 0px 5px; width: 466px; height: 102px;}
 	cursor: pointer;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 992px){
 	.tab-content{
 	width:100%;
 	padding-top:30px;

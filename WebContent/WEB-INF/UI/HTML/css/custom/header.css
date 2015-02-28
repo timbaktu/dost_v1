@@ -49,7 +49,7 @@ body{
 }
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
 	color: #555;
-	border-top: 8px solid #cc3333;
+	border-top: 8px solid #660000;
 	position: relative;
 	top: -8px;
 	background:#fff;
@@ -283,7 +283,7 @@ body{
   font-weight: normal;
   width:20%}
   
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 992px){
   .banner-mobile{
   height:400px;
   background:#EDD419;
@@ -314,6 +314,6 @@ body{
     top:65%;
     left:25%;
     }
-    
+   
     
   }
