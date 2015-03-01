@@ -74,7 +74,8 @@ font-weight: 300;margin-left:5%;}
 }
 .viewall-btn a{background:#fffae5;padding:10px 17px;}
 .compose-msg-modal{
-	padding:10% 10% 0
+	padding:10% 10% 0;
+	
 }
 .compose-msg-modal .recipients{
 	width:70%

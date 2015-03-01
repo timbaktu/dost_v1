@@ -32,7 +32,12 @@ define([
             'changePass':'changePass',
             'talkToDost':'chatDost',
             'talkToDost/:userId':'chatDost',
-            'discussions':'discussions'
+            'discussions':'discussions',
+            'counselling':'counselling',
+            'education':'education',
+            'experiences':'experiences',
+            'marriage':'marriage',
+            'parents':'parents'
         },
 
         main: function() {
@@ -268,6 +273,76 @@ define([
                 if (!this.appView) this.appView = new AppView();
 
                 this.appMainView = Vm.create(this.appView, 'page',discussions);
+                this.appMainView.render();
+
+            });
+        },
+        counselling: function(){
+        	require(['view/app', 'view/counselling/page'], function(AppView,counselling) {
+
+                if (this.appMainView) {
+                    this.appMainView.remove();
+                }
+
+                if (!this.appView) this.appView = new AppView();
+
+                this.appMainView = Vm.create(this.appView, 'page',counselling);
+                this.appMainView.render();
+
+            });
+        },
+        education: function(){
+        	require(['view/app', 'view/education/page'], function(AppView,education) {
+
+                if (this.appMainView) {
+                    this.appMainView.remove();
+                }
+
+                if (!this.appView) this.appView = new AppView();
+
+                this.appMainView = Vm.create(this.appView, 'page',education);
+                this.appMainView.render();
+
+            });
+        },
+        experiences: function(){
+        	require(['view/app', 'view/experiences/page'], function(AppView,experiences) {
+
+                if (this.appMainView) {
+                    this.appMainView.remove();
+                }
+
+                if (!this.appView) this.appView = new AppView();
+
+                this.appMainView = Vm.create(this.appView, 'page',experiences);
+                this.appMainView.render();
+
+            });
+        },
+        marriage: function(){
+        	require(['view/app', 'view/marriage/page'], function(AppView,marriage) {
+
+                if (this.appMainView) {
+                    this.appMainView.remove();
+                }
+
+                if (!this.appView) this.appView = new AppView();
+
+                this.appMainView = Vm.create(this.appView, 'page',marriage);
+                this.appMainView.render();
+
+            });
+        },
+        parents: function(){
+        	require(['view/app', 'view/parents/page'], function(AppView,parents) {
+
+                if (this.appMainView) {
+                    this.appMainView.remove();
+                }
+
+                if (!this.appView) this.appView = new AppView();
+
+                this.appMainView = Vm.create(this.appView, 'page',parents);
                 this.appMainView.render();
 
             });

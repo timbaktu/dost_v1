@@ -270,18 +270,21 @@ body{
 	background:#fff;
 	border-right:none;
 }
-.explore-tabs{  margin: 14px 0px;
+.explore-tabs{  margin: 2% 0px;
   cursor: pointer;
   color: #330000;
   font-size: 15px;
   font-weight: normal;
-  margin-left: 28px;}
+  margin-left: 8%;}
   .explore-tabs>a{  margin: 14px 0px;
   cursor: pointer;
   color: #330000;
   font-size: 15px;
   font-weight: normal;
-  width:20%}
+  width:20%;
+  padding-right: 10px;
+  
+  }
   
   @media screen and (max-width: 992px){
   .banner-mobile{
