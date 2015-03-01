@@ -192,7 +192,7 @@ define([
                     $(".banner > p").stop().animate({
                         'top': '120px',
                         'font-size': '14px',
-                        'height': '365px'
+                        'height': '100px'
                     });
                     $(".banner > form").stop().animate({
                         'top': '190px',
