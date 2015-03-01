@@ -15,6 +15,7 @@ body{
 }
 .wel-message ul li a:hover{
 	background:none;
+	border-left:13px solid #663333;
 }
 .wel-message ul li.active a{
 	border-left:13px solid #663333;
