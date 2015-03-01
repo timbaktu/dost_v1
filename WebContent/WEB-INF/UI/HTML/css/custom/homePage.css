@@ -29,7 +29,13 @@
 	height:374px;
 	//width:304px;
 	font-size:16px;
+	overflow-y:auto;
 }
+.card:hover{
+	box-shadow:0px 0px 5px #666666;; 
+	 -webkit-box-shadow:0px 0px 5px #666666;
+	 -moz-box-shadow:0px 0px 5px #666666;
+	 }
 .card-head{
 	width:204px;
 	height:26px;
@@ -51,19 +57,22 @@
 .card .discussTopics div{
 	margin-bottom:10px;
 }
+.card .discussFaq{width:90%;font-family: 'Lato', sans-serif;
+font-weight: 300;margin-left:5%;}
 .viewall-btn{
 	color:#333;
 	font-size:20px;
 	font-family: 'Lato', sans-serif;
 	font-weight:300;
 	position: absolute;
-	top: 337px;
-	left: 74px;
+	bottom:9px;
+	left: 25%;
 }
-.viewall-btn span{
+//.viewall-btn span{
 	background:#fffae5;
 	padding:15px 0 10px 40px;
 }
+.viewall-btn a{background:#fffae5;padding:10px 17px;}
 .compose-msg-modal{
 	padding:10% 10% 0
 }
