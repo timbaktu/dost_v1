@@ -68,7 +68,9 @@ div.message-text {
 margin: 0 0px 10px;
 }
 div.height-fixed-message{
-	height: 54px;
+	position:relative;
+	top:-12px;
+	height: 40px;
 	overflow: hidden;
 }
 

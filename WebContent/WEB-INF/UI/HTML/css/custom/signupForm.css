@@ -1,7 +1,7 @@
 .signupForm .modal-dialog{
-	width: 1075px;
-	right: 87px;
-	top: 60px;
+	width: 900px;
+	//right: 87px;
+	//top: 60px;
 	height: 1168px;
 	//border: 1px solid #999;
 	
@@ -30,16 +30,16 @@
 }
 .signupForm .modal-body img{
 	width:90px;
-	height:80px;
+	height:90px;
 	border: 1px solid;
 	margin-right:16px;
 } 
 .signupForm .modal-body .form-group{
-	margin-bottom: 29px;
-	margin-top: 34px;
+	margin-bottom: 0px;
+	margin-top: 15px;
 }
 .signupForm .modal-body div.avatar{
-	padding-bottom:4px;
+	//padding-bottom:4px;
 }
 .signupForm .modal-body .form-group label, .signupForm .modal-body .radio-button{
 	color:#333;
@@ -48,6 +48,7 @@
 	font-weight: 300;
 	padding-bottom:15px;
 }
+.signupForm .modal-body .form-group label:last-child{margin-bottom:0px;}
 .signupForm .modal-body .radio-button{
 	margin-bottom:20px;
  }
@@ -79,7 +80,8 @@
 	font-size:25px;
 	font-family: 'Roboto Condensed', sans-serif;
 	padding:20px 330px;
-	margin-right:100px;
+	//margin-right:100px;
+	margin-bottom:15px;
 }
 .signupForm .modal-footer button:hover{
 	background:#000;
