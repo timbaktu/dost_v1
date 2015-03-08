@@ -2,8 +2,9 @@ define([
     'backbone',
     'backbone-queryparams',
     'vm',
-    'model/login'
-], function(Backbone, BackboneQueryparams, Vm, LoginStatus) {
+    'model/login',
+    'strophe/strophe'
+], function(Backbone, BackboneQueryparams, Vm, LoginStatus, Strophe) {
 
     var AppRouter = Backbone.Router.extend({
 
@@ -37,7 +38,8 @@ define([
             'education':'education',
             'experiences':'experiences',
             'marriage':'marriage',
-            'parents':'parents'
+            'parents':'parents',
+            'chat':'oneToOne'
         },
 
         main: function() {
@@ -343,6 +345,20 @@ define([
                 if (!this.appView) this.appView = new AppView();
 
                 this.appMainView = Vm.create(this.appView, 'page',parents);
+                this.appMainView.render();
+
+            });
+        },
+        oneToOne: function(){
+        	require(['view/app', 'view/chatDost/oneToOne'], function(AppView,oneToOne) {
+
+                if (this.appMainView) {
+                    this.appMainView.remove();
+                }
+
+                if (!this.appView) this.appView = new AppView();
+
+                this.appMainView = Vm.create(this.appView, 'oneToOne',oneToOne);
                 this.appMainView.render();
 
             });
