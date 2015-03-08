@@ -4,4 +4,7 @@ footer{
 	padding-top:22px;
 	padding-bottom:22px;
 	margin-top:30px;
+	text-alignment:left;
+	margin-left:8.3333%;
 }
+.footer-left{//margin-left:10%;}
