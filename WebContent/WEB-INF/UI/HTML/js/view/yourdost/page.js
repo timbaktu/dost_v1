@@ -14,7 +14,7 @@ define([
 		el: "#main-content",
 		initialize: function() {
 			if(LoginStatus.get("isLoggedIn") !== true){
-				Router.__super__.navigate("#login",{trigger: true});
+				//Router.__super__.navigate("#login",{trigger: true});
 			}
 			
 			Dispatcher.trigger("header:changeDocumentTitle", "Your Dost");

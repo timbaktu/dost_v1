@@ -34,6 +34,7 @@ define([
             'talkToDost':'chatDost',
             'talkToDost/:userId':'chatDost',
             'discussions':'discussions',
+            'discussions/*url':'discussions',
             'counselling':'counselling',
             'education':'education',
             'experiences':'experiences',
@@ -265,8 +266,8 @@ define([
 
             });
         },
-        discussions: function(){
-        	require(['view/app', 'view/discussions/page'], function(AppView,discussions) {
+        discussions: function(url){
+        	require(['view/app', 'view/discussions/page','view/discussions/discussion' ], function(AppView,discussions, discussion) {
 
                 if (this.appMainView) {
                     this.appMainView.remove();
@@ -275,6 +276,11 @@ define([
                 if (!this.appView) this.appView = new AppView();
 
                 this.appMainView = Vm.create(this.appView, 'page',discussions);
+                if(url === undefined){
+                    this.appMainView = Vm.create(this.appView, 'page', discussions);
+                } else {
+                	this.appMainView = Vm.create(this.appView, 'page', discussion);
+                }
                 this.appMainView.render();
 
             });
