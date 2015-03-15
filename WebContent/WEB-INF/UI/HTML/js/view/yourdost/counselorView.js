@@ -63,7 +63,7 @@ function($, Backbone, _, counselorTemplate, ComposeMsgModal, counselorInfo, Base
 			e.preventDefault();
 			e.stopPropagation();
 			var self = this;
-			var username=$(e.target).attr("id");
+			var username=$(e.target).closest(".viewDetail").attr("id");
 			$.ajax("http://localhost:8800/dost/api/counselors/all").done(function(response){
 				var a = response;
 				var found;

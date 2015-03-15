@@ -1,5 +1,6 @@
 define( [ 'underscore', 'backbone', 'hbs!template/basemodal/BaseModal',
-		'moment' ], function(_, Backbone, template, moment) {
+          'hbs!../../template/chatDost/composeMsgModal',
+		'moment' ], function(_, Backbone, template, ComposeMsgModal, moment) {
 	var BaseModalView = Backbone.View.extend( {
 
 		id : 'base-modal',
@@ -10,7 +11,51 @@ define( [ 'underscore', 'backbone', 'hbs!template/basemodal/BaseModal',
 			'hidden' : 'teardown',
 		    "focus .recipients":"autoComplete",
 		    "blur #username":"usernameCheck",
-		    'click .close':'teardown'
+		    'click .close':'teardown',
+		    'click .message-btn':'composeMessage',//for dost details modal window
+		    'click .chat-btn':'hide'//for dost details modal window
+		    
+		},
+		
+		composeMessage:function(e){
+			this.hide();
+			e.preventDefault();
+			e.stopPropagation();
+			var self = this;
+			$modalBody = $('<div>').html(ComposeMsgModal());
+			var msgToDost = new BaseModalView({
+                title: "",
+                headerHidden: true,
+                className : 'modal fade compose-message-modal',
+                buttonList: [
+                    ['SEND NOW', function(modal, event){
+                    	var self = this;
+                    	var content = modal.$el.find("textarea").val().replace(/\n/g, '<br/>');
+                    	var subject= modal.$el.find(".subject").val().replace(/\n/g, '<br/>');
+                    	var recipients;
+                    	$.ajax("http://localhost:8800/dost/api/user/"+$(".recipients").val()).done(function(details){
+	                    	var url = "http://localhost:8800/dost/api/user/message?subject="+subject+"&content="+content+"&recipients="+details.userId+"&senderId=" +LoginStatus.get('userId');
+	                    	$.ajax({
+	                    		type: "POST",
+	                    		url: url
+	                    	}).done(function(response){
+	                    		console.log(response);
+	                    		var note = response,
+	                    			userName = response.user.username;
+	                    		$("<div class='notes-info'>").append("<div class='notes-heading'>"+
+	                    				note.note+"</div><div class='notes-date pull-right'>" +
+	                    				userName +" " + Utils.getDateDiff(note.noteDate) + 
+	                    				"</div>").prependTo("#notesContainer");
+	                    		
+	                    	});
+	    				});
+                    	modal.teardown();                    	
+                    }.bind(self), 'option-btn composeMsg-send btn']
+                ],
+                body: $modalBody,
+                //data: usernames
+            });
+			msgToDost.show();
 		},
 
 		initialize : function(options) {
@@ -112,6 +157,7 @@ define( [ 'underscore', 'backbone', 'hbs!template/basemodal/BaseModal',
 			$.ajax("http://localhost:8800/dost/api/users").done(function(users){
 				$.each(users, function(i,key){
 				  usernames.push(key.username);
+					console.log(i);
 				});
 			});
 			$( ".recipients" ).autocomplete({

@@ -1,30 +1,27 @@
 <div class="col-md-12 col-sm-12  counselor-card text-center card">
-	<div class="card-head">
-		<p>{{name}}</p>
-	</div>
-			<div class="clientPhoto">
-				<!--<img src="images/avatar/{{avatar}}.png">-->
-				<img class="viewDetail" src="images/avatar/{{avatar}}.png">
-			</div>
-			<div class="desc">
-				<p>{{description}}</p>
-			</div>
-			
-			<div class="discussTopics">
-				<div class="text-left">
-					<p>#Relationship #Career <br/>
-					#Relationship #Career</p>		
-				</div>
-			</div>
-			<div class="client-btn col-md-12 col-lg-10 col-xs-10">
+		<div class="col-md-12">
+			<div class="clientPhoto col-md-6">
+				<img class="viewDetail" src="images/avatar/{{avatar}}.png"><span>{{name}}</span>
+			</div>			
+			<div class="col-md-6 col-lg-6 col-xs-10">
 				<div class="col-md-6 col-xs-6 message-btn">
 					<img src="images/icons/chat.png">
-					<a>MESSAGE</a>
+					<a href="javascript:void(0);">MESSAGE</a>
 				</div>
 				<div class="col-md-6 col-xs-6 chat-btn online">
 				<img src="images/icons/chat.png">
-					<a href="#talkToDost/{{name}}">CHAT
+					<a href="#talkToDost/{{name}}">CHAT</a>
 				</div>
 			</div>
+		</div>
+		<div class="discussTopics col-md-12">
+			<div class="text-left">
+				<p>#Relationship #Career <br/>
+				#Relationship #Career</p>		
+			</div>
+		</div>
+		<div class="desc col-md-12">
+			<p>{{description}}</p>
+		</div>
 	
 </div>
