@@ -2,14 +2,15 @@ define([ 'jquery',
          'backbone',
          'underscore',
          'hbs!../../template/yourdost/counselor',
-         'hbs!../../template/chatDost/composeMsgModal',         
+         'hbs!../../template/chatDost/composeMsgModal',
+         'hbs!../../template/yourdost/counselorInfo',         
          'view/basemodal/BaseModal',
          'utils',
          'event/dispatcher',
          'model/login',
          'router/app-router'
          ],
-function($, Backbone, _, counselorTemplate, ComposeMsgModal, BaseModalView, Utils, Dispatcher, LoginStatus, Router) {
+function($, Backbone, _, counselorTemplate, ComposeMsgModal, counselorInfo, BaseModalView, Utils, Dispatcher, LoginStatus, Router) {
 	
 	var CounselorView = Backbone.View.extend({
 		template : counselorTemplate,
@@ -17,7 +18,7 @@ function($, Backbone, _, counselorTemplate, ComposeMsgModal, BaseModalView, Util
 		className: "col-md-4 paddBottom counselor",
 		events : {
 			'click .message-btn': 'message',
-			'click .detail-btn': 'openDetail'
+			'click .viewDetail': 'openDetail'
 		},
 		message: function(e){
 			e.preventDefault();
@@ -57,6 +58,33 @@ function($, Backbone, _, counselorTemplate, ComposeMsgModal, BaseModalView, Util
                 //data: usernames
             });
 			msgToDost.show();
+		},
+		openDetail: function(e){
+			e.preventDefault();
+			e.stopPropagation();
+			var self = this;
+			var username=$(e.target).attr("id");
+			$.ajax("http://localhost:8800/dost/api/counselors/all").done(function(response){
+				var a = response;
+				var found;
+				a.some(function(entry) {
+				    if (entry.username == username) {
+				        found = entry;
+				        return true;
+				    }
+				});
+				console.log(found);
+				$modalBody = $('<div>').html(counselorInfo(found));
+				var msgToDost = new BaseModalView({
+	                title: "",
+	                headerHidden: true,
+	                className : 'modal fade compose-message-modal',                
+	                body: $modalBody,
+	                //data: usernames
+	            });
+				msgToDost.show();
+			});
+			
 		},
 		initialize : function(options) {
 			var self = this;

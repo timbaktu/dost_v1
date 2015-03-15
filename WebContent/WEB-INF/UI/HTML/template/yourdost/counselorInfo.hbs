@@ -1,11 +1,30 @@
-<form class="compose-msg-modal">
-	<span>To</span></br>
-	<input type="text" class="recipients" name="recipients"></input></br></br>
+<div class="col-md-12 col-sm-12  counselor-card text-center card">
+	<div class="card-head">
+		<p>{{name}}</p>
+	</div>
+			<div class="clientPhoto">
+				<!--<img src="images/avatar/{{avatar}}.png">-->
+				<img class="viewDetail" src="images/avatar/{{avatar}}.png">
+			</div>
+			<div class="desc">
+				<p>{{description}}</p>
+			</div>
+			
+			<div class="discussTopics">
+				<div class="text-left">
+					<p>#Relationship #Career <br/>
+					#Relationship #Career</p>		
+				</div>
+			</div>
+			<div class="client-btn col-md-12 col-lg-10 col-xs-10">
+				<div class="col-md-6 col-xs-6 message-btn">
+					<img src="images/icons/chat.png">
+					<a>MESSAGE</a>
+				</div>
+				<div class="col-md-6 col-xs-6 chat-btn online">
+				<img src="images/icons/chat.png">
+					<a href="#talkToDost/{{name}}">CHAT
+				</div>
+			</div>
 	
-	<span>Subject</span></br>
-	<input type="text" name="subject" class="subject"></br></br>
-	
-	<span>Your Message</span></br>
-	<textarea class="compose-msg-box" rows="5">
-	</textarea></br>
-</form>
+</div>
