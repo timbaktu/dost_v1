@@ -16,13 +16,12 @@ define([
 		events: {},
 		render: function() {
 			this.$el.html(HomePageLayout({}));
-			
 			if(LoginStatus.get("isLoggedIn") === "true"){
 				$(".banner").hide();
 				$(window).unbind('scroll');
 				$('body').css("padding-top", "114px");
 			}
-			$.ajax('http://localhost:8800/dost/api/topics/count/2').done(function(response){
+			$.ajax(Utils.contextPath()+'/api/topics/count/2').done(function(response){
 				_.each(response, function(post){
 					var time = "~" + Utils.getDateDiff(post.forumPosts[0].postTime);
 					
@@ -31,7 +30,7 @@ define([
 			}).fail(function(error){
 				
 			});
-			$.ajax('http://localhost:8800/dost/api/faqs/count/3').done(function(response){
+			$.ajax(Utils.contextPath()+'/api/faqs/count/3').done(function(response){
 				_.each(response, function(post){
 					//var time = "~" + Utils.getDateDiff(post.forumPosts[0].postTime);
 					console.log(post);

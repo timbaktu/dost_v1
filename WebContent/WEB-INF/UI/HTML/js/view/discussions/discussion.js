@@ -13,10 +13,10 @@ define([
 		},
 		events: {},
 		render: function() {
-			var src=window.location.hash.split("discussions/")[1];
+			var src=window.location.hash.split("discussions")[1];
 			//src=src.replace(/-/g,"/");
 			console.log(src);
-			var url={"url1":src}
+			var url={"url1":Utils.contextPath()+src}
 			this.$el.html(ForgotPassLayout(url));
 			$(".banner").hide();
 			$(window).unbind('scroll');

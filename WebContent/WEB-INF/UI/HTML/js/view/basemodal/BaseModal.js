@@ -1,6 +1,6 @@
 define( [ 'underscore', 'backbone', 'hbs!template/basemodal/BaseModal',
-          'hbs!../../template/chatDost/composeMsgModal',
-		'moment' ], function(_, Backbone, template, ComposeMsgModal, moment) {
+          'hbs!../../template/chatDost/composeMsgModal','utils',
+		'moment' ], function(_, Backbone, template, ComposeMsgModal, Utils, moment) {
 	var BaseModalView = Backbone.View.extend( {
 
 		id : 'base-modal',
@@ -33,8 +33,8 @@ define( [ 'underscore', 'backbone', 'hbs!template/basemodal/BaseModal',
                     	var content = modal.$el.find("textarea").val().replace(/\n/g, '<br/>');
                     	var subject= modal.$el.find(".subject").val().replace(/\n/g, '<br/>');
                     	var recipients;
-                    	$.ajax("http://localhost:8800/dost/api/user/"+$(".recipients").val()).done(function(details){
-	                    	var url = "http://localhost:8800/dost/api/user/message?subject="+subject+"&content="+content+"&recipients="+details.userId+"&senderId=" +LoginStatus.get('userId');
+                    	$.ajax(Utils.contextPath()+"/api/user/"+$(".recipients").val()).done(function(details){
+	                    	var url = Utils.contextPath()+"/api/user/message?subject="+subject+"&content="+content+"&recipients="+details.userId+"&senderId=" +LoginStatus.get('userId');
 	                    	$.ajax({
 	                    		type: "POST",
 	                    		url: url
@@ -154,7 +154,7 @@ define( [ 'underscore', 'backbone', 'hbs!template/basemodal/BaseModal',
 		},
 		autoComplete:function(usersnames){
 			var usernames=[];
-			$.ajax("http://localhost:8800/dost/api/users").done(function(users){
+			$.ajax(Utils.contextPath()+"/api/users").done(function(users){
 				$.each(users, function(i,key){
 				  usernames.push(key.username);
 					console.log(i);
@@ -169,7 +169,7 @@ define( [ 'underscore', 'backbone', 'hbs!template/basemodal/BaseModal',
 			$(".signupForm #username").css("border-color","black");
 			$(".error").remove();
 			var text=$(".signupForm #username").val();
-			$.ajax("http://localhost:8800/dost/api/user/"+text+"/exists").done(function(response){
+			$.ajax(Utils.contextPath()+"/api/user/"+text+"/exists").done(function(response){
 				if(response.userexists=="true"){
 					$(".signupForm #username").css("border-color","red");
 					$(".signupForm #username").parent().parent().append('<span style="color:red" class="error">username exists</span>')

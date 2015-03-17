@@ -7,6 +7,7 @@ define([
 	
 	'event/dispatcher',
 	'model/login',
+	'utils',
 	'router/app-router',
 	'view/messages/messageCollectionView',
 	'hbs!../../template/messages/welcomeMessage',
@@ -14,7 +15,7 @@ define([
     'hbs!../../template/messages/composeMsgModal',         
     'view/basemodal/BaseModal',     
 	'handlebars'
-], function($, _, Backbone,jqueryUi,MessagesPageLayout, Dispatcher, LoginStatus, Router, MessageCollectionView, WelcomeMessage, NoMessage, ComposeMsgModal, BaseModalView, Handlebars) {
+], function($, _, Backbone,jqueryUi,MessagesPageLayout, Dispatcher, LoginStatus, Utils, Router, MessageCollectionView, WelcomeMessage, NoMessage, ComposeMsgModal, BaseModalView, Handlebars) {
 	var MessagesPage = Backbone.View.extend({
 		el: "#main-content",
 		initialize: function() {
@@ -40,7 +41,7 @@ define([
 		render: function() {
 			var self = this;
 			this.$el.html(MessagesPageLayout({}));
-			console.log(LoginStatus);
+			//console.log(LoginStatus);
 			$(".banner").hide();
 			$(window).unbind('scroll');
 			$('body').css("padding-top", "114px");
@@ -62,7 +63,7 @@ define([
 				
 				
 			} else {
-				$.ajax("http://localhost:8800/dost/api/user/"+LoginStatus.get('userId')+"/unreadcount").done(function(data){
+				$.ajax(Utils.contextPath()+"/api/user/"+LoginStatus.get('userId')+"/unreadcount").done(function(data){
 					if((data[""+LoginStatus.get('userId')+""] === 0)){
 						if(root.hasClass("inbox-message")){
 							root.removeClass("inbox-message");
@@ -84,7 +85,7 @@ define([
 							
 							self.inboxCollectionView == new MessageCollectionView({
 								el: "#inbox",
-								url: "http://localhost:8800/dost/api/user/"+LoginStatus.get('userId')+"/messages?state=closed"
+								url: Utils.contextPath()+"/api/user/"+LoginStatus.get('userId')+"/messages?state=closed"
 							});
 						});
 					} else {
@@ -100,7 +101,7 @@ define([
 						
 						self.inboxCollectionView == new MessageCollectionView({
 							el: "#inbox",
-							url: "http://localhost:8800/dost/api/user/"+LoginStatus.get('userId')+"/messages?state=closed"
+							url: Utils.contextPath()+"/api/user/"+LoginStatus.get('userId')+"/messages?state=closed"
 						});
 					}
 				});
@@ -119,7 +120,7 @@ define([
 			var root = $(".wel-message"),
 			container = $("#messageBoxContainer");
 			
-			$.ajax("http://localhost:8800/dost/api/user/"+LoginStatus.get('userId')+"/unreadcount").done(function(data){
+			$.ajax(Utils.contextPath()+"/api/user/"+LoginStatus.get('userId')+"/unreadcount").done(function(data){
 				if((data[""+LoginStatus.get('userId')+""] === 0)){
 					if(root.hasClass("inbox-message")){
 						root.removeClass("inbox-message");
@@ -141,7 +142,7 @@ define([
 						
 						self.inboxCollectionView == new MessageCollectionView({
 							el: "#inbox",
-							url: "http://localhost:8800/dost/api/user/"+LoginStatus.get('userId')+"/messages?state=closed"
+							url: Utils.contextPath()+"/api/user/"+LoginStatus.get('userId')+"/messages?state=closed"
 						});
 					});
 				} else {
@@ -158,7 +159,7 @@ define([
 					if( !self.inboxCollectionView){
 						self.inboxCollectionView = new MessageCollectionView({
 							el: "#inbox",
-							url: "http://localhost:8800/dost/api/user/"+LoginStatus.get('userId')+"/messages?state=closed"
+							url: Utils.contextPath()+"/api/user/"+LoginStatus.get('userId')+"/messages?state=closed"
 						});
 					} else {
 						self.inboxCollectionView.bindFetchOnScroll(self.inboxCollectionView);
@@ -190,7 +191,7 @@ define([
 			if( !self.sentCollectionView){
 				self.sentCollectionView = new MessageCollectionView({
 					el: "#sent",
-					url: 'http://localhost:8800/dost/api/user/'+LoginStatus.get('userId')+'/sentmessages?state=closed'
+					url: Utils.contextPath()+'/api/user/'+LoginStatus.get('userId')+'/sentmessages?state=closed'
 				});
 			} else {
 				self.sentCollectionView.bindFetchOnScroll(self.sentCollectionView);
@@ -221,8 +222,8 @@ define([
                     	var content = modal.$el.find("textarea").val().replace(/\n/g, '<br/>');
                     	var subject= modal.$el.find(".subject").val().replace(/\n/g, '<br/>');
                     	var recipients;
-                    	$.ajax("http://localhost:8800/dost/api/user/"+$(".recipients").val()).done(function(details){
-	                    	var url = "http://localhost:8800/dost/api/user/message?subject="+subject+"&content="+content+"&recipients="+details.userId+"&senderId=" +LoginStatus.get('userId');
+                    	$.ajax(Utils.contextPath()+"/api/user/"+$(".recipients").val()).done(function(details){
+	                    	var url = Utils.contextPath()+"/api/user/message?subject="+subject+"&content="+content+"&recipients="+details.userId+"&senderId=" +LoginStatus.get('userId');
 	                    	$.ajax({
 	                    		type: "POST",
 	                    		url: url
@@ -258,7 +259,7 @@ define([
 			$("#unreadCount").text(unreadCountText);
 		},
 		updateUnreadCount: function(){
-			$.ajax("http://localhost:8800/dost/api/user/"+LoginStatus.get('userId')+"/unreadcount").done(function(data){
+			$.ajax(Utils.contextPath()+"/api/user/"+LoginStatus.get('userId')+"/unreadcount").done(function(data){
 				var unreadCountText = data[LoginStatus.get('userId')] == 0 ? "" : "("+data[LoginStatus.get('userId')]+")";
 				$("#unreadCount").text(unreadCountText);
 			});

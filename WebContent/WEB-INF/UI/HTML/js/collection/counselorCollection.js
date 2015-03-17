@@ -8,7 +8,7 @@ define([ 'backbone',
     // Reference to this collection's model.
     model : Counselor,
     
-    url: 'http://localhost:8800/dost/api/counselors/all',
+    url: Utils.contextPath()+'/api/counselors/all',
     
     parse: function(data){
     	return data;

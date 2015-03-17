@@ -4,12 +4,13 @@ define([
 	'backbone',
 	'hbs!../../template/faq/singleFaqlayout',
 	'event/dispatcher',
+	'utils',
 	'model/login',
 	'view/faq/faqCategoryView',
     'hbs!../../template/faq/addFaq',
     'hbs!../../template/faq/editFaq',         
     'view/basemodal/BaseModal' 
-], function($, _, Backbone, SingleFaqPageLayout, Dispatcher, LoginStatus, FaqCategoryView, addFaqModalTemp, editModal, BaseModalView) {
+], function($, _, Backbone, SingleFaqPageLayout, Dispatcher, Utils, LoginStatus, FaqCategoryView, addFaqModalTemp, editModal, BaseModalView) {
 	var SingleFaqPage = Backbone.View.extend({
 		el: "#main-content",
 		initialize: function() {
@@ -26,13 +27,13 @@ define([
 		render: function() {
 			var self = this;
 			var fid=window.location.hash.split("/")[1];
-			$.ajax("http://localhost:8800/dost/api/faq/"+fid).done(function(response){
+			$.ajax(Utils.contextPath()+"/api/faq/"+fid).done(function(response){
 				if(!_.isEmpty(LoginStatus.attributes)&&LoginStatus.attributes.dbUserRole.role=="ROLE_ADMIN"){
 					response["admin"]=true;
 				}			
 				$("#main-content").html(SingleFaqPageLayout(response));
 				$("#main-content .answer").html(response.answer);
-				$.ajax("http://localhost:8800/dost/api/faq/"+fid+"?type=PREVIOUS").done(function(data){
+				$.ajax(Utils.contextPath()+"/api/faq/"+fid+"?type=PREVIOUS").done(function(data){
 					if(data.faqId){
 						$("#btn-prev").attr("href","#faq/"+data.faqId);
 					}
@@ -40,7 +41,7 @@ define([
 						$("#btn-prev").attr("disabled","disabled");
 					}
 				})
-				$.ajax("http://localhost:8800/dost/api/faq/"+fid+"?type=NEXT").done(function(data){
+				$.ajax(Utils.contextPath()+"/api/faq/"+fid+"?type=NEXT").done(function(data){
 					if(data.faqId){
 						$("#btn-next").attr("href","#faq/"+data.faqId);
 					}
@@ -60,7 +61,7 @@ define([
 			var self = this;
 			var fid=window.location.hash.split("/")[1];
 			$modalBody ="";
-			$.ajax("http://localhost:8800/dost/api/faq/"+fid).done(function(response){
+			$.ajax(Utils.contextPath()+"/api/faq/"+fid).done(function(response){
 				$modalBody = $('<div>').html(editModal(response));
 				var editFaqModal = new BaseModalView({
 	                title: "",
@@ -80,7 +81,7 @@ define([
 	                    	delete response["faqCategoryId"];
 	                    	$.ajax({
 	                    		type:"PUT",
-	                    		url: "http://localhost:8800/dost/api/faq/update",
+	                    		url: Utils.contextPath()+"/api/faq/update",
 	                    		contentType: 'application/json',
 	                    		data:JSON.stringify(response),
 	                    		dataType:"jsonP"
@@ -100,16 +101,16 @@ define([
 		prevClicked: function(e){
 			if(!$("#btn-prev").hasClass("disabled")){
 				var fid=window.location.hash.split("/")[1];
-				$.ajax("http://localhost:8800/dost/api/faq/"+fid+"?type=PREVIOUS").done(function(response){
-					window.location.href="http://localhost:8800/dost/UI/index.html#faq/"+response.faqId;
+				$.ajax(Utils.contextPath()+"/api/faq/"+fid+"?type=PREVIOUS").done(function(response){
+					window.location.href=Utils.contextPath()+"/UI/index.html#faq/"+response.faqId;
 				});
 			}			
 		},
 		nextClicked: function(e){
 			if(!$("#btn-next").hasClass("disabled")){
 				var fid=window.location.hash.split("/")[1];
-				$.ajax("http://localhost:8800/dost/api/faq/"+fid+"?type=NEXT").done(function(response){
-					window.location.href="http://localhost:8800/dost/UI/index.html#faq/"+response.faqId;
+				$.ajax(Utils.contextPath()+"/api/faq/"+fid+"?type=NEXT").done(function(response){
+					window.location.href=Utils.contextPath()+"/UI/index.html#faq/"+response.faqId;
 				});
 			}
 		},
@@ -117,7 +118,7 @@ define([
 			var fid=window.location.hash.split("/")[1];
 			$.ajax({
         		type:"DELETE",
-        		url: "http://localhost:8800/dost/api/faq/"+fid+"/delete"
+        		url: Utils.contextPath()+"/api/faq/"+fid+"/delete"
         	}).done(function(){
         		alert(3);
         	});
@@ -133,7 +134,7 @@ define([
 			};
         	$.ajax({
         		type:"POST",
-        		url: "http://localhost:8800/dost/api/faq/add",
+        		url: Utils.contextPath()+"/api/faq/add",
         		contentType: 'application/json',
         		data:JSON.stringify(data),
         		dataType:"jsonP"

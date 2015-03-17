@@ -18,7 +18,13 @@ function($, Backbone, _, counselorTemplate, ComposeMsgModal, counselorInfo, Base
 		className: "col-md-4 paddBottom counselor",
 		events : {
 			'click .message-btn': 'message',
-			'click .viewDetail': 'openDetail'
+			'click .viewDetail': 'openDetail',
+			'click .chat-btn':'chat'
+		},
+		chat: function(e){
+			e.preventDefault();
+			e.stopPropagation();
+			window.location.href=$(e.target).attr("href");
 		},
 		message: function(e){
 			e.preventDefault();
@@ -35,8 +41,8 @@ function($, Backbone, _, counselorTemplate, ComposeMsgModal, counselorInfo, Base
                     	var content = modal.$el.find("textarea").val().replace(/\n/g, '<br/>');
                     	var subject= modal.$el.find(".subject").val().replace(/\n/g, '<br/>');
                     	var recipients;
-                    	$.ajax("http://localhost:8800/dost/api/user/"+$(".recipients").val()).done(function(details){
-	                    	var url = "http://localhost:8800/dost/api/user/message?subject="+subject+"&content="+content+"&recipients="+details.userId+"&senderId=" +LoginStatus.get('userId');
+                    	$.ajax(Utils.contextPath()+"/api/user/"+$(".recipients").val()).done(function(details){
+	                    	var url = Utils.contextPath()+"/api/user/message?subject="+subject+"&content="+content+"&recipients="+details.userId+"&senderId=" +LoginStatus.get('userId');
 	                    	$.ajax({
 	                    		type: "POST",
 	                    		url: url
@@ -64,7 +70,7 @@ function($, Backbone, _, counselorTemplate, ComposeMsgModal, counselorInfo, Base
 			e.stopPropagation();
 			var self = this;
 			var username=$(e.target).closest(".viewDetail").attr("id");
-			$.ajax("http://localhost:8800/dost/api/counselors/all").done(function(response){
+			$.ajax(Utils.contextPath()+"/api/counselors/all").done(function(response){
 				var a = response;
 				var found;
 				a.some(function(entry) {

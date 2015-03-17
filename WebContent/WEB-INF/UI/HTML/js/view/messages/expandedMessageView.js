@@ -31,7 +31,7 @@ function($, Backbone, _, LoginStatus, messageTemplate, messageExpandedTemplate, 
 				recipients = self.recipientList,
 				userId = require("model/login").attributes.userId,
 				content = $(".reply-box").html().replace(/contenteditable="true"/g, ''),
-				url = "http://localhost:8800/dost/api/user/message?subject="+subject+ 
+				url = Utils.contextPath()+"/api/user/message?subject="+subject+ 
 					"&content="+content+"&recipients="+recipients+"&senderId="+userId+"&msgId="+ msgId;
 			
 			$.ajax({
@@ -79,7 +79,7 @@ function($, Backbone, _, LoginStatus, messageTemplate, messageExpandedTemplate, 
                     	var self = this;
                     	var note = modal.$el.find("textarea").val().replace(/\n/g, '<br/>');
                     	
-                    	var url = "http://localhost:8800/dost/api/notes/add?userId="+require("model/login").attributes.userId+
+                    	var url = Utils.contextPath()+"/api/notes/add?userId="+require("model/login").attributes.userId+
                     	"&messageId="+ self.messageId+
                     	"&note="+note+
                     	"&noteDate="+ moment().format("YYYY-MM-DD h:mm:ss") +
@@ -124,12 +124,12 @@ function($, Backbone, _, LoginStatus, messageTemplate, messageExpandedTemplate, 
 				count: this.count,
 				isClient: this.isClient
 			})));
-			$.ajax("http://localhost:8800/dost/api/msgId/"+self.msgId+"/notes/all").done(function(response){
+			$.ajax(Utils.contextPath()+"/api/msgId/"+self.msgId+"/notes/all").done(function(response){
 				_.each(response, function(note){					
 					$("<div class='notes-info'>").append("<div class='notes-heading'>"+note.note+"</div><div class='notes-date pull-right'>" +note.userName +" " + Utils.getDateDiff(note.noteDate) + "</div>").prependTo("#notesContainer");
 				});
 			});
-			$.ajax("http://localhost:8800/dost/api/message/"+self.msgId+"/").done(function(response){
+			$.ajax(Utils.contextPath()+"/api/message/"+self.msgId+"/").done(function(response){
 				_.each(response, function(message){
 					//var unreadMessages = 
 					_.each(message.recipients, function(recp){
@@ -139,7 +139,7 @@ function($, Backbone, _, LoginStatus, messageTemplate, messageExpandedTemplate, 
 						}
 					});
 					self.messageId = message.messageId;
-					$.ajax("http://localhost:8800/dost/api/message/"+message.msgId+"/user/"+require("model/login").attributes.userId+"/markasread").done(function(){
+					$.ajax(Utils.contextPath()+"/api/message/"+message.msgId+"/user/"+require("model/login").attributes.userId+"/markasread").done(function(){
 						Dispatcher.trigger("message:updateUnreadCount");
 					});
 					$("#expandedMessageContainer").append(SingleMessage(message));

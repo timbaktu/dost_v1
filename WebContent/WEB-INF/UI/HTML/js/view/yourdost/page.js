@@ -31,7 +31,7 @@ define([
 			'keyup #searchConselors':'searchConselors'
 		},
 		render: function() {
-			$.ajax("http://localhost:8800/dost/api/codes/all").done(function(response){
+			$.ajax(Utils.contextPath()+"/api/codes/all").done(function(response){
 				$("#main-content").html(CounselorPageLayout({objects:response}));
 				$(".banner").hide();
 				$(window).unbind('scroll');

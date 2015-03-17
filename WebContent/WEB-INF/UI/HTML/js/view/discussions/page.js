@@ -13,7 +13,8 @@ define([
 		},
 		events: {},
 		render: function() {
-			this.$el.html(ForgotPassLayout({}));
+			var url={"url":Utils.contextPath()+"/forums/show/1.page"}
+			this.$el.html(ForgotPassLayout(url));
 			$(".banner").hide();
 			$(window).unbind('scroll');
 			$('body').css("padding-top", "114px");

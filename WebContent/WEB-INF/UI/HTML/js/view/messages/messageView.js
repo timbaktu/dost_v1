@@ -24,7 +24,7 @@ function($, Backbone, _, messageTemplate, messageExpandedTemplate, Utils, Single
 			this.model.on('change', this.render.bind(this), this.model);
 			this.on('destroy', this.removeView, this.model);
 			if(this.model.get("messageCount") === undefined){
-				$.ajax("http://localhost:8800/dost/api//msgid/"+this.model.get("msgId")+"/count").done(function(response){
+				$.ajax(Utils.contextPath()+"/api//msgid/"+this.model.get("msgId")+"/count").done(function(response){
 					self.model.set("messageCount", response.count);
 				});
 			}

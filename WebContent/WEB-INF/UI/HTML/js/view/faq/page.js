@@ -5,8 +5,9 @@ define([
 	'hbs!../../template/faq/layout',
 	'event/dispatcher',
 	'model/login',
+	'utils',
 	'view/faq/faqCategoryView'
-], function($, _, Backbone, FaqPageLayout, Dispatcher, LoginStatus, FaqCategoryView) {
+], function($, _, Backbone, FaqPageLayout, Dispatcher, LoginStatus, Utils, FaqCategoryView) {
 	var FaqPage = Backbone.View.extend({
 		el: "#main-content",
 		initialize: function() {
@@ -28,7 +29,7 @@ define([
 				$(".banner").show();
 				Dispatcher.trigger("header:bindBanner");
 			}
-			$.ajax("http://localhost:8800/dost/api/faqcategory/all").done(function(response){
+			$.ajax(Utils.contextPath()+"/api/faqcategory/all").done(function(response){
 				_.each(response, function(category){					
 					self.$el.find("#faqCategoryContainer").append(new FaqCategoryView({
 						category: category

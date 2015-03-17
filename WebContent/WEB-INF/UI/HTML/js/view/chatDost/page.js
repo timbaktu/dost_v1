@@ -18,7 +18,7 @@ define([
 			"click #leaveMsg":"composeMsg"
 		},
 		render: function() {
-			$.ajax("http://localhost:8800/dost/api/counselors/all").done(function(response){
+			$.ajax(Utils.contextPath()+"/api/counselors/all").done(function(response){
 				$("#main-content").html(chatDostLayout({objects:response}));
 				$(".banner").hide();
 				$(window).unbind('scroll');
@@ -40,8 +40,8 @@ define([
                     	var content = modal.$el.find("textarea").val().replace(/\n/g, '<br/>');
                     	var subject= modal.$el.find(".subject").val().replace(/\n/g, '<br/>');
                     	var recipients;
-                    	$.ajax("http://localhost:8800/dost/api/user/"+$(".recipients").val()).done(function(details){
-	                    	var url = "http://localhost:8800/dost/api/user/message?subject="+subject+"&content="+content+"&recipients="+details.userId+"&senderId=" +LoginStatus.get('userId');
+                    	$.ajax(Utils.contextPath()+"/api/user/"+$(".recipients").val()).done(function(details){
+	                    	var url = Utils.contextPath()+"/api/user/message?subject="+subject+"&content="+content+"&recipients="+details.userId+"&senderId=" +LoginStatus.get('userId');
 	                    	$.ajax({
 	                    		type: "POST",
 	                    		url: url

@@ -38,7 +38,7 @@ function($, Backbone, _, Dispatcher, SingleHistoryMessage, MessageHistoryTemplat
                     	var self = this;
                     	var note = modal.$el.find("textarea").val().replace(/\n/g, '<br/>');
                     	if(note !== ""){
-                    		var url = "http://localhost:8800/dost/api/notes/add?userId="+require("model/login").attributes.userId+
+                    		var url = Utils.contextPath()+"/api/notes/add?userId="+require("model/login").attributes.userId+
                         	"&messageId="+ messageId+
                         	"&note="+note+
                         	"&noteDate="+ moment().format("YYYY-MM-DD h:mm:ss") +
@@ -93,7 +93,7 @@ function($, Backbone, _, Dispatcher, SingleHistoryMessage, MessageHistoryTemplat
 	                	var self = this;
 	                	var content = modal.$el.find("textarea").val().replace(/\n/g, '<br/>');
 	                	if(content !== ""){
-	                		var url = "http://localhost:8800/dost/api/user/message?subject="+subject+ 
+	                		var url = Utils.contextPath()+"/api/user/message?subject="+subject+ 
 	    					"&content="+content+"&recipients="+self.recipientList+"&senderId="+userId+"&msgId="+ msgId;
 	                		
 	                    	$.ajax({

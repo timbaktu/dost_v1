@@ -23,6 +23,11 @@ define([
 				return Math.floor(d.asSeconds()) + " seconds ago";
 			}
 	    };
+	    
+	    this.contextPath = function(){
+	    	var path="http://localhost:8800/dost";
+	    	return path;
+	    }
 	};
 	return utils;
 

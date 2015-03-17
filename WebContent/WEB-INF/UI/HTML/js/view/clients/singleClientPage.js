@@ -35,7 +35,7 @@ define([
 				fname = self.$el.find("#userFirstName").val(),
 				lname = self.$el.find("#userLastName").val(),
 				hostel = self.$el.find("#userDetailHostel").val();
-			var url = "http://localhost:8800/dost/api/userdetail/add?fname="+fname+
+			var url = Utils.contextPath()+"/api/userdetail/add?fname="+fname+
 				"&lname="+lname+"&hostel="+hostel+"&year="+year+"&branch="+branch+"&userId="+ this.getId();
 			$.ajax({
 				type: "POST",
@@ -52,7 +52,7 @@ define([
 		},
 		render: function() {
 			var data = this.getData();			
-			$.ajax("http://localhost:8800/dost/api/user/"+this.getId()+"/patienthistory/all").done(function(data){
+			$.ajax(Utils.contextPath()+"/api/user/"+this.getId()+"/patienthistory/all").done(function(data){
 				console.log(data);
 			});
 			this.user = data["1412223651665"]["chat"].user;
@@ -105,7 +105,7 @@ define([
 			historyContainer.sieve({ itemSelector: ".sieve-history", searchInput: $("#searchPatientHistory") });
 			//var searchDiv = historyContainer.prev();
 			//("#historyContainer").prev().hide();
-			$.ajax("http://localhost:8800/dost/api/user/141/notes/all").done(function(response){
+			$.ajax(Utils.contextPath()+"/api/user/141/notes/all").done(function(response){
 				_.each(response, function(note){
 					self.noteAdd(self, note);
 				});

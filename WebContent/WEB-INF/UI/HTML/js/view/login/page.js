@@ -19,6 +19,7 @@ define([
 				Router.__super__.navigate("#messages",{trigger: true});
 			}
 			Dispatcher.trigger("header:changeDocumentTitle", "Login");
+			//LoginStatus["contextPath"]=Utils.contextPath()+"";
 		},
 		events: {
 			'click .signupAnchor':  'signup',
@@ -71,9 +72,9 @@ define([
         	    };
         	var username=$(".loginForm #username").val();
 			var pwd=$(".loginForm #password").val();
-			$.ajax("http://localhost:8800/dost/user/authenticate?username="+username+"&password="+pwd).done(function(data){
+			$.ajax(Utils.contextPath()+"/user/authenticate?username="+username+"&password="+pwd).done(function(data){
 				if(data.isLoggedIn=="true"){
-					$.ajax("http://localhost:8800/dost/api/user/"+username).done(function(details){
+					$.ajax(Utils.contextPath()+"/api/user/"+username).done(function(details){
 						LoginStatus.set(details);
 						LoginStatus.set({"isLoggedIn":true});
 						$.cookie("loggedInUser", JSON.stringify(LoginStatus), {expires: 1000});

@@ -36,6 +36,7 @@ define([
 
             this.bindBanner();
             if(LoginStatus.get("isLoggedIn") == true){
+            	console.log(LoginStatus);
             	this.loggedIn(this);
             }
         },
@@ -72,7 +73,7 @@ define([
 	            hiddenQuestionTwo;
 	    	$modalBody.find("#username").val($(".bannerLargeinput").val());
 	    	
-			$.ajax("http://localhost:8800/dost/api/securityquestions/all").done(function(response){
+			$.ajax(Utils.contextPath()+"/api/securityquestions/all").done(function(response){
 				_.each(response, function(question, index){
 					var selectedOne = index == 0 ? 'selected="selected"': '';
 					var selectedTwo = index == 1 ? 'selected="selected"': '';
