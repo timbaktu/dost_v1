@@ -13,7 +13,8 @@ define( [ 'underscore', 'backbone', 'hbs!template/basemodal/BaseModal',
 		    "blur #username":"usernameCheck",
 		    'click .close':'teardown',
 		    'click .message-btn':'composeMessage',//for dost details modal window
-		    'click .chat-btn':'hide'//for dost details modal window
+		    'click .chat-btn':'hide',//for dost details modal window
+		    'click .close-modal':'hide'
 		    
 		},
 		
