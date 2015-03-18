@@ -275,9 +275,13 @@ define([
         		userDetailsNav = self.$el.find("#userDetails"),
         		clientListNav = self.$el.find("#clientListNav"),
         		yourdostNav = self.$el.find("#yourdost");
+        		talkToDostNav=self.$el.find("#talkToDost");
         	
         	if(clientListNav.hasClass("hidden") && !(LoginStatus.attributes.dbUserRole.role == "ROLE_USER")){
         		clientListNav.removeClass("hidden");
+        	}
+        	if(talkToDostNav.hasClass("hidden") && (LoginStatus.attributes.dbUserRole.role == "ROLE_USER")){
+        		talkToDostNav.removeClass("hidden");
         	}
         	if(userDetailsNav.hasClass("hidden")){
         		userDetailsNav.removeClass("hidden");
@@ -306,9 +310,13 @@ define([
         		userDetailsNav = self.$el.find("#userDetails"),
         		clientListNav = self.$el.find("#clientListNav"),
         		yourdostNav = self.$el.find("#yourdost");
+    			talkToDostNav=self.$el.find("#talkToDost");
         	
         	if(!clientListNav.hasClass("hidden")){
         		clientListNav.addClass("hidden");
+        	}
+        	if(!talkToDostNav.hasClass("hidden")){
+        		talkToDostNav.addClass("hidden");
         	}
         	
         	$.removeCookie("loggedInUser");
