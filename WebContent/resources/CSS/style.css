@@ -920,7 +920,13 @@ div.medical_warning{
 .more-link {
 /*end of styling for more*/
  }
-.createDis{ margin-top:15px;}
+.createDis{ margin-top:15px;text-align:right;}
  @media screen and (max-width: 768px){
-
+.theme-default div.searchBoxDiscussions{margin-top:10px;margin-right:0;}
+.createDis {
+  margin-top: 15px;
+  text-align: center;
+}
+.each_interaction{padding:10px 2px;}
+.theme-default{padding:10px 1px;}
 }

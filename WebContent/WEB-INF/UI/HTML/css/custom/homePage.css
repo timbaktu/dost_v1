@@ -109,8 +109,9 @@ margin-top: 27px;
 }
 
 .modal-header .close {
-margin-top: 10px;
-margin-right: 10px;
+  margin-top: -35px;
+  margin-right: -21px;
+}
 }
 
 .modal-header{height:30px}

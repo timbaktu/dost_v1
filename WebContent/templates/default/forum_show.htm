@@ -8,7 +8,7 @@
 	$(document).ready(function(){
 		/*searchBar for Discussion topics*/
 		$(".allDiscussion_topic").sieve({ itemSelector: ".discussion_topic" });
-		$(".allDiscussion_topic").prev("div").addClass("searchBox searchBoxDiscussions");
+		$(".allDiscussion_topic").prev("div").addClass("searchBox searchBoxDiscussions col-xs-12");
 		
 		
 		/*GET FORUMS NAMES*/
@@ -34,11 +34,11 @@
 <div class="container-fluid theme-default"> 
 	<div class="container  row-fluid">
 
-			<div class="col-md-9">
+			<div class="col-md-9 col-xs-12">
 				<div class="pageTop">
 					<h2 class="pull-left pageHeading"> Support Discussions</h2>
 			
-					<div class="pull-right createDis">
+					<div class=" createDis col-xs-12">
 						
 							<#if !readonly && !replyOnly>
 								<a class="pull_left icon_new_topic btn btn-primary btn-large login_btn" href="${JForumContext.encodeURL("/jforum${extension}?module=posts&amp;action=insert&amp;forum_id=${forum.id}", "")}" rel="nofollow" >Create New Discussion</a>
@@ -75,7 +75,7 @@
 								<span class="owner_name">${topic.postedBy.username}</span>
 							</a>
 									
-						 	<div ${class1} class="media-body">
+						 	<div ${class1} class="media-body col-xs-12">
 							<#if topic.hasAttach() && attachmentsEnabled><img src="${contextPath}/templates/${templateName}/images/icon_clip.gif" align="middle" alt="[Clip]" /></#if>
 								<h4 class="media-heading topictitle">
 									<a href="${JForumContext.encodeURL("/posts/list/${topic.id}")}">
@@ -170,7 +170,7 @@
 	</div>
 </div>
 
-	<div class="col-md-3" style="margin-top: 70px;">
+	<div class="col-md-3 hidden-xs" style="margin-top: 70px;">
 		<div class="categoryList">
 		<h4>Categories</h4>
 		</div>
