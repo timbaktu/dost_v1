@@ -15,7 +15,7 @@ function($, Backbone, _, counselorTemplate, ComposeMsgModal, counselorInfo, Base
 	var CounselorView = Backbone.View.extend({
 		template : counselorTemplate,
 		tagName : 'div',
-		className: "col-md-4 paddBottom counselor",
+		className: "col-md-4 col-sm-6 paddBottom counselor",
 		events : {
 			'click .message-btn': 'message',
 			'click .viewDetail': 'openDetail',

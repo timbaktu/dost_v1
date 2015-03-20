@@ -12,7 +12,7 @@ function($, Backbone, _, clientTemplate, Utils, Dispatcher, LoginStatus, Router)
 	var ClientView = Backbone.View.extend({
 		template : clientTemplate,
 		tagName : 'div',
-		className: "col-md-4 paddBottom",
+		className: "col-md-4 col-sm-6 paddBottom",
 		events : {
 			'click .message-btn': 'message',
 			'click .detail-btn': 'openDetail'
