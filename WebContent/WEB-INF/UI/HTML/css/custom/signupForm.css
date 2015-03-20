@@ -1,5 +1,5 @@
 .signupForm .modal-dialog{
-	width: 900px;
+	width: 600px;
 	//right: 87px;
 	//top: 60px;
 	height: 1168px;
@@ -26,7 +26,7 @@
 }
 .signupForm .modal-content{
 	border-radius:0;
-	padding-left:20px;
+	//padding-left:20px;
 }
 .signupForm .modal-body img{
 	width:90px;
@@ -79,7 +79,7 @@
 	color:#fff;
 	font-size:25px;
 	font-family: 'Roboto Condensed', sans-serif;
-	padding:20px 330px;
+	padding:20px 39%;
 	//margin-right:100px;
 	margin-bottom:15px;
 }
@@ -96,6 +96,7 @@
 .signupForm .avatar label > input:checked + img{ /* (CHECKED) IMAGE STYLES */
   border:2px solid black;
 }
+.security-signup-radio{padding-left:41px;}
 /* --- media styles or mobiles ---- */
 
 @media  screen and (max-width:768px){

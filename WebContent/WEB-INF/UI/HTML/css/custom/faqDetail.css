@@ -85,3 +85,10 @@
 .editFaq-modal{padding: 10% 10% 0;}
 .editFaq-modal .edit-question, .editFaq-modal .edit-faq-answer{width:100%}
 .backToFaqs{color:#000}
+@media screen and (max-width: 768px){
+	.question-expanded,.answer {
+	padding:10px 0;
+}
+.create-newFaq .modal-body span{padding:10px 0;}
+.create-newFaq .modal-body{padding:10px 0;}
+}

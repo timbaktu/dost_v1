@@ -35,7 +35,7 @@
 }
 .search-box1 span{
 	font-family: 'Roboto Condensed', sans-serif;
-	font-size:24px;
+	font-size:21px;
 	color:#330000;
 }
 .search-box1 input{
@@ -147,7 +147,10 @@
 	font-size:15px;
 	float:left;
 }
+.search-box1 span{font-size:18px;}
+.client-header .search-box1 input {margin-top:20px;}
 }
 @media only screen and (min-width : 992px) and (max-width : 1200px){
 	.client-btn{left:0;font-size:15px;}
+	.search-box1 span
 }
