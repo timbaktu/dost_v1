@@ -80,6 +80,7 @@ position: relative;
 
 .inbox-messages:last-child {
   border:none;
+    margin-bottom: 30px;
 }
 .inbox-messages1:last-child {
   border:none;
@@ -98,7 +99,9 @@ position: relative;
 margin: 0px 0px 5px; width: 466px; height: 102px;}
 .expandTheMessage{
 	cursor: pointer;
+	 text-decoration:none;color:#660000;
 }
+
 
 @media screen and (max-width: 992px){
 	.tab-content{

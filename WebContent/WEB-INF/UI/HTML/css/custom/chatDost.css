@@ -29,7 +29,7 @@ input { font:12px arial; }
     color:#0000FF;
     text-decoration:none; }
   
-    a:hover { text-decoration:underline; }
+   //a:hover { text-decoration:underline; }
   
 #wrapper, #loginform {
     margin:0 auto;

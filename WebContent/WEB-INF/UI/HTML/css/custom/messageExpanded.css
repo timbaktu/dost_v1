@@ -72,6 +72,9 @@ div.height-fixed-message{
 	top:-12px;
 	height: 40px;
 	overflow: hidden;
+	  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 }
 
 /*add note*/
