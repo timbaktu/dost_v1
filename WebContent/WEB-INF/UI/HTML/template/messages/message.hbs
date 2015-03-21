@@ -2,8 +2,9 @@
 	<img class="photo" src="images/avatar/avatar1.png"><br>
 	<span class="inboxName">{{sender.dbUserRole.username}}</span>
 </div>
-<a class="msg-view-btn expandTheMessage" href="#"><div class="col-md-9 heading">
-	<a class="msg-view-btn expandTheMessage" href="#">
+<a class="msg-view-btn expandTheMessage" href="#">
+<div class="col-md-9 heading">
+	
 	<span class="message-heading expandTheMessage {{ifinline isUnread 'unread-highlight'}}">
 		{{subject}} ({{messageCount}})
 	</span>
@@ -14,12 +15,12 @@
 	<div class="message-text height-fixed-message">
 		{{{content}}}
 	</div>
-	</a>
+	
 </div>
+</a>
 <div class="col-md-2 text-right right-view">
 	<a class="msg-view-btn expandTheMessage" href="#">
 	<span>View&nbsp;&nbsp;</span>
 	<img src="images/icons/arrow1.png"/>
 	</a>
 </div>
-</a>

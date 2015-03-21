@@ -147,7 +147,7 @@
 	font-size:15px;
 	float:left;
 }
-.search-box1 span{font-size:18px;}
+.search-box1 span{font-size:18px;margin-bottom:20px;}
 .client-header .search-box1 input {margin-top:20px;}
 }
 @media only screen and (min-width : 992px) and (max-width : 1200px){
