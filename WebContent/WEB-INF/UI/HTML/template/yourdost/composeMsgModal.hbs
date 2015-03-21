@@ -1,0 +1,20 @@
+<form class="compose-msg-modal">
+	{{#if isLoggedIn}}
+		<div>
+		<span>To</span></br>
+		<input type="text" class="recipients" name="recipients"></input></br></br>
+		
+		<span>Subject</span></br>
+		<input type="text" name="subject" class="subject"></br></br>
+		
+		<span>Your Message</span></br>
+		<textarea class="compose-msg-box" rows="5">
+		</textarea></br>
+		</div>
+	{{else}}
+		<h3>Please login or signup to talk to Dost</h3>
+		<a class="option-btn composeMsg-send btn close-modal" href="#login">LOGIN</a></br>
+		<span>OR</span></br>
+	{{/if}}
+	
+</form>
