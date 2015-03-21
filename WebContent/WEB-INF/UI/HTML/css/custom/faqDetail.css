@@ -49,34 +49,35 @@
 }
 
 .create-newFaq .modal-dialog{
-	width:1072px;
+	width:600px;
 }
 .create-newFaq .modal-header{
-	padding-top:50px;
+	padding-top:20px;
 	padding-right:30px;
 }
 .create-newFaq .modal-body{
-	padding-top:20px;
-	padding-right:60px;
-	padding-left:90px;
-	font-size:20px;
+	//padding-top:20px;
+	//padding-right:60px;
+	//padding-left:90px;
+	font-size:18px;
 	font-family: 'Lato', sans-serif;
 	color:#333;
 	font-weight:300;
+	margin:0 12%;
 }
 .create-newFaq .modal-body input{
-	height:56px;
+	height:40px;
 }
 .create-newFaq .modal-body select{
-	height:56px;
+	height:40px;
 }
 .create-newFaq .modal-body textarea{
-	height:268px;
+	height:150px;
 }
 
 .create-newFaq .modal-body span{
-	padding-top:47px;
-	padding-bottom:18px;
+	padding-top:10px;
+	padding-bottom:10px;
 }
 .create-newFaq .modal-footer button{
 	margin-bottom:100px;
@@ -85,6 +86,9 @@
 .editFaq-modal{padding: 10% 10% 0;}
 .editFaq-modal .edit-question, .editFaq-modal .edit-faq-answer{width:100%}
 .backToFaqs{color:#000}
+ .modal-header .faq-close{  margin-top: 0px;
+  margin-right: -21px; z-index:20;}
+  #btn-createFaq{margin: 28px 8.5%;}
 @media screen and (max-width: 768px){
 	.question-expanded,.answer {
 	padding:10px 0;

@@ -98,6 +98,7 @@ body{
 	font-family: 'Lato', sans-serif;
 	font-size:14px;
 	padding-left:0px;
+	  color: #660000;
 }
 .explore-dropdown div a:hover{
 	text-decoration:none;
