@@ -43,9 +43,9 @@ body{
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
 	color: #660000;
 	background-color: #fff;
-	//border-top: 8px solid;
+	border-top: 8px solid #660000;
 	position: relative;
-	//top: -8px;
+	top: -8px;
 }
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
 	color: #555;
