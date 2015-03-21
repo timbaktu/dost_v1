@@ -123,3 +123,7 @@ margin-top: 27px;
 .yourDost-heading{margin-bottom:25px}
 
 .viewDetail{cursor:pointer}
+
+.loading-data{text-align:center; margin: 20% 0}
+.loading-data img{width:150px}
+.frames-loading{position:absolute; width:100%}
