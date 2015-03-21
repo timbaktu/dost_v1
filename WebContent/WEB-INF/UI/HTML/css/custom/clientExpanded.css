@@ -38,21 +38,21 @@
 	margin-right:0px;
 }
 .add-detail-modal .modal-content{
-	padding:68px 100px 100px 100px;
+	padding:8% 6%;
 	border-radius:0px;
 	font-family: 'Lato', sans-serif;
 	font-size:20px;
 	color:#333;
 }
 .add-detail-modal .modal-dialog{
-	width:1075px;
+	width:600px;
 }
 .add-detail-modal input{
-	height:54px;
-	margin-bottom:20px;
+	height:35px;
+	margin-bottom:10px;
 }
 .add-detail-modal span{
-	margin-bottom:20px;
+	margin-bottom:10px;
 	padding:0;
 }
 .light-color{
@@ -84,6 +84,9 @@
 	background-color: #FFF;
 	z-index: 1;
 }
+.orange-line .inbox-messages{border-bottom:0;}
+
+ .wel-message .radioBtn>a:hover{border-left:0;}
 @media  screen and (max-width:768px){
 	.add-detail-modal .modal-content{
 	padding:2px;
@@ -91,9 +94,15 @@
 	font-family: 'Lato', sans-serif;
 	font-size:20px;
 	color:#333;
+	padding:5% 5%;
 }
+.modal-footer {text-align:center;}
 .add-detail-modal .modal-dialog{
 	width:100%;
+}
+.modal-header .close {
+  margin-top: 0px;
+  margin-right: 20px;
 }
 .add-detail-modal input{
 	height:54px;
