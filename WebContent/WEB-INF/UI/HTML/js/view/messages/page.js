@@ -221,9 +221,20 @@ define([
                     	var self = this;
                     	var content = modal.$el.find("textarea").val().replace(/\n/g, '<br/>');
                     	var subject= modal.$el.find(".subject").val().replace(/\n/g, '<br/>');
-                    	var recipients;
-                    	$.ajax(Utils.contextPath()+"/api/user/"+$(".recipients").val()).done(function(details){
-	                    	var url = Utils.contextPath()+"/api/user/message?subject="+subject+"&content="+content+"&recipients="+details.userId+"&senderId=" +LoginStatus.get('userId');
+                    	var recipientsNames=$(".recipients").val().split(",");
+                    	$.ajax(Utils.contextPath()+"/api/users").done(function(details){
+                        	recipientsNames.pop();
+                        	var ids=[];
+              		        $.each(details, function(j,key){
+                    	        $.each(recipientsNames, function(i,name){
+                    	        	name=name.trim();
+                        		  if(key.username==name){
+                        		    ids.push(key.userId);
+                        		  }
+                        		});
+                    		});
+                        	ids=ids.join();
+	                    	var url = Utils.contextPath()+"/api/user/message?subject="+subject+"&content="+content+"&recipients="+ids+"&senderId=" +LoginStatus.get('userId');
 	                    	$.ajax({
 	                    		type: "POST",
 	                    		url: url
