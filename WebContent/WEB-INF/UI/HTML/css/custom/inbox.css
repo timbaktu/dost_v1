@@ -75,7 +75,7 @@ position: relative;
 .left-panel{
 	width:13%;
 	position:fixed;
-	top:172px;
+	top:177px;
 }
 
 .inbox-messages:last-child {
@@ -94,7 +94,7 @@ position: relative;
 .inbox-messages:hover{
 	background:#fff5d6;
 }
-
+#expandedMessageContainer .inbox-messages:hover{background:#fff;}
 .text-area-add-note {
 margin: 0px 0px 5px; width: 466px; height: 102px;}
 .expandTheMessage{

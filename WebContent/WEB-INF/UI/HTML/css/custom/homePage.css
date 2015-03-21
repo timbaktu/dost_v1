@@ -79,9 +79,9 @@ overflow: hidden;}
 }
 .viewall-btn a{background:#fffae5;padding:10px 17px;text-decoration:none;transition: background 1s;}
 .viewall-btn a:hover{background:#ffcc00;text-decoration:none;}
-.modal-content{margin-top:15%;}
+.modal-content{margin-top:22%;}
 .compose-msg-modal{
-	padding:10% 10% 0;
+	margin:10% 10% 0;
 	
 }
 .compose-msg-modal input{padding:2%;}
@@ -113,8 +113,8 @@ margin-top: 27px;
 }
 
 .modal-header .close {
-  margin-top: -35px;
-  margin-right: -21px;
+  margin-top: 20px;
+  margin-right: 21px;
 }
 }
 

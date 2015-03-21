@@ -1,5 +1,5 @@
 .loginForm{
-	padding-bottom:100px;
+	//padding-bottom:100px;
 	padding-top: 60px; -
 }
 .loginForm div{
@@ -61,10 +61,12 @@
 }
 .loginForm input{
 	font-size:18px;
-	padding-top:25px;
-	padding-bottom:25px;
+	//padding-top:25px;
+	//padding-bottom:25px;
 	border:1px solid #999;
+	  height: 50px;
 }
+#loginSubmit{height:63px;}
 .loginForm .form-horizontal .control-label {
 	padding-top: 22px;
 }

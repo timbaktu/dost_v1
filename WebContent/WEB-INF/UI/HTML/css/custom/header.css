@@ -13,8 +13,9 @@ body{
 	background-color: #fff;
 }
 .navbar-brand{
-	padding: 3px 32px 0px 9px;
+	  padding: 1px 7px 0px 28px;
 }
+.navbar-brand>img{width:70%;}
 .navbar-default{
 	background-color: #fff; 
 }
@@ -59,7 +60,7 @@ body{
 	color:#003399;
 }
 .navbar-btn {
-	margin: 20px 32px 0 0;
+	  margin: 2px 32px 0 0;
 }
 .navbar-default .navbar-right .login-btn{
 	background: #fffae6;
@@ -291,7 +292,7 @@ body{
   height: 120%;
   min-height:500px;
   border: none;
-  top:-62px;
+  top:-96px;
   position:relative;
 }
 section{height:100%;min-height:500px;}
