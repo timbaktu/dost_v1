@@ -89,8 +89,8 @@ div.height-fixed-message{
 }
 .add-note-modal .modal-dialog{
 	position: absolute;
-	top: 28%;
-	right: 47%;
+	  top: 8%;
+  right: 27%;
 }
 .add-note-modal .add-note-box{
 	border:2px solid #ebebeb;
@@ -159,6 +159,7 @@ div.height-fixed-message{
 .inbox-heading, .message-options{
 	padding:0;
 }
+.modal-body>div{width:85%;}
 @media screen and (max-width: 768px){
 	div.height-fixed-message {
 	height:inherit;
@@ -183,4 +184,11 @@ div.height-fixed-message{
 	padding-left:4px;
 	 padding-right:4px;
 	}
+	.add-note-modal .modal-dialog{
+	position: absolute;
+	  top: 8%;
+    right: 3%;
+  width: 90%;
+}
+}
 }
