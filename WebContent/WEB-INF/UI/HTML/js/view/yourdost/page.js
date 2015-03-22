@@ -31,12 +31,14 @@ define([
 			'keyup #searchConselors':'searchConselors'
 		},
 		render: function() {
+			$(".loading-data").removeClass("hidden");
 			$.ajax(Utils.contextPath()+"/api/codes/all").done(function(response){
 				$("#main-content").html(CounselorPageLayout({objects:response}));
 				$(".banner").hide();
 				$(window).unbind('scroll');
 				$('body').css("padding-top", "114px");
 				this.collectionView = new CounselorCollectionView();
+				$(".loading-data").addClass("hidden");
 			});
 		},
 		searchConselors: function(){

@@ -40,13 +40,14 @@ define([
 		},
 		render: function() {
 			var self = this;
+			$(".loading-data").removeClass("hidden");
 			this.$el.html(MessagesPageLayout({}));
 			//console.log(LoginStatus);
 			$(".banner").hide();
 			$(window).unbind('scroll');
 			$('body').css("padding-top", "114px");
 			var root = $(".wel-message"),
-				container = $("#messageBoxContainer");
+				container = $("#messageBoxContainer");			
 			if(LoginStatus.get("firstTimeUser") == true){
 				// render welcome message
 				// remove firstTimeUser from LoginStatus.
@@ -60,6 +61,7 @@ define([
 				
 				LoginStatus.unset("firstTimeUser");
 				$("#inbox").html(WelcomeMessage({}));
+				$(".loading-data").addClass("hidden");
 				
 				
 			} else {
@@ -105,6 +107,7 @@ define([
 						});
 					}
 				});
+				$(".loading-data").addClass("hidden");
 			}
 			
 			
@@ -119,6 +122,7 @@ define([
 			var self = this;
 			var root = $(".wel-message"),
 			container = $("#messageBoxContainer");
+			$(".loading-data").removeClass("hidden");
 			
 			$.ajax(Utils.contextPath()+"/api/user/"+LoginStatus.get('userId')+"/unreadcount").done(function(data){
 				if((data[""+LoginStatus.get('userId')+""] === 0)){
@@ -166,12 +170,12 @@ define([
 						self.inboxCollectionView.collection.fetch({remove: false, add: true});
 					}
 				}
-			});
-			
-			
+			});	
+			$(".loading-data").addClass("hidden");
 		},
 		sentClicked: function(){
 			console.log("Sent clicked");
+			$(".loading-data").removeClass("hidden");
 			window.scrollTo(0,0);
 			//activate messageCollectionView with sent messages in #sent
 			$("#inbox").empty().hide();
@@ -197,6 +201,7 @@ define([
 				self.sentCollectionView.bindFetchOnScroll(self.sentCollectionView);
 				self.sentCollectionView.collection.fetch({remove: false, add: true});
 			}
+			$(".loading-data").addClass("hidden");
 		},
 		chatClicked: function(){
 			console.log("Chat clicked");
