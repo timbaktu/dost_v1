@@ -308,7 +308,7 @@ define([
         	if(LoginStatus.attributes.dbUserRole.role == "ROLE_ADMIN"){
         		yourdostNav.addClass("hidden");
         	}
-        	userDetailsNav.find("#dropdownName").prepend(LoginStatus.get("username") +" &nbsp;");
+        	userDetailsNav.find("#dropdownName").text(LoginStatus.get("username"));
         	
         	self.changeLoginText("Logout");
         	$(".banner").hide();
