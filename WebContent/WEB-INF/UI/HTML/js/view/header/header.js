@@ -253,7 +253,7 @@ define([
                     });
                     $(".banner > p >span").fadeIn();
                     $(".banner > form").stop().animate({
-                        'top': '363px',
+                        'top': '345px',
                         'left': '378px'
                     });
                     $(".banner > .sadPerson").stop().animate({
