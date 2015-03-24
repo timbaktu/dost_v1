@@ -3,7 +3,7 @@ define([ 'jquery',
          'underscore',
          'hbs!../../template/clients/client',        
          'view/basemodal/BaseModal',     
-         'hbs!../../template/messages/composeMsgModal',
+         'hbs!../../template/clients/composeMsgModal',
          'utils',
          'event/dispatcher',
          'model/login',
@@ -23,7 +23,11 @@ function($, Backbone, _, clientTemplate, BaseModalView, ComposeMsgModal, Utils, 
 			e.preventDefault();
 			e.stopPropagation();
 			var self = this;
-			$modalBody = $('<div>').html(ComposeMsgModal);
+			var status={
+					"recipient":$(e.target).closest(".client-card").attr("id")
+				}
+			$modalBody = $('<div>').html(ComposeMsgModal(status));
+			//$modalBody = $('<div>').html(ComposeMsgModal);
 			var signUpModal = new BaseModalView({
                 title: "",
                 headerHidden: true,

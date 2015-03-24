@@ -36,7 +36,9 @@ function($, Backbone, _, counselorTemplate, ComposeMsgModal, counselorInfo, Base
 			e.preventDefault();
 			e.stopPropagation();
 			var self = this;
-			var status={"isLoggedIn":LoginStatus.get("isLoggedIn")}
+			var status={"isLoggedIn":LoginStatus.get("isLoggedIn"),
+						"recipient":$(e.target).closest(".viewDetail").attr("id")
+					}
 			$modalBody = $('<div>').html(ComposeMsgModal(status));
 			if(!LoginStatus.get("isLoggedIn")){
 				this.askLogin();				
@@ -53,7 +55,9 @@ function($, Backbone, _, counselorTemplate, ComposeMsgModal, counselorInfo, Base
 	                             	var subject= modal.$el.find(".subject").val().replace(/\n/g, '<br/>');
 	                             	var recipientsNames=$(".recipients").val().split(",");
 	                             	$.ajax(Utils.contextPath()+"/api/users").done(function(details){
-	                                 	recipientsNames.pop();
+	                             		if(recipientsNames.length>1){
+	                             			recipientsNames.pop();
+	                             		}
 	                                 	var ids=[];
 	                       		        $.each(details, function(j,key){
 	                             	        $.each(recipientsNames, function(i,name){
