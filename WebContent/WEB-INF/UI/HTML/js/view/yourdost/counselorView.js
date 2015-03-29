@@ -36,45 +36,60 @@ function($, Backbone, _, counselorTemplate, ComposeMsgModal, counselorInfo, Base
 			e.preventDefault();
 			e.stopPropagation();
 			var self = this;
-			var status={"isLoggedIn":LoginStatus.get("isLoggedIn")}
+			var status={"isLoggedIn":LoginStatus.get("isLoggedIn"),
+						"recipient":$(e.target).closest(".viewDetail").attr("id")
+					}
 			$modalBody = $('<div>').html(ComposeMsgModal(status));
 			if(!LoginStatus.get("isLoggedIn")){
 				this.askLogin();				
 			}
 			else{
-				var msgToDost = new BaseModalView({
+				var signUpModal = new BaseModalView({
 	                title: "",
 	                headerHidden: true,
 	                className : 'modal fade compose-message-modal',
 	                buttonList: [
-	                    ['SEND NOW', function(modal, event){
-	                    	var self = this;
-	                    	var content = modal.$el.find("textarea").val().replace(/\n/g, '<br/>');
-	                    	var subject= modal.$el.find(".subject").val().replace(/\n/g, '<br/>');
-	                    	var recipients;
-	                    	$.ajax(Utils.contextPath()+"/api/user/"+$(".recipients").val()).done(function(details){
-		                    	var url = Utils.contextPath()+"/api/user/message?subject="+subject+"&content="+content+"&recipients="+details.userId+"&senderId=" +LoginStatus.get('userId');
-		                    	$.ajax({
-		                    		type: "POST",
-		                    		url: url
-		                    	}).done(function(response){
-		                    		console.log(response);
-		                    		var note = response,
-		                    			userName = response.user.username;
-		                    		$("<div class='notes-info'>").append("<div class='notes-heading'>"+
-		                    				note.note+"</div><div class='notes-date pull-right'>" +
-		                    				userName +" " + Utils.getDateDiff(note.noteDate) + 
-		                    				"</div>").prependTo("#notesContainer");
-		                    		
-		                    	});
-		    				});
-	                    	modal.teardown();                    	
-	                    }.bind(self), 'option-btn composeMsg-send btn']
-	                ],
-	                body: $modalBody,
-	                //data: usernames
-	            });
-				msgToDost.show();
+	                             ['SEND NOW', function(modal, event){
+	                             	var self = this;
+	                             	var content = modal.$el.find("textarea").val().replace(/\n/g, '<br/>');
+	                             	var subject= modal.$el.find(".subject").val().replace(/\n/g, '<br/>');
+	                             	var recipientsNames=$(".recipients").val().split(",");
+	                             	$.ajax(Utils.contextPath()+"/api/users").done(function(details){
+	                             		if(recipientsNames.length>1){
+	                             			recipientsNames.pop();
+	                             		}
+	                                 	var ids=[];
+	                       		        $.each(details, function(j,key){
+	                             	        $.each(recipientsNames, function(i,name){
+	                             	        	name=name.trim();
+	                                 		  if(key.username==name){
+	                                 		    ids.push(key.userId);
+	                                 		  }
+	                                 		});
+	                             		});
+	                                 	ids=ids.join();
+	         	                    	var url = Utils.contextPath()+"/api/user/message?subject="+subject+"&content="+content+"&recipients="+ids+"&senderId=" +LoginStatus.get('userId');
+	         	                    	$.ajax({
+	         	                    		type: "POST",
+	         	                    		url: url
+	         	                    	}).done(function(response){
+	         	                    		console.log(response);
+	         	                    		var note = response,
+	         	                    			userName = response.user.username;
+	         	                    		$("<div class='notes-info'>").append("<div class='notes-heading'>"+
+	         	                    				note.note+"</div><div class='notes-date pull-right'>" +
+	         	                    				userName +" " + Utils.getDateDiff(note.noteDate) + 
+	         	                    				"</div>").prependTo("#notesContainer");
+	         	                    		
+	         	                    	});
+	         	    				});
+	                             	modal.teardown();                    	
+	                             }.bind(self), 'option-btn composeMsg-send btn']
+	                         ],
+	                         body: $modalBody,
+	                         //data: usernames
+	                     });
+	                 	signUpModal.show();
 			}
 		},
 		openDetail: function(e){

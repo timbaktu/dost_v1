@@ -114,7 +114,10 @@ define([
 			e.preventDefault();
 			e.stopPropagation();
 			var self = this;
-			$modalBody = $('<div>').html(ComposeMsgModal());
+			var status={
+					"recipient":$(e.target).closest(".dost").attr("id")
+			}
+			$modalBody = $('<div>').html(ComposeMsgModal(status));
 			var msgToDost = new BaseModalView({
                 title: "",
                 headerHidden: true,

@@ -199,15 +199,16 @@ define([
                     */
                     
                             
-                    $(".banner").stop().animate({'height': '132px'});
+                    $(".banner").stop().animate({'height': '170px'});
                     $("body").stop().animate({'padding-top': '380px'});
                     $(".banner > p").stop().animate({
                         'top': '120px',
                         'font-size': '14px',
                         'height': '100px'
                     });
+                    $(".banner > p >span").fadeOut();
                     $(".banner > form").stop().animate({
-                        'top': '190px',
+                        'top': '145px',
                         'left': '378px'
                     });
                     $(".banner > .sadPerson").stop().animate({
@@ -242,17 +243,17 @@ define([
                     $( ".bannerSmallinput" ).switchClass( "bannerSmallinput", "bannerLargeinput", 1000 );
                     $( ".bannerSmallbutton" ).switchClass( "bannerSmallbutton", "bannerLargebutton", 1000 );
                     */
-                    
                     $(".banner").stop().animate({'height': '350px'});
                     $("body").stop().animate({'padding-top': '500px'});
 
                     $(".banner > p").stop().animate({
                         'top': '222px',
                         'font-size': '20px',
-                        'left': '365px'
+                        'left': '27%'
                     });
+                    $(".banner > p >span").fadeIn();
                     $(".banner > form").stop().animate({
-                        'top': '363px',
+                        'top': '345px',
                         'left': '378px'
                     });
                     $(".banner > .sadPerson").stop().animate({
@@ -307,7 +308,7 @@ define([
         	if(LoginStatus.attributes.dbUserRole.role == "ROLE_ADMIN"){
         		yourdostNav.addClass("hidden");
         	}
-        	userDetailsNav.find("#dropdownName").prepend(LoginStatus.get("username") +" &nbsp;");
+        	userDetailsNav.find("#dropdownName").text(LoginStatus.get("username"));
         	
         	self.changeLoginText("Logout");
         	$(".banner").hide();
