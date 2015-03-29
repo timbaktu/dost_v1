@@ -42,7 +42,7 @@ define([
         },
         navLinksClick: function(e,target){
         	 if (window.innerWidth <= 768 ) {
-        	    	 $(".navbar-collapse").collapse('hide');
+        	    	 //$(".navbar-collapse").collapse('hide');
         		 //alert(2);
         		  }
         		  else {

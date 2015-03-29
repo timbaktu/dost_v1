@@ -197,15 +197,20 @@ define( [ 'underscore', 'backbone', 'hbs!template/basemodal/BaseModal',
 			$(".ui-autocomplete").css("z-index","1060");
 		},
 		usernameCheck:function(){
+			
 			$(".signupForm #username").css("border-color","black");
 			$(".error").remove();
 			var text=$(".signupForm #username").val();
+			
 			$.ajax(Utils.contextPath()+"/api/user/"+text+"/exists").done(function(response){
 				if(response.userexists=="true"){
-					$(".signupForm #username").css("border-color","red");
+					//alert("1");
+					$(".signupForm #username_check").css("background","red");
+					$(".signupForm #username").css("border-color","red")
 					$(".signupForm #username").parent().parent().append('<span style="color:red" class="error">username exists</span>')
 				}
 				else{
+					$(".signupForm #username_check").css("background","green");
 					$(".signupForm #username").css("border-color","green")
 				}
 			});
