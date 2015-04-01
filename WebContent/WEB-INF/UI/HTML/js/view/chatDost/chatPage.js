@@ -11,11 +11,15 @@ define([
 	'lib/porthole',
 	'event/dispatcher',
 	'model/login'
-], function($, _, Backbone, chatDostLayout, ComposeMsgModal,feedback, ChatWindow, BaseModalView, Utils,Porthole, Dispatcher, LoginStatus) {
+], function($, _, Backbone, chatDostLayout, ComposeMsgModal,feedback, ChatWindow, BaseModalView, Utils,porthole, Dispatcher, LoginStatus) {
 	var chatDostPage = Backbone.View.extend({
 		el: "#main-content",
 		initialize: function() {
-			
+			var guestDomain = '52.74.32.140:80';
+			console.log(1);
+			var windowProxy1;
+			  windowProxy1 = new porthole.WindowProxy('http://sandbox.ternarylabs.com/porthole/proxy.html');
+			windowProxy1.addEventListener(this.feedbackClicked);
 			// body...
 		},
 		events: {
@@ -23,11 +27,11 @@ define([
 			"click .chat": "chatClicked",
 			"click .feedback-chat":"feedbackClicked"		},
 		render: function() {
-			//var guestDomain = '52.74.32.140:80';
-			//console.log(1);
-			//var windowProxy1;
-			//  windowProxy1 = new Porthole.WindowProxy('http://sandbox.ternarylabs.com/porthole/proxy.html');
-			//windowProxy1.addEventListener(this.feedbackClicked);
+			var guestDomain = '52.74.32.140:80';
+			console.log(1);
+			var windowProxy1;
+			  windowProxy1 = new porthole.WindowProxy('http://sandbox.ternarylabs.com/porthole/proxy.html');
+			windowProxy1.addEventListener(this.feedbackClicked);
 
 			$.ajax(Utils.contextPath()+"/api/counselors/all").done(function(response){
 				$("#main-content").html(chatDostLayout({objects:response}));

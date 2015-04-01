@@ -205,12 +205,12 @@ define( [ 'underscore', 'backbone', 'hbs!template/basemodal/BaseModal',
 			$.ajax(Utils.contextPath()+"/api/user/"+text+"/exists").done(function(response){
 				if(response.userexists=="true"){
 					//alert("1");
-					$(".signupForm #username_check").css("background","red");
+					$(".signupForm #username_check").css("background","url(images/cross.png)");
 					$(".signupForm #username").css("border-color","red")
 					$(".signupForm #username").parent().parent().append('<span style="color:red" class="error">username exists</span>')
 				}
 				else{
-					$(".signupForm #username_check").css("background","green");
+					$(".signupForm #username_check").css("background","url(images/tik.png)");
 					$(".signupForm #username").css("border-color","green")
 				}
 			});

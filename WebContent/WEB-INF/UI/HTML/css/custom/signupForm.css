@@ -97,7 +97,8 @@
   border:2px solid black;
 }
 .security-signup-radio{padding-left:41px;}
-#username_check{width:20px;height:20px;float:left;background:#fff;}
+#username_check{width:20px;height:20px;float:left;background:none;position:relative;top:5px;}
+#username_check+span{margin-left:15px;}
 /* --- media styles or mobiles ---- */
 
 @media  screen and (max-width:768px){
